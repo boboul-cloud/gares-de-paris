@@ -8,6 +8,10 @@
 // Compilation et usage :
 //   swiftc -O -o /tmp/exejs tools/executer-js.swift
 //   /tmp/exejs dist/gares-de-paris.html tools/verifier-carte.js [#/route]
+//   /tmp/exejs https://exemple.github.io/site/ tools/verifier-carte.js '#/carte'
+//
+// La cible peut être un fichier local ou une adresse http(s) : le même script
+// vérifie donc aussi bien la version de travail que le site publié.
 //
 // Le script peut être asynchrone : `await` y est autorisé, et sa valeur de
 // retour est imprimée.
@@ -19,7 +23,9 @@ guard args.count >= 3 else {
     print("usage : executer-js <page.html> <script.js> [#/route]")
     exit(1)
 }
-let page = URL(fileURLWithPath: args[1])
+let cible = args[1]
+let distant = cible.hasPrefix("http://") || cible.hasPrefix("https://")
+let page = distant ? URL(string: cible)! : URL(fileURLWithPath: cible)
 let script = (try? String(contentsOfFile: args[2], encoding: .utf8)) ?? ""
 let route = args.count > 3 ? args[3] : "#/"
 
@@ -58,7 +64,11 @@ final class Delegue: NSObject, WKNavigationDelegate {
 
 let delegue = Delegue(script: script)
 vue.navigationDelegate = delegue
-vue.loadFileURL(URL(string: page.absoluteString + route)!,
-                allowingReadAccessTo: page.deletingLastPathComponent())
+let adresse = URL(string: page.absoluteString + route)!
+if distant {
+    vue.load(URLRequest(url: adresse))
+} else {
+    vue.loadFileURL(adresse, allowingReadAccessTo: page.deletingLastPathComponent())
+}
 DispatchQueue.main.asyncAfter(deadline: .now() + 40) { print("délai dépassé"); exit(4) }
 app.run()

@@ -1,5 +1,7 @@
 # Gares de Paris
 
+**Site en ligne : https://boboul-cloud.github.io/gares-de-paris/**
+
 Application documentaire sur les gares parisiennes : leur origine, l'idée qui les
 a fait naître, les révolutions techniques qu'elles ont traversées, ce qu'elles
 desservent, les commodités qu'on y trouve aujourd'hui, et quatre circuits pour
@@ -51,6 +53,13 @@ sont **dessinés à l'exécution** à partir des paramètres de chaque fiche
 (`artwork`), en SVG côté Web et sur un `Canvas` SwiftUI côté Apple. Les deux
 rendus suivent la même géométrie, ce qui évite d'embarquer le moindre fichier
 image et garantit la netteté à toute taille.
+
+## Le site publié
+
+Chaque envoi sur `main` déclenche `.github/workflows/pages.yml`, qui réassemble
+le corpus, rend toutes les routes dans un DOM simulé, puis publie le dossier
+`web/` sur GitHub Pages. Un corpus incohérent ou une route qui échoue arrête la
+publication : le site en ligne ne peut pas être cassé par un envoi.
 
 ## Lancer l'application Web
 
@@ -143,7 +152,7 @@ node tools/build-data.mjs
 | `node tools/build-data.mjs` | Assemble et valide `corpus.json`, le distribue aux deux applications |
 | `node tools/build-standalone.mjs` | Produit `dist/gares-de-paris.html` (autonome) et `dist/artifact.html` |
 | `node tools/test-web.mjs` | Rend toutes les routes de l'application Web dans un DOM simulé et vérifie le bundle |
-| `swiftc -O -o /tmp/exejs tools/executer-js.swift && /tmp/exejs dist/gares-de-paris.html tools/verifier-carte.js '#/carte'` | Vérifie les **gestes** sur la carte dans un vrai navigateur : appui, tremblement, glissement, zoom, clavier |
+| `swiftc -O -o /tmp/exejs tools/executer-js.swift && /tmp/exejs dist/gares-de-paris.html tools/verifier-carte.js '#/carte'` | Vérifie les **gestes** sur la carte dans un vrai navigateur : appui, tremblement, glissement, zoom, clavier. Accepte aussi une adresse `https://`, pour contrôler le site publié |
 | `swiftc -O -o /tmp/verif apple/GaresDeParis/{Model/Corpus.swift,Design/*.swift,Views/*.swift} tools/verifier-largeurs.swift && /tmp/verif . /tmp/out 393` | Rend tous les écrans Apple à la largeur d'un iPhone et signale tout débordement horizontal |
 | `node tools/parite-methodes.mjs /tmp/pm` | Vérifie que les démonstrations pas à pas sont identiques en JavaScript et en Swift |
 | `node tools/parite-exercices.mjs /tmp/parite` | Vérifie que les moteurs d'exercices JavaScript et Swift engendrent des séries identiques |
