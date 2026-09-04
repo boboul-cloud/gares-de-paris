@@ -205,6 +205,20 @@ d'abord *où* la rencontre doit tomber, puis on en déduit l'heure de départ du
 second train. Aucun tirage n'est donc rejeté, et la question est intéressante
 par construction.
 
+## Licences
+
+Trois statuts différents cohabitent, et le détail est dans [`LICENSES.md`](LICENSES.md) :
+
+| Contenu | Licence |
+|---|---|
+| Le code — `web/js`, `apple/`, `tools/` | **MIT** — réutilisation libre, mention de copyright conservée |
+| Les textes — fiches, dossiers, glossaire, exercices | **CC BY-SA 4.0** — attribution et partage à l'identique |
+| `shared/data/geo.json` | **ODbL** — licence héritée d'OpenStreetMap et de Paris Open Data |
+
+Le code est fourni **en l'état, sans garantie**. Les horaires, tarifs et
+dessertes affichés sont documentaires et ne doivent pas servir à préparer un
+déplacement réel.
+
 ## Sources et limites
 
 Les textes s'appuient sur les notices encyclopédiques de chaque gare, les
