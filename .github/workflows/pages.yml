@@ -37,9 +37,9 @@ jobs:
       - name: Rendre toutes les routes dans un DOM simulé
         run: node tools/test-web.mjs
 
+      # Le site Pages est activé une fois pour toutes sur le dépôt ; le jeton
+      # du workflow peut y déployer, mais pas le créer.
       - uses: actions/configure-pages@v5
-        with:
-          enablement: true
 
       - uses: actions/upload-pages-artifact@v3
         with:
