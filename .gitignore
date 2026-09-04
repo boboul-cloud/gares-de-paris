@@ -1,0 +1,18 @@
+.DS_Store
+node_modules/
+
+# Projet Xcode : régénéré par « xcodegen generate » depuis apple/project.yml
+apple/GaresDeParis.xcodeproj/
+apple/build/
+DerivedData/
+
+# Sorties de construction et cache de téléchargement des données géographiques
+dist/
+.cache-geo/
+
+# corpus.json est engendré par « node tools/build-data.mjs » depuis shared/data.
+# Le versionner reviendrait à réécrire trois copies de 500 Ko à chaque retouche
+# de contenu ; le workflow de publication le reconstruit.
+shared/data/corpus.json
+web/data/corpus.json
+apple/GaresDeParis/Resources/corpus.json

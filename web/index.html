@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Gares de Paris — histoire, circuits et grande vitesse</title>
+<meta name="description" content="L'histoire des gares de Paris : origines, révolutions techniques, dessertes, commodités actuelles, circuits de visite, évolution de la traction et histoire du TGV.">
+<meta name="theme-color" content="#E7EBEE" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#0D1217" media="(prefers-color-scheme: dark)">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="default">
+<meta name="apple-mobile-web-app-title" content="Gares de Paris">
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="icon" href="data:image/svg+xml,%3Csvg%20xmlns%3D%27http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%27%20viewBox%3D%270%200%20512%20512%27%3E%3Crect%20width%3D%27512%27%20height%3D%27512%27%20fill%3D%27%230F4670%27%2F%3E%3Crect%20x%3D%27196%27%20y%3D%2762%27%20width%3D%27120%27%20height%3D%2766%27%20fill%3D%27%23F6F8FA%27%2F%3E%3Crect%20x%3D%2740%27%20y%3D%27128%27%20width%3D%27432%27%20height%3D%2728%27%20fill%3D%27%23F6F8FA%27%2F%3E%3Crect%20x%3D%2760%27%20y%3D%27156%27%20width%3D%27392%27%20height%3D%27156%27%20fill%3D%27%23F6F8FA%27%2F%3E%3Ccircle%20cx%3D%27256%27%20cy%3D%2795%27%20r%3D%2723%27%20fill%3D%27%230F4670%27%2F%3E%3Cpath%20d%3D%27M86%20312V246a48%2048%200%200%201%2096%200v66Z%27%20fill%3D%27%230F4670%27%2F%3E%3Cpath%20d%3D%27M208%20312V246a48%2048%200%200%201%2096%200v66Z%27%20fill%3D%27%230F4670%27%2F%3E%3Cpath%20d%3D%27M330%20312V246a48%2048%200%200%201%2096%200v66Z%27%20fill%3D%27%230F4670%27%2F%3E%3Crect%20x%3D%2728%27%20y%3D%27312%27%20width%3D%27456%27%20height%3D%2718%27%20fill%3D%27%23F6F8FA%27%2F%3E%3Crect%20x%3D%2784%27%20y%3D%27350%27%20width%3D%27344%27%20height%3D%2774%27%20rx%3D%2720%27%20fill%3D%27%23C4D8E6%27%2F%3E%3Crect%20x%3D%27106%27%20y%3D%27368%27%20width%3D%27180%27%20height%3D%2732%27%20rx%3D%277%27%20fill%3D%27%230F4670%27%2F%3E%3Crect%20x%3D%27304%27%20y%3D%27368%27%20width%3D%2796%27%20height%3D%2732%27%20rx%3D%277%27%20fill%3D%27%230F4670%27%2F%3E%3Crect%20x%3D%2740%27%20y%3D%27448%27%20width%3D%27432%27%20height%3D%2714%27%20fill%3D%27%23F6F8FA%27%2F%3E%3C%2Fsvg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700&family=Bodoni+Moda:opsz,wght@6..96,400;6..96,600;6..96,700&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<link rel="stylesheet" href="css/app.css">
+</head>
+<body>
+
+<header class="topbar">
+  <div class="wrap topbar-in">
+    <a class="brand" href="#/">
+      <b>Gares de Paris</b>
+      <span>1837 — 2026</span>
+    </a>
+    <nav class="nav" aria-label="Navigation principale">
+      <a href="#/" data-nav="accueil">Accueil</a>
+      <a href="#/gares" data-nav="gares">Les gares</a>
+      <a href="#/circuits" data-nav="circuits">Circuits</a>
+      <a href="#/carte" data-nav="carte">Carte</a>
+      <a href="#/techniques" data-nav="techniques">Techniques</a>
+      <a href="#/tgv" data-nav="tgv">TGV</a>
+      <a href="#/croisement" data-nav="croisement">Croisement</a>
+      <a href="#/exercices" data-nav="exercices">Exercices</a>
+      <a href="#/glossaire" data-nav="glossaire">Glossaire</a>
+    </nav>
+    <button class="theme-btn" id="theme" type="button" title="Thème clair, sombre ou automatique" aria-label="Changer de thème">◐</button>
+  </div>
+</header>
+
+<main id="view">
+  <div class="wrap"><section class="section"><p class="lede">Chargement…</p></section></div>
+</main>
+
+<footer>
+  <div class="wrap">
+    <p><strong>Gares de Paris</strong> — application documentaire. Les textes s'appuient sur les notices
+    encyclopédiques des gares, les publications de SNCF Gares & Connexions et la presse spécialisée ;
+    les sources sont citées au bas de chaque fiche.</p>
+    <p>Les illustrations et les plans sont générés en vectoriel par l'application : ce sont des schémas
+    d'interprétation, non des relevés d'architecte. Horaires, tarifs et travaux évoluent — vérifiez auprès
+    de la SNCF avant de vous déplacer. Données à jour de septembre 2026.</p>
+  </div>
+</footer>
+
+<script type="module" src="js/app.js"></script>
+<script>
+  if ('serviceWorker' in navigator && location.protocol.startsWith('http')) {
+    window.addEventListener('load', () => navigator.serviceWorker.register('sw.js').catch(() => {}));
+  }
+</script>
+</body>
+</html>

@@ -1,0 +1,97 @@
+{
+  "id": "gare-bastille",
+  "nom": "Gare de la Bastille",
+  "nomCourt": "Bastille",
+  "surnom": "La gare disparue",
+  "categorie": "gare-patrimoine",
+  "ordre": 9,
+  "arrondissement": "12e arrondissement",
+  "adresse": "Place de la Bastille, 75012 Paris (emplacement de l'Opéra Bastille)",
+  "coord": { "lat": 48.8532, "lon": 2.3693 },
+  "ouverture": 1859,
+  "ouvertureTexte": "22 septembre 1859 — fermée le 14 décembre 1969",
+  "compagnie": "Compagnie des chemins de fer de l'Est",
+  "architectes": ["François-Alexis Cendrier (1859)", "Carlos Ott (Opéra Bastille, 1989)"],
+  "protection": "Démolie en 1984 ; le viaduc de la ligne est protégé et reconverti",
+  "couleur": "#8E4A6B",
+  "resume": "Pendant cent dix ans, une gare terminus de 250 mètres a occupé la place de la Bastille. Elle a disparu en 1984 pour laisser place à l'Opéra — mais son viaduc est devenu la Coulée verte René-Dumont, première promenade plantée surélevée du monde, qui inspirera la High Line de New York.",
+  "recit": {
+    "origine": "Le 22 septembre 1859, la Compagnie de l'Est ouvre place de la Bastille le terminus de la ligne de Vincennes, vers Verneuil-l'Étang et Marles-en-Brie. L'architecte est François-Alexis Cendrier, celui-là même qui avait bâti dix ans plus tôt le premier embarcadère de la gare de Lyon. Le bâtiment est immense — près de 250 mètres de long — et sa particularité est d'être perché : pour franchir le faubourg Saint-Antoine sans couper les rues, la voie sort de la gare sur un viaduc de brique et de pierre qui file le long de l'avenue Daumesnil.",
+    "revolution": "La ligne de Vincennes devient très vite la ligne du dimanche. C'est par elle que les Parisiens vont danser dans les guinguettes des bords de Marne, à Nogent, Joinville, Champigny — celles que peindront les impressionnistes et que filmeront Renoir et Carné. La gare de la Bastille est alors l'une des plus fréquentées de Paris en trafic de banlieue. Puis vient le RER : le 14 décembre 1969, la branche de Boissy-Saint-Léger est reprise par la nouvelle ligne A, qui plonge sous la place et file vers Nation. La gare ferme le même jour. Elle survit quinze ans comme salon d'exposition — la FIAC et Rétromobile s'y tiennent — avant d'être démolie en 1984 pour faire place à l'Opéra Bastille de Carlos Ott, inauguré le 13 juillet 1989 pour le bicentenaire de la Révolution.",
+    "aujourdhui": "Le plus beau reste de cette gare n'est pas un bâtiment mais un tracé. En 1993, le viaduc et la tranchée de la ligne de Vincennes sont transformés en promenade plantée : 4,7 kilomètres de jardin linéaire depuis la Bastille jusqu'au bois de Vincennes, dont un kilomètre et demi perché à dix mètres au-dessus de l'avenue Daumesnil. Rebaptisée Coulée verte René-Dumont, c'est la première promenade plantée surélevée au monde — et le modèle explicitement revendiqué par les concepteurs de la High Line de New York. Sous les arches du viaduc, le Viaduc des Arts abrite depuis 1994 une soixantaine d'ateliers d'artisans d'art."
+  },
+  "chronologie": [
+    { "annee": "1859", "titre": "Ouverture", "texte": "Le 22 septembre, terminus de la ligne de Vincennes place de la Bastille, par François-Alexis Cendrier." },
+    { "annee": "1870-1900", "titre": "La ligne des guinguettes", "texte": "La ligne devient l'échappée dominicale des Parisiens vers les bords de Marne et le bois de Vincennes." },
+    { "annee": "1969", "titre": "Le RER prend la ligne", "texte": "Le 14 décembre, la branche de Boissy-Saint-Léger passe au RER A. La gare ferme le jour même." },
+    { "annee": "1970-1984", "titre": "Salon d'exposition", "texte": "Le bâtiment accueille la FIAC, Rétromobile et divers salons : quinze ans de seconde vie." },
+    { "annee": "1984", "titre": "La démolition", "texte": "La gare est rasée pour dégager le terrain de l'Opéra Bastille." },
+    { "annee": "1989", "titre": "L'Opéra Bastille", "texte": "Inauguration le 13 juillet, veille du bicentenaire de la Révolution. Architecte : Carlos Ott." },
+    { "annee": "1993", "titre": "La promenade plantée", "texte": "Le viaduc devient un jardin suspendu de 4,7 km — une première mondiale." },
+    { "annee": "1994", "titre": "Le Viaduc des Arts", "texte": "Les soixante-quatre arches de brique sont vitrées et louées à des artisans d'art : ébénistes, luthiers, restaurateurs de tableaux." },
+    { "annee": "2009", "titre": "La High Line s'en inspire", "texte": "À New York, l'ouverture de la High Line consacre le modèle parisien de la voie ferrée devenue jardin." }
+  ],
+  "chiffres": [
+    { "valeur": "1859-1969", "label": "cent dix ans de service" },
+    { "valeur": "≈250 m", "label": "longueur du bâtiment" },
+    { "valeur": "4,7 km", "label": "la Coulée verte aujourd'hui" },
+    { "valeur": "64", "label": "arches du Viaduc des Arts" }
+  ],
+  "dessertes": {
+    "international": [],
+    "grandesLignes": ["Autrefois : Verneuil-l'Étang, Marles-en-Brie, Brie-Comte-Robert"],
+    "regional": [],
+    "franciliens": ["Autrefois : La Varenne, Boissy-Saint-Léger, Nogent, Joinville — aujourd'hui RER A"]
+  },
+  "acces": {
+    "metro": ["1", "5", "8"],
+    "rer": ["A (Nation, 1 km — la ligne qui a remplacé la gare)"],
+    "transilien": [],
+    "tram": [],
+    "bus": ["20", "29", "65", "69", "76", "86", "87", "91"],
+    "velo": "Vélib' place de la Bastille ; la Coulée verte est piétonne, mais la piste cyclable de l'avenue Daumesnil la double au sol.",
+    "note": "Pour lire la gare disparue, remontez l'avenue Daumesnil sur le viaduc : vous marchez exactement sur les anciennes voies, à la sortie de l'ancienne gare."
+  },
+  "commodites": [
+    { "categorie": "Promenade", "titre": "Coulée verte René-Dumont", "detail": "Ouverte tous les jours, gratuite, accès par escaliers et ascenseurs le long de l'avenue Daumesnil. Comptez 1 h 15 de marche jusqu'au bois de Vincennes." },
+    { "categorie": "Artisanat", "titre": "Le Viaduc des Arts", "detail": "Une soixantaine d'ateliers sous les arches : ébénisterie, lutherie, tapisserie, restauration d'art. Visites d'ateliers possibles en semaine." },
+    { "categorie": "Culture", "titre": "Opéra Bastille", "detail": "Visites guidées régulières des coulisses, y compris la machinerie scénique. Places à tarif réduit le jour même pour les moins de 28 ans." },
+    { "categorie": "Restauration", "titre": "Le quartier", "detail": "Le faubourg Saint-Antoine, la rue de Lappe et le marché d'Aligre concentrent l'une des offres les plus denses de Paris." }
+  ],
+  "pepites": [
+    { "titre": "Marcher sur les rails, dix mètres au-dessus de la rue", "texte": "Le tronçon du viaduc, entre l'Opéra et le jardin de Reuilly, est la partie la plus spectaculaire : rosiers, bambous, bassins, et au bout de chaque perspective les toits du 12e. Rien n'indique qu'on marche sur une plateforme ferroviaire.", "ou": "Avenue Daumesnil, accès rue de Lyon" },
+    { "titre": "Les arches vitrées", "texte": "En bas, chaque arche est devenue une vitrine d'atelier. On voit travailler un luthier, un doreur, un restaurateur de tableaux. C'est le meilleur endroit de Paris pour regarder des mains fabriquer.", "ou": "1 à 129 avenue Daumesnil" },
+    { "titre": "Le tunnel sous la Bastille", "texte": "Le RER A emprunte encore une partie de l'ancien tracé. Entre Gare de Lyon et Nation, la voûte que vous traversez est celle qui plongeait sous la gare disparue.", "ou": "RER A" },
+    { "titre": "Le jardin de Reuilly", "texte": "À mi-parcours, l'ancienne gare de marchandises de Reuilly est devenue une grande pelouse en creux, franchie par une passerelle suspendue. Un des rares vrais gazons sur lesquels on peut s'allonger à Paris.", "ou": "Coulée verte, 12e" }
+  ],
+  "anecdote": {
+    "titre": "Paris a inventé la High Line",
+    "texte": "Quand Joshua David et Robert Hammond militent à New York, à la fin des années 1990, pour sauver la voie aérienne désaffectée de West Chelsea, ils citent un précédent : la Promenade plantée de Paris, ouverte en 1993. Ils viennent la visiter. La High Line ouvrira en 2009, avec plus de moyens et beaucoup plus de bruit médiatique — au point que beaucoup de Parisiens croient aujourd'hui que la Coulée verte s'en est inspirée. C'est l'inverse."
+  },
+  "artwork": {
+    "silhouette": "viaduct",
+    "bays": 8,
+    "clock": true,
+    "pediment": "triangular",
+    "statues": 0,
+    "tower": { "present": false },
+    "shed": { "present": false, "span": 0.7, "rise": 0.2 },
+    "flags": 1,
+    "palette": { "sky": ["#B49AA6", "#F0E6E2"], "stone": "#D8C3B0", "stoneDark": "#A88870", "roof": "#6E4F54", "glass": "#BFD3C2", "accent": "#8E4A6B" },
+    "ambiance": "soir"
+  },
+  "plan": {
+    "type": "ancien terminus sur viaduc, disparu",
+    "orientation": "Faisceau orienté est, le long de l'avenue Daumesnil",
+    "groupes": [
+      { "nom": "Ancienne halle (1859-1984)", "desserte": "Emplacement exact de l'actuel Opéra Bastille" },
+      { "nom": "Le viaduc", "desserte": "1,5 km d'ouvrage en brique, aujourd'hui Coulée verte au-dessus et Viaduc des Arts en dessous" },
+      { "nom": "Tranchée de Reuilly", "desserte": "Section en déblai, devenue jardin, franchie par des passerelles" }
+    ],
+    "entrees": ["Place de la Bastille", "Rue de Lyon (accès Coulée verte)", "Avenue Daumesnil"]
+  },
+  "sources": [
+    { "titre": "Gare de la Bastille — Wikipédia", "url": "https://fr.wikipedia.org/wiki/Gare_de_la_Bastille" },
+    { "titre": "Coulée verte René-Dumont — Ville de Paris", "url": "https://www.paris.fr/equipements/coulee-verte-rene-dumont-2726" }
+  ]
+}

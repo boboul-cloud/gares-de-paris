@@ -1,0 +1,115 @@
+{
+  "titre": "Le TGV",
+  "sousTitre": "Naissance, mise en œuvre et avenir d'une idée française",
+  "chapo": "En 1966, personne à la SNCF ne croit sérieusement qu'un train puisse concurrencer l'avion. Soixante ans plus tard, la France a le quatrième réseau à grande vitesse du monde, le record de vitesse sur rail, et un train qui a tué la navette aérienne Paris — Lyon. Voici comment.",
+  "chapitres": [
+    {
+      "id": "idee",
+      "numero": "I",
+      "titre": "L'idée",
+      "periode": "1966 — 1971",
+      "couleur": "#B03A2E",
+      "texte": "L'histoire commence par une peur. Au milieu des années 1960, la SNCF perd des voyageurs : la voiture individuelle explose avec les autoroutes, et Air Inter lance des navettes intérieures qui mettent Lyon à cinquante minutes de Paris. Le train, lui, met quatre heures. À la SNCF, un service de la recherche est créé en 1966 précisément pour affronter ce problème. Ses ingénieurs posent une question simple : et si on ne cherchait pas à améliorer les lignes existantes, mais à en construire de nouvelles, faites uniquement pour la vitesse ? L'étude prend le nom de code C03. Elle conclut qu'à 250 ou 300 km/h, le train reprend l'avantage sur l'avion jusqu'à environ 800 kilomètres, porte à porte, parce qu'il dessert les centres-villes. Tout le concept du TGV est là, dès l'origine : ce n'est pas une prouesse technique, c'est un calcul de temps de trajet total. Le projet est approuvé par le gouvernement le 25 mars 1971, sous le nom de « ligne nouvelle Paris — Sud-Est ». Il a un concurrent redoutable : l'aérotrain de Jean Bertin, un véhicule sur coussin d'air propulsé par turbine, qui atteint 430 km/h sur sa voie d'essai de l'Essonne. L'État tranchera en faveur du rail — parce que le TGV peut emprunter les voies classiques existantes pour entrer dans les villes, alors que l'aérotrain aurait exigé de tout reconstruire jusqu'au cœur de Paris. Cette compatibilité avec le réseau ancien est le trait de génie du projet français, et ce qui le distingue du Shinkansen japonais.",
+      "faits": [
+        { "label": "Nom de code de l'étude", "valeur": "C03" },
+        { "label": "Approbation gouvernementale", "valeur": "25 mars 1971" },
+        { "label": "Le concurrent malheureux", "valeur": "L'aérotrain de Jean Bertin, 430 km/h" },
+        { "label": "L'idée-clé", "valeur": "Des lignes nouvelles, mais des rames compatibles avec le réseau classique" }
+      ]
+    },
+    {
+      "id": "turbine",
+      "numero": "II",
+      "titre": "La turbine et le choc pétrolier",
+      "periode": "1971 — 1976",
+      "couleur": "#C2673F",
+      "texte": "Le premier TGV ne devait pas être électrique. Le prototype TGV 001, sorti d'usine en 1971 et essayé à partir d'octobre, est propulsé par deux turbines à gaz d'hélicoptère : le choix paraît évident, car les turbines offrent un rapport puissance-poids exceptionnel et évitent d'avoir à électrifier des centaines de kilomètres de ligne nouvelle. La rame est spectaculaire — cinq caisses articulées, un nez profilé, une livrée orange et grise qui deviendra l'identité visuelle du TGV. À l'été 1972, elle atteint 318 km/h : record du monde pour un engin ferroviaire autonome, et record de France toutes catégories. Elle accumulera 175 essais au-delà de 300 km/h. Puis, en octobre 1973, la guerre du Kippour déclenche le premier choc pétrolier. Le prix du baril quadruple. Une turbine à gaz consomme énormément de kérosène ; le calcul économique s'effondre du jour au lendemain. La France, qui lance au même moment son programme nucléaire, a l'électricité pour elle. La décision est prise en 1974 : le TGV sera électrique. Le TGV 001 est reversé aux essais, une motrice expérimentale surnommée Zébulon valide les organes électriques à grande vitesse, et deux rames de présérie, baptisées Patrick et Sophie, entrent en circulation en 1978. La contrainte a produit le bon choix : un TGV électrique consomme, à la place assise, l'équivalent énergétique d'un tiers de litre de carburant aux cent kilomètres.",
+      "faits": [
+        { "label": "Prototype", "valeur": "TGV 001, deux turbines à gaz" },
+        { "label": "Record de la turbine", "valeur": "318 km/h, été 1972" },
+        { "label": "Le tournant", "valeur": "Choc pétrolier d'octobre 1973" },
+        { "label": "Rames de présérie", "valeur": "Patrick et Sophie, 1978" }
+      ]
+    },
+    {
+      "id": "chantier",
+      "numero": "III",
+      "titre": "Le chantier et l'ouverture",
+      "periode": "1976 — 1983",
+      "couleur": "#1F6F8B",
+      "texte": "La LGV Sud-Est est construite entre 1976 et 1983, sur 409 kilomètres entre Saint-Florentin et Sathonay. Le tracé est révolutionnaire dans sa méthode : au lieu de contourner les reliefs comme au XIXe siècle, on épouse le terrain avec des rampes très raides — jusqu'à 35 pour mille, du jamais-vu — parce qu'un TGV lancé à 270 km/h monte une côte sur son élan, là où un train de marchandises calerait. Résultat : très peu de tunnels, très peu de viaducs, un coût maîtrisé. La ligne ne dessert aucune ville intermédiaire majeure ; elle est faite pour être traversée, pas pour être desservie. Le 26 février 1981, une rame d'essai atteint 380 km/h et bat le record du monde du rail. Le 27 septembre 1981, le président François Mitterrand inaugure le service : la rame n° 16 quitte la gare de Lyon pour Lyon-Perrache. Seule la moitié sud de la ligne est ouverte, le trajet dure 2 h 40. Le 25 septembre 1983, la ligne complète ramène Lyon à 2 heures de Paris. L'effet est immédiat et brutal : en cinq ans, Air Inter perd l'essentiel de sa navette Paris — Lyon, la plus rentable de son réseau. Le TGV impose au passage deux innovations commerciales qui feront débat pendant des années : la réservation obligatoire et le prix variable selon l'heure — l'ancêtre du yield management appliqué au rail.",
+      "faits": [
+        { "label": "Longueur de la LGV Sud-Est", "valeur": "409 km" },
+        { "label": "Rampes maximales", "valeur": "35 ‰, contre 8 ‰ sur ligne classique" },
+        { "label": "Premier service commercial", "valeur": "27 septembre 1981" },
+        { "label": "Paris — Lyon en 1983", "valeur": "2 heures, contre 3 h 50 avant" }
+      ]
+    },
+    {
+      "id": "records",
+      "numero": "IV",
+      "titre": "Les records",
+      "periode": "1981 — 2007",
+      "couleur": "#4A5D8C",
+      "texte": "Les records de vitesse ne sont pas de la publicité : ce sont des campagnes d'essais qui valident, avec une marge de sécurité considérable, la vitesse commerciale qu'on veut atteindre. On roule à 515 km/h pour pouvoir circuler tous les jours à 300 en toute confiance. Le 26 février 1981, la rame 16 atteint 380 km/h sur la LGV Sud-Est. Le 18 mai 1990, sur la LGV Atlantique tout juste achevée, la rame 325 — allégée de deux voitures, équipée de roues de plus grand diamètre et de moteurs surdimensionnés, alimentée en 29 500 volts au lieu de 25 000 — atteint 515,3 km/h. Le record tiendra dix-sept ans. Le 3 avril 2007, sur la LGV Est encore en construction, la rame d'essai V150 — trois caisses Duplex entre deux motrices poussées à 19 600 kW, sur des roues de 1,092 mètre — atteint 574,8 km/h. C'est le record du monde sur rail conventionnel, toujours en vigueur en 2026. Ce jour-là, la rame avalait 160 mètres par seconde ; la caténaire, tendue à une force exceptionnelle, ondulait devant le pantographe comme une corde de guitare, et l'onde devait rester plus rapide que le train — c'est la limite physique réelle de l'exercice.",
+      "faits": [
+        { "label": "1981", "valeur": "380 km/h, rame n° 16, LGV Sud-Est" },
+        { "label": "1990", "valeur": "515,3 km/h, rame 325, LGV Atlantique" },
+        { "label": "2007", "valeur": "574,8 km/h, rame V150, LGV Est" },
+        { "label": "La vraie limite", "valeur": "La vitesse de propagation de l'onde dans la caténaire" }
+      ]
+    },
+    {
+      "id": "reseau",
+      "numero": "V",
+      "titre": "Le réseau se déploie",
+      "periode": "1989 — 2017",
+      "couleur": "#2E6E63",
+      "texte": "Après le Sud-Est, chaque décennie ajoute ses lignes. La LGV Atlantique ouvre en deux temps, vers Le Mans en 1989 et vers Tours en 1990, et fait de Montparnasse la gare de l'Ouest — au détriment d'Austerlitz, qui perd la moitié de son trafic. La LGV Nord suit en 1993, prolongée par le tunnel sous la Manche en 1994 : Londres entre dans le réseau, et la gare du Nord devient une frontière. La même année, l'interconnexion Est permet aux TGV de contourner Paris — révolution discrète qui met fin à cent cinquante ans de centralisme ferroviaire. Puis viennent la LGV Méditerranée en 2001 (Marseille à 3 heures), la LGV Est en 2007 et 2016 (Strasbourg à 1 h 46), la Rhin-Rhône en 2011, et le doublé du 2 juillet 2017 : Bretagne — Pays de la Loire et Sud-Europe-Atlantique ouvrent le même jour, mettant Rennes à 1 h 25 et Bordeaux à 2 h 04. Le réseau atteint alors plus de 2 800 kilomètres de lignes à grande vitesse. Le matériel évolue en parallèle : après les rames orange Sud-Est viennent les Atlantique en 1988, les Réseau en 1992, puis en 1995 l'innovation la plus rentable de toutes — le Duplex, à deux niveaux, qui augmente la capacité de 40 % sans allonger les rames ni toucher aux quais. En 2013, la SNCF lance Ouigo, une offre low cost à bord de rames Duplex densifiées, au départ de gares périphériques : le TGV se dédouble en deux marques, Inoui et Ouigo.",
+      "faits": [
+        { "label": "LGV Atlantique", "valeur": "1989 et 1990" },
+        { "label": "LGV Nord et tunnel sous la Manche", "valeur": "1993 et 1994" },
+        { "label": "Interconnexion Est", "valeur": "1994 — la fin du passage obligé par Paris" },
+        { "label": "Le doublé de 2017", "valeur": "Rennes à 1 h 25, Bordeaux à 2 h 04" },
+        { "label": "Réseau LGV français", "valeur": "plus de 2 800 km" }
+      ]
+    },
+    {
+      "id": "aujourdhui",
+      "numero": "VI",
+      "titre": "Le TGV M et la suite",
+      "periode": "2018 — 2030",
+      "couleur": "#5D5A7D",
+      "texte": "La cinquième génération arrive. Le TGV M, développé par Alstom sous le nom Avelia Horizon, a été commandé à 115 exemplaires pour environ quatre milliards d'euros. Son entrée en service commercial est prévue le 1er juillet 2026, sur l'axe historique Paris — Lyon — Marseille : le TGV recommence là où il a commencé. Il apporte 400 innovations, mais trois comptent vraiment. La modularité d'abord : neuf voitures au lieu de huit, une composition reconfigurable, et jusqu'à 740 places contre 600 environ — la capacité augmente de 20 % pour un train de même longueur, ce qui est exactement le bon levier quand les sillons sont saturés. L'efficacité ensuite : moins 20 % de consommation d'énergie et moins 32 % d'émissions de CO₂ par voyageur, grâce à un nez arrondi en composite, une motorisation à carbure de silicium et une aérodynamique retravaillée. La recyclabilité enfin : 97 % du train est recyclable, un chiffre qui devient un argument industriel majeur. À bord, les sièges gagnent cinq centimètres en première classe, chaque place reçoit une prise USB-C, le Wi-Fi passe à la 5G et le bar s'étend sur deux niveaux. Au-delà, deux mouvements de fond : l'ouverture à la concurrence — Trenitalia sur Paris — Milan, la Renfe sur Lyon — Marseille — et le retour du train de nuit, huit lignes au départ d'Austerlitz, plus d'un million de voyageurs en 2024. Après quarante-cinq ans de course à la vitesse, le rail français se remet à penser au temps du voyage plutôt qu'à sa seule durée.",
+      "faits": [
+        { "label": "Mise en service", "valeur": "1er juillet 2026, Paris — Lyon — Marseille" },
+        { "label": "Commande", "valeur": "115 rames, environ 4 milliards d'euros" },
+        { "label": "Capacité", "valeur": "jusqu'à 740 places, +20 %" },
+        { "label": "Énergie", "valeur": "−20 % de consommation, −32 % de CO₂" },
+        { "label": "Recyclabilité", "valeur": "97 %" }
+      ]
+    }
+  ],
+  "generations": [
+    { "nom": "TGV 001", "annees": "1972-1978", "vitesse": "318 km/h (essais)", "detail": "Prototype à turbine à gaz, abandonné après le choc pétrolier.", "couleur": "#C2673F" },
+    { "nom": "TGV Sud-Est", "annees": "1981-2019", "vitesse": "270 puis 300 km/h", "detail": "Les rames orange fondatrices, 107 exemplaires.", "couleur": "#D97C3F" },
+    { "nom": "TGV Atlantique", "annees": "1989-2022", "vitesse": "300 km/h", "detail": "Dix voitures ; la rame 325 détient le record de 515,3 km/h.", "couleur": "#3E7CA8" },
+    { "nom": "TGV Réseau", "annees": "1992-", "vitesse": "320 km/h", "detail": "Rames polyvalentes aptes à l'international.", "couleur": "#4A5D8C" },
+    { "nom": "Eurostar / TMST", "annees": "1994-", "vitesse": "300 km/h", "detail": "Rames longues du tunnel sous la Manche, remplacées par les e320.", "couleur": "#2E4E6E" },
+    { "nom": "TGV Duplex", "annees": "1995-", "vitesse": "320 km/h", "detail": "Deux niveaux, +40 % de capacité : l'innovation la plus rentable du programme.", "couleur": "#1F6F8B" },
+    { "nom": "TGV 2N2 / Euroduplex", "annees": "2011-", "vitesse": "320 km/h", "detail": "Duplex interopérables pour l'Allemagne, la Suisse, l'Espagne et l'Italie.", "couleur": "#2E6E63" },
+    { "nom": "TGV M / Avelia Horizon", "annees": "2026-", "vitesse": "320 km/h", "detail": "Neuf voitures, 740 places, −20 % d'énergie, 97 % recyclable.", "couleur": "#5D5A7D" }
+  ],
+  "chiffresCles": [
+    { "valeur": "574,8 km/h", "label": "record du monde sur rail", "note": "3 avril 2007, rame V150" },
+    { "valeur": "2 800 km", "label": "de lignes à grande vitesse en France" },
+    { "valeur": "1981", "label": "premier TGV commercial" },
+    { "valeur": "115", "label": "TGV M commandés" },
+    { "valeur": "≈2 h", "label": "Paris — Lyon", "note": "contre 3 h 50 avant 1981" }
+  ],
+  "sources": [
+    { "titre": "TGV — Wikipédia", "url": "https://fr.wikipedia.org/wiki/TGV" },
+    { "titre": "Avelia Horizon — Wikipédia", "url": "https://en.wikipedia.org/wiki/Avelia_Horizon" },
+    { "titre": "SNCF Voyageurs — commande de rames TGV M à Alstom", "url": "https://www.groupe-sncf.com/fr/groupe/qui-sommes-nous/societes/sncf-voyageurs" }
+  ]
+}

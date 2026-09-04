@@ -1,0 +1,92 @@
+{
+  "id": "gare-invalides",
+  "nom": "Gare des Invalides",
+  "nomCourt": "Invalides",
+  "surnom": "La sœur d'Orsay",
+  "categorie": "gare-patrimoine",
+  "ordre": 11,
+  "arrondissement": "7e arrondissement",
+  "adresse": "Esplanade des Invalides, 75007 Paris",
+  "coord": { "lat": 48.8617, "lon": 2.3145 },
+  "ouverture": 1900,
+  "ouvertureTexte": "12 avril 1900",
+  "compagnie": "Compagnie des chemins de fer de l'Ouest",
+  "architectes": ["Juste Lisch"],
+  "protection": "Bâtiment voyageurs conservé, reconverti en Air France puis en espace d'accueil",
+  "couleur": "#5B6E96",
+  "resume": "L'autre gare électrique de 1900, jumelle discrète d'Orsay : première ligne française à traction électrique, elle a perdu son bâtiment de surface au profit du RER C, mais son histoire est celle du basculement de la vapeur à l'électricité.",
+  "recit": {
+    "origine": "Pour l'Exposition universelle de 1900, la Compagnie de l'Ouest veut amener ses trains de banlieue au pied des Invalides. Comme pour Orsay, l'approche se fait en souterrain le long de la Seine, et comme pour Orsay, la vapeur est impossible. La ligne des Invalides à Issy-Plaine est mise en service le 12 avril 1900 avec un troisième rail alimenté en 650 volts continu : c'est la toute première ligne de chemin de fer française à traction électrique, six semaines avant Orsay.",
+    "revolution": "Juste Lisch — l'architecte de la façade de Saint-Lazare — dessine un bâtiment voyageurs élégant, en pierre, adapté à la solennité de l'esplanade. La gare dessert la banlieue ouest, puis décline. Dans les années 1930 son trafic s'effondre ; le bâtiment est peu à peu vidé de sa fonction ferroviaire et occupé, à partir des années 1950, par l'aérogare des Invalides d'Air France, d'où partaient les cars vers Orly puis Roissy — un des lieux les plus glamour du Paris des Trente Glorieuses.",
+    "aujourdhui": "En 1979, la ligne des Invalides est raccordée à celle d'Orsay et d'Austerlitz : le RER C est né, et la gare des Invalides devient une station souterraine traversante. Le bâtiment de Juste Lisch existe toujours, à l'angle de l'esplanade ; il abrite aujourd'hui des services et un espace d'accueil. Peu de passants savent que ce pavillon de pierre est le berceau de la traction électrique en France."
+  },
+  "chronologie": [
+    { "annee": "1900", "titre": "La première ligne électrique de France", "texte": "Le 12 avril, Invalides — Issy-Plaine ouvre avec un troisième rail 650 V continu. Orsay suivra le 28 mai." },
+    { "annee": "1900", "titre": "La gare de Juste Lisch", "texte": "Bâtiment voyageurs de pierre sur l'esplanade, conçu pour ne pas défigurer la perspective des Invalides." },
+    { "annee": "1930-1950", "titre": "Le déclin", "texte": "Le trafic banlieue se reporte sur le métro ; la gare de surface perd sa fonction." },
+    { "annee": "1954", "titre": "L'aérogare", "texte": "Air France installe son terminal ville dans l'ancienne gare : c'est de là que partent les cars pour Orly, puis pour Roissy." },
+    { "annee": "1979", "titre": "Naissance du RER C", "texte": "Le raccordement entre Invalides et Orsay crée la ligne C : la gare devient souterraine et traversante." },
+    { "annee": "2000-2020", "titre": "Une gare invisible", "texte": "Le trafic est entièrement souterrain ; le bâtiment historique est reconverti en bureaux et espace d'accueil." }
+  ],
+  "chiffres": [
+    { "valeur": "12 avril 1900", "label": "première ligne électrique française" },
+    { "valeur": "650 V", "label": "tension du troisième rail" },
+    { "valeur": "6", "label": "semaines d'avance sur Orsay" },
+    { "valeur": "1979", "label": "intégration au RER C" }
+  ],
+  "dessertes": {
+    "international": [],
+    "grandesLignes": [],
+    "regional": [],
+    "franciliens": ["RER C — Versailles-Château, Saint-Quentin-en-Yvelines, Pontoise, Massy"]
+  },
+  "acces": {
+    "metro": ["8", "13"],
+    "rer": ["C"],
+    "transilien": [],
+    "tram": [],
+    "bus": ["28", "63", "69", "80", "83", "92", "93"],
+    "velo": "Vélib' esplanade des Invalides ; les berges piétonnes de Seine passent à cent mètres.",
+    "note": "La gare des Invalides est l'une des rares stations parisiennes où le RER C ressort presque à ciel ouvert le long du quai d'Orsay — profitez-en, c'est le plus joli tronçon du réseau."
+  },
+  "commodites": [
+    { "categorie": "Transport", "titre": "Station RER C", "detail": "Quais souterrains, ascenseurs, accès PMR. Correspondance directe avec les lignes 8 et 13 du métro." },
+    { "categorie": "Patrimoine", "titre": "Le bâtiment de Juste Lisch", "detail": "Visible depuis l'esplanade, à l'angle de la rue de Constantine : un pavillon de pierre de 1900, dernier témoin de la gare de surface." },
+    { "categorie": "Culture", "titre": "Le Grand Palais et le Petit Palais", "detail": "De l'autre côté du pont Alexandre-III, les deux palais de l'Exposition universelle de 1900 — le même chantier que la gare." },
+    { "categorie": "Culture", "titre": "L'hôtel des Invalides", "detail": "Le musée de l'Armée et le tombeau de Napoléon sont à trois cents mètres, dans l'axe de l'esplanade." }
+  ],
+  "pepites": [
+    { "titre": "Le pont Alexandre-III", "texte": "Construit pour la même exposition que la gare, en 1900. Le plus orné des ponts de Paris, avec ses candélabres, ses nymphes et ses pégases dorés.", "ou": "Dans l'axe de l'esplanade" },
+    { "titre": "Le RER C à ciel ouvert", "texte": "Entre Invalides et Musée d'Orsay, la ligne longe la Seine dans une tranchée semi-ouverte creusée en 1900. Asseyez-vous côté fleuve : c'est un des rares parcours de RER avec une vue.", "ou": "RER C, sens Invalides — Austerlitz" },
+    { "titre": "L'esplanade", "texte": "Un des plus grands espaces ouverts de Paris, avec les Invalides d'un côté et le Grand Palais de l'autre. Pique-nique, pétanque, et l'un des meilleurs points de vue sur les toits dorés de Mansart.", "ou": "Esplanade des Invalides" }
+  ],
+  "anecdote": {
+    "titre": "Six semaines qui font l'histoire",
+    "texte": "On attribue souvent à la gare d'Orsay le titre de première gare électrique. En réalité, c'est la ligne des Invalides qui a ouvert la première, le 12 avril 1900, six semaines avant sa voisine. Orsay a gagné la mémoire collective parce qu'elle était plus grande, plus visible et qu'elle a survécu sous forme de musée. Invalides a gagné la course, mais a perdu la légende."
+  },
+  "artwork": {
+    "silhouette": "terminus",
+    "bays": 4,
+    "clock": true,
+    "pediment": "triangular",
+    "statues": 0,
+    "tower": { "present": false },
+    "shed": { "present": true, "span": 0.62, "rise": 0.22 },
+    "flags": 2,
+    "palette": { "sky": ["#9DAECB", "#EDEEE7" ], "stone": "#DEDACB", "stoneDark": "#AFA894", "roof": "#4C5A72", "glass": "#A9C0D2", "accent": "#5B6E96" },
+    "ambiance": "jour"
+  },
+  "plan": {
+    "type": "gare souterraine traversante",
+    "orientation": "Le long du quai d'Orsay, est-ouest",
+    "groupes": [
+      { "nom": "Quais RER C", "desserte": "Deux voies traversantes vers Versailles, Saint-Quentin, Pontoise et Austerlitz" },
+      { "nom": "Bâtiment Juste Lisch", "desserte": "Ancien bâtiment voyageurs de surface, conservé, reconverti" }
+    ],
+    "entrees": ["Esplanade des Invalides", "Quai d'Orsay", "Correspondance métro 8 et 13"]
+  },
+  "sources": [
+    { "titre": "Gare des Invalides — Wikipédia", "url": "https://fr.wikipedia.org/wiki/Gare_des_Invalides" },
+    { "titre": "Électrification du réseau ferré en France — Wikipédia", "url": "https://fr.wikipedia.org/wiki/%C3%89lectrification_du_r%C3%A9seau_ferr%C3%A9_en_France" }
+  ]
+}

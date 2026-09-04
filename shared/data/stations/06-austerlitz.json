@@ -1,0 +1,104 @@
+{
+  "id": "paris-austerlitz",
+  "nom": "Paris-Austerlitz",
+  "nomCourt": "Austerlitz",
+  "surnom": "La gare des nuits",
+  "categorie": "grande-gare",
+  "ordre": 6,
+  "arrondissement": "13e arrondissement",
+  "adresse": "85 quai d'Austerlitz, 75013 Paris",
+  "coord": { "lat": 48.8423, "lon": 2.3654 },
+  "ouverture": 1840,
+  "ouvertureTexte": "2 mai 1843 (ligne d'Orléans) — 1867 (halle actuelle)",
+  "compagnie": "Compagnie du chemin de fer de Paris à Orléans (PO)",
+  "architectes": ["Félix-Emmanuel Callet (1840)", "Pierre-Louis Renaud (1862-1867)"],
+  "protection": "Grande halle et façades inscrites au titre des monuments historiques",
+  "couleur": "#8E5B3A",
+  "resume": "La plus vaste halle métallique de Paris : 51 mètres de portée, 280 mètres de long. Longtemps délaissée depuis que la grande vitesse est partie à Montparnasse, elle est aujourd'hui en pleine renaissance — et reste le seul point de départ des huit trains de nuit français.",
+  "recit": {
+    "origine": "La Compagnie du Paris-Orléans ouvre en 1840 un embarcadère dessiné par Félix-Emmanuel Callet, au bord de la Seine, en contrebas de la Salpêtrière. La ligne d'Orléans est alors la grande affaire du royaume : c'est l'axe vers le Centre, le Limousin et, bientôt, Toulouse et l'Espagne. Le nom officiel restera longtemps « gare d'Orléans » ; celui d'Austerlitz, emprunté au quai et au pont voisins, ne s'imposera qu'au XXe siècle.",
+    "revolution": "Entre 1862 et 1867, Pierre-Louis Renaud, architecte en chef de la compagnie, élève la halle que l'on voit aujourd'hui : 51,25 mètres de portée d'un seul tenant, 280 mètres de longueur, la deuxième plus vaste de France après celle de Bordeaux-Saint-Jean. Cet immense volume libre trouve un usage inattendu dès 1870 : pendant le siège de Paris, on y installe une manufacture de ballons. C'est sous cette verrière que sont cousus, gonflés et lancés les aérostats qui emporteront le courrier — et parfois des passagers — au-dessus des lignes prussiennes. Trente ans plus tard, la compagnie prolonge sa ligne en souterrain le long de la Seine jusqu'au quai d'Orsay, où elle bâtit une gare entièrement électrique : Austerlitz devient alors la gare de la vapeur, celle où les locomotives s'arrêtaient avant que des machines électriques ne prennent le relais. Le coup le plus rude viendra en 1990 : l'ouverture de la LGV Atlantique transfère à Montparnasse tout le trafic vers Bordeaux et le Sud-Ouest. Austerlitz perd la moitié de ses trains et devient, pour trente ans, la belle endormie de Paris.",
+    "aujourdhui": "Le réveil est en cours, et il est spectaculaire. La restauration des verrières, entre 2018 et 2024, a imposé le remplacement de près de dix mille verres. La halle retrouve sa lumière. Une structure commerciale surnommée « le Zeppelin » y est montée depuis l'automne 2025 ; une passerelle piétonne suit début 2026 ; la livraison de l'ensemble du projet urbain — mené avec Kaufman & Broad, Altarea, Indigo et Elogie-SIEMP — est attendue en 2027, en même temps que la réouverture complète des couloirs de correspondance vers les lignes 5 et 10 du métro. Surtout, Austerlitz a retrouvé un rôle unique : c'est la seule gare de France d'où partent les trains de nuit. Les huit lignes Intercités de Nuit — Briançon, Nice, Toulouse, Tarbes-Lourdes, Latour-de-Carol, Cerbère-Portbou, Rodez-Albi et Aurillac — s'élancent toutes d'ici, et ont transporté plus d'un million de voyageurs en 2024."
+  },
+  "chronologie": [
+    { "annee": "1840-1843", "titre": "L'embarcadère d'Orléans", "texte": "Callet bâtit le premier terminus de la Compagnie du Paris-Orléans, au bord de la Seine." },
+    { "annee": "1862-1867", "titre": "La grande halle de Renaud", "texte": "51,25 m de portée, 280 m de long : la plus vaste verrière de Paris, deuxième de France." },
+    { "annee": "1870-1871", "titre": "La manufacture de ballons", "texte": "Pendant le siège de Paris, la halle devient un atelier d'aérostats pour franchir les lignes prussiennes par la voie des airs." },
+    { "annee": "1900", "titre": "Le prolongement vers Orsay", "texte": "La ligne file en souterrain jusqu'au quai d'Orsay, où la compagnie ouvre la première grande gare électrique du monde." },
+    { "annee": "1926-1935", "titre": "L'électrification en 1 500 volts", "texte": "L'axe Paris — Orléans — Vierzon passe au 1 500 V continu : Austerlitz devient un laboratoire de la traction électrique française." },
+    { "annee": "1990", "titre": "Le grand transfert", "texte": "L'ouverture de la LGV Atlantique envoie le Sud-Ouest à Montparnasse. Austerlitz perd la moitié de son trafic." },
+    { "annee": "2010", "titre": "Le chantier du siècle", "texte": "Lancement du plus vaste projet patrimonial de SNCF Gares & Connexions : restaurer sans dénaturer, et rouvrir la gare sur la ville." },
+    { "annee": "2018-2024", "titre": "Dix mille verres", "texte": "Restauration complète de la verrière : près de 10 000 vitrages remplacés, charpente traitée, lumière retrouvée." },
+    { "annee": "2021-2024", "titre": "Le retour des trains de nuit", "texte": "Relance de Paris — Nice, Paris — Tarbes et Paris — Aurillac. Le réseau atteint huit lignes, toutes au départ d'Austerlitz." },
+    { "annee": "2025-2027", "titre": "Le Zeppelin et la livraison", "texte": "Montage de la structure commerciale à l'automne 2025, passerelle début 2026, achèvement du projet urbain en 2027." }
+  ],
+  "chiffres": [
+    { "valeur": "51,25 m", "label": "portée de la halle", "note": "2e de France après Bordeaux" },
+    { "valeur": "280 m", "label": "longueur de la halle" },
+    { "valeur": "10 000", "label": "verres remplacés", "note": "chantier 2018-2024" },
+    { "valeur": "8", "label": "lignes de train de nuit", "note": "toutes au départ d'ici" },
+    { "valeur": "≈23,8 M", "label": "voyageurs par an", "note": "2024" }
+  ],
+  "dessertes": {
+    "international": ["Portbou et la frontière espagnole (train de nuit)", "Latour-de-Carol, porte de la Cerdagne"],
+    "grandesLignes": ["Orléans", "Limoges", "Toulouse", "Brive", "Cahors", "Châteauroux", "Nice (nuit)", "Briançon (nuit)", "Tarbes-Lourdes (nuit)", "Aurillac (nuit)", "Rodez et Albi (nuit)", "Cerbère (nuit)"],
+    "regional": ["TER Centre-Val de Loire", "TER Nouvelle-Aquitaine", "TER Occitanie"],
+    "franciliens": ["RER C (gare souterraine)"]
+  },
+  "acces": {
+    "metro": ["5", "10"],
+    "rer": ["C"],
+    "transilien": [],
+    "tram": ["T3a (Porte d'Ivry, 2 km)"],
+    "bus": ["24", "57", "61", "63", "89", "91"],
+    "velo": "Vélib' quai d'Austerlitz et boulevard de l'Hôpital ; piste cyclable des berges de Seine au pied de la gare.",
+    "note": "Attention jusqu'en 2027 : les couloirs de correspondance entre les lignes 5 et 10, le RER C et la gare SNCF restent partiellement fermés pour travaux. Prévoyez une marge et suivez le fléchage provisoire."
+  },
+  "commodites": [
+    { "categorie": "Bagages", "titre": "Consigne automatique", "detail": "Casiers trois formats, environ 6 h 15 — 22 h, 72 h maximum. Tarif indicatif 2026 : 5,50 € à 9,50 € les 24 h." },
+    { "categorie": "Trains de nuit", "titre": "Services spécifiques", "detail": "Embarquement des Intercités de Nuit généralement entre 20 h 30 et 21 h 45 ; couchettes 4 ou 6 places, sièges inclinables, et depuis 2023 des compartiments réservés aux femmes voyageant seules." },
+    { "categorie": "Accueil", "titre": "Assist'enGare et information", "detail": "Nouvel espace d'accueil côté cour Muséum (ouvert en 2024) : guichets, bornes libre-service, ligne de contrôle nouvelle génération." },
+    { "categorie": "Restauration", "titre": "Cafés et brasseries", "detail": "Offre en cours de reconstruction avec le chantier ; brasseries du boulevard de l'Hôpital et de la place Valhubert à proximité immédiate." },
+    { "categorie": "Confort", "titre": "Wi-Fi, sanitaires, attente", "detail": "Wi-Fi gratuit SNCF, sanitaires, espaces d'attente sous la halle restaurée." },
+    { "categorie": "Vélo", "titre": "Stationnement sécurisé", "detail": "Consigne Véligo à proximité de la gare, utile pour les départs de nuit." }
+  ],
+  "pepites": [
+    { "titre": "La halle restaurée", "texte": "Entrez par la cour Muséum et levez la tête : cinquante et un mètres sans un pilier, dix mille verres neufs, une charpente de 1867 remise à nu. C'est aujourd'hui le plus beau volume ferroviaire de Paris.", "ou": "Grande halle" },
+    { "titre": "Le rituel des trains de nuit", "texte": "Venez vers 20 h 30 : les rames couchettes s'alignent, les voyageurs chargent skis, sacs et vélos. On part se coucher à Paris, on se réveille dans les Alpes ou face à la Méditerranée. Le seul endroit de France où l'on peut voir ça.", "ou": "Voies 1 à 6, en soirée" },
+    { "titre": "Le Jardin des plantes", "texte": "Il commence à cent mètres de la gare : la Grande Galerie de l'Évolution, la ménagerie, les serres tropicales et le plus vieux platane de Paris. Une correspondance parfaite entre deux trains.", "ou": "Place Valhubert" },
+    { "titre": "Les Docks et la Cité de la Mode", "texte": "La structure vert acide qui longe la Seine juste en aval de la gare abrite l'Institut français de la mode, des terrasses et des rooftops avec vue sur la Bibliothèque nationale.", "ou": "34 quai d'Austerlitz" },
+    { "titre": "Le viaduc du métro 5", "texte": "Depuis le pont d'Austerlitz, regardez la ligne 5 sortir du sol et franchir la Seine sur un viaduc métallique avant de plonger dans la gare : l'un des rares endroits où le métro parisien se donne en spectacle.", "ou": "Pont d'Austerlitz" }
+  ],
+  "anecdote": {
+    "titre": "La gare qui fabriquait des ballons",
+    "texte": "Automne 1870 : Paris est encerclé, coupé du monde. Sous la halle d'Austerlitz — comme sous celle de la gare du Nord — on installe des ateliers de couture de ballons. Des marins, habitués au gréement, tressent les filets ; des ouvrières cousent le taffetas verni. Soixante-six ballons montés quitteront Paris pendant le siège, emportant deux millions et demi de lettres et une soixantaine de passagers. Deux d'entre eux se perdront en mer, un troisième atterrira en Norvège. C'est la première liaison aérienne postale de l'histoire, née sous une verrière de gare."
+  },
+  "artwork": {
+    "silhouette": "shed",
+    "bays": 5,
+    "clock": true,
+    "pediment": "flat",
+    "statues": 0,
+    "tower": { "present": false },
+    "shed": { "present": true, "span": 0.96, "rise": 0.5 },
+    "flags": 1,
+    "palette": { "sky": ["#C4B49C", "#F2E9D8"], "stone": "#DDCFB4", "stoneDark": "#B39C7C", "roof": "#7A6551", "glass": "#B7CBC7", "accent": "#8E5B3A" },
+    "ambiance": "matin"
+  },
+  "plan": {
+    "type": "gare en cul-de-sac, avec gare souterraine traversante",
+    "orientation": "Faisceau orienté sud, vers Ivry et la vallée de la Seine",
+    "groupes": [
+      { "nom": "Voies 1 à 6 (grande halle)", "desserte": "Intercités de Nuit vers les Alpes, les Pyrénées et la Méditerranée" },
+      { "nom": "Voies 7 à 12", "desserte": "Intercités Paris — Orléans — Limoges — Toulouse (POLT)" },
+      { "nom": "Voies 13 à 21", "desserte": "TER Centre-Val de Loire, trains régionaux et grandes lignes secondaires" },
+      { "nom": "Niveau -1", "desserte": "RER C, 4 voies souterraines traversantes vers Orsay et Invalides" }
+    ],
+    "entrees": ["Cour Muséum (place Valhubert)", "Quai d'Austerlitz", "Boulevard de l'Hôpital", "Cour Seine"]
+  },
+  "sources": [
+    { "titre": "Gare de Paris-Austerlitz — Wikipédia", "url": "https://fr.wikipedia.org/wiki/Gare_de_Paris-Austerlitz" },
+    { "titre": "Rénovation des verrières de Paris-Austerlitz — Gares & Connexions", "url": "https://www.garesetconnexions.sncf/fr/actualites/renovation-verrieres-paris-austerlitz-gare-lyon" },
+    { "titre": "La transformation de la gare d'Austerlitz entre dans sa dernière phase — Le Journal du Grand Paris", "url": "https://www.lejournaldugrandparis.fr/la-transformation-de-la-gare-dausterlitz-entre-dans-sa-derniere-phase/" }
+  ]
+}

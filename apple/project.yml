@@ -1,0 +1,52 @@
+name: GaresDeParis
+options:
+  bundleIdPrefix: fr.garesdeparis
+  createIntermediateGroups: true
+  deploymentTarget:
+    iOS: "17.0"
+    macOS: "14.0"
+
+settings:
+  base:
+    SWIFT_VERSION: "5.9"
+    CODE_SIGN_STYLE: Automatic
+    SWIFT_STRICT_CONCURRENCY: minimal
+    ENABLE_USER_SCRIPT_SANDBOXING: YES
+    GENERATE_INFOPLIST_FILE: NO
+
+targets:
+  GaresDeParis:
+    type: application
+    supportedDestinations: [iOS, macOS]
+    sources:
+      - path: GaresDeParis
+    info:
+      path: GaresDeParis/Info.plist
+      properties:
+        CFBundleDisplayName: Gares de Paris
+        CFBundleShortVersionString: "1.0"
+        CFBundleVersion: "1"
+        LSApplicationCategoryType: public.app-category.reference
+        UILaunchScreen: {}
+        UISupportedInterfaceOrientations:
+          - UIInterfaceOrientationPortrait
+          - UIInterfaceOrientationLandscapeLeft
+          - UIInterfaceOrientationLandscapeRight
+        UISupportedInterfaceOrientations~ipad:
+          - UIInterfaceOrientationPortrait
+          - UIInterfaceOrientationPortraitUpsideDown
+          - UIInterfaceOrientationLandscapeLeft
+          - UIInterfaceOrientationLandscapeRight
+        NSHumanReadableCopyright: "Application documentaire — sources citées dans chaque fiche."
+    settings:
+      base:
+        PRODUCT_BUNDLE_IDENTIFIER: fr.garesdeparis.app
+        PRODUCT_NAME: Gares de Paris
+        INFOPLIST_KEY_NSHumanReadableCopyright: ""
+        TARGETED_DEVICE_FAMILY: "1,2"
+        ENABLE_PREVIEWS: YES
+        ASSETCATALOG_COMPILER_APPICON_NAME: AppIcon
+        ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME: AccentColor
+        MARKETING_VERSION: "1.0"
+        CURRENT_PROJECT_VERSION: "1"
+        CODE_SIGN_ENTITLEMENTS: GaresDeParis/GaresDeParis.entitlements

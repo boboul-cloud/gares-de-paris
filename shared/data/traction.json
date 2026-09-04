@@ -1,0 +1,137 @@
+{
+  "titre": "De la vapeur à l'électron",
+  "sousTitre": "Cent quatre-vingt-dix ans d'évolution technique, racontés depuis les gares de Paris",
+  "intro": "L'histoire des gares parisiennes est indissociable de celle de la machine qui s'y arrête. Chaque révolution technique a redessiné les bâtiments : la vapeur a imposé les verrières hautes pour évacuer les fumées, l'électricité a permis les gares souterraines, la grande vitesse a fait naître des gares hors de la ville. Voici cette histoire en cinq âges.",
+  "eres": [
+    {
+      "id": "vapeur",
+      "nom": "L'âge de la vapeur",
+      "periode": "1837 — 1900",
+      "couleur": "#8B5E3C",
+      "resume": "Soixante ans pendant lesquels la locomotive à vapeur impose sa loi aux gares : des verrières hautes pour évacuer les fumées, des rotondes pour retourner les machines, des châteaux d'eau partout.",
+      "recit": "La première machine à circuler à Saint-Lazare en 1837 est une Buddicom, construite à Rouen sur des plans anglais. Elle pèse quinze tonnes et roule à quarante kilomètres à l'heure. Trente ans plus tard, la Crampton — une machine à grandes roues motrices uniques, longue et basse — atteint cent vingt kilomètres à l'heure et devient l'emblème du chemin de fer français : c'est elle que peint Monet dans la fumée de Saint-Lazare. La vapeur culmine au XXe siècle avec les Pacific 231, puis avec le génie d'André Chapelon, ingénieur du Paris-Orléans, qui double la puissance des machines existantes en repensant simplement la circulation de la vapeur dans les conduits. Ses 231 E, reconstruites en 1934, restent parmi les locomotives à vapeur les plus efficaces jamais construites. Après-guerre, les 141 R livrées par les États-Unis au titre du plan Marshall — 1 340 machines — sauvent le trafic français ; robustes et simples, elles rouleront jusqu'à la fin.",
+      "machines": [
+        { "nom": "Buddicom", "annee": "1838", "detail": "Machines anglo-normandes des premières lignes, 40 km/h." },
+        { "nom": "Crampton", "annee": "1849", "detail": "Grandes roues motrices, silhouette basse et élancée, 120 km/h : l'icône du XIXe siècle français." },
+        { "nom": "Pacific 231", "annee": "1907", "detail": "La machine des trains rapides, immortalisée par Honegger dans Pacific 231 (1923)." },
+        { "nom": "231 E Chapelon", "annee": "1934", "detail": "Reconstruction géniale d'André Chapelon : puissance doublée à charbon égal." },
+        { "nom": "141 R", "annee": "1945", "detail": "1 340 machines américaines du plan Marshall, chevaux de trait de la reconstruction." },
+        { "nom": "241 P", "annee": "1948", "detail": "Les plus puissantes vapeurs françaises, 4 000 chevaux, sur Paris — Lyon avant l'électrification." }
+      ],
+      "impactGares": "La vapeur impose la verrière : il faut évacuer d'énormes volumes de fumée. C'est pour cela que les halles d'Austerlitz, du Nord ou de l'Est sont si hautes. Elle impose aussi les rotondes, les châteaux d'eau et les fosses à cendres — équipements aujourd'hui disparus des gares parisiennes.",
+      "dates": [
+        { "annee": "1837", "texte": "Première ligne de voyageurs française, Paris — Le Pecq, au départ de l'embarcadère de l'Europe." },
+        { "annee": "1855", "texte": "La France compte 5 000 km de voies ; toutes convergent vers Paris." },
+        { "annee": "1900", "texte": "Apogée du réseau vapeur, au moment même où l'électricité fait son entrée à Orsay et aux Invalides." }
+      ]
+    },
+    {
+      "id": "electrification",
+      "nom": "L'électrification",
+      "periode": "1900 — 1960",
+      "couleur": "#2E7DA8",
+      "resume": "Née d'une contrainte urbaine — comment amener des trains sous Paris sans asphyxier les voyageurs — l'électricité met soixante ans à conquérir le réseau, et fait de la France l'inventeur du standard mondial.",
+      "recit": "Tout commence par un problème de fumée. En 1900, la Compagnie de l'Ouest et celle du Paris-Orléans veulent amener leurs trains au cœur de Paris, en souterrain. Impossible à la vapeur. Le 12 avril 1900, la ligne des Invalides à Issy-Plaine ouvre avec un troisième rail alimenté en 650 volts continu : c'est la première ligne électrique française. Le 28 mai, Orsay suit avec 600 volts. Un décret de 1920 impose ensuite le 1 500 volts continu comme standard national ; c'est sous cette tension que sont électrifiés Paris — Orléans en 1926, puis les grandes lignes du Midi et du Sud-Est. Mais le 1 500 volts a un défaut : il exige des sous-stations tous les vingt kilomètres et des caténaires très lourdes. Après-guerre, un ingénieur de la SNCF, Louis Armand, pousse une idée audacieuse : utiliser directement le courant industriel, alternatif, à 25 000 volts et 50 hertz. L'expérimentation commence en 1950 sur Aix-les-Bains — La Roche-sur-Foron, puis se confirme en 1954-1955 sur Valenciennes — Thionville. Le succès est total : sous-stations quatre fois moins nombreuses, caténaire légère, coût d'électrification divisé par deux. Le 25 kV 50 Hz devient le standard des électrifications françaises, puis mondial — c'est celui de toutes les lignes à grande vitesse de la planète, du Japon à la Chine. Pendant ce temps, la vapeur s'éteint : le dernier train à vapeur commercial de la SNCF circule en 1974.",
+      "machines": [
+        { "nom": "2D2 5500", "annee": "1933", "detail": "Les « nez de cochon » du Paris-Orléans, silhouette inoubliable des trains de la gare d'Austerlitz." },
+        { "nom": "CC 7100", "annee": "1952", "detail": "Machine de vitesse en 1 500 V ; la CC 7107 dépassera 320 km/h en 1955." },
+        { "nom": "BB 9004", "annee": "1954", "detail": "Détentrice avec la CC 7107 du record du monde de 331 km/h en mars 1955." },
+        { "nom": "BB 12000 « fer à repasser »", "annee": "1954", "detail": "Première grande série en 25 kV 50 Hz, sur Valenciennes — Thionville." },
+        { "nom": "Micheline", "annee": "1931", "detail": "Autorail Michelin sur pneus : le confort routier sur rail, essayé sur les lignes secondaires." },
+        { "nom": "141 R 420", "annee": "1974", "detail": "Assure en mars le dernier train vapeur commercial de la SNCF, entre Sarreguemines et Béning." }
+      ],
+      "impactGares": "L'électricité libère l'architecture : plus besoin de verrières hautes, on peut enterrer une gare. C'est ce qui rend possibles Orsay, Invalides, puis un demi-siècle plus tard les gares souterraines du RER A, du RER C et enfin du RER E.",
+      "dates": [
+        { "annee": "1900", "texte": "12 avril : Invalides — Issy-Plaine, première ligne électrique française (650 V, troisième rail). Orsay suit le 28 mai." },
+        { "annee": "1920", "texte": "Décret fixant le 1 500 volts continu comme standard national d'électrification." },
+        { "annee": "1926", "texte": "Électrification de Paris — Orléans en 1 500 V : la traction électrique quitte la ville pour la grande ligne." },
+        { "annee": "1955", "texte": "28 et 29 mars : la CC 7107 puis la BB 9004 franchissent 330 km/h sur la ligne des Landes. Record du monde." },
+        { "annee": "1954-1955", "texte": "Valenciennes — Thionville valide le 25 kV 50 Hz. La France invente le standard mondial d'électrification." },
+        { "annee": "1974", "texte": "Le 24 mars, dernier train vapeur commercial de la SNCF. Fin d'un âge." }
+      ]
+    },
+    {
+      "id": "diesel",
+      "nom": "Le diesel et les autorails",
+      "periode": "1930 — aujourd'hui",
+      "couleur": "#7A7A55",
+      "resume": "Sur les 45 % du réseau qui ne seront jamais électrifiés, le moteur thermique règne. C'est la France des lignes secondaires, des autorails et des trains de nuit vers l'Auvergne.",
+      "recit": "Électrifier une ligne coûte cher : entre un et deux millions d'euros le kilomètre. Sur les lignes à faible trafic, cela n'a jamais eu de sens. D'où l'essor de l'autorail dès les années 1930 — la Micheline sur pneus, puis les Renault, puis les célèbres X 2800 qui sillonneront le Massif central pendant quarante ans. En traction lourde, les CC 72000 tirent les trains Paris — Bâle et Paris — Clermont-Ferrand ; ces derniers partent aujourd'hui encore de la gare de Bercy, sur l'un des derniers grands axes non électrifiés dans sa totalité. Aujourd'hui le diesel recule : rames hybrides Régiolis à batteries depuis 2023, prototypes à hydrogène en essais, et projet de batteries pour les derniers kilomètres non électrifiés.",
+      "machines": [
+        { "nom": "X 2800", "annee": "1957", "detail": "L'autorail emblématique du Massif central, increvable, en service jusqu'en 2009." },
+        { "nom": "CC 72000", "annee": "1967", "detail": "Les plus puissants diesels français, longtemps en tête du Paris — Clermont-Ferrand." },
+        { "nom": "BB 67400", "annee": "1967", "detail": "Machine à tout faire de la SNCF, encore visible sur les trains de travaux." },
+        { "nom": "Régiolis hybride", "annee": "2023", "detail": "Rame diesel-électrique à batteries : moins 20 % de carburant, premières circulations commerciales." },
+        { "nom": "Régiolis H2", "annee": "2025-2027", "detail": "Premier train à hydrogène français en expérimentation régionale." }
+      ],
+      "impactGares": "Le diesel n'a pas transformé l'architecture des gares, mais il explique une géographie : les gares desservant l'Auvergne et le Massif central — Bercy en tête — sont restées celles des trains lents, faute d'électrification et de grande vitesse.",
+      "dates": [
+        { "annee": "1931", "texte": "Première Micheline sur pneus, essayée entre Paris et Deauville." },
+        { "annee": "1957", "texte": "Mise en service des X 2800, autorails du Massif central." },
+        { "annee": "2023", "texte": "Premières rames régionales hybrides à batteries en service commercial." }
+      ]
+    },
+    {
+      "id": "grande-vitesse",
+      "nom": "La grande vitesse",
+      "periode": "1955 — aujourd'hui",
+      "couleur": "#B03A2E",
+      "resume": "Des essais des Landes en 1955 au TGV M de 2026 : soixante-dix ans pendant lesquels la France a déplacé la frontière du possible sur le rail — et changé la géographie du pays.",
+      "recit": "Les records de mars 1955 démontrent qu'un train peut rouler à 330 km/h. Mais sur quelle voie ? La réponse mettra vingt-six ans à venir : il faut construire des lignes nouvelles, sans passages à niveau, aux courbes très larges, avec une signalisation en cabine — car à 300 km/h, aucun conducteur ne peut lire un signal au bord de la voie. C'est toute l'invention du TGV : non pas un train rapide, mais un système complet — matériel, infrastructure, signalisation, exploitation. La LGV Sud-Est ouvre en 1981, la LGV Atlantique en 1989-1990, la LGV Nord en 1993, et le réseau s'étend jusqu'à atteindre plus de 2 800 kilomètres. La signalisation suit la même trajectoire : du block automatique lumineux au sol dans les années 1930, au contrôle de vitesse par balises (KVB) dans les années 1990, à la TVM en cabine sur les premières LGV, puis à l'ERTMS européen déployé sur la LGV Est en 2016 — une norme unique pour tout le continent.",
+      "machines": [
+        { "nom": "TGV 001", "annee": "1972", "detail": "Prototype à turbine à gaz : 318 km/h à l'été 1972, record mondial pour un engin autonome." },
+        { "nom": "TGV Sud-Est", "annee": "1978", "detail": "Rames orange de la première génération : 260 puis 300 km/h, en service jusqu'en 2019." },
+        { "nom": "TGV Atlantique", "annee": "1988", "detail": "Dix voitures, 300 km/h ; la rame 325 établira le record de 515,3 km/h en 1990." },
+        { "nom": "TGV Duplex", "annee": "1995", "detail": "Le train à deux niveaux : +40 % de capacité sans allonger les rames ni les quais." },
+        { "nom": "V150", "annee": "2007", "detail": "Rame d'essai spéciale : 574,8 km/h le 3 avril 2007, record du monde toujours en vigueur sur rail conventionnel." },
+        { "nom": "TGV M / Avelia Horizon", "annee": "2026", "detail": "Cinquième génération : 9 voitures, jusqu'à 740 places, −20 % d'énergie, −32 % de CO₂, 97 % recyclable." }
+      ],
+      "impactGares": "La grande vitesse a transformé les gares en deux temps. D'abord en modernisant les terminus parisiens — halls agrandis, quais allongés à 400 mètres pour les rames doubles. Ensuite en créant des gares hors de la ville : Massy, Chessy, Roissy, qui permettent de traverser la France sans passer par Paris.",
+      "dates": [
+        { "annee": "1955", "texte": "Records des Landes : 331 km/h. La preuve est faite, l'infrastructure manque." },
+        { "annee": "1981", "texte": "27 septembre : premier TGV commercial, gare de Lyon — Lyon." },
+        { "annee": "1990", "texte": "18 mai : 515,3 km/h sur la LGV Atlantique, rame 325." },
+        { "annee": "1994", "texte": "Interconnexion Est : les TGV peuvent contourner Paris." },
+        { "annee": "2007", "texte": "3 avril : 574,8 km/h par la rame V150 sur la LGV Est. Record du monde toujours détenu." },
+        { "annee": "2026", "texte": "Mise en service du TGV M sur Paris — Lyon — Marseille." }
+      ]
+    },
+    {
+      "id": "aujourdhui",
+      "nom": "Le rail de demain",
+      "periode": "2020 — 2040",
+      "couleur": "#2E6E63",
+      "resume": "Décarbonation, automatisation, retour du train de nuit, ouverture à la concurrence : le rail français vit sa quatrième révolution, moins spectaculaire que les précédentes mais peut-être plus profonde.",
+      "recit": "Quatre mouvements simultanés redessinent le réseau. La décarbonation d'abord : batteries et hydrogène pour les derniers 45 % de lignes non électrifiées, et un TGV M qui consomme 20 % d'énergie en moins. L'automatisation ensuite : après le métro 14 et le métro 4, la SNCF expérimente le train autonome sur ligne classique, et l'ERTMS niveau 3 permettra de faire circuler plus de trains sur les mêmes voies. Le retour du train de nuit, relancé en 2021 avec Paris — Nice, atteint huit lignes et plus d'un million de voyageurs par an, toutes au départ d'Austerlitz — même si l'objectif gouvernemental d'une dizaine de lignes en 2030 reste incertain. Enfin l'ouverture à la concurrence : Trenitalia sur Paris — Lyon — Milan, la Renfe sur Lyon — Marseille et Barcelone, et de nouveaux entrants annoncés. Pour les gares parisiennes, cela signifie des logos différents sur les quais — et, pour la première fois depuis 1938, plusieurs opérateurs sous les mêmes verrières.",
+      "machines": [
+        { "nom": "TGV M", "annee": "2026", "detail": "Modulaire, 20 % moins gourmand, nez arrondi en composite, batterie de secours." },
+        { "nom": "Oxygène / Confort 200", "annee": "2027", "detail": "Nouvelles rames Intercités CAF pour Paris — Clermont-Ferrand et Paris — Toulouse." },
+        { "nom": "Rames de nuit rénovées", "annee": "2022-2025", "detail": "Voitures-couchettes modernisées, prises, liseuses, compartiments réservés aux femmes seules." },
+        { "nom": "Train autonome", "annee": "2028", "detail": "Prototypes de conduite automatisée sur ligne classique, en essais avec SNCF Réseau." }
+      ],
+      "impactGares": "Les gares deviennent des lieux de séjour autant que de passage : commerces, coworking, services, accessibilité universelle. Le chantier d'Austerlitz, la rénovation de Montparnasse et le projet Horizon 2024 de la gare du Nord relèvent tous de cette même logique.",
+      "dates": [
+        { "annee": "2021", "texte": "Relance des trains de nuit : Paris — Nice rouvre après quatre ans d'interruption." },
+        { "annee": "2024", "texte": "Prolongement du RER E jusqu'à Nanterre-La Folie ; huit lignes de nuit en service." },
+        { "annee": "2026", "texte": "Entrée en service du TGV M." },
+        { "annee": "2027", "texte": "Achèvement d'Austerlitz, CDG Express, RER E jusqu'à Mantes-la-Jolie." }
+      ]
+    }
+  ],
+  "signalisation": {
+    "titre": "Voir sans regarder : l'histoire de la signalisation",
+    "intro": "À 300 km/h, un conducteur parcourt 83 mètres par seconde. Aucun œil humain ne peut lire un panneau au bord de la voie. Toute l'histoire de la vitesse est donc aussi celle de la signalisation.",
+    "etapes": [
+      { "nom": "Le sémaphore mécanique", "periode": "1850-1930", "detail": "Des bras articulés et des lanternes à pétrole, manœuvrés à la main depuis des postes d'aiguillage. Un agent par kilomètre." },
+      { "nom": "Le block automatique lumineux (BAL)", "periode": "années 1930", "detail": "Les circuits de voie détectent le train ; les feux passent au rouge automatiquement derrière lui. La base du réseau français encore aujourd'hui." },
+      { "nom": "Le KVB", "periode": "années 1990", "detail": "Contrôle de vitesse par balises : des balises au sol vérifient que le train respecte les limitations et déclenchent le freinage d'urgence sinon." },
+      { "nom": "La TVM 300 puis 430", "periode": "1981 et 1993", "detail": "Transmission Voie-Machine : la signalisation apparaît sur un écran dans la cabine. C'est ce qui rend le TGV possible." },
+      { "nom": "ERTMS / ETCS", "periode": "depuis 2016", "detail": "Norme européenne unique, déployée sur la LGV Est puis les LGV récentes. Un train, un système, tout le continent." }
+    ]
+  },
+  "sources": [
+    { "titre": "Électrification du réseau ferré en France — Wikipédia", "url": "https://fr.wikipedia.org/wiki/%C3%89lectrification_du_r%C3%A9seau_ferr%C3%A9_en_France" },
+    { "titre": "Records du monde de vitesse sur rail — Wikipédia", "url": "https://fr.wikipedia.org/wiki/Record_du_monde_de_vitesse_sur_rail" },
+    { "titre": "Le record du monde de vitesse du 28 et 29 mars 1955 — DocRail", "url": "https://docrail.fr/le-record-du-monde-de-vitesse-du-28-et-29-mars-1955/" }
+  ]
+}

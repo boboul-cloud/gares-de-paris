@@ -1,0 +1,445 @@
+{
+  "titre": "Le croisement",
+  "sousTitre": "Tracez un graphique de marche et trouvez où deux trains se rencontrent",
+  "intro": "Depuis le milieu du XIXe siècle, les compagnies règlent la circulation sur une feuille quadrillée : le temps en abscisse, les distances en ordonnée, et chaque train devient une droite. Deux trains qui se croisent, ce sont deux droites qui se coupent — et le point d'intersection donne à la fois l'heure et le point kilométrique du croisement. Ce graphique de marche, popularisé par Ibry puis par Étienne-Jules Marey, reste aujourd'hui l'outil de base des régulateurs. Composez le vôtre.",
+  "modele": "Le calcul suppose une marche uniforme entre deux points d'arrêt : ni accélération, ni ralentissement, ni aléa. C'est exactement l'hypothèse du graphique tracé à la règle — utile pour comprendre, insuffisante pour faire rouler un train.",
+  "convention": "Par convention en France, les trains qui s'éloignent de Paris portent un numéro impair, ceux qui s'en rapprochent un numéro pair. Le simulateur reprend ce vocabulaire : sens impair pour la descente, sens pair pour la montée.",
+  "axes": [
+    {
+      "id": "sud-est",
+      "nom": "Paris — Lyon — Marseille",
+      "gareId": "paris-lyon",
+      "origine": "Paris-Gare de Lyon",
+      "terminus": "Marseille-Saint-Charles",
+      "longueur": 750,
+      "note": "Par la LGV Sud-Est puis la LGV Méditerranée. C'est l'axe du premier TGV, en 1981.",
+      "jalons": [
+        {
+          "pk": 0,
+          "nom": "Paris-Gare de Lyon"
+        },
+        {
+          "pk": 302,
+          "nom": "Le Creusot TGV"
+        },
+        {
+          "pk": 380,
+          "nom": "Mâcon-Loché TGV"
+        },
+        {
+          "pk": 427,
+          "nom": "Lyon-Part-Dieu"
+        },
+        {
+          "pk": 520,
+          "nom": "Valence TGV"
+        },
+        {
+          "pk": 665,
+          "nom": "Avignon TGV"
+        },
+        {
+          "pk": 725,
+          "nom": "Aix-en-Provence TGV"
+        },
+        {
+          "pk": 750,
+          "nom": "Marseille-Saint-Charles"
+        }
+      ]
+    },
+    {
+      "id": "atlantique",
+      "nom": "Paris — Bordeaux",
+      "gareId": "paris-montparnasse",
+      "origine": "Paris-Montparnasse",
+      "terminus": "Bordeaux-Saint-Jean",
+      "longueur": 584,
+      "note": "LGV Atlantique puis Sud-Europe-Atlantique, ouverte en 2017. C'est sur cet axe qu'a été battu le record de 515,3 km/h en 1990.",
+      "jalons": [
+        {
+          "pk": 0,
+          "nom": "Paris-Montparnasse"
+        },
+        {
+          "pk": 211,
+          "nom": "Le Mans"
+        },
+        {
+          "pk": 239,
+          "nom": "Saint-Pierre-des-Corps"
+        },
+        {
+          "pk": 340,
+          "nom": "Poitiers"
+        },
+        {
+          "pk": 449,
+          "nom": "Angoulême"
+        },
+        {
+          "pk": 584,
+          "nom": "Bordeaux-Saint-Jean"
+        }
+      ]
+    },
+    {
+      "id": "est",
+      "nom": "Paris — Strasbourg",
+      "gareId": "paris-est",
+      "origine": "Paris-Est",
+      "terminus": "Strasbourg-Ville",
+      "longueur": 502,
+      "note": "LGV Est européenne, la première ligne française équipée d'ERTMS. Strasbourg est passé de quatre heures à 1 h 46.",
+      "jalons": [
+        {
+          "pk": 0,
+          "nom": "Paris-Est"
+        },
+        {
+          "pk": 167,
+          "nom": "Champagne-Ardenne TGV"
+        },
+        {
+          "pk": 261,
+          "nom": "Meuse TGV"
+        },
+        {
+          "pk": 328,
+          "nom": "Lorraine TGV"
+        },
+        {
+          "pk": 502,
+          "nom": "Strasbourg-Ville"
+        }
+      ]
+    },
+    {
+      "id": "nord",
+      "nom": "Paris — Lille",
+      "gareId": "paris-nord",
+      "origine": "Paris-Nord",
+      "terminus": "Lille-Europe",
+      "longueur": 225,
+      "note": "LGV Nord, ouverte en 1993. Le plus court des grands axes, et le plus dense : c'est aussi la route de Londres et de Bruxelles.",
+      "jalons": [
+        {
+          "pk": 0,
+          "nom": "Paris-Nord"
+        },
+        {
+          "pk": 130,
+          "nom": "TGV Haute-Picardie"
+        },
+        {
+          "pk": 225,
+          "nom": "Lille-Europe"
+        }
+      ]
+    },
+    {
+      "id": "normandie",
+      "nom": "Paris — Le Havre",
+      "gareId": "paris-saint-lazare",
+      "origine": "Paris-Saint-Lazare",
+      "terminus": "Le Havre",
+      "longueur": 228,
+      "note": "Ligne classique de 1847, sans grande vitesse. C'est le trajet que faisait Monet pour aller peindre l'estuaire — et celui des trains normands d'aujourd'hui.",
+      "jalons": [
+        {
+          "pk": 0,
+          "nom": "Paris-Saint-Lazare"
+        },
+        {
+          "pk": 137,
+          "nom": "Rouen-Rive-Droite"
+        },
+        {
+          "pk": 176,
+          "nom": "Yvetot"
+        },
+        {
+          "pk": 205,
+          "nom": "Bréauté-Beuzeville"
+        },
+        {
+          "pk": 228,
+          "nom": "Le Havre"
+        }
+      ]
+    },
+    {
+      "id": "polt",
+      "nom": "Paris — Limoges — Toulouse",
+      "gareId": "paris-austerlitz",
+      "origine": "Paris-Austerlitz",
+      "terminus": "Toulouse-Matabiau",
+      "longueur": 713,
+      "note": "Le POLT, ligne classique du Centre. Aucune grande vitesse : c'est ici que les trains de nuit et les Intercités roulent encore comme au siècle dernier.",
+      "jalons": [
+        {
+          "pk": 0,
+          "nom": "Paris-Austerlitz"
+        },
+        {
+          "pk": 120,
+          "nom": "Les Aubrais-Orléans"
+        },
+        {
+          "pk": 199,
+          "nom": "Vierzon"
+        },
+        {
+          "pk": 264,
+          "nom": "Châteauroux"
+        },
+        {
+          "pk": 400,
+          "nom": "Limoges-Bénédictins"
+        },
+        {
+          "pk": 522,
+          "nom": "Brive-la-Gaillarde"
+        },
+        {
+          "pk": 682,
+          "nom": "Montauban"
+        },
+        {
+          "pk": 713,
+          "nom": "Toulouse-Matabiau"
+        }
+      ]
+    }
+  ],
+  "materiels": [
+    {
+      "id": "tgv-m",
+      "nom": "TGV M",
+      "annee": "2026",
+      "vitesse": 320,
+      "couleur": "#5D5A7D",
+      "note": "Cinquième génération, mise en service sur Paris — Lyon — Marseille."
+    },
+    {
+      "id": "tgv-inoui",
+      "nom": "TGV inOui",
+      "annee": "aujourd'hui",
+      "vitesse": 300,
+      "couleur": "#1F6F8B",
+      "note": "Vitesse commerciale courante sur ligne nouvelle."
+    },
+    {
+      "id": "ouigo",
+      "nom": "Ouigo",
+      "annee": "depuis 2013",
+      "vitesse": 300,
+      "couleur": "#B03A2E",
+      "note": "Même matériel densifié, au départ de gares souvent périphériques."
+    },
+    {
+      "id": "intercites",
+      "nom": "Intercités",
+      "annee": "aujourd'hui",
+      "vitesse": 160,
+      "couleur": "#8E5B3A",
+      "note": "Ligne classique, arrêts fréquents."
+    },
+    {
+      "id": "nuit",
+      "nom": "Intercités de Nuit",
+      "annee": "aujourd'hui",
+      "vitesse": 110,
+      "couleur": "#3E3B5C",
+      "note": "On ne roule pas vite la nuit : la marche est calée pour arriver au matin."
+    },
+    {
+      "id": "ter",
+      "nom": "TER",
+      "annee": "aujourd'hui",
+      "vitesse": 130,
+      "couleur": "#4F7A55",
+      "note": "Desserte régionale, nombreux arrêts."
+    },
+    {
+      "id": "fret",
+      "nom": "Train de fret",
+      "annee": "aujourd'hui",
+      "vitesse": 95,
+      "couleur": "#6C7A5B",
+      "note": "Lourd, long, et souvent garé pour laisser passer les voyageurs."
+    },
+    {
+      "id": "141r",
+      "nom": "Vapeur 141 R",
+      "annee": "1945",
+      "vitesse": 100,
+      "couleur": "#8B5E3C",
+      "note": "Les machines du plan Marshall, chevaux de trait de la reconstruction."
+    },
+    {
+      "id": "231",
+      "nom": "Pacific 231",
+      "annee": "1907",
+      "vitesse": 120,
+      "couleur": "#A8763E",
+      "note": "La machine des trains rapides d'avant-guerre."
+    },
+    {
+      "id": "crampton",
+      "nom": "Crampton",
+      "annee": "1849",
+      "vitesse": 80,
+      "couleur": "#C2673F",
+      "note": "Grandes roues motrices et silhouette basse : l'icône du XIXe siècle. Faites-la courir contre un TGV M, pour voir."
+    }
+  ],
+  "exemples": [
+    {
+      "nom": "Le classique : deux TGV face à face",
+      "axeId": "sud-est",
+      "a": {
+        "materielId": "tgv-inoui",
+        "depart": "08:00",
+        "sens": "impair",
+        "dessert": false
+      },
+      "b": {
+        "materielId": "tgv-inoui",
+        "depart": "08:00",
+        "sens": "pair",
+        "dessert": false
+      }
+    },
+    {
+      "nom": "Un siècle d'écart : Crampton contre TGV M",
+      "axeId": "normandie",
+      "a": {
+        "materielId": "crampton",
+        "depart": "07:00",
+        "sens": "impair",
+        "dessert": true
+      },
+      "b": {
+        "materielId": "tgv-m",
+        "depart": "08:30",
+        "sens": "pair",
+        "dessert": false
+      }
+    },
+    {
+      "nom": "Le rattrapage : un TGV derrière un TER",
+      "axeId": "atlantique",
+      "a": {
+        "materielId": "ter",
+        "depart": "09:00",
+        "sens": "impair",
+        "dessert": true
+      },
+      "b": {
+        "materielId": "tgv-inoui",
+        "depart": "09:40",
+        "sens": "impair",
+        "dessert": false
+      }
+    },
+    {
+      "nom": "La nuit sur le POLT",
+      "axeId": "polt",
+      "a": {
+        "materielId": "nuit",
+        "depart": "20:45",
+        "sens": "impair",
+        "dessert": true
+      },
+      "b": {
+        "materielId": "fret",
+        "depart": "22:10",
+        "sens": "pair",
+        "dessert": false
+      }
+    }
+  ],
+  "methodes": [
+    {
+      "id": "face-a-face",
+      "nom": "Deux trains face à face",
+      "quand": "Le cas le plus fréquent : deux trains parcourent le même axe en sens contraires. Ils se croisent forcément, pourvu qu'ils soient en ligne en même temps.",
+      "formule": "t = (L + v_A × t_A + v_B × t_B) / (v_A + v_B)",
+      "principe": "Pendant qu'ils roulent l'un vers l'autre, la distance qui les sépare diminue à la somme de leurs vitesses. C'est la vitesse de rapprochement : le seul nombre qui compte.",
+      "exemple": {
+        "axeId": "atlantique",
+        "a": {
+          "materielId": "tgv-inoui",
+          "depart": "08:00",
+          "sens": "impair"
+        },
+        "b": {
+          "materielId": "tgv-inoui",
+          "depart": "08:30",
+          "sens": "pair"
+        }
+      }
+    },
+    {
+      "id": "rattrapage",
+      "nom": "Un train en rattrape un autre",
+      "quand": "Deux trains dans le même sens, le plus rapide derrière. Il ne le croise pas : il le rejoint — et sur voie unique, il faudra garer le premier.",
+      "formule": "t = t_B + (avance du premier) / (v_B − v_A)",
+      "principe": "Ici les vitesses se retranchent au lieu de s'ajouter. Le poursuivant ne gagne que la différence, ce qui rend le rattrapage bien plus lent qu'on ne l'imagine.",
+      "exemple": {
+        "axeId": "atlantique",
+        "a": {
+          "materielId": "ter",
+          "depart": "09:00",
+          "sens": "impair"
+        },
+        "b": {
+          "materielId": "tgv-inoui",
+          "depart": "09:40",
+          "sens": "impair"
+        }
+      }
+    },
+    {
+      "id": "depart-a-trouver",
+      "nom": "À quelle heure faire partir le second ?",
+      "quand": "On impose le lieu de la rencontre — un point de croisement sur voie unique, par exemple — et l'on cherche l'heure de départ qui l'y amène.",
+      "formule": "t_B = (heure de passage de A au point) − (distance restante / v_B)",
+      "principe": "On raisonne à l'envers : d'abord quand le premier train atteint le point, puis on remonte le temps de parcours du second.",
+      "exemple": {
+        "axeId": "normandie",
+        "a": {
+          "materielId": "intercites",
+          "depart": "07:00",
+          "sens": "impair"
+        },
+        "b": {
+          "materielId": "ter",
+          "sens": "pair"
+        },
+        "jalonPk": 137
+      }
+    },
+    {
+      "id": "vitesse-a-trouver",
+      "nom": "À quelle vitesse pour rejoindre à temps ?",
+      "quand": "L'heure de départ est fixée, le point de rencontre aussi : reste à savoir à quelle allure rouler.",
+      "formule": "v_B = distance / temps disponible",
+      "principe": "Le temps disponible est ce qui sépare le départ du second de l'instant où le premier atteint le point. Tout le reste est une règle de trois.",
+      "exemple": {
+        "axeId": "est",
+        "a": {
+          "materielId": "intercites",
+          "depart": "08:00",
+          "sens": "impair"
+        },
+        "b": {
+          "depart": "08:45",
+          "sens": "impair"
+        },
+        "jalonPk": 328
+      }
+    }
+  ]
+}

@@ -1,0 +1,102 @@
+{
+  "id": "petite-ceinture",
+  "nom": "La Petite Ceinture",
+  "nomCourt": "Petite Ceinture",
+  "surnom": "Le chemin de fer fantôme",
+  "categorie": "gare-patrimoine",
+  "ordre": 10,
+  "arrondissement": "Tout Paris, le long des boulevards des Maréchaux",
+  "adresse": "Anneau de 32 km autour de Paris",
+  "coord": { "lat": 48.8341, "lon": 2.3222 },
+  "ouverture": 1852,
+  "ouvertureTexte": "11 décembre 1852 (rive droite) — voyageurs de 1862 à 1934",
+  "compagnie": "Syndicat des compagnies du Nord, de l'Est, de l'Ouest, d'Orléans et du PLM",
+  "architectes": ["Ingénieurs des compagnies ; gares types de Juste Lisch et Jean-Jacques Delaroche"],
+  "protection": "Emprises propriété de SNCF Réseau ; tronçons ouverts au public par la Ville de Paris",
+  "couleur": "#4F7A55",
+  "resume": "Trente-deux kilomètres de voie ferrée qui font le tour de Paris, construits pour relier les grandes gares entre elles et desservir les fortifications. Fermés aux voyageurs en 1934, ils sont devenus un archipel de gares reconverties et de promenades sauvages — le plus grand terrain d'aventure urbaine de la capitale.",
+  "recit": {
+    "origine": "Au milieu du XIXe siècle, Paris a cinq gares, appartenant à cinq compagnies rivales, et aucune ne communique avec les autres. Les marchandises traversent la ville en charrette. L'État impose donc une ceinture ferroviaire, construite par étapes de 1852 à 1869, doublement justifiée : relier les réseaux, et desservir l'enceinte fortifiée de Thiers pour transporter troupes et canons. La section rive droite ouvre le 11 décembre 1852, la rive gauche le 25 février 1867. Le service voyageurs, lancé en 1862, transforme la ligne militaire en métro avant l'heure.",
+    "revolution": "L'apogée est l'Exposition universelle de 1900 : la Petite Ceinture transporte cette année-là près de trente-neuf millions de voyageurs. Puis le métropolitain ouvre — et la tue. Le train de ceinture est lent, ses gares sont en tranchée, il faut descendre des escaliers, attendre, respirer la fumée ; le métro est fréquent, propre et central. Le service voyageurs s'éteint le 23 juillet 1934, remplacé le lendemain par une ligne d'autobus baptisée PC, pour Petite Ceinture, qui roulera jusqu'au tramway T3 des années 2000. Le fret survit jusqu'aux années 1990, puis plus rien.",
+    "aujourdhui": "Ce vide de trente-deux kilomètres en pleine ville est devenu l'objet urbain le plus convoité de Paris. Une partie a déjà été récupérée : la section ouest est exploitée par le RER C entre Avenue Henri-Martin et Pont du Garigliano. Le reste a été rendu au public par tronçons — 1,3 km dans le 16e depuis 2007, puis le 15e en 2013, le 13e en 2016, le 12e, le 14e, le 18e et le 20e ensuite — soit une dizaine de kilomètres de promenades sauvages où l'on marche entre les rails, sous les ponts et dans une friche écologique classée réservoir de biodiversité. Quant aux gares, elles ont trouvé de nouvelles vies : la gare de Charonne est devenue La Flèche d'Or, salle de concert mythique du 20e ; celle de Passy-La Muette abrite le restaurant La Gare ; celle d'Ornano, à la porte de Clignancourt, est devenue La REcyclerie, café-ferme urbaine ; celle de l'Avenue de Saint-Ouen accueille Le Hasard Ludique ; celle de Vaugirard-Ceinture est aujourd'hui Le Poinçon."
+  },
+  "chronologie": [
+    { "annee": "1852", "titre": "La ceinture rive droite", "texte": "Ouverture le 11 décembre pour les marchandises : relier les cinq réseaux et desservir les fortifications de Thiers." },
+    { "annee": "1862", "titre": "Le service voyageurs", "texte": "Les Parisiens peuvent enfin faire le tour de leur ville en train — un métro avant le métro." },
+    { "annee": "1867", "titre": "La rive gauche", "texte": "Le 25 février, l'anneau se referme. Trente-deux kilomètres autour de Paris." },
+    { "annee": "1900", "titre": "L'apogée", "texte": "Près de 39 millions de voyageurs pendant l'Exposition universelle : record absolu de la ligne." },
+    { "annee": "1900-1930", "titre": "Le métro la vide", "texte": "Chaque nouvelle ligne de métro lui prend des voyageurs. La ligne de ceinture devient lente et démodée." },
+    { "annee": "1934", "titre": "Fin du service voyageurs", "texte": "Le 23 juillet, le dernier train de voyageurs circule. L'autobus PC prend le relais dès le lendemain." },
+    { "annee": "1988", "titre": "La ligne d'Auteuil au RER C", "texte": "La section ouest est intégrée au RER C : une partie de la Petite Ceinture roule encore." },
+    { "annee": "2007", "titre": "Première promenade", "texte": "Le 16e arrondissement ouvre 1,3 km de sentier nature : le début de la reconquête." },
+    { "annee": "2013-2021", "titre": "L'archipel s'agrandit", "texte": "Ouverture successive des tronçons du 15e, du 13e, du 12e, du 14e, du 18e et du 20e." },
+    { "annee": "aujourd'hui", "titre": "Un réservoir de biodiversité", "texte": "Plus de deux cents espèces végétales et des dizaines d'espèces animales recensées : la friche est devenue un corridor écologique protégé." }
+  ],
+  "chiffres": [
+    { "valeur": "32 km", "label": "de tour de Paris" },
+    { "valeur": "39 M", "label": "voyageurs en 1900", "note": "record absolu" },
+    { "valeur": "1934", "label": "fin du service voyageurs" },
+    { "valeur": "≈10 km", "label": "ouverts à la promenade", "note": "en plusieurs tronçons" }
+  ],
+  "dessertes": {
+    "international": [],
+    "grandesLignes": [],
+    "regional": [],
+    "franciliens": ["RER C entre Avenue Henri-Martin et Pont du Garigliano (section ouest, toujours exploitée)", "Tramway T3a et T3b sur le tracé parallèle des boulevards des Maréchaux"]
+  },
+  "acces": {
+    "metro": ["2 (Porte de Clignancourt, Père-Lachaise)", "13 (Porte de Saint-Ouen)", "12 (Convention)", "9 (Ranelagh)"],
+    "rer": ["C (section ouest en service)"],
+    "transilien": [],
+    "tram": ["T3a", "T3b"],
+    "bus": ["Le PC historique est devenu les lignes du tramway T3"],
+    "velo": "Les tronçons ouverts sont piétons ; le boulevard des Maréchaux est doublé d'une piste cyclable continue tout autour de Paris.",
+    "note": "Les tronçons ouverts sont ouverts en journée et fermés la nuit. Le reste de l'emprise est interdit d'accès et surveillé : les rails sont toujours propriété de SNCF Réseau."
+  },
+  "commodites": [
+    { "categorie": "Promenade", "titre": "Tronçon du 15e", "detail": "Le plus long et le plus aménagé : 1,5 km entre la place Balard et la rue Olivier-de-Serres, avec bancs, prairies et anciens quais." },
+    { "categorie": "Promenade", "titre": "Tronçon du 12e", "detail": "Depuis le square Charles-Péguy, un sentier étroit entre les rails avec des tunnels courts et une ambiance de friche végétale." },
+    { "categorie": "Café-gare", "titre": "La REcyclerie", "detail": "Ancienne gare d'Ornano, porte de Clignancourt : café, cantine, ferme urbaine sur les voies, ateliers de réparation. Ouvert tous les jours." },
+    { "categorie": "Café-gare", "titre": "Le Hasard Ludique", "detail": "Ancienne gare de l'Avenue de Saint-Ouen : salle de concert, terrasse sur les voies, programmation associative." },
+    { "categorie": "Restaurant-gare", "titre": "La Gare", "detail": "Ancienne gare de Passy-La Muette : restaurant avec une grande terrasse installée sur l'ancien quai, dans le 16e." },
+    { "categorie": "Bar-gare", "titre": "Le Poinçon", "detail": "Ancienne gare de Vaugirard-Ceinture, dans le 15e : restaurant et bar dans le bâtiment voyageurs restauré." }
+  ],
+  "pepites": [
+    { "titre": "Marcher entre les rails", "texte": "Le tronçon du 15e est le plus facile d'accès : on descend un escalier, et on se retrouve dans une tranchée verte, à sept mètres sous la ville, où plus rien ne fait le bruit de Paris.", "ou": "Entrée rue Olivier-de-Serres ou place Balard" },
+    { "titre": "La REcyclerie", "texte": "La plus réussie des reconversions : on boit un café sur l'ancien quai, on regarde les poules picorer entre les rails, et le tout donne directement sur les puces de Saint-Ouen.", "ou": "83 boulevard Ornano, 18e" },
+    { "titre": "Le viaduc de la rue de Coulmiers", "texte": "Dans le 14e, un pont ferroviaire de pierre enjambe encore la rue. Levez la tête : les garde-corps d'origine et les consoles de fonte sont intacts.", "ou": "14e arrondissement" },
+    { "titre": "La gare de Charonne", "texte": "Devenue La Flèche d'Or, salle de concert emblématique des années 2000, aujourd'hui réinvestie par des collectifs. Le bâtiment voyageurs de 1862 est toujours là, au-dessus des voies.", "ou": "102 bis rue de Bagnolet, 20e" },
+    { "titre": "Le tour complet à pied", "texte": "Marcher les 32 km du tracé, en alternant tronçons ouverts, rues parallèles et ponts, est devenu un rite parisien : une journée entière, et une lecture de la ville par ses marges." }
+  ],
+  "anecdote": {
+    "titre": "L'autobus qui a gardé le nom du train",
+    "texte": "Quand la Petite Ceinture ferme aux voyageurs en juillet 1934, la RATP met en service dès le lendemain une ligne d'autobus qui suit le même itinéraire, sur les boulevards des Maréchaux. On la baptise sobrement PC — pour Petite Ceinture. Elle roulera sous ce nom pendant plus de soixante-dix ans, jusqu'à ce que le tramway T3 la remplace à partir de 2006. Des générations de Parisiens ont ainsi pris « le PC » sans avoir jamais su qu'ils prononçaient le nom d'un chemin de fer disparu."
+  },
+  "artwork": {
+    "silhouette": "viaduct",
+    "bays": 9,
+    "clock": false,
+    "pediment": "triangular",
+    "statues": 0,
+    "tower": { "present": false },
+    "shed": { "present": false, "span": 0.6, "rise": 0.16 },
+    "flags": 0,
+    "palette": { "sky": ["#A9BFA4", "#E9EFDF"], "stone": "#CBC3A8", "stoneDark": "#9BA085", "roof": "#4F7A55", "glass": "#C4D8BE", "accent": "#4F7A55" },
+    "ambiance": "matin"
+  },
+  "plan": {
+    "type": "ligne de ceinture, majoritairement en tranchée",
+    "orientation": "Anneau complet autour de Paris, sous les boulevards des Maréchaux",
+    "groupes": [
+      { "nom": "Section ouest", "desserte": "Exploitée par le RER C entre Avenue Henri-Martin et Pont du Garigliano" },
+      { "nom": "Sections ouvertes au public", "desserte": "16e, 15e, 14e, 13e, 12e, 18e, 20e : environ 10 km de promenades" },
+      { "nom": "Sections fermées", "desserte": "Emprise SNCF Réseau, interdite d'accès, réservée à un éventuel usage ferroviaire futur" },
+      { "nom": "Gares reconverties", "desserte": "Ornano, Avenue de Saint-Ouen, Passy-La Muette, Charonne, Vaugirard-Ceinture, Reuilly" }
+    ],
+    "entrees": ["Place Balard (15e)", "Square Charles-Péguy (12e)", "Boulevard Ornano (18e)", "Rue de Bagnolet (20e)"]
+  },
+  "sources": [
+    { "titre": "Ligne de Petite Ceinture — Wikipédia", "url": "https://fr.wikipedia.org/wiki/Ligne_de_Petite_Ceinture" },
+    { "titre": "La Petite Ceinture — Ville de Paris", "url": "https://www.paris.fr/pages/la-petite-ceinture-2662" }
+  ]
+}

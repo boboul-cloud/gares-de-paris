@@ -1,0 +1,15 @@
+{
+  "name": "Gares de Paris",
+  "short_name": "Gares de Paris",
+  "description": "Histoire, circuits et commodités des gares parisiennes, de la vapeur au TGV.",
+  "start_url": "./index.html",
+  "scope": "./",
+  "display": "standalone",
+  "orientation": "any",
+  "background_color": "#E7EBEE",
+  "theme_color": "#0F4670",
+  "lang": "fr",
+  "icons": [
+    { "src": "icon.svg", "sizes": "any", "type": "image/svg+xml", "purpose": "any maskable" }
+  ]
+}

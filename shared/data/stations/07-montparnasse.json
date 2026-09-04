@@ -1,0 +1,105 @@
+{
+  "id": "paris-montparnasse",
+  "nom": "Paris-Montparnasse",
+  "nomCourt": "Montparnasse",
+  "surnom": "La gare de la vitesse",
+  "categorie": "grande-gare",
+  "ordre": 7,
+  "arrondissement": "14e et 15e arrondissements",
+  "adresse": "17 boulevard de Vaugirard, 75015 Paris",
+  "coord": { "lat": 48.8409, "lon": 2.32 },
+  "ouverture": 1840,
+  "ouvertureTexte": "10 septembre 1840 (embarcadère) — 1969 (gare actuelle)",
+  "compagnie": "Compagnie du chemin de fer de Paris à Versailles rive gauche, puis Compagnie de l'Ouest",
+  "architectes": ["Victor Lenoir (1852)", "Eugène Beaudouin, Urbain Cassan, Louis de Hoÿm de Marien (1969)", "AREP (2017-2021)"],
+  "protection": "Aucune pour la gare actuelle ; l'ancienne façade de 1852 a été démolie en 1969",
+  "couleur": "#4A5D8C",
+  "resume": "La gare la plus moderne des sept — parce qu'elle a été entièrement rasée en 1969. C'est d'ici que part la grande vitesse vers l'Ouest et le Sud-Ouest, et c'est sur sa ligne qu'a été établi en 1990 le record du monde de 515,3 km/h.",
+  "recit": {
+    "origine": "Le 10 septembre 1840, un embarcadère de bois et de fer ouvre au bout de la rue de Rennes, terminus de la ligne de Paris à Versailles par la rive gauche. En 1852, Victor Lenoir bâtit une vraie gare, à la façade classique, qui deviendra l'un des repères du Montparnasse des artistes. Elle voit passer les Bretons montant à Paris — c'est par elle qu'arrive toute une immigration intérieure qui donnera au quartier ses crêperies et ses bals bretons, encore présents rue du Montparnasse.",
+    "revolution": "Le 22 octobre 1895, l'express n° 56 arrivant de Granville aborde la gare avec un retard qu'il tente de rattraper. Le frein à air Westinghouse ne répond pas ; le frein à main du serre-frein est actionné trop tard. La locomotive 120 n° 721 traverse le heurtoir, franchit la salle des pas perdus, crève la façade et bascule dix mètres plus bas, sur la place de Rennes, où elle reste dressée à la verticale. Le bilan est miraculeusement léger : les passagers sont indemnes ; la seule victime est Marie-Augustine Aguilard, qui tenait le kiosque à journaux en bas et fut tuée par la chute de maçonnerie. La photographie de la machine suspendue dans le vide fera le tour du monde et reste, plus d'un siècle plus tard, l'image la plus célèbre de l'histoire ferroviaire. Le 25 août 1944, la gare écrit une autre page : c'est dans son bâtiment, PC du général Leclerc, que le général von Choltitz signe la reddition de la garnison allemande de Paris. La place devant s'appelle depuis place du 18-Juin-1940. En 1969, tout est rasé : la gare recule de trois cents mètres, la tour Montparnasse monte à 210 mètres et le quartier devient le grand chantier de la modernité gaullienne. Enfin, en 1989-1990, la LGV Atlantique fait de Montparnasse la gare de la vitesse. Le 18 mai 1990, sur cette ligne, la rame 325 du TGV Atlantique atteint 515,3 km/h — record du monde du rail sur fer qui tiendra dix-sept ans.",
+    "aujourdhui": "Quatrième gare parisienne avec environ 64,5 millions de voyageurs par an, Montparnasse a été profondément rénovée entre 2017 et 2021 pour 150 millions d'euros : nouveau toit-terrasse, doublement des surfaces commerciales, réorganisation complète du hall Porte Océane. Elle dessert la Bretagne, les Pays de la Loire et le Sud-Ouest jusqu'à Hendaye, et abrite au-dessus de ses voies l'un des secrets les mieux gardés de Paris : le Jardin Atlantique."
+  },
+  "chronologie": [
+    { "annee": "1840", "titre": "L'embarcadère du Maine", "texte": "Ouverture le 10 septembre, avec une halle métallique de cinquante mètres au bout de la rue de Rennes." },
+    { "annee": "1852", "titre": "La gare de Victor Lenoir", "texte": "Une gare de pierre remplace l'embarcadère ; elle deviendra l'un des symboles du Montparnasse des artistes." },
+    { "annee": "1895", "titre": "La locomotive dans le vide", "texte": "Le 22 octobre, l'express de Granville traverse la façade et bascule sur la place de Rennes. Une victime, une photographie immortelle." },
+    { "annee": "1944", "titre": "La reddition de Paris", "texte": "Le 25 août, le général von Choltitz signe la capitulation allemande dans la gare, au poste de commandement du général Leclerc." },
+    { "annee": "1969", "titre": "Table rase", "texte": "L'ancienne gare est démolie. La nouvelle recule de 300 mètres dans le cadre de l'opération Maine-Montparnasse." },
+    { "annee": "1973", "titre": "La tour", "texte": "Achèvement de la tour Montparnasse, 210 mètres, aussitôt contestée — elle provoquera l'interdiction des immeubles de grande hauteur dans Paris." },
+    { "annee": "1989-1990", "titre": "La LGV Atlantique", "texte": "Ouverture de la branche Le Mans (1989) puis Tours (1990). Montparnasse devient la gare de la grande vitesse de l'Ouest." },
+    { "annee": "1990", "titre": "515,3 km/h", "texte": "Le 18 mai, la rame 325 pulvérise le record du monde sur la LGV Atlantique. Il tiendra dix-sept ans." },
+    { "annee": "1994", "titre": "Le Jardin Atlantique", "texte": "Ouverture d'un parc de 3,5 hectares sur une dalle posée au-dessus des voies : un jardin suspendu au-dessus des TGV." },
+    { "annee": "2017", "titre": "LGV Bretagne — Pays de la Loire", "texte": "Rennes passe à 1 h 25 de Paris, Bordeaux à 2 h 04 grâce à la LGV Sud-Europe-Atlantique ouverte le même jour." },
+    { "annee": "2021", "titre": "La grande rénovation", "texte": "Fin d'un chantier de 150 millions d'euros : hall Porte Océane refait, surfaces commerciales doublées, toiture-terrasse ouverte." }
+  ],
+  "chiffres": [
+    { "valeur": "515,3 km/h", "label": "record du monde", "note": "18 mai 1990, sur la LGV Atlantique" },
+    { "valeur": "28", "label": "voies à quai", "note": "réparties en trois zones" },
+    { "valeur": "≈64,5 M", "label": "voyageurs par an", "note": "2023" },
+    { "valeur": "3,5 ha", "label": "le Jardin Atlantique", "note": "posé sur une dalle au-dessus des voies" },
+    { "valeur": "1 h 25", "label": "Paris — Rennes", "note": "meilleur temps depuis 2017" }
+  ],
+  "dessertes": {
+    "international": ["Hendaye et la frontière espagnole"],
+    "grandesLignes": ["Rennes", "Brest", "Quimper", "Saint-Malo", "Nantes", "Le Mans", "Angers", "Laval", "Bordeaux", "Toulouse", "Biarritz", "Hendaye", "Tarbes", "La Rochelle", "Poitiers"],
+    "regional": ["TER Centre-Val de Loire (Chartres, Le Mans)", "TER Normandie (Granville)"],
+    "franciliens": ["Transilien N (Rambouillet, Dreux, Mantes-la-Jolie)"]
+  },
+  "acces": {
+    "metro": ["4", "6", "12", "13"],
+    "rer": ["B (Denfert-Rochereau, 1 km ou métro 4)", "C (Invalides, métro 13)"],
+    "transilien": ["N"],
+    "tram": ["T3a (Montparnasse — Porte de Vanves, 2 km)"],
+    "bus": ["28", "58", "88", "89", "91", "92", "94", "95", "96"],
+    "velo": "Vélib' boulevard de Vaugirard et place Raoul-Dautry ; consigne Véligo sécurisée.",
+    "note": "La gare s'étend sur près de huit cents mètres entre la place Raoul-Dautry et la rue du Cotentin : entre le hall Porte Océane et les voies Vaugirard, comptez dix bonnes minutes de marche. Vérifiez votre zone de départ sur le billet."
+  },
+  "commodites": [
+    { "categorie": "Bagages", "titre": "Consigne automatique", "detail": "Trois formats (5,50 € / 7,50 € / 9,50 € les 24 h en 2026), environ 6 h 15 — 22 h 30, 72 h maximum. Située au niveau des départs." },
+    { "categorie": "Salons", "titre": "Salon Grand Voyageur", "detail": "Espace SNCF pour abonnés et Business Première, avec vue sur les voies, boissons et espaces de travail." },
+    { "categorie": "Accueil", "titre": "Assist'enGare", "detail": "Accompagnement PMR sur réservation, points d'information dans chaque hall, guichets et bornes libre-service." },
+    { "categorie": "Commerces", "titre": "Porte Océane", "detail": "Surfaces commerciales doublées lors de la rénovation : une centaine d'enseignes, supérette ouverte tard, librairie, pharmacie." },
+    { "categorie": "Restauration", "titre": "De la crêperie à la brasserie", "detail": "Restaurants et cafés dans la gare, mais surtout : la rue du Montparnasse toute proche est la rue des crêperies bretonnes de Paris, héritage direct de l'immigration arrivée par cette gare." },
+    { "categorie": "Confort", "titre": "Wi-Fi, sanitaires, terrasse", "detail": "Wi-Fi gratuit SNCF, sanitaires payants, espaces d'attente et toit-terrasse végétalisé ouvert au public depuis la rénovation." },
+    { "categorie": "Familles", "titre": "Junior & Cie", "detail": "Point d'accueil des enfants voyageant seuls, très fréquenté aux départs vers la Bretagne pendant les vacances." }
+  ],
+  "pepites": [
+    { "titre": "Le Jardin Atlantique", "texte": "Trois hectares et demi de jardin posés sur une dalle, à sept mètres au-dessus des quais. Bambous, graminées, terrain de tennis et vue sur la tour. Presque personne ne le connaît, et pourtant on y entre librement par des ascenseurs discrets.", "ou": "Au-dessus des voies, accès place des Cinq-Martyrs-du-Lycée-Buffon" },
+    { "titre": "Le musée Leclerc et le mémorial Jean-Moulin", "texte": "Dans le Jardin Atlantique, un musée raconte la Libération de Paris — au-dessus des voies, à deux pas du lieu exact où fut signée la reddition allemande le 25 août 1944.", "ou": "Jardin Atlantique" },
+    { "titre": "Le toit de la tour Montparnasse", "texte": "Le 56e étage et la terrasse panoramique offrent la seule vue de Paris où l'on voit la tour Eiffel — parce qu'on n'est pas dessus. Le coucher de soleil y vaut le prix du billet.", "ou": "33 avenue du Maine" },
+    { "titre": "La photo de 1895", "texte": "Cherchez-la : elle est reproduite dans la gare et sur d'innombrables affiches. Puis allez place du 18-Juin-1940 et imaginez la locomotive plantée à la verticale, là, sur le trottoir.", "ou": "Place du 18-Juin-1940" },
+    { "titre": "Le cimetière du Montparnasse", "texte": "À cinq minutes : Baudelaire, Beckett, Sartre et Beauvoir, Serge Gainsbourg, Jean Seberg. L'un des lieux les plus calmes du sud de Paris.", "ou": "3 boulevard Edgar-Quinet" }
+  ],
+  "anecdote": {
+    "titre": "La photographie la plus célèbre du chemin de fer",
+    "texte": "L'accident du 22 octobre 1895 n'a fait qu'une victime, mais il a produit une image devenue universelle : une locomotive à vapeur suspendue à la façade éventrée, le nez planté sur le trottoir. Elle a inspiré Martin Scorsese pour la séquence de rêve de Hugo Cabret, sert de couverture à des dizaines d'ouvrages et orne aujourd'hui des tee-shirts. Il fallut quatre jours et une grue de 250 tonnes pour relever la machine, qui reprit ensuite du service : elle n'avait presque rien."
+  },
+  "artwork": {
+    "silhouette": "slab",
+    "bays": 6,
+    "clock": true,
+    "pediment": "flat",
+    "statues": 0,
+    "tower": { "present": true, "side": "left", "height": 1.0, "clockFaces": 0 },
+    "shed": { "present": false, "span": 0.9, "rise": 0.12 },
+    "flags": 1,
+    "palette": { "sky": ["#7E93B5", "#E7E9EE"], "stone": "#C9CFD8", "stoneDark": "#98A1AE", "roof": "#3C4759", "glass": "#8FA9C6", "accent": "#4A5D8C" },
+    "ambiance": "soir"
+  },
+  "plan": {
+    "type": "gare en cul-de-sac, trois zones sur 800 mètres",
+    "orientation": "Faisceau orienté sud-ouest, vers Vanves et Clamart",
+    "groupes": [
+      { "nom": "Porte Océane — voies 1 à 9", "desserte": "TGV inOui et Ouigo vers la Bretagne et les Pays de la Loire" },
+      { "nom": "Pasteur — voies 10 à 15", "desserte": "TGV vers le Sud-Ouest, Bordeaux, Toulouse, Hendaye" },
+      { "nom": "Vaugirard — voies 16 à 24", "desserte": "TGV supplémentaires et grandes lignes, zone la plus éloignée du hall principal" },
+      { "nom": "Banlieue — voies 25 à 28", "desserte": "Transilien N vers Rambouillet, Dreux et Mantes-la-Jolie" }
+    ],
+    "entrees": ["Place Raoul-Dautry (hall principal)", "Boulevard de Vaugirard", "Avenue du Maine", "Rue du Cotentin (zone Vaugirard)"]
+  },
+  "sources": [
+    { "titre": "Gare de Paris-Montparnasse — Wikipédia", "url": "https://fr.wikipedia.org/wiki/Gare_de_Paris-Montparnasse" },
+    { "titre": "Accident de la gare Montparnasse — Wikipédia", "url": "https://fr.wikipedia.org/wiki/Accident_de_la_gare_Montparnasse" }
+  ]
+}

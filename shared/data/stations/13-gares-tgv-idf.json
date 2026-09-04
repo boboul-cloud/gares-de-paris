@@ -1,0 +1,96 @@
+{
+  "id": "gares-tgv-idf",
+  "nom": "Les gares TGV d'Île-de-France",
+  "nomCourt": "Gares TGV",
+  "surnom": "Le contournement",
+  "categorie": "gare-moderne",
+  "ordre": 13,
+  "arrondissement": "Massy, Marne-la-Vallée, Roissy",
+  "adresse": "Massy TGV, Marne-la-Vallée — Chessy, Aéroport Charles-de-Gaulle 2 TGV",
+  "coord": { "lat": 48.8709, "lon": 2.5679 },
+  "ouverture": 1991,
+  "ouvertureTexte": "1991 (Massy) — 1994 (Chessy et Roissy)",
+  "compagnie": "SNCF",
+  "architectes": ["Jean-Marie Duthilleul et Étienne Tricaud / AREP", "Paul Andreu (Roissy)"],
+  "protection": "Aucune",
+  "couleur": "#2E6E63",
+  "resume": "Trois gares construites hors de Paris pour que les TGV n'aient plus à y entrer. Avec l'interconnexion Est, ouverte en 1994, un Lillois peut rejoindre Marseille sans jamais mettre les pieds dans la capitale — la révolution silencieuse de la grande vitesse française.",
+  "recit": {
+    "origine": "Le réseau ferroviaire français est radial depuis Napoléon : toutes les lignes convergent vers Paris, et pour aller de Lille à Lyon il fallait traverser la capitale, changer de gare, prendre le métro avec ses valises. Dès la conception du TGV, les ingénieurs prévoient une solution : une ligne à grande vitesse de contournement, à l'est de Paris, reliant la LGV Nord à la LGV Sud-Est. C'est l'interconnexion Est, mise en service en 1994.",
+    "revolution": "Trois gares nouvelles naissent de cette logique. Massy TGV, ouverte en 1991 au sud, connecte le RER B et le RER C à la grande vitesse Atlantique. Marne-la-Vallée — Chessy, ouverte le 29 mai 1994 en même temps que Disneyland Paris, est la seule gare TGV du monde dont le quai débouche directement sur les portes d'un parc d'attractions ; Jean-Marie Duthilleul et Étienne Tricaud lui donnent une grande nef ondulée devenue un modèle. Aéroport Charles-de-Gaulle 2 TGV, la même année, place le train sous l'avion : conçue par Paul Andreu dans le prolongement de ses aérogares, elle permet la correspondance directe rail-air, et fait aujourd'hui de Roissy le premier hub intermodal européen.",
+    "aujourdhui": "Ces trois gares ont transformé la géographie française sans que grand monde s'en aperçoive. Elles portent les liaisons province-province — Lille — Lyon, Rennes — Marseille, Bordeaux — Strasbourg — qui n'auraient jamais existé autrement. Elles ont aussi une conséquence urbaine : elles créent des centralités nouvelles en grande couronne, ce que la France appelle désormais, souvent avec ironie, les gares « betteraves ». Sauf que celles-ci, adossées à un aéroport, à un parc de loisirs et à un pôle scientifique, ne le sont pas."
+  },
+  "chronologie": [
+    { "annee": "1981", "titre": "Le principe est posé", "texte": "Dès l'ouverture de la LGV Sud-Est, on prévoit une rocade à grande vitesse pour éviter la traversée de Paris." },
+    { "annee": "1991", "titre": "Massy TGV", "texte": "Ouverture de la gare de Massy, connectée au RER B et au RER C : premier maillon de l'interconnexion." },
+    { "annee": "1994", "titre": "L'interconnexion Est", "texte": "Ouverture de la LGV de contournement à l'est de Paris, reliant la LGV Nord à la LGV Sud-Est." },
+    { "annee": "1994", "titre": "Marne-la-Vallée — Chessy", "texte": "Le 29 mai, la gare ouvre avec Disneyland Paris. La grande vitesse dessert directement un parc d'attractions." },
+    { "annee": "1994", "titre": "Aéroport CDG 2 TGV", "texte": "Paul Andreu place le train sous les aérogares : naissance du premier grand pôle intermodal rail-air français." },
+    { "annee": "2007-2017", "titre": "L'effet réseau", "texte": "Chaque nouvelle LGV — Est, Rhin-Rhône, Bretagne, Sud-Europe-Atlantique — multiplie les liaisons province-province rendues possibles par l'interconnexion." },
+    { "annee": "2027", "titre": "CDG Express", "texte": "La navette directe Paris-Est — aéroport doit compléter le dispositif : le TGV pour la province, la navette pour Paris." }
+  ],
+  "chiffres": [
+    { "valeur": "3", "label": "gares TGV hors de Paris" },
+    { "valeur": "1994", "label": "ouverture de l'interconnexion Est" },
+    { "valeur": "≈10 M", "label": "voyageurs par an à Roissy TGV", "note": "ordre de grandeur" },
+    { "valeur": "0", "label": "changement de gare à Paris", "note": "pour aller de Lille à Marseille" }
+  ],
+  "dessertes": {
+    "international": ["Bruxelles", "Londres (via Lille)", "Amsterdam (via Bruxelles)", "Genève", "Barcelone"],
+    "grandesLignes": ["Lille", "Lyon", "Marseille", "Nice", "Montpellier", "Bordeaux", "Rennes", "Nantes", "Strasbourg", "Toulouse"],
+    "regional": [],
+    "franciliens": ["RER A (Marne-la-Vallée — Chessy)", "RER B (Massy-Palaiseau, Aéroport CDG 2)", "RER C (Massy)"]
+  },
+  "acces": {
+    "metro": [],
+    "rer": ["A (Chessy)", "B (Roissy et Massy-Palaiseau)", "C (Massy)"],
+    "transilien": ["Ligne C vers Versailles depuis Massy"],
+    "tram": ["T12 (Massy — Évry)"],
+    "bus": ["Réseaux locaux et navettes aéroportuaires"],
+    "velo": "Stationnements sécurisés à Massy et Chessy.",
+    "note": "Depuis Paris, comptez 35 minutes en RER B pour Roissy TGV, 40 minutes en RER A pour Chessy, 30 minutes en RER B ou C pour Massy. Attention : ces gares ne sont pas dans Paris, et un billet « Paris » ne s'y applique pas."
+  },
+  "commodites": [
+    { "categorie": "Bagages", "titre": "Consigne à Marne-la-Vallée — Chessy", "detail": "Consigne automatique disponible, très utilisée par les visiteurs des parcs. Pas de consigne à Massy ni à Roissy TGV." },
+    { "categorie": "Intermodalité", "titre": "Roissy : le train sous l'avion", "detail": "La gare TGV est intégrée au terminal 2 : correspondance à pied vers les halls d'embarquement, enregistrement bagages pour certaines compagnies." },
+    { "categorie": "Accueil", "titre": "Assist'enGare", "detail": "Accompagnement PMR sur réservation dans les trois gares, accès ascenseurs complets." },
+    { "categorie": "Restauration", "titre": "Offre standard", "detail": "Cafés et restauration rapide dans les trois gares ; à Chessy, le Disney Village est à cinq minutes à pied." },
+    { "categorie": "Voiture", "titre": "Parkings relais", "detail": "Parkings de grande capacité dans les trois gares : ces gares sont conçues pour la voiture, contrairement aux terminus parisiens." }
+  ],
+  "pepites": [
+    { "titre": "La nef de Chessy", "texte": "Duthilleul et Tricaud ont conçu une grande voûte de verre et de bois qui enjambe les voies, entre le RER et le TGV. C'est l'une des plus belles gares construites en France depuis 1980 — et presque personne ne la regarde, tout le monde court vers le parc.", "ou": "Marne-la-Vallée — Chessy" },
+    { "titre": "Les quais sous les avions", "texte": "À Roissy TGV, montez sur la passerelle : d'un côté les rames à 300 km/h, de l'autre les A380 au roulage. Peu d'endroits au monde donnent une image aussi nette de ce qu'est un hub.", "ou": "Aéroport Charles-de-Gaulle 2 TGV" },
+    { "titre": "Le plateau de Saclay depuis Massy", "texte": "Massy est la porte du plus grand campus scientifique de France : Polytechnique, CentraleSupélec, l'Institut d'optique, le synchrotron SOLEIL, à quelques minutes de bus ou du nouveau métro 18.", "ou": "Massy TGV" },
+    { "titre": "Le tour de France sans Paris", "texte": "Amusez-vous à composer un trajet Lille — Marseille, Rennes — Strasbourg ou Bordeaux — Lyon : ces trains existent, roulent tous les jours, et ne s'arrêtent jamais dans Paris.", "ou": "Interconnexion Est" }
+  ],
+  "anecdote": {
+    "titre": "La gare qui ouvre sur un château",
+    "texte": "À Marne-la-Vallée — Chessy, le quai TGV débouche à trois cents mètres de la grille du parc Disneyland. C'est un cas unique au monde : un train à grande vitesse qui vous dépose littéralement à l'entrée d'un parc d'attractions, avec des rames venues de Lille, de Bordeaux ou de Londres. Ce choix, imposé par Disney lors des négociations d'implantation en 1987, a fait de la gare l'un des arguments décisifs du dossier français face à l'Espagne."
+  },
+  "artwork": {
+    "silhouette": "modern",
+    "bays": 6,
+    "clock": false,
+    "pediment": "flat",
+    "statues": 0,
+    "tower": { "present": false },
+    "shed": { "present": true, "span": 0.98, "rise": 0.28 },
+    "flags": 0,
+    "palette": { "sky": ["#9EBCB6", "#EFF3EE"], "stone": "#D5DBD4", "stoneDark": "#9FAAA3", "roof": "#2E6E63", "glass": "#BEDAD6", "accent": "#2E6E63" },
+    "ambiance": "jour"
+  },
+  "plan": {
+    "type": "gares de passage sur ligne à grande vitesse",
+    "orientation": "Sur l'arc de contournement est et sud de Paris",
+    "groupes": [
+      { "nom": "Massy TGV", "desserte": "LGV Atlantique et interconnexion, correspondance RER B, RER C et tram T12" },
+      { "nom": "Marne-la-Vallée — Chessy", "desserte": "Interconnexion Est, correspondance RER A, accès direct aux parcs Disney" },
+      { "nom": "Aéroport Charles-de-Gaulle 2 TGV", "desserte": "Interconnexion Est, correspondance RER B et terminal aéroportuaire" }
+    ],
+    "entrees": ["Accès directs depuis les terminaux, parcs et gares RER correspondantes"]
+  },
+  "sources": [
+    { "titre": "LGV Interconnexion Est — Wikipédia", "url": "https://fr.wikipedia.org/wiki/LGV_Interconnexion_Est" },
+    { "titre": "Gare de Marne-la-Vallée — Chessy — Wikipédia", "url": "https://fr.wikipedia.org/wiki/Gare_de_Marne-la-Vall%C3%A9e_%E2%80%93_Chessy" }
+  ]
+}

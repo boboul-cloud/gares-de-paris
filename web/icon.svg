@@ -1,0 +1,36 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" role="img" aria-label="Gares de Paris">
+  <!-- Carré plein bord à bord : pas de coin arrondi, pas de transparence,
+       mêmes règles que l'icône des applications Apple. -->
+  <rect width="512" height="512" fill="#0F4670"/>
+
+  <!-- Façade : pavillon central, corniche débordante, corps du bâtiment -->
+  <rect x="196" y="62" width="120" height="66" fill="#F6F8FA"/>
+  <rect x="40" y="128" width="432" height="28" fill="#F6F8FA"/>
+  <rect x="60" y="156" width="392" height="156" fill="#F6F8FA"/>
+
+  <!-- Horloge du pavillon -->
+  <circle cx="256" cy="95" r="23" fill="#0F4670"/>
+  <path d="M256 95V80" stroke="#F6F8FA" stroke-width="5" stroke-linecap="round"/>
+  <path d="M256 95l13 6" stroke="#F6F8FA" stroke-width="4" stroke-linecap="round"/>
+
+  <!-- Trois baies cintrées -->
+  <path d="M86 312V246a48 48 0 0 1 96 0v66Z" fill="#0F4670"/>
+  <path d="M208 312V246a48 48 0 0 1 96 0v66Z" fill="#0F4670"/>
+  <path d="M330 312V246a48 48 0 0 1 96 0v66Z" fill="#0F4670"/>
+
+  <!-- Quai -->
+  <rect x="28" y="312" width="456" height="18" fill="#F6F8FA"/>
+
+  <!-- Le train -->
+  <rect x="84" y="350" width="344" height="74" rx="20" fill="#C4D8E6"/>
+  <rect x="106" y="368" width="52" height="32" rx="7" fill="#0F4670"/>
+  <rect x="170" y="368" width="52" height="32" rx="7" fill="#0F4670"/>
+  <rect x="234" y="368" width="52" height="32" rx="7" fill="#0F4670"/>
+  <rect x="304" y="368" width="96" height="32" rx="7" fill="#0F4670"/>
+  <rect x="96" y="420" width="320" height="8" fill="#0F4670"/>
+  <circle cx="152" cy="424" r="17" fill="#C4D8E6"/><circle cx="152" cy="424" r="6" fill="#0F4670"/>
+  <circle cx="360" cy="424" r="17" fill="#C4D8E6"/><circle cx="360" cy="424" r="6" fill="#0F4670"/>
+
+  <!-- Le rail -->
+  <rect x="40" y="448" width="432" height="14" fill="#F6F8FA"/>
+</svg>

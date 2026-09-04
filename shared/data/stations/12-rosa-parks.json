@@ -1,0 +1,91 @@
+{
+  "id": "gare-rosa-parks",
+  "nom": "Gare Rosa Parks",
+  "nomCourt": "Rosa Parks",
+  "surnom": "La neuve",
+  "categorie": "gare-moderne",
+  "ordre": 12,
+  "arrondissement": "19e arrondissement",
+  "adresse": "Avenue de la Porte-d'Aubervilliers, 75019 Paris",
+  "coord": { "lat": 48.8917, "lon": 2.3706 },
+  "ouverture": 2015,
+  "ouvertureTexte": "13 décembre 2015",
+  "compagnie": "SNCF Réseau et SNCF Gares & Connexions, pour Île-de-France Mobilités",
+  "architectes": ["AREP"],
+  "protection": "Aucune",
+  "couleur": "#C2673F",
+  "resume": "La première gare ferroviaire créée dans Paris depuis 1977. Ni palais ni cathédrale : une gare du XXIe siècle, faite de lumière naturelle, de béton clair et de passerelles, greffée sur un quartier en pleine transformation.",
+  "recit": {
+    "origine": "Le nord-est parisien est traversé par le faisceau ferroviaire de l'Est depuis cent soixante ans — mais sans jamais s'arrêter. Les habitants des Portes d'Aubervilliers et de la Villette voyaient passer les trains sans pouvoir les prendre. La gare Rosa Parks, décidée dans les années 2000 et ouverte le 13 décembre 2015, corrige cette anomalie : une gare RER E posée entre Magenta et Pantin, au service d'un secteur en pleine mutation — Chapelle International, Macdonald, Claude-Bernard.",
+    "revolution": "Elle marque un changement de doctrine architecturale. Là où le XIXe siècle bâtissait des façades-manifestes et le XXe des halls de béton, AREP conçoit une gare qui cherche à disparaître : longs quais couverts d'une résille filtrante, lumière naturelle partout, une passerelle transversale qui coud enfin les deux rives du faisceau ferroviaire, et pas d'effet monumental. La gare n'est plus un monument : c'est un morceau de ville qui fait aussi passer des trains.",
+    "aujourdhui": "Correspondance avec le tramway T3b et plusieurs lignes de bus, elle est devenue un point d'appui de la transformation du 19e nord. À deux cents mètres, la halle Pajol — ancienne halle de messagerie SNCF — a été reconvertie en équipement public coiffé de l'une des plus grandes centrales photovoltaïques urbaines de France : deux bâtiments ferroviaires, deux époques, la même idée de recyclage."
+  },
+  "chronologie": [
+    { "annee": "1999", "titre": "EOLE ouvre le RER E", "texte": "La ligne E relie Haussmann — Saint-Lazare à Chelles et Villiers ; le nord-est parisien la voit passer sans arrêt." },
+    { "annee": "2010", "titre": "La décision", "texte": "Île-de-France Mobilités et la Ville de Paris décident la création d'une gare nouvelle pour accompagner l'aménagement du secteur." },
+    { "annee": "2015", "titre": "Ouverture", "texte": "Le 13 décembre, la gare Rosa Parks entre en service : première gare ferroviaire nouvelle dans Paris depuis Bercy en 1977." },
+    { "annee": "2016", "titre": "Correspondance T3b", "texte": "Le prolongement du tramway des Maréchaux crée un pôle d'échange complet." },
+    { "annee": "2024-2027", "titre": "EOLE vers l'ouest", "texte": "Le prolongement du RER E vers Nanterre puis Mantes-la-Jolie donne à la gare un rayonnement régional élargi." }
+  ],
+  "chiffres": [
+    { "valeur": "2015", "label": "année d'ouverture" },
+    { "valeur": "1re", "label": "gare nouvelle dans Paris depuis 1977" },
+    { "valeur": "4", "label": "voies desservies" },
+    { "valeur": "≈9 M", "label": "voyageurs par an", "note": "ordre de grandeur récent" }
+  ],
+  "dessertes": {
+    "international": [],
+    "grandesLignes": [],
+    "regional": [],
+    "franciliens": ["RER E — Chelles-Gournay, Tournan, Haussmann — Saint-Lazare, Nanterre-La Folie"]
+  },
+  "acces": {
+    "metro": ["12 (Front Populaire, 700 m)", "7 (Porte de la Villette, 900 m)"],
+    "rer": ["E"],
+    "transilien": [],
+    "tram": ["T3b (Rosa Parks)"],
+    "bus": ["54", "60", "239", "249"],
+    "velo": "Vélib' avenue de la Porte-d'Aubervilliers ; les berges du canal Saint-Denis offrent une piste cyclable continue vers la Villette.",
+    "note": "Avec le RER E, la gare Rosa Parks est à sept minutes de Magenta (gare du Nord et gare de l'Est) et à onze minutes de Haussmann — Saint-Lazare : c'est le meilleur raccourci entre le nord-est parisien et le centre."
+  },
+  "commodites": [
+    { "categorie": "Accueil", "titre": "Gare automatisée", "detail": "Bornes libre-service, écrans d'information dynamique, accès entièrement PMR par ascenseurs. Pas de guichet permanent." },
+    { "categorie": "Confort", "titre": "Abris et Wi-Fi", "detail": "Quais largement couverts, assises abritées, Wi-Fi. La gare a été conçue pour la lumière naturelle : elle est agréable même par mauvais temps." },
+    { "categorie": "Vélo", "titre": "Consigne Véligo", "detail": "Stationnement vélo sécurisé à proximité immédiate, dans un secteur très cyclable." },
+    { "categorie": "Commerces", "titre": "Offre de proximité", "detail": "Peu de commerces en gare ; le centre commercial du Millénaire et les halles Macdonald sont à dix minutes à pied." }
+  ],
+  "pepites": [
+    { "titre": "La halle Pajol", "texte": "À un kilomètre, une ancienne halle de messagerie SNCF de 1926, sauvée et reconvertie : bibliothèque, auberge de jeunesse, jardin — et 3 500 m² de panneaux solaires sur le toit, l'une des plus grandes centrales photovoltaïques urbaines de France.", "ou": "20 esplanade Nathalie-Sarraute, 18e" },
+    { "titre": "La passerelle sur le faisceau", "texte": "Depuis la passerelle de la gare, on domine les voies de l'Est : TGV vers Strasbourg, RER, trains de fret. C'est le meilleur poste d'observation ferroviaire gratuit de Paris.", "ou": "Passerelle de la gare" },
+    { "titre": "Le parc du Millénaire et le canal", "texte": "Le canal Saint-Denis, à cinq cents mètres, mène à pied ou à vélo au parc de la Villette d'un côté, à Saint-Denis et au Stade de France de l'autre.", "ou": "Canal Saint-Denis" },
+    { "titre": "Le nom", "texte": "Rosa Parks, qui refusa en 1955 de céder sa place dans un bus de Montgomery. C'est la première gare parisienne portant le nom d'une femme noire américaine — un choix assumé pour un quartier populaire et cosmopolite.", "ou": "Sur le fronton de la gare" }
+  ],
+  "anecdote": {
+    "titre": "Une gare pour un quartier qui n'existait pas encore",
+    "texte": "Quand la gare Rosa Parks ouvre en 2015, une bonne partie de ce qu'elle doit desservir n'est pas construite : le quartier Chapelle International sort à peine de terre, les entrepôts Macdonald viennent d'être reconvertis, le parc n'existe pas. C'est l'inverse exact de la logique du XIXe siècle, où la gare venait desservir une ville déjà là. Ici, la gare est arrivée en premier — et la ville s'est organisée autour d'elle."
+  },
+  "artwork": {
+    "silhouette": "modern",
+    "bays": 5,
+    "clock": false,
+    "pediment": "flat",
+    "statues": 0,
+    "tower": { "present": false },
+    "shed": { "present": true, "span": 0.94, "rise": 0.14 },
+    "flags": 0,
+    "palette": { "sky": ["#B5B0A6", "#F2EFE7"], "stone": "#DCD8CE", "stoneDark": "#A9A69C", "roof": "#C2673F", "glass": "#CADCE0", "accent": "#C2673F" },
+    "ambiance": "jour"
+  },
+  "plan": {
+    "type": "gare de passage à quais latéraux",
+    "orientation": "Le long du faisceau de l'Est, orienté nord-est",
+    "groupes": [
+      { "nom": "Quais RER E", "desserte": "Deux quais, quatre voies, en direction de Haussmann — Saint-Lazare et de Chelles / Tournan" },
+      { "nom": "Passerelle transversale", "desserte": "Franchissement public du faisceau, reliant la Porte d'Aubervilliers au quartier Macdonald" }
+    ],
+    "entrees": ["Avenue de la Porte-d'Aubervilliers", "Rue Gaston-Tessier", "Station de tramway T3b"]
+  },
+  "sources": [
+    { "titre": "Gare de Rosa Parks — Wikipédia", "url": "https://fr.wikipedia.org/wiki/Gare_de_Rosa-Parks" }
+  ]
+}

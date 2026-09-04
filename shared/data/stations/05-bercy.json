@@ -1,0 +1,94 @@
+{
+  "id": "paris-bercy",
+  "nom": "Paris-Bercy Bourgogne — Pays d'Auvergne",
+  "nomCourt": "Bercy",
+  "surnom": "La discrète",
+  "categorie": "grande-gare",
+  "ordre": 5,
+  "arrondissement": "12e arrondissement",
+  "adresse": "48 bis boulevard de Bercy, 75012 Paris",
+  "coord": { "lat": 48.8395, "lon": 2.3823 },
+  "ouverture": 1977,
+  "ouvertureTexte": "1977 (gare voyageurs) — 1849 (gare de marchandises)",
+  "compagnie": "Compagnie Paris-Lyon-Méditerranée (PLM), puis SNCF",
+  "architectes": ["Ingénieurs SNCF (1977)", "Réaménagements AREP"],
+  "protection": "Aucune",
+  "couleur": "#6C7A5B",
+  "resume": "La seule grande gare parisienne née au XXe siècle. Ancienne gare de marchandises des entrepôts à vins, elle devient en 1977 la gare des trains-autos, puis l'annexe de la gare de Lyon. Modeste, fonctionnelle — et la porte du Massif central.",
+  "recit": {
+    "origine": "Bercy, c'est d'abord le vin. Dès 1849, avec l'ouverture de la ligne de Paris à Lyon, la compagnie PLM installe ici une gare de marchandises au service des entrepôts de Bercy, alors le plus grand marché aux vins du monde : les fûts arrivaient de Bourgogne et du Languedoc par le rail et par la Seine, et ressortaient en bouteilles vers tout Paris. Pendant plus d'un siècle, Bercy est une gare qui ne voit jamais un voyageur.",
+    "revolution": "En 1977, la SNCF a un problème : la gare de Lyon sature, et un trafic très particulier l'encombre — les trains-autos. Des familles entières embarquaient leur voiture sur des wagons porte-autos pour se réveiller à Nice ou à Narbonne avec leur véhicule. Ce service, lourd et lent à charger, est transféré à Bercy, qui devient une gare voyageurs. La logique est restée la même depuis : Bercy est l'annexe de la gare de Lyon, celle qui absorbe ce que la grande sœur ne peut plus contenir. Les trains-autos ont pratiquement disparu, mais les Intercités et les TER du centre de la France sont restés.",
+    "aujourdhui": "Rebaptisée en septembre 2016 « Paris-Bercy Bourgogne — Pays d'Auvergne » à la demande des régions, elle accueille environ 5,5 millions de voyageurs par an sur six voies. C'est peu, à l'échelle parisienne — mais c'est la porte d'entrée ferroviaire du Massif central : Clermont-Ferrand, Nevers, Moulins, Vichy, ainsi que Dijon et Laroche-Migennes. Pour le voyageur, elle a un avantage rare : on y monte dans le train sans foule, sans stress, et la Cinémathèque française est à deux cents mètres."
+  },
+  "chronologie": [
+    { "annee": "1849", "titre": "La gare des vins", "texte": "Ouverture d'une gare de marchandises PLM desservant les entrepôts de Bercy, premier marché aux vins d'Europe." },
+    { "annee": "1977", "titre": "La gare des voitures", "texte": "Transformation en gare voyageurs pour accueillir les trains-autos jusque-là gérés à la gare de Lyon." },
+    { "annee": "1980-2000", "titre": "L'annexe", "texte": "Bercy absorbe progressivement les trains de nuit, les trains d'été et les liaisons vers le Bourbonnais et l'Auvergne." },
+    { "annee": "1998", "titre": "Le métro 14", "texte": "L'arrivée de Météor puis son prolongement font entrer la gare dans le réseau lourd parisien." },
+    { "annee": "2016", "titre": "Un nom de deux régions", "texte": "En septembre, la gare devient Paris-Bercy Bourgogne — Pays d'Auvergne, à la demande des collectivités qui financent les TER." },
+    { "annee": "2020", "titre": "Fin de Thello", "texte": "L'opérateur privé italien abandonne le Paris — Venise de nuit, dernier grand train de nuit international parti de Bercy." },
+    { "annee": "2023-2027", "titre": "Renouvellement Intercités", "texte": "Les rames Oxygène (Confort 200) commandées à CAF doivent renouveler les Intercités Paris — Clermont-Ferrand, historiquement les plus critiqués du réseau." }
+  ],
+  "chiffres": [
+    { "valeur": "1977", "label": "ouverture aux voyageurs", "note": "la plus récente des grandes gares parisiennes" },
+    { "valeur": "6", "label": "voies à quai", "note": "3 quais" },
+    { "valeur": "≈5,5 M", "label": "voyageurs par an", "note": "2024" },
+    { "valeur": "3 h 25", "label": "Paris — Clermont-Ferrand", "note": "ligne classique, sans grande vitesse" }
+  ],
+  "dessertes": {
+    "international": [],
+    "grandesLignes": ["Clermont-Ferrand", "Nevers", "Moulins", "Vichy", "Riom", "Dijon"],
+    "regional": ["TER Bourgogne-Franche-Comté (Laroche-Migennes, Dijon)", "TER Auvergne-Rhône-Alpes"],
+    "franciliens": ["Transilien R en renfort ponctuel"]
+  },
+  "acces": {
+    "metro": ["6", "14"],
+    "rer": ["A et D (gare de Lyon, 900 m ou une station de métro)"],
+    "transilien": [],
+    "tram": ["T3a (Baron-le-Roy, 1,2 km)"],
+    "bus": ["24", "64", "87"],
+    "velo": "Vélib' boulevard de Bercy et rue de Pommard ; piste cyclable continue le long de la Seine vers la Bastille et la BnF.",
+    "note": "Bercy est à une seule station de métro de la gare de Lyon (ligne 14) : les deux gares fonctionnent comme un couple, et un billet peut vous faire partir de l'une ou de l'autre. Vérifiez toujours laquelle."
+  },
+  "commodites": [
+    { "categorie": "Bagages", "titre": "Pas de consigne", "detail": "Il n'y a pas de consigne à bagages à Bercy : la plus proche est celle de la gare de Lyon, à une station de métro 14." },
+    { "categorie": "Accueil", "titre": "Guichets et Assist'enGare", "detail": "Guichets SNCF, bornes libre-service, accompagnement PMR sur réservation. Gare de taille humaine, facile à traverser." },
+    { "categorie": "Restauration", "titre": "Café et snacks", "detail": "Offre volontairement réduite : un café-brasserie et une supérette. Bercy Village et ses restaurants sont à dix minutes à pied." },
+    { "categorie": "Confort", "titre": "Salle d'attente et Wi-Fi", "detail": "Wi-Fi gratuit SNCF, salle d'attente assise, sanitaires. La gare est réputée pour son calme comparée aux autres terminus parisiens." },
+    { "categorie": "Voiture", "titre": "Dépose-minute et parking", "detail": "Accès automobile direct par le boulevard de Bercy, stationnement Indigo à proximité — un des rares terminus parisiens facilement accessible en voiture." }
+  ],
+  "pepites": [
+    { "titre": "La Cinémathèque française", "texte": "À deux cents mètres, le bâtiment déconstruit de Frank Gehry (1994) abrite le musée du cinéma, la plus grande collection d'appareils et de costumes au monde, et quatre salles de projection.", "ou": "51 rue de Bercy" },
+    { "titre": "Bercy Village et les chais", "texte": "Les anciens chais à vins de pierre meulière, sauvés de la démolition, forment aujourd'hui une rue piétonne pavée bordée de boutiques et de restaurants. Les rails du chemin de fer des vins sont encore visibles au sol.", "ou": "Cour Saint-Émilion, 800 m" },
+    { "titre": "Le parc de Bercy", "texte": "Quatorze hectares organisés en trois jardins, avec potager, vignes et roseraie, sur l'emprise des anciens entrepôts. La passerelle Simone-de-Beauvoir le relie à la Bibliothèque nationale de France, de l'autre côté de la Seine.", "ou": "Entre la gare et la Seine" },
+    { "titre": "L'Accor Arena", "texte": "La pyramide gazonnée de Bercy, ouverte en 1984, accueille concerts et grands événements sportifs. Sa silhouette inclinée est visible depuis les quais de la gare.", "ou": "Boulevard de Bercy" }
+  ],
+  "anecdote": {
+    "titre": "Quand on embarquait sa 4L pour Nice",
+    "texte": "Le train-auto était une invention très française : on chargeait sa voiture sur un wagon porte-autos à Bercy en fin d'après-midi, on montait dans une voiture-couchettes, et on retrouvait son véhicule le lendemain matin à Nice, Narbonne ou Saint-Raphaël, prêt pour les vacances. Le service, lancé dans les années 1950, a survécu jusqu'en 2019 avant de disparaître faute de rentabilité. Il reste dans la mémoire de plusieurs générations comme le vrai début des grandes vacances."
+  },
+  "artwork": {
+    "silhouette": "modern",
+    "bays": 4,
+    "clock": true,
+    "pediment": "flat",
+    "statues": 0,
+    "tower": { "present": false },
+    "shed": { "present": true, "span": 0.7, "rise": 0.18 },
+    "flags": 1,
+    "palette": { "sky": ["#A9B7A2", "#EDEDE4"], "stone": "#CFCFC4", "stoneDark": "#A3A395", "roof": "#6C7A5B", "glass": "#B6CBC0", "accent": "#6C7A5B" },
+    "ambiance": "jour"
+  },
+  "plan": {
+    "type": "gare en cul-de-sac, plain-pied",
+    "orientation": "Faisceau orienté sud-est, en parallèle des voies de la gare de Lyon",
+    "groupes": [
+      { "nom": "Voies 1 à 6", "desserte": "Intercités Clermont-Ferrand et Nevers, TER Bourgogne-Franche-Comté, TER Auvergne" },
+      { "nom": "Ancien terminal auto-train", "desserte": "Quai de chargement désaffecté, encore visible côté nord" }
+    ],
+    "entrees": ["Boulevard de Bercy", "Rue de Pommard (accès métro 14)"]
+  },
+  "sources": [
+    { "titre": "Gare de Paris-Bercy — Wikipédia", "url": "https://fr.wikipedia.org/wiki/Gare_de_Paris-Bercy" }
+  ]
+}

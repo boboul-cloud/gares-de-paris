@@ -1,0 +1,95 @@
+{
+  "id": "gares-souterraines",
+  "nom": "Les gares souterraines",
+  "nomCourt": "RER E souterrain",
+  "surnom": "Paris sous Paris",
+  "categorie": "gare-moderne",
+  "ordre": 14,
+  "arrondissement": "8e, 9e et 10e arrondissements",
+  "adresse": "Haussmann — Saint-Lazare et Magenta, sous les grands boulevards",
+  "coord": { "lat": 48.8747, "lon": 2.3273 },
+  "ouverture": 1999,
+  "ouvertureTexte": "14 juillet 1999",
+  "compagnie": "SNCF et RATP, pour le Syndicat des transports parisiens",
+  "architectes": ["Jean-Marie Duthilleul et AREP"],
+  "protection": "Aucune",
+  "couleur": "#5D5A7D",
+  "resume": "Depuis 1999, deux gares de la taille d'une cathédrale existent à trente mètres sous les Grands Boulevards, sans que rien ne les signale en surface. C'est le chapitre le plus récent — et le plus invisible — de l'histoire ferroviaire parisienne.",
+  "recit": {
+    "origine": "Au début des années 1990, Paris a un problème de saturation : le RER A dépasse le million de voyageurs par jour et devient la ligne de transport urbain la plus chargée d'Europe. La solution s'appelle EOLE — Est-Ouest Liaison Express : creuser une nouvelle ligne sous Paris, reliant les réseaux de l'Est à ceux de l'Ouest. Le chantier est colossal : deux tunnels de sept mètres de diamètre, et deux gares souterraines à creuser sous des quartiers denses sans rien démolir en surface.",
+    "revolution": "Haussmann — Saint-Lazare et Magenta ouvrent le 14 juillet 1999. Elles sont bâties selon un principe inverse de celui des gares du XIXe : au lieu d'un monument de pierre et d'une verrière, on creuse un volume de la taille de la nef de Notre-Dame — 225 mètres de long, 25 de large, 20 de haut pour Haussmann — et on le rend lisible par la lumière artificielle, les grandes surfaces claires et les percées verticales. Jean-Marie Duthilleul et l'agence AREP y inventent une grammaire de la gare enfouie qui fera école, en France comme à l'étranger. Le trait le plus étonnant : ces gares n'ont pas de façade. Elles n'existent que par leurs bouches, disséminées dans les rues.",
+    "aujourdhui": "Le RER E est devenu le grand chantier de la mobilité francilienne. Son prolongement vers l'ouest — Nanterre-La Folie depuis 2024, puis Mantes-la-Jolie à l'horizon 2027 — allonge la ligne de 55 kilomètres et exige un tunnel de 8 kilomètres sous le quartier d'affaires de La Défense. Quand il sera achevé, on pourra traverser l'Île-de-France d'est en ouest sans changement, et le RER A retrouvera de l'air. Le tout, sans qu'une seule nouvelle façade de gare apparaisse dans Paris."
+  },
+  "chronologie": [
+    { "annee": "1989", "titre": "Le projet EOLE", "texte": "Décision de créer une nouvelle traversée est-ouest de Paris pour soulager le RER A saturé." },
+    { "annee": "1991-1999", "titre": "Le chantier invisible", "texte": "Deux tunnels et deux gares creusés sous les Grands Boulevards, sans démolition en surface." },
+    { "annee": "1999", "titre": "Ouverture du RER E", "texte": "Le 14 juillet, Haussmann — Saint-Lazare et Magenta entrent en service. La ligne E est née." },
+    { "annee": "2003", "titre": "Prolongement vers Tournan", "texte": "La branche sud-est atteint Tournan-en-Brie ; la ligne trouve son équilibre à l'est." },
+    { "annee": "2013", "titre": "EOLE vers l'ouest est lancé", "texte": "Décision de prolonger le RER E jusqu'à Mantes-la-Jolie par un tunnel sous La Défense." },
+    { "annee": "2024", "titre": "Nanterre-La Folie", "texte": "Mise en service du prolongement jusqu'à Nanterre : le RER E traverse enfin La Défense." },
+    { "annee": "2027", "titre": "Mantes-la-Jolie", "texte": "Achèvement attendu du prolongement : 55 km de plus, et une traversée complète de l'Île-de-France." }
+  ],
+  "chiffres": [
+    { "valeur": "225 m", "label": "longueur de Haussmann — Saint-Lazare", "note": "à peu près la nef de Notre-Dame" },
+    { "valeur": "30 m", "label": "profondeur sous la rue" },
+    { "valeur": "1999", "label": "ouverture du RER E" },
+    { "valeur": "55 km", "label": "prolongement vers l'ouest", "note": "jusqu'à Mantes-la-Jolie" }
+  ],
+  "dessertes": {
+    "international": [],
+    "grandesLignes": [],
+    "regional": [],
+    "franciliens": ["RER E — Chelles-Gournay, Tournan, Villiers-sur-Marne, Nanterre-La Folie, bientôt Mantes-la-Jolie"]
+  },
+  "acces": {
+    "metro": ["3", "7", "8", "9", "12", "13", "14"],
+    "rer": ["E", "A (par Auber)", "B et D (par Magenta et la gare du Nord)"],
+    "transilien": ["Correspondance directe avec les lignes J et L à Saint-Lazare"],
+    "tram": [],
+    "bus": ["Nombreuses lignes des Grands Boulevards"],
+    "velo": "Vélib' aux abords de chaque bouche ; stationnement Véligo à Saint-Lazare.",
+    "note": "Magenta est reliée à la gare du Nord et à la gare de l'Est par des couloirs souterrains : c'est la correspondance la plus rapide entre les deux, mais elle demande cinq à sept minutes de marche."
+  },
+  "commodites": [
+    { "categorie": "Correspondances", "titre": "Deux pôles majeurs", "detail": "Haussmann — Saint-Lazare relie le RER E aux lignes 3, 9, 12, 13, 14 et à toute la gare Saint-Lazare ; Magenta relie le RER E aux gares du Nord et de l'Est." },
+    { "categorie": "Accueil", "titre": "Accessibilité complète", "detail": "Ces gares ont été conçues après la loi sur l'accessibilité : ascenseurs de bout en bout, quais rectilignes, information sonore et visuelle." },
+    { "categorie": "Commerces", "titre": "Galeries souterraines", "detail": "Boulangeries, presse, pharmacie et restauration rapide le long des couloirs, ouverts très tôt le matin." },
+    { "categorie": "Confort", "titre": "Wi-Fi et 4G/5G", "detail": "Couverture mobile intégrale, y compris dans les tunnels : l'une des premières lignes franciliennes entièrement connectées." }
+  ],
+  "pepites": [
+    { "titre": "Le volume de Haussmann — Saint-Lazare", "texte": "Descendez au niveau des quais et regardez la longueur : deux cent vingt-cinq mètres d'un seul tenant, vingt mètres sous plafond. On est dans un vaisseau, à trente mètres sous le boulevard Haussmann, et personne en surface ne s'en doute.", "ou": "RER E, niveau quais" },
+    { "titre": "Le puits de lumière de Magenta", "texte": "AREP a percé des ouvertures verticales pour amener un peu de jour naturel jusqu'aux quais. Cherchez-les depuis le niveau intermédiaire : c'est le seul rayon de soleil du RER E.", "ou": "Gare Magenta" },
+    { "titre": "La traversée de La Défense", "texte": "Depuis 2024, le RER E file sous le quartier d'affaires dans un tunnel de huit kilomètres et ressort à Nanterre. C'est le plus important chantier ferroviaire francilien depuis le RER A.", "ou": "RER E vers Nanterre-La Folie" },
+    { "titre": "Le contraste des deux Saint-Lazare", "texte": "Prenez l'escalator entre le RER E et la salle des pas perdus de Saint-Lazare : en quatre-vingt-dix secondes, vous passez de 1999 à 1889. C'est le plus grand écart architectural que l'on puisse franchir à pied à Paris.", "ou": "Correspondance Haussmann — Saint-Lazare" }
+  ],
+  "anecdote": {
+    "titre": "Une gare grande comme Notre-Dame, et invisible",
+    "texte": "Le volume creusé pour la gare Haussmann — Saint-Lazare est comparable à celui de la nef de Notre-Dame de Paris. Il a été excavé sous un quartier haussmannien habité, entre des immeubles de six étages fondés sur des caves, sans qu'aucune façade ne se fissure. Les ingénieurs ont utilisé le gel du sol et l'injection de coulis pour tenir les terrains. Le résultat est un des plus grands espaces intérieurs de Paris — et le seul dont l'existence ne se devine d'aucun point de la ville."
+  },
+  "artwork": {
+    "silhouette": "underground",
+    "bays": 6,
+    "clock": false,
+    "pediment": "flat",
+    "statues": 0,
+    "tower": { "present": false },
+    "shed": { "present": false, "span": 0.9, "rise": 0.34 },
+    "flags": 0,
+    "palette": { "sky": ["#3F3D57", "#6E6A8C"], "stone": "#B9B5C6", "stoneDark": "#7C7891", "roof": "#2E2C42", "glass": "#D8CFA0", "accent": "#5D5A7D" },
+    "ambiance": "nuit"
+  },
+  "plan": {
+    "type": "gares souterraines profondes, traversantes",
+    "orientation": "Axe est-ouest sous les Grands Boulevards",
+    "groupes": [
+      { "nom": "Haussmann — Saint-Lazare", "desserte": "4 voies, 225 m de long, 30 m sous la rue ; correspondance Saint-Lazare et métros 3, 9, 12, 13, 14" },
+      { "nom": "Magenta", "desserte": "2 voies ; correspondance gare du Nord et gare de l'Est par couloirs souterrains" },
+      { "nom": "Tunnel EOLE ouest", "desserte": "8 km sous La Défense jusqu'à Nanterre-La Folie, ouvert en 2024" }
+    ],
+    "entrees": ["Rue de Rome et rue de Provence (Haussmann)", "Boulevard de Magenta et gare du Nord (Magenta)"]
+  },
+  "sources": [
+    { "titre": "Gare de Haussmann — Saint-Lazare — Wikipédia", "url": "https://fr.wikipedia.org/wiki/Gare_de_Haussmann_%E2%80%94_Saint-Lazare" },
+    { "titre": "EOLE, prolongement du RER E — SNCF Réseau", "url": "https://www.sncf-reseau.com/fr/entreprise/newsroom/dossier/eole-prolongement-rer-e" }
+  ]
+}

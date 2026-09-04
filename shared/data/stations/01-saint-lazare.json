@@ -1,0 +1,102 @@
+{
+  "id": "paris-saint-lazare",
+  "nom": "Paris-Saint-Lazare",
+  "nomCourt": "Saint-Lazare",
+  "surnom": "L'aînée",
+  "categorie": "grande-gare",
+  "ordre": 1,
+  "arrondissement": "8e arrondissement",
+  "adresse": "13 rue d'Amsterdam, 75008 Paris",
+  "coord": { "lat": 48.8757, "lon": 2.3252 },
+  "ouverture": 1837,
+  "ouvertureTexte": "26 août 1837",
+  "compagnie": "Compagnie du chemin de fer de Paris à Saint-Germain, puis Compagnie de l'Ouest, puis État",
+  "architectes": ["Alfred Armand", "Eugène Flachat", "Juste Lisch"],
+  "protection": "Façades et toitures inscrites au titre des monuments historiques",
+  "couleur": "#3E6E8E",
+  "resume": "La plus ancienne gare de Paris et la deuxième d'Europe par la fréquentation. Née d'un embarcadère provisoire posé place de l'Europe en 1837, elle est devenue la gare des impressionnistes, la porte de la Normandie et une machine à transporter un demi-million de Franciliens par jour.",
+  "recit": {
+    "origine": "Le 26 août 1837, la reine Marie-Amélie inaugure la ligne de Paris au Pecq. Ce n'est pas la première voie ferrée de France — celle de Saint-Étienne à Andrézieux, ouverte en 1827, transportait du charbon — mais c'est la première conçue en France pour les voyageurs, et la première à faire du train un spectacle mondain. Les frères Émile et Isaac Pereire, banquiers saint-simoniens, ont dû batailler : on redoutait alors que la vitesse ne rende fou, que la fumée ne stérilise les champs. Le terminus est un simple hangar de bois planté sur la place de l'Europe, un « embarcadère » — le mot vient de la navigation, car personne ne sait encore comment nommer ces bâtiments d'un genre nouveau.",
+    "revolution": "En quelques décennies, l'embarcadère devient un organisme. Alfred Armand et Eugène Flachat bâtissent entre 1842 et 1853 une vraie gare, en fer et en verre, dont la halle est un manifeste technique. Puis, pour l'Exposition universelle de 1889, Juste Lisch reconstruit la façade que nous voyons aujourd'hui : une architecture de pierre à l'ordonnance haussmannienne, doublée de l'Hôtel Terminus, parce qu'une gare moderne doit désormais loger, nourrir et impressionner. C'est cette gare-là que Claude Monet installe sur ses chevalets en 1877 : douze toiles peintes sur le motif, avec l'autorisation du directeur qui fait allumer les foyers pour épaissir la vapeur. Le train n'est plus une machine, il est devenu un sujet. Gustave Caillebotte peint au même moment Le Pont de l'Europe, ce pont métallique qui enjambe le faisceau de voies et d'où l'on regarde encore, aujourd'hui, partir les trains.",
+    "aujourdhui": "Saint-Lazare est une gare de flux plus qu'une gare de départ : l'immense majorité de ses voyageurs sont des Franciliens des lignes J et L, auxquels s'ajoutent les trains normands et le RER E enfoui sous la rue de Rome. La rénovation de 2012 a transformé la salle des pas perdus en centre commercial sur trois niveaux, choix discuté mais qui a rendu au bâtiment sa lumière et ses circulations verticales. Sous la verrière, la sculpture d'Arman continue d'empiler ses horloges : ici, on court toujours."
+  },
+  "chronologie": [
+    { "annee": "1837", "titre": "L'embarcadère de l'Europe", "texte": "Inauguration de la ligne Paris — Le Pecq. Terminus provisoire en bois sur la place de l'Europe : la première gare de Paris." },
+    { "annee": "1842-1853", "titre": "La gare de fer", "texte": "Alfred Armand et Eugène Flachat construisent la gare définitive rue Saint-Lazare, avec ses halles métalliques." },
+    { "annee": "1877", "titre": "Monet installe son chevalet", "texte": "Douze toiles de la série La Gare Saint-Lazare. Le chemin de fer entre dans l'histoire de l'art." },
+    { "annee": "1885-1889", "titre": "La façade de Juste Lisch", "texte": "Reconstruction monumentale pour l'Exposition universelle, avec l'Hôtel Terminus accolé à la gare." },
+    { "annee": "1924", "titre": "L'électrification", "texte": "La banlieue de l'Ouest passe au troisième rail, puis à la caténaire : la vapeur quitte peu à peu la rue de Rome." },
+    { "annee": "1985", "titre": "L'Heure de tous", "texte": "Arman installe cour de Rome son amoncellement de vingt-cinq horloges, et cour du Havre Consigne à vie, sa pyramide de valises." },
+    { "annee": "1999", "titre": "Haussmann — Saint-Lazare", "texte": "Ouverture de la gare souterraine du RER E (projet EOLE), à quatre-vingts pas et trente mètres sous la gare historique." },
+    { "annee": "2012", "titre": "La gare-galerie", "texte": "Réouverture après trois ans de travaux : quatre-vingts commerces sur trois niveaux, verrières dégagées, flux verticalisés." },
+    { "annee": "2024-2027", "titre": "EOLE vers l'ouest", "texte": "Le RER E prolongé vers Nanterre puis Mantes-la-Jolie soulage progressivement les quais historiques." }
+  ],
+  "chiffres": [
+    { "valeur": "1837", "label": "année d'ouverture", "note": "la plus ancienne gare de Paris" },
+    { "valeur": "27", "label": "voies à quai" },
+    { "valeur": "≈114 M", "label": "voyageurs par an", "note": "2024, périmètre SNCF Gares & Connexions" },
+    { "valeur": "2e", "label": "gare de France et d'Europe", "note": "derrière Paris-Nord" },
+    { "valeur": "12", "label": "toiles de Monet", "note": "série de 1877" }
+  ],
+  "dessertes": {
+    "international": [],
+    "grandesLignes": ["Rouen", "Le Havre", "Caen", "Cherbourg", "Trouville-Deauville", "Dieppe", "Évreux", "Lisieux"],
+    "regional": ["TER Normandie (Nomad)"],
+    "franciliens": ["Transilien J (Ermont, Gisors, Mantes, Vernon)", "Transilien L (Versailles, Saint-Nom-la-Bretèche, Cergy)", "RER E à Haussmann — Saint-Lazare"]
+  },
+  "acces": {
+    "metro": ["3", "12", "13", "14"],
+    "rer": ["E (Haussmann — Saint-Lazare)", "A (par Auber, correspondance souterraine)"],
+    "transilien": ["J", "L"],
+    "tram": [],
+    "bus": ["20", "21", "22", "26", "27", "28", "32", "43", "53", "66", "80", "94", "95"],
+    "velo": "Stations Vélib' rue de Rome, rue Saint-Lazare et cour du Havre ; parking vélo sécurisé en cour de Rome.",
+    "note": "La correspondance Saint-Lazare — Auber — Havre-Caumartin — Opéra forme l'un des plus grands complexes d'échange souterrains d'Europe : comptez 8 à 10 minutes de marche entre le RER A et les quais Transilien."
+  },
+  "commodites": [
+    { "categorie": "Bagages", "titre": "Consigne automatique", "detail": "Casiers trois formats, accessibles environ de 6 h à 23 h, 72 h maximum. Tarif indicatif 2026 : 5,50 € à 9,50 € les 24 h." },
+    { "categorie": "Accueil", "titre": "Espace d'accueil et Assist'enGare", "detail": "Accompagnement des personnes à mobilité réduite sur réservation ; guichets et bornes libre-service dans la salle des pas perdus." },
+    { "categorie": "Commerces", "titre": "Saint-Lazare Paris", "detail": "Environ 80 boutiques et restaurants sur trois niveaux, ouverts tard et le dimanche : l'un des rares centres commerciaux parisiens greffés sur une gare." },
+    { "categorie": "Restauration", "titre": "Brasseries historiques", "detail": "Le Petit Sommelier, la Brasserie Mollard (1895, décor Art nouveau classé, à cent mètres rue Saint-Lazare) et de nombreuses enseignes rapides sous la verrière." },
+    { "categorie": "Confort", "titre": "Wi-Fi, sanitaires, salles d'attente", "detail": "Wi-Fi gratuit SNCF, sanitaires payants niveau transversal, espaces d'attente sous la grande verrière." },
+    { "categorie": "Services", "titre": "Objets trouvés et sûreté", "detail": "Service des objets trouvés SNCF, présence permanente de la Sûreté ferroviaire et de la police ferroviaire." }
+  ],
+  "pepites": [
+    { "titre": "La façade de Juste Lisch", "texte": "Depuis la cour de Rome, prenez du recul : la façade de 1889 est une composition savante d'arcs, de pilastres et de ferronneries, pensée pour être vue en descendant la rue de Rome. L'ancien Hôtel Terminus, à gauche, est aujourd'hui un hôtel de luxe — on peut en traverser le hall.", "ou": "Cour de Rome et cour du Havre" },
+    { "titre": "L'Heure de tous, d'Arman", "texte": "Vingt-cinq horloges de gare fondues en un tas de bronze, dressé en 1985. En face, Consigne à vie empile des valises. Deux sculptures qui disent tout du lieu : le temps et le départ.", "ou": "Cour de Rome / cour du Havre" },
+    { "titre": "Le pont de l'Europe", "texte": "Le plus beau balcon ferroviaire de Paris. De ce carrefour à six branches, on domine les vingt-sept voies. C'est le sujet de Caillebotte en 1876 et l'arrière-plan de Monet. À la tombée du jour, les feux de signalisation composent un tableau.", "ou": "Place de l'Europe, 100 m au nord" },
+    { "titre": "Les Monet, à vingt minutes", "texte": "Sept des douze toiles de la série sont visibles à Paris : au musée d'Orsay (elle-même une gare) et au musée Marmottan Monet. Boucler la boucle en RER C entre les deux gares est le meilleur itinéraire d'art de la ville.", "ou": "Musée d'Orsay, musée Marmottan" },
+    { "titre": "Le quartier de l'Europe", "texte": "Toutes les rues autour portent des noms de capitales européennes desservies par le rail : Rome, Amsterdam, Londres, Vienne, Constantinople, Saint-Pétersbourg. Un plan d'Europe dessiné au sol par les urbanistes du XIXe siècle.", "ou": "Autour de la gare" }
+  ],
+  "anecdote": {
+    "titre": "Monet et le chef de gare",
+    "texte": "En janvier 1877, Monet se présente au directeur de la Compagnie de l'Ouest, en habit et canne, et se déclare décidé à peindre sa gare. On fait évacuer les quais, retarder les trains et bourrer les foyers de charbon pour épaissir la vapeur. Le peintre obtiendra ainsi ses nuages bleutés — et douze tableaux qui font de Saint-Lazare la gare la plus représentée du monde."
+  },
+  "artwork": {
+    "silhouette": "terminus",
+    "bays": 7,
+    "clock": true,
+    "pediment": "flat",
+    "statues": 0,
+    "tower": { "present": false },
+    "shed": { "present": true, "span": 0.88, "rise": 0.34 },
+    "flags": 2,
+    "palette": { "sky": ["#9FB8CC", "#E4E0D5"], "stone": "#D8CEBD", "stoneDark": "#B5A78F", "roof": "#5C6B72", "glass": "#8FB4C4", "accent": "#3E6E8E" },
+    "ambiance": "matin"
+  },
+  "plan": {
+    "type": "gare en cul-de-sac (terminus)",
+    "orientation": "Faisceau orienté nord-ouest, vers Batignolles et le tunnel des Batignolles",
+    "groupes": [
+      { "nom": "Voies 1 à 8", "desserte": "Ligne L — Versailles-Rive-Droite, Saint-Nom-la-Bretèche" },
+      { "nom": "Voies 9 à 16", "desserte": "Ligne J — Ermont-Eaubonne, Conflans, Gisors" },
+      { "nom": "Voies 17 à 27", "desserte": "Grandes lignes Normandie et ligne J vers Mantes / Vernon" },
+      { "nom": "Niveau -3", "desserte": "RER E — gare Haussmann — Saint-Lazare, 4 voies" }
+    ],
+    "entrees": ["Cour de Rome (rue de Rome)", "Cour du Havre (rue d'Amsterdam)", "Rue Saint-Lazare", "Passage du Havre"]
+  },
+  "sources": [
+    { "titre": "Gare de Paris-Saint-Lazare — Wikipédia", "url": "https://fr.wikipedia.org/wiki/Gare_de_Paris-Saint-Lazare" },
+    { "titre": "SNCF Gares & Connexions — Paris Saint-Lazare", "url": "https://www.garesetconnexions.sncf/fr/gares-services/gare-paris-saint-lazare" }
+  ]
+}

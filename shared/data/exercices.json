@@ -1,0 +1,142 @@
+{
+  "titre": "Exercices",
+  "sousTitre": "Des énoncés tirés au sort, corrigés par le graphique de marche",
+  "intro": "Le simulateur donne toujours la réponse. Ici, c'est vous qui la donnez. Les énoncés sont engendrés à partir des axes réels, des matériels et du contenu documentaire de l'application : chaque série est différente, et chaque correction s'accompagne du raisonnement — pour les croisements, du graphique lui-même.",
+  "note": "Chaque série porte un numéro. Le même numéro redonne exactement les mêmes questions, sur l'ordinateur comme sur le téléphone : notez-le pour rejouer une série, ou pour la proposer à quelqu'un d'autre.",
+  "longueurSerie": 8,
+  "tolerances": {
+    "heureMinutes": 2,
+    "pkRatio": 0.015,
+    "pkMinimum": 5,
+    "vitesseKmH": 5,
+    "dureeMinutes": 3
+  },
+  "modes": [
+    {
+      "id": "croisements",
+      "nom": "Croisements",
+      "detail": "Quatre familles de problèmes sur le graphique de marche."
+    },
+    {
+      "id": "culture",
+      "nom": "Culture ferroviaire",
+      "detail": "Dates, architectes, dessertes et vocabulaire, tirés des fiches."
+    },
+    {
+      "id": "melange",
+      "nom": "Mélange",
+      "detail": "Les huit familles, par difficulté croissante."
+    }
+  ],
+  "ordreFamilles": [
+    "croisement-heure",
+    "croisement-pk",
+    "depart-a-trouver",
+    "vitesse-a-trouver",
+    "doc-date",
+    "doc-architecte",
+    "doc-desserte",
+    "doc-glossaire"
+  ],
+  "familles": {
+    "croisement-heure": {
+      "nom": "Heure du croisement",
+      "mode": "croisements",
+      "niveau": 1,
+      "enonce": "Sur l'axe {axe} ({longueur} km), un {materielA} quitte {origine} à {departA} à {vitesseA} km/h. Un {materielB} quitte {terminus} à {departB} à {vitesseB} km/h. À quelle heure se croisent-ils ?",
+      "indice": "Les deux trains couvrent ensemble {longueur} km. Additionnez leurs vitesses pour obtenir la vitesse de rapprochement.",
+      "unite": "heure"
+    },
+    "croisement-pk": {
+      "nom": "Point kilométrique du croisement",
+      "mode": "croisements",
+      "niveau": 2,
+      "enonce": "Sur l'axe {axe} ({longueur} km), un {materielA} part de {origine} à {departA} à {vitesseA} km/h ; un {materielB} part de {terminus} à {departB} à {vitesseB} km/h. À quel point kilométrique se croisent-ils ?",
+      "indice": "Trouvez d'abord l'heure du croisement, puis multipliez la vitesse du train A par le temps qu'il a roulé.",
+      "unite": "km"
+    },
+    "depart-a-trouver": {
+      "nom": "Heure de départ à trouver",
+      "mode": "croisements",
+      "niveau": 3,
+      "enonce": "Sur l'axe {axe}, un {materielA} quitte {origine} à {departA} à {vitesseA} km/h. On veut qu'un {materielB} roulant à {vitesseB} km/h le croise exactement à {gare} (PK {pkGare}). À quelle heure ce second train doit-il quitter {terminus} ?",
+      "indice": "Calculez d'abord à quelle heure le premier train passe à {gare}, puis remontez le temps de parcours du second depuis {terminus}.",
+      "unite": "heure"
+    },
+    "vitesse-a-trouver": {
+      "nom": "Vitesse à trouver",
+      "mode": "croisements",
+      "niveau": 3,
+      "enonce": "Sur l'axe {axe}, un {materielA} quitte {origine} à {departA} à {vitesseA} km/h. Un second train part de {origine} à {departB}, derrière lui. Quelle vitesse moyenne doit-il tenir pour le rejoindre exactement à {gare} (PK {pkGare}) ?",
+      "indice": "À quelle heure le premier train atteint-il {gare} ? Le second doit y être au même instant, en partant plus tard.",
+      "unite": "km/h"
+    },
+    "doc-date": {
+      "nom": "Dates",
+      "mode": "culture",
+      "niveau": 1,
+      "enonce": "{gare} — en quelle année ce fait s'est-il produit : « {fait} » ?",
+      "indice": "Situez l'événement dans l'histoire de la gare.",
+      "unite": "choix"
+    },
+    "doc-architecte": {
+      "nom": "Architectes",
+      "mode": "culture",
+      "niveau": 2,
+      "enonce": "Qui a conçu {gare} ?",
+      "indice": "Chaque compagnie avait son architecte en chef.",
+      "unite": "choix"
+    },
+    "doc-desserte": {
+      "nom": "Dessertes",
+      "mode": "culture",
+      "niveau": 1,
+      "enonce": "De quelle gare parisienne part-on pour {destination} ?",
+      "indice": "Chaque terminus dessert une direction de la France.",
+      "unite": "choix"
+    },
+    "doc-glossaire": {
+      "nom": "Vocabulaire",
+      "mode": "culture",
+      "niveau": 2,
+      "enonce": "Que désigne le mot « {terme} » ?",
+      "indice": "Le glossaire de l'application donne les quarante-deux mots du rail.",
+      "unite": "choix"
+    }
+  },
+  "verdicts": {
+    "juste": [
+      "Exact.",
+      "C'est cela.",
+      "Juste.",
+      "Bien vu."
+    ],
+    "proche": [
+      "Presque : votre réponse tombe dans la tolérance.",
+      "Bon ordre de grandeur, dans la tolérance."
+    ],
+    "faux": [
+      "Pas cette fois.",
+      "Non.",
+      "Ce n'est pas la bonne réponse."
+    ]
+  },
+  "bilans": [
+    {
+      "seuil": 100,
+      "texte": "Sans faute. Vous pouvez tenir un poste de régulation."
+    },
+    {
+      "seuil": 75,
+      "texte": "Solide. Les croisements n'ont plus grand-chose à vous apprendre."
+    },
+    {
+      "seuil": 50,
+      "texte": "Honorable. Reprenez les corrigés, le graphique dit tout."
+    },
+    {
+      "seuil": 0,
+      "texte": "Début difficile. Refaites une série : les énoncés changent, la méthode reste."
+    }
+  ]
+}

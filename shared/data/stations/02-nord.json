@@ -1,0 +1,107 @@
+{
+  "id": "paris-nord",
+  "nom": "Paris-Nord",
+  "nomCourt": "Gare du Nord",
+  "surnom": "La géante",
+  "categorie": "grande-gare",
+  "ordre": 2,
+  "arrondissement": "10e arrondissement",
+  "adresse": "18 rue de Dunkerque, 75010 Paris",
+  "coord": { "lat": 48.8809, "lon": 2.3553 },
+  "ouverture": 1846,
+  "ouvertureTexte": "14 juin 1846 (première gare) — 1864 (gare actuelle)",
+  "compagnie": "Compagnie des chemins de fer du Nord (famille de Rothschild)",
+  "architectes": ["Léonce Reynaud (1846)", "Jacques Ignace Hittorff (1861-1865)"],
+  "protection": "Inscrite au titre des monuments historiques le 15 janvier 1975",
+  "couleur": "#B03A2E",
+  "resume": "La gare la plus fréquentée d'Europe, et sans doute la plus théâtrale : une façade-arc de triomphe couronnée de vingt-trois statues de villes, une verrière de 72 mètres de portée posée sur des colonnes de fonte écossaise, et derrière, tout le nord de l'Europe.",
+  "recit": {
+    "origine": "La Compagnie du Nord, contrôlée par James de Rothschild, ouvre en 1846 une première gare dessinée par Léonce Reynaud. Elle est belle, elle est déjà trop petite. Quinze ans suffisent à la rendre obsolète : le trafic vers Lille, la Belgique et l'Angleterre explose. La compagnie prend alors une décision très XIXe siècle : plutôt que de la détruire, elle démonte la façade pierre par pierre et l'expédie à Lille, où l'architecte Sidney Dunnett la remonte — en lui ajoutant un étage. La façade de la gare de Lille-Flandres est donc la première gare du Nord de Paris, déménagée à 220 kilomètres.",
+    "revolution": "Pour la remplacer, la compagnie appelle Jacques Ignace Hittorff, l'architecte de la place de la Concorde. Entre 1861 et 1865 il compose un manifeste : une façade de pierre en forme d'arc de triomphe, scandée de vingt-trois statues allégoriques. Les neuf grandes, au couronnement, figurent les destinations internationales — Londres, Bruxelles, Amsterdam, Berlin, Vienne, Varsovie, Francfort, Cologne, Vienne. Les quatorze plus petites, en contrebas, représentent les villes françaises du réseau : Lille, Amiens, Arras, Dunkerque, Douai, Valenciennes, Beauvais, Compiègne, Rouen, Cambrai, Saint-Quentin, Laon, Boulogne, Calais. Derrière ce décor de pierre, Hittorff cache un chef-d'œuvre d'ingénieur : une halle de 72 mètres de portée, portée par des colonnes de fonte coulées en Écosse — la sidérurgie britannique était alors la meilleure du monde. Pierre devant, fer derrière : c'est toute la doctrine architecturale du Second Empire résumée en un bâtiment.",
+    "aujourdhui": "Paris-Nord est aujourd'hui la première gare d'Europe : autour de sept cent mille personnes y transitent chaque jour, entre Eurostar, TGV, TER Hauts-de-France, RER B et D, Transilien H et K, et cinq lignes de métro. Cette réussite est aussi son problème : les surfaces d'accueil, calibrées au XIXe siècle, saturent. Le projet StatioNord, qui devait tripler le volume de la gare, a été abandonné en septembre 2021 quand son coût a atteint 1,5 milliard d'euros. Lui a succédé Horizon 2024, mené par AREP pour cinquante millions : moins spectaculaire, mais livré à temps pour les Jeux. Une deuxième phase est annoncée pour 2027, en même temps que l'arrivée du CDG Express."
+  },
+  "chronologie": [
+    { "annee": "1846", "titre": "La première gare du Nord", "texte": "Ouverture de la gare de Léonce Reynaud, terminus de la ligne de Paris à Lille et à la frontière belge." },
+    { "annee": "1860-1864", "titre": "Le déménagement d'une façade", "texte": "La première gare est démontée ; sa façade est remontée à Lille, où elle sert toujours de frontispice à la gare de Lille-Flandres." },
+    { "annee": "1861-1865", "titre": "Hittorff bâtit la gare actuelle", "texte": "Façade monumentale de pierre, vingt-trois statues, halle métallique de 72 mètres de portée sur colonnes de fonte écossaise. Mise en service en 1864." },
+    { "annee": "1870", "titre": "Les ballons montés", "texte": "Pendant le siège de Paris, les halles de la gare servent d'atelier de fabrication des ballons qui emportent le courrier au-dessus des lignes prussiennes." },
+    { "annee": "1889-1930", "titre": "Extensions successives", "texte": "La gare grandit vers l'ouest et vers l'est, gagnant progressivement ses vingt-huit voies de surface." },
+    { "annee": "1975", "titre": "Monument historique", "texte": "La gare est inscrite le 15 janvier 1975, sauvant sa façade et sa halle des projets de restructuration lourde." },
+    { "annee": "1994", "titre": "Eurostar", "texte": "Le tunnel sous la Manche ouvre : Paris-Nord devient la porte de Londres, avec un terminal international sous douane." },
+    { "annee": "2021", "titre": "StatioNord abandonné", "texte": "En septembre, la SNCF renonce au projet de transformation à 1,5 milliard d'euros, jugé irréalisable avant 2024." },
+    { "annee": "2024", "titre": "Horizon 2024", "texte": "Livraison du projet AREP : signalétique refaite, escaliers ajoutés, assises multipliées, circulations désaturées pour les Jeux olympiques." },
+    { "annee": "2027", "titre": "CDG Express", "texte": "Mise en service annoncée de la liaison directe vers l'aéroport Charles-de-Gaulle en une vingtaine de minutes." }
+  ],
+  "chiffres": [
+    { "valeur": "1re", "label": "gare d'Europe", "note": "par la fréquentation" },
+    { "valeur": "≈700 000", "label": "personnes par jour", "note": "tous modes confondus" },
+    { "valeur": "32", "label": "voies", "note": "28 en surface, 4 souterraines" },
+    { "valeur": "72 m", "label": "portée de la verrière" },
+    { "valeur": "23", "label": "statues de villes", "note": "9 internationales, 14 françaises" }
+  ],
+  "dessertes": {
+    "international": ["Londres (Eurostar)", "Bruxelles", "Amsterdam", "Rotterdam", "Cologne", "Dortmund", "Berlin (European Sleeper)"],
+    "grandesLignes": ["Lille", "Arras", "Douai", "Valenciennes", "Dunkerque", "Calais", "Boulogne", "Amiens", "Maubeuge"],
+    "regional": ["TER Hauts-de-France"],
+    "franciliens": ["RER B", "RER D", "RER E (à Magenta)", "Transilien H", "Transilien K"]
+  },
+  "acces": {
+    "metro": ["2", "4", "5"],
+    "rer": ["B", "D", "E (gare Magenta, 300 m)"],
+    "transilien": ["H", "K"],
+    "tram": [],
+    "bus": ["26", "30", "31", "35", "38", "39", "43", "46", "48", "54", "56", "65", "302", "350"],
+    "velo": "Vélib' rue de Dunkerque et boulevard de Denain ; consigne Véligo sécurisée côté rue du Faubourg-Saint-Denis.",
+    "note": "Gare de l'Est est à sept minutes à pied par la rue du Faubourg-Saint-Denis : c'est le trajet inter-gares le plus court de Paris, et le plus agréable."
+  },
+  "commodites": [
+    { "categorie": "Bagages", "titre": "Consigne automatique", "detail": "Casiers de trois tailles, environ 6 h — 23 h, 72 h maximum. Tarif indicatif 2026 : 5,50 € à 9,50 € les 24 h." },
+    { "categorie": "Salons", "titre": "Salon Grand Voyageur et salon Eurostar", "detail": "Salon SNCF réservé aux abonnés Grand Voyageur et voyageurs Business Première ; le salon Eurostar dessert le terminal international à l'étage." },
+    { "categorie": "International", "titre": "Terminal Eurostar", "detail": "Enregistrement, contrôles frontaliers et sûreté à l'étage : présentez-vous 45 à 60 minutes avant le départ. Passeport obligatoire." },
+    { "categorie": "Accueil", "titre": "Assist'enGare", "detail": "Accompagnement PMR sur réservation ; point d'information au centre du hall transversal ; guichets internationaux." },
+    { "categorie": "Restauration", "titre": "Terminus Nord et compagnie", "detail": "Brasserie Terminus Nord (décor Art déco de 1925) face à la gare, Brasserie Julien et Chez Casimir à proximité, plus une trentaine d'enseignes rapides dans la gare." },
+    { "categorie": "Commerces", "titre": "Galerie commerciale", "detail": "Presse, pharmacie, librairie, prêt-à-porter et alimentation ouverte tôt et tard, essentiellement le long du hall transversal et au niveau Eurostar." },
+    { "categorie": "Confort", "titre": "Wi-Fi, sanitaires, recharge", "detail": "Wi-Fi gratuit SNCF, sanitaires payants, bornes de recharge et assises largement renforcées lors du projet Horizon 2024." }
+  ],
+  "pepites": [
+    { "titre": "Les vingt-trois villes de pierre", "texte": "Jouez à les identifier depuis le trottoir d'en face : les neuf grandes du couronnement sont les capitales étrangères, les quatorze du bas les villes françaises. Chacune porte un attribut — une ancre pour Boulogne, une roue dentée pour Valenciennes, une navette de tisserand pour Lille.", "ou": "Parvis, rue de Dunkerque" },
+    { "titre": "La verrière d'Hittorff", "texte": "Depuis le bout du quai 4 ou 5, regardez vers le haut : soixante-douze mètres sans un seul appui intermédiaire, en 1864. Les colonnes de fonte portent encore la marque de leur fonderie écossaise.", "ou": "Extrémité des quais grandes lignes" },
+    { "titre": "Le jumeau de Lille", "texte": "Si vous prenez un TGV pour Lille, sortez de la gare de Lille-Flandres et retournez-vous : cette façade est celle de la gare du Nord de 1846, démontée et remontée là-bas. Deux gares du Nord pour le prix d'une.", "ou": "Gare de Lille-Flandres" },
+    { "titre": "Le Terminus Nord", "texte": "Une brasserie de 1925 restée dans son jus Art déco : banquettes rouges, miroirs gravés, plateaux de fruits de mer. C'est l'endroit où l'on comprend ce qu'était le rituel du départ.", "ou": "23 rue de Dunkerque, face à la gare" },
+    { "titre": "Le quartier derrière", "texte": "Cinq minutes à pied et vous êtes rue du Faubourg-Saint-Denis, dans le Paris le plus cosmopolite qui soit — passage Brady, marché Saint-Quentin (halle de fonte de 1866), cour des Petites-Écuries.", "ou": "10e arrondissement" }
+  ],
+  "anecdote": {
+    "titre": "Une gare qui a déménagé de 220 kilomètres",
+    "texte": "Quand la Compagnie du Nord se résout à agrandir sa gare parisienne en 1860, elle ne veut pas gaspiller une façade de pierre de taille encore neuve. Elle la fait démonter, numéroter, charger sur ses propres trains et remonter à Lille. L'architecte Sidney Dunnett y ajoute un étage pour l'adapter à son nouveau site. Résultat : la gare de Lille-Flandres porte encore aujourd'hui le visage de la première gare du Nord de Paris — le seul cas connu de gare parisienne exilée en province."
+  },
+  "artwork": {
+    "silhouette": "terminus",
+    "bays": 5,
+    "clock": true,
+    "pediment": "flat",
+    "statues": 9,
+    "tower": { "present": false },
+    "shed": { "present": true, "span": 0.92, "rise": 0.46 },
+    "flags": 3,
+    "palette": { "sky": ["#C8B8A8", "#EFE6D8"], "stone": "#E0D3BE", "stoneDark": "#BAA98E", "roof": "#6B6257", "glass": "#A8C3CE", "accent": "#B03A2E" },
+    "ambiance": "jour"
+  },
+  "plan": {
+    "type": "gare en cul-de-sac, avec gare souterraine traversante",
+    "orientation": "Faisceau orienté nord, vers La Chapelle et Saint-Denis",
+    "groupes": [
+      { "nom": "Voies 1 à 2", "desserte": "Transilien K et TER, côté rue du Faubourg-Saint-Denis" },
+      { "nom": "Voies 3 à 6", "desserte": "Transilien H — Persan, Luzarches, Pontoise" },
+      { "nom": "Voies 7 à 8", "desserte": "TER Hauts-de-France" },
+      { "nom": "Voies 9 à 18", "desserte": "TGV inOui, Ouigo, TER grande distance" },
+      { "nom": "Voies 19 à 23", "desserte": "Terminal Eurostar (zone sous douane, accès à l'étage)" },
+      { "nom": "Voies 30 à 36", "desserte": "TER et Transilien, halle de l'ouest" },
+      { "nom": "Niveau -2 et -4", "desserte": "RER B et RER D, gare souterraine traversante, 4 voies" }
+    ],
+    "entrees": ["Parvis rue de Dunkerque (façade Hittorff)", "Rue du Faubourg-Saint-Denis", "Rue de Maubeuge", "Passage souterrain vers Magenta / RER E"]
+  },
+  "sources": [
+    { "titre": "Gare de Paris-Nord — Wikipédia", "url": "https://fr.wikipedia.org/wiki/Gare_de_Paris-Nord" },
+    { "titre": "Horizon 2024, modernisation de la gare du Nord — Gares & Connexions", "url": "https://www.garesetconnexions.sncf/fr/gares-services/actualites/horizon-2024-modernisation-gare-du-nord" }
+  ]
+}

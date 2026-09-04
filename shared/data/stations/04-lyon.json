@@ -1,0 +1,104 @@
+{
+  "id": "paris-lyon",
+  "nom": "Paris-Gare de Lyon",
+  "nomCourt": "Gare de Lyon",
+  "surnom": "La gare du Sud",
+  "categorie": "grande-gare",
+  "ordre": 4,
+  "arrondissement": "12e arrondissement",
+  "adresse": "Place Louis-Armand, 75012 Paris",
+  "coord": { "lat": 48.8443, "lon": 2.3743 },
+  "ouverture": 1849,
+  "ouvertureTexte": "12 août 1849 (embarcadère) — avril 1901 (gare actuelle)",
+  "compagnie": "Compagnie du chemin de fer de Paris à Lyon, puis Paris-Lyon-Méditerranée (PLM)",
+  "architectes": ["François-Alexis Cendrier (1849)", "Marius Toudoire (1895-1902)"],
+  "protection": "Le buffet Le Train Bleu est classé monument historique depuis 1972 ; la gare est inscrite",
+  "couleur": "#1F6F8B",
+  "resume": "Le beffroi, l'horloge et Le Train Bleu : la gare la plus somptueuse de Paris, bâtie pour l'Exposition universelle de 1900. C'est aussi la gare où, le 27 septembre 1981, le premier TGV commercial du monde s'est élancé vers Lyon.",
+  "recit": {
+    "origine": "Le premier embarcadère du chemin de fer de Paris à Lyon ouvre en 1849, œuvre de François-Alexis Cendrier — le même architecte qui bâtira dix ans plus tard la gare de la Bastille. Il est incendié en mai 1871, pendant la Semaine sanglante de la Commune. La Compagnie PLM, devenue l'une des plus puissantes de France, y voit une occasion : elle veut une gare qui soit un manifeste, à temps pour l'Exposition universelle de 1900.",
+    "revolution": "Marius Toudoire livre entre 1895 et 1902 une gare-palais. Le beffroi de soixante-sept mètres, avec ses quatre cadrans de 6,40 mètres de diamètre et ses chiffres romains peints à la main d'un mètre de haut, est une pure affirmation civique : la compagnie de chemin de fer se donne un campanile, comme une cité italienne. À l'intérieur, le buffet inauguré en avril 1901 par le président Émile Loubet dépasse tout ce qui existe : quarante et une toiles peintes représentent les villes desservies par le réseau, de Paris à Menton en passant par Lyon, Marseille, Alger et Villefranche, dans un décor de stucs dorés dont Jean-Baptiste Olive a peint la grande fresque. On l'appelle alors simplement le Buffet de la gare de Lyon ; il ne prendra le nom de Train Bleu qu'en 1963, en hommage au Calais-Méditerranée-Express. Menacé par les projets de modernisation, il est classé monument historique en 1972 — une gare protégée pour son restaurant, le cas est unique.",
+    "aujourdhui": "Le 27 septembre 1981, à 15 h 20, la rame orange n° 16 quitte le hall 1 pour Lyon : c'est le premier train à grande vitesse commercial du monde occidental, et le début d'une révolution des mobilités françaises. Quarante-cinq ans plus tard, la gare de Lyon reste la porte du Sud-Est, de la Suisse et de l'Italie, avec environ 113 millions de voyageurs par an tous réseaux confondus. C'est de là que partiront à l'été 2026 les premiers TGV M, cinquième génération de la grande vitesse française, sur l'axe historique Paris — Lyon — Marseille."
+  },
+  "chronologie": [
+    { "annee": "1849", "titre": "L'embarcadère de Cendrier", "texte": "Ouverture du terminus de la ligne de Paris à Montereau, premier maillon du futur réseau PLM." },
+    { "annee": "1871", "titre": "L'incendie de la Commune", "texte": "La gare brûle pendant la Semaine sanglante ; il faudra vingt-cinq ans pour décider de la remplacer." },
+    { "annee": "1895-1902", "titre": "La gare-palais de Toudoire", "texte": "Beffroi de 67 mètres, quatre cadrans de 6,40 m, halle métallique, décor sculpté : une gare pensée pour l'Exposition universelle de 1900." },
+    { "annee": "1901", "titre": "Le buffet inaugural", "texte": "Le président Loubet inaugure le buffet et ses 41 toiles de villes desservies. Il deviendra Le Train Bleu en 1963." },
+    { "annee": "1972", "titre": "Classement du Train Bleu", "texte": "Menacé de destruction, le restaurant est classé monument historique : la gare doit désormais composer avec son décor." },
+    { "annee": "1977", "titre": "La gare souterraine", "texte": "Ouverture des quais du RER A sous la gare, puis du RER D en 1987 : Paris-Lyon devient une gare à trois niveaux." },
+    { "annee": "1981", "titre": "Le premier TGV", "texte": "27 septembre : départ du premier TGV commercial vers Lyon. Le temps de parcours tombe à 2 h 40, puis 2 heures en 1983." },
+    { "annee": "2001", "titre": "LGV Méditerranée", "texte": "Marseille passe à 3 heures de Paris : le train reprend la majorité du marché face à l'avion." },
+    { "annee": "2011-2012", "titre": "Le retour de l'Italie et de la Suisse", "texte": "TGV Lyria vers Genève, Lausanne, Zurich et Bâle ; Trenitalia relance Paris — Milan par la ligne classique puis la grande vitesse." },
+    { "annee": "2026", "titre": "Le TGV M part d'ici", "texte": "La cinquième génération de TGV, Avelia Horizon, entre en service commercial sur l'axe Paris — Lyon — Marseille." }
+  ],
+  "chiffres": [
+    { "valeur": "67 m", "label": "hauteur du beffroi" },
+    { "valeur": "6,40 m", "label": "diamètre des cadrans", "note": "chiffres romains d'un mètre" },
+    { "valeur": "41", "label": "toiles du Train Bleu", "note": "les villes du réseau PLM" },
+    { "valeur": "≈113 M", "label": "voyageurs par an", "note": "2024, tous réseaux" },
+    { "valeur": "1981", "label": "premier TGV du monde occidental" }
+  ],
+  "dessertes": {
+    "international": ["Genève", "Lausanne", "Zurich", "Bâle", "Milan", "Turin", "Barcelone (via Lyon)", "Bruxelles (via Lille)"],
+    "grandesLignes": ["Lyon", "Marseille", "Nice", "Montpellier", "Perpignan", "Dijon", "Besançon", "Grenoble", "Chambéry", "Avignon", "Toulon"],
+    "regional": ["TER Bourgogne-Franche-Comté", "TER Auvergne-Rhône-Alpes"],
+    "franciliens": ["RER A", "RER D", "Transilien R (Montereau, Montargis, Laroche-Migennes)"]
+  },
+  "acces": {
+    "metro": ["1", "14"],
+    "rer": ["A", "D"],
+    "transilien": ["R"],
+    "tram": ["T3a (Porte de Charenton, 2 km)"],
+    "bus": ["20", "24", "29", "57", "61", "63", "65", "87", "91"],
+    "velo": "Vélib' place Louis-Armand et boulevard Diderot ; la Coulée verte René-Dumont démarre à 400 m et mène à pied à la Bastille ou à Vincennes.",
+    "note": "La ligne 14 automatique relie la gare de Lyon à Saint-Lazare en 13 minutes et à Orly en 25 minutes : c'est la meilleure correspondance inter-gares de Paris."
+  },
+  "commodites": [
+    { "categorie": "Bagages", "titre": "Consigne automatique", "detail": "Trois formats de casiers (5,50 € / 7,50 € / 9,50 € les 24 h en 2026), accessibles environ de 6 h 15 à 22 h, 72 h maximum. Située hall 1, niveau bas." },
+    { "categorie": "Salons", "titre": "Salon Grand Voyageur", "detail": "Espace SNCF pour abonnés et voyageurs Business Première, hall 1 ; salon TGV Lyria pour la première classe suisse." },
+    { "categorie": "Restauration", "titre": "Le Train Bleu", "detail": "Restaurant classé monument historique, ouvert tous les jours midi et soir. On peut aussi n'y prendre qu'un verre au bar Le Big Ben, à l'ancienne : c'est le moyen le moins cher d'y entrer." },
+    { "categorie": "Accueil", "titre": "Assist'enGare et information", "detail": "Accompagnement PMR sur réservation, comptoirs d'information hall 1 et hall 2, guichets internationaux." },
+    { "categorie": "Commerces", "titre": "Galeries des trois halls", "detail": "Une centaine de commerces répartis entre le hall 1 (historique), le hall 2 (Méditerranée) et le hall 3 ; supérette ouverte tard, pharmacie, librairie." },
+    { "categorie": "Confort", "titre": "Wi-Fi, sanitaires, espaces d'attente", "detail": "Wi-Fi gratuit SNCF, sanitaires payants dans chaque hall, larges espaces d'attente assis face aux écrans du hall 1." },
+    { "categorie": "Familles", "titre": "Espace enfants et Junior & Cie", "detail": "Point de rassemblement du service d'accompagnement des enfants voyageant seuls, très utilisé en période de vacances." }
+  ],
+  "pepites": [
+    { "titre": "Le Train Bleu", "texte": "Montez l'escalier d'honneur, poussez la porte : plafonds dorés, banquettes de cuir, quarante et une toiles de villes du Sud. Le décor n'a pas bougé depuis 1901. On y a tourné Nikita et Mr Bean's Holiday. Un verre au bar suffit à en profiter.", "ou": "Hall 1, étage, escalier de gauche" },
+    { "titre": "Le beffroi et ses quatre cadrans", "texte": "Soixante-sept mètres, quatre horloges de 6,40 mètres. Placez-vous place Louis-Armand au coucher du soleil : la tour s'éclaire et le hall 1 s'embrase derrière la verrière.", "ou": "Place Louis-Armand" },
+    { "titre": "Le départ des trains de nuit du Sud", "texte": "Vers 19 h, les rames Lyria, Frecciarossa et TGV Sud-Est s'alignent sous la verrière. Depuis la passerelle du hall 2, la vue plongeante sur les nez des rames est l'un des plus beaux spectacles ferroviaires de Paris.", "ou": "Passerelle entre hall 1 et hall 2" },
+    { "titre": "La Coulée verte René-Dumont", "texte": "À quatre cents mètres, l'ancien viaduc de la ligne de Vincennes est devenu une promenade plantée de 4,7 km, à dix mètres au-dessus de l'avenue Daumesnil. C'est le modèle dont s'est inspirée la High Line de New York.", "ou": "Avenue Daumesnil, depuis la Bastille" },
+    { "titre": "Le quartier Bercy", "texte": "Vingt minutes à pied vers l'est : les chais de Bercy Village, le parc de Bercy, la Cinémathèque française dans le bâtiment de Frank Gehry, la passerelle Simone-de-Beauvoir vers la BnF.", "ou": "12e arrondissement" }
+  ],
+  "anecdote": {
+    "titre": "15 h 20, le 27 septembre 1981",
+    "texte": "Ce jour-là, la rame orange n° 16 quitte la gare de Lyon pour Lyon-Perrache. Les billets sont vendus avec un supplément et une réservation obligatoire — une nouveauté qui fera longtemps débat. Le trajet ne dure d'abord que 2 h 40, car seule la moitié sud de la ligne nouvelle est ouverte. Deux ans plus tard, la ligne complète ramène Lyon à 2 heures de Paris. Air Inter, qui exploitait alors une navette aérienne très rentable sur cet axe, la perdra en une décennie."
+  },
+  "artwork": {
+    "silhouette": "belfry",
+    "bays": 6,
+    "clock": true,
+    "pediment": "flat",
+    "statues": 4,
+    "tower": { "present": true, "side": "right", "height": 0.95, "clockFaces": 4 },
+    "shed": { "present": true, "span": 0.78, "rise": 0.36 },
+    "flags": 2,
+    "palette": { "sky": ["#8CA9BE", "#F0E3CE"], "stone": "#E4D6B8", "stoneDark": "#BCA983", "roof": "#4E6470", "glass": "#9FC0CE", "accent": "#1F6F8B" },
+    "ambiance": "soir"
+  },
+  "plan": {
+    "type": "gare en cul-de-sac sur trois niveaux",
+    "orientation": "Faisceau orienté sud-est, vers Charenton et la vallée de la Seine",
+    "groupes": [
+      { "nom": "Hall 1 — voies A à N", "desserte": "TGV inOui, Lyria, Frecciarossa : Lyon, Genève, Milan, Dijon, Besançon (halle historique de Toudoire)" },
+      { "nom": "Hall 2 — voies 5 à 23", "desserte": "TGV vers Marseille, Nice, Montpellier, Perpignan ; Ouigo" },
+      { "nom": "Hall 3 — Méditerranée", "desserte": "Extension moderne, services et accès voies 11 à 23" },
+      { "nom": "Niveau -1 / -2", "desserte": "RER A (2 voies) et RER D (2 voies), gare souterraine traversante" }
+    ],
+    "entrees": ["Place Louis-Armand (beffroi)", "Boulevard Diderot", "Rue de Bercy", "Rue de Chalon (hall 3)"]
+  },
+  "sources": [
+    { "titre": "Gare de Paris-Lyon — Wikipédia", "url": "https://fr.wikipedia.org/wiki/Gare_de_Paris-Lyon" },
+    { "titre": "Le Train Bleu — Wikipédia", "url": "https://fr.wikipedia.org/wiki/Le_Train_Bleu_(restaurant)" }
+  ]
+}

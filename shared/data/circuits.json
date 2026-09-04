@@ -1,0 +1,374 @@
+{
+  "circuits": [
+    {
+      "id": "grand-tour",
+      "nom": "Le Grand Tour des gares",
+      "sousTitre": "Les sept terminus dans l'ordre de leur naissance",
+      "duree": "7 à 9 h",
+      "distance": "≈4 km à pied",
+      "difficulte": "Facile",
+      "titreTransport": "Forfait Navigo Jour ou 10 tickets t+",
+      "couleur": "#B03A2E",
+      "intro": "Le circuit fondateur : parcourir les sept grandes gares parisiennes dans l'ordre chronologique de leur création, de l'embarcadère de 1837 à la gare de 1977. On lit ainsi, en une journée, un siècle et demi d'histoire des techniques, de l'architecture et de la géographie française. Commencez tôt : les gares sont plus belles au petit matin, quand la lumière traverse les verrières.",
+      "conseil": "Achetez un forfait Navigo Jour (zones 1-2). Prenez un petit-déjeuner au Terminus Nord et déjeunez au Train Bleu — les deux plus belles brasseries de gare de France, aux deux extrémités de la journée.",
+      "etapes": [
+        {
+          "ordre": 1,
+          "stationId": "paris-saint-lazare",
+          "titre": "Paris-Saint-Lazare",
+          "heure": "8 h 30",
+          "duree": "45 min",
+          "aFaire": "La façade de Juste Lisch depuis la cour de Rome, L'Heure de tous d'Arman, puis montez au pont de l'Europe pour dominer les vingt-sept voies.",
+          "transport": null
+        },
+        {
+          "ordre": 2,
+          "stationId": "paris-nord",
+          "titre": "Paris-Nord",
+          "heure": "9 h 45",
+          "duree": "45 min",
+          "aFaire": "Comptez les vingt-trois statues depuis le parvis, entrez sous la verrière de 72 mètres, jetez un œil au terminal Eurostar. Petit-déjeuner au Terminus Nord.",
+          "transport": {
+            "mode": "metro",
+            "ligne": "13 puis 2",
+            "detail": "Saint-Lazare → Place de Clichy → Barbès → La Chapelle, ou plus simple : RER E de Haussmann — Saint-Lazare à Magenta",
+            "duree": "12 min"
+          }
+        },
+        {
+          "ordre": 3,
+          "stationId": "paris-est",
+          "titre": "Paris-Est",
+          "heure": "10 h 45",
+          "duree": "40 min",
+          "aFaire": "La fresque d'Albert Herter dans le hall Alsace — prenez le temps. Puis la rosace de Duquesney depuis le parvis, et les statues de Strasbourg et Verdun.",
+          "transport": {
+            "mode": "marche",
+            "ligne": null,
+            "detail": "Descendez la rue du Faubourg-Saint-Denis : sept minutes, et l'un des plus beaux morceaux de Paris populaire.",
+            "duree": "7 min"
+          }
+        },
+        {
+          "ordre": 4,
+          "stationId": "paris-lyon",
+          "titre": "Paris-Gare de Lyon",
+          "heure": "12 h 00",
+          "duree": "1 h 30",
+          "aFaire": "Le beffroi, la verrière du hall 1, puis déjeuner au Train Bleu (réservez) ou un verre au bar Le Big Ben pour voir le décor sans le prix.",
+          "transport": {
+            "mode": "metro",
+            "ligne": "5",
+            "detail": "Gare de l'Est → Gare de Lyon, direct",
+            "duree": "9 min"
+          }
+        },
+        {
+          "ordre": 5,
+          "stationId": "paris-bercy",
+          "titre": "Paris-Bercy",
+          "heure": "14 h 00",
+          "duree": "25 min",
+          "aFaire": "La plus modeste des sept — c'est précisément l'intérêt. Regardez l'ancien quai de chargement des trains-autos, puis marchez jusqu'aux chais de Bercy Village.",
+          "transport": {
+            "mode": "metro",
+            "ligne": "14",
+            "detail": "Gare de Lyon → Bercy, une station",
+            "duree": "3 min"
+          }
+        },
+        {
+          "ordre": 6,
+          "stationId": "paris-austerlitz",
+          "titre": "Paris-Austerlitz",
+          "heure": "15 h 00",
+          "duree": "45 min",
+          "aFaire": "La grande halle restaurée, ses cinquante et un mètres de portée et ses dix mille verres neufs. Puis traversez la place Valhubert pour entrer au Jardin des plantes.",
+          "transport": {
+            "mode": "metro",
+            "ligne": "6 puis 5",
+            "detail": "Bercy → Place d'Italie → Gare d'Austerlitz, ou 20 minutes à pied le long de la Seine",
+            "duree": "12 min"
+          }
+        },
+        {
+          "ordre": 7,
+          "stationId": "gare-orsay",
+          "titre": "Gare d'Orsay",
+          "heure": "16 h 15",
+          "duree": "1 h 30",
+          "aFaire": "La gare devenue musée. Montez au 5e étage voir Paris à travers la grande horloge, et allez saluer les Monet peints à Saint-Lazare : la boucle de la journée se referme là.",
+          "transport": {
+            "mode": "rer",
+            "ligne": "C",
+            "detail": "Austerlitz → Musée d'Orsay, exactement le tracé creusé en 1900",
+            "duree": "6 min"
+          }
+        },
+        {
+          "ordre": 8,
+          "stationId": "paris-montparnasse",
+          "titre": "Paris-Montparnasse",
+          "heure": "18 h 15",
+          "duree": "1 h",
+          "aFaire": "Le Jardin Atlantique posé sur les voies, puis le coucher de soleil depuis la terrasse de la tour Montparnasse. Finir la journée à 210 mètres au-dessus des rails.",
+          "transport": {
+            "mode": "metro",
+            "ligne": "12",
+            "detail": "Solférino → Montparnasse-Bienvenüe, direct",
+            "duree": "9 min"
+          }
+        }
+      ],
+      "dureeNote": "une journée complète",
+      "distanceNote": "18 km en transports",
+      "difficulteNote": "tout est accessible en métro"
+    },
+    {
+      "id": "express",
+      "nom": "L'essentiel en une demi-journée",
+      "sousTitre": "Quatre gares, quatre chocs esthétiques",
+      "duree": "4 h",
+      "distance": "≈1,5 km à pied",
+      "difficulte": "Très facile",
+      "titreTransport": "4 tickets t+ suffisent",
+      "couleur": "#1F6F8B",
+      "intro": "Vous n'avez qu'une matinée ? Ces quatre gares suffisent à comprendre l'essentiel : le monument civique du Second Empire, la gare-mémoire, la gare-palais, et la gare devenue musée.",
+      "conseil": "Faites-le un dimanche matin : les gares sont calmes, la lumière est belle, et le musée d'Orsay ouvre à 9 h 30.",
+      "etapes": [
+        {
+          "ordre": 1,
+          "stationId": "paris-nord",
+          "titre": "Paris-Nord",
+          "heure": "9 h 00",
+          "duree": "40 min",
+          "aFaire": "Les vingt-trois statues et la verrière d'Hittorff.",
+          "transport": null
+        },
+        {
+          "ordre": 2,
+          "stationId": "paris-est",
+          "titre": "Paris-Est",
+          "heure": "9 h 50",
+          "duree": "30 min",
+          "aFaire": "Le Départ des poilus, août 1914.",
+          "transport": {
+            "mode": "marche",
+            "ligne": null,
+            "detail": "Rue du Faubourg-Saint-Denis",
+            "duree": "7 min"
+          }
+        },
+        {
+          "ordre": 3,
+          "stationId": "paris-lyon",
+          "titre": "Paris-Gare de Lyon",
+          "heure": "10 h 40",
+          "duree": "45 min",
+          "aFaire": "Le beffroi et Le Train Bleu.",
+          "transport": {
+            "mode": "metro",
+            "ligne": "5",
+            "detail": "Direct",
+            "duree": "9 min"
+          }
+        },
+        {
+          "ordre": 4,
+          "stationId": "gare-orsay",
+          "titre": "Gare d'Orsay",
+          "heure": "11 h 45",
+          "duree": "1 h 30",
+          "aFaire": "La nef, l'horloge, les impressionnistes.",
+          "transport": {
+            "mode": "rer",
+            "ligne": "C",
+            "detail": "Gare de Lyon → Musée d'Orsay",
+            "duree": "8 min"
+          }
+        }
+      ],
+      "dureeNote": "une demi-journée",
+      "distanceNote": null,
+      "difficulteNote": null
+    },
+    {
+      "id": "fantomes",
+      "nom": "Les gares fantômes",
+      "sousTitre": "Ce qui reste des gares disparues",
+      "duree": "Une journée",
+      "distance": "8 à 12 km",
+      "difficulte": "Moyenne",
+      "titreTransport": "Navigo Jour",
+      "couleur": "#4F7A55",
+      "intro": "Paris a plus de gares mortes que de gares vivantes. Ce circuit suit les traces : un viaduc devenu jardin, un anneau de trente-deux kilomètres rendu à la friche, des bâtiments voyageurs transformés en cafés, en salles de concert et en fermes urbaines. C'est la promenade la plus étonnante que la ville puisse offrir.",
+      "conseil": "Vérifiez les horaires d'ouverture des tronçons de la Petite Ceinture — ils ferment à la tombée de la nuit. Et n'entrez jamais sur les sections fermées : l'emprise appartient à SNCF Réseau et l'accès est interdit.",
+      "etapes": [
+        {
+          "ordre": 1,
+          "stationId": "gare-bastille",
+          "titre": "Place de la Bastille",
+          "heure": "10 h 00",
+          "duree": "30 min",
+          "aFaire": "Devant l'Opéra, imaginez la halle de 250 mètres qui occupait toute la place jusqu'en 1984.",
+          "transport": null
+        },
+        {
+          "ordre": 2,
+          "stationId": "gare-bastille",
+          "titre": "La Coulée verte René-Dumont",
+          "heure": "10 h 30",
+          "duree": "1 h 15",
+          "aFaire": "Marchez sur le viaduc jusqu'au jardin de Reuilly, dix mètres au-dessus de l'avenue Daumesnil. Redescendez voir les ateliers du Viaduc des Arts.",
+          "transport": {
+            "mode": "marche",
+            "ligne": null,
+            "detail": "Accès par la rue de Lyon",
+            "duree": "3 min"
+          }
+        },
+        {
+          "ordre": 3,
+          "stationId": "petite-ceinture",
+          "titre": "Petite Ceinture, tronçon du 12e",
+          "heure": "12 h 00",
+          "duree": "45 min",
+          "aFaire": "Descendre dans la tranchée végétale, marcher entre les rails, passer sous les ponts.",
+          "transport": {
+            "mode": "marche",
+            "ligne": null,
+            "detail": "Depuis le jardin de Reuilly vers le square Charles-Péguy",
+            "duree": "10 min"
+          }
+        },
+        {
+          "ordre": 4,
+          "stationId": "petite-ceinture",
+          "titre": "Le Poinçon, ancienne gare de Vaugirard",
+          "heure": "13 h 30",
+          "duree": "1 h",
+          "aFaire": "Déjeuner dans un bâtiment voyageurs de 1867 restauré, puis enchaîner sur le tronçon du 15e, le plus long ouvert au public.",
+          "transport": {
+            "mode": "metro",
+            "ligne": "6 puis 12",
+            "detail": "Vers Convention",
+            "duree": "25 min"
+          }
+        },
+        {
+          "ordre": 5,
+          "stationId": "petite-ceinture",
+          "titre": "Passy-La Muette",
+          "heure": "15 h 30",
+          "duree": "45 min",
+          "aFaire": "Le restaurant La Gare, installé dans le bâtiment voyageurs, et sa terrasse sur l'ancien quai. Puis le sentier nature du 16e, premier tronçon rouvert en 2007.",
+          "transport": {
+            "mode": "rer",
+            "ligne": "C",
+            "detail": "La ligne C emprunte précisément l'ancienne Petite Ceinture ouest — vous roulez sur le circuit",
+            "duree": "15 min"
+          }
+        },
+        {
+          "ordre": 6,
+          "stationId": "petite-ceinture",
+          "titre": "La REcyclerie, ancienne gare d'Ornano",
+          "heure": "17 h 00",
+          "duree": "1 h",
+          "aFaire": "Boire un verre sur l'ancien quai, au milieu des poulaillers et des potagers, à la porte de Clignancourt.",
+          "transport": {
+            "mode": "metro",
+            "ligne": "9 puis 4",
+            "detail": "Vers Porte de Clignancourt",
+            "duree": "35 min"
+          }
+        }
+      ],
+      "dureeNote": "beaucoup de marche",
+      "distanceNote": "à pied",
+      "difficulteNote": "chaussures confortables"
+    },
+    {
+      "id": "grande-vitesse",
+      "nom": "Sur les traces de la grande vitesse",
+      "sousTitre": "De la vapeur au TGV M, en une journée",
+      "duree": "Une journée",
+      "distance": "Surtout du train",
+      "difficulte": "Facile",
+      "titreTransport": "Navigo Jour zones 1-5",
+      "couleur": "#4A5D8C",
+      "intro": "Un circuit pour comprendre comment la France est devenue le pays de la grande vitesse : la gare d'où est parti le premier TGV, celle qui détient le record du monde, et les gares de contournement qui ont fait sauter le centralisme ferroviaire.",
+      "conseil": "Le meilleur moment est le samedi matin : la relève des rames est intense en gare de Lyon et à Montparnasse, et on voit s'aligner toutes les générations de TGV encore en service.",
+      "etapes": [
+        {
+          "ordre": 1,
+          "stationId": "paris-lyon",
+          "titre": "Le berceau : gare de Lyon",
+          "heure": "9 h 00",
+          "duree": "1 h",
+          "aFaire": "C'est d'ici qu'est parti le premier TGV commercial du monde occidental, le 27 septembre 1981. Repérez sur les quais les différentes générations de rames : Duplex, Océane, Lyria, et bientôt TGV M.",
+          "transport": null
+        },
+        {
+          "ordre": 2,
+          "stationId": "paris-montparnasse",
+          "titre": "Le record : Montparnasse",
+          "heure": "10 h 30",
+          "duree": "1 h",
+          "aFaire": "La gare de la LGV Atlantique, sur laquelle la rame 325 a atteint 515,3 km/h le 18 mai 1990. Montez au Jardin Atlantique pour voir partir les rames vers l'Ouest.",
+          "transport": {
+            "mode": "metro",
+            "ligne": "14 puis 4",
+            "detail": "Gare de Lyon → Châtelet → Montparnasse",
+            "duree": "18 min"
+          }
+        },
+        {
+          "ordre": 3,
+          "stationId": "gares-tgv-idf",
+          "titre": "Le contournement : Massy TGV",
+          "heure": "12 h 30",
+          "duree": "45 min",
+          "aFaire": "Une gare TGV sans Paris : d'ici partent des trains pour Lille, Strasbourg ou Lyon sans passer par la capitale. C'est la fin du réseau en étoile.",
+          "transport": {
+            "mode": "rer",
+            "ligne": "B",
+            "detail": "Denfert-Rochereau → Massy-Palaiseau",
+            "duree": "25 min"
+          }
+        },
+        {
+          "ordre": 4,
+          "stationId": "gares-tgv-idf",
+          "titre": "Le hub : Aéroport CDG 2 TGV",
+          "heure": "15 h 00",
+          "duree": "1 h",
+          "aFaire": "Le train sous l'avion. Depuis la passerelle, on voit les rames à quai et les long-courriers au roulage : l'intermodalité en une seule image.",
+          "transport": {
+            "mode": "rer",
+            "ligne": "B",
+            "detail": "Massy-Palaiseau → Aéroport Charles-de-Gaulle 2, direct",
+            "duree": "60 min"
+          }
+        },
+        {
+          "ordre": 5,
+          "stationId": "paris-est",
+          "titre": "L'avenir : gare de l'Est",
+          "heure": "17 h 00",
+          "duree": "45 min",
+          "aFaire": "La LGV Est, équipée d'ERTMS, la signalisation européenne. Repérez les trois quais réservés au futur CDG Express, prévu pour 2027.",
+          "transport": {
+            "mode": "rer",
+            "ligne": "B",
+            "detail": "Aéroport CDG 2 → Gare du Nord, puis 7 min à pied",
+            "duree": "40 min"
+          }
+        }
+      ],
+      "dureeNote": null,
+      "distanceNote": "RER B et métro",
+      "difficulteNote": null
+    }
+  ]
+}

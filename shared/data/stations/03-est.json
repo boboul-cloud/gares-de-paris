@@ -1,0 +1,104 @@
+{
+  "id": "paris-est",
+  "nom": "Paris-Est",
+  "nomCourt": "Gare de l'Est",
+  "surnom": "La gare des adieux",
+  "categorie": "grande-gare",
+  "ordre": 3,
+  "arrondissement": "10e arrondissement",
+  "adresse": "Place du 11-Novembre-1918, 75010 Paris",
+  "coord": { "lat": 48.8766, "lon": 2.359 },
+  "ouverture": 1849,
+  "ouvertureTexte": "5 juillet 1849",
+  "compagnie": "Compagnie du chemin de fer de Paris à Strasbourg, puis Compagnie des chemins de fer de l'Est",
+  "architectes": ["François-Alexandre Duquesney (1847-1850)", "Extension symétrique 1924-1931"],
+  "protection": "Inscrite au titre des monuments historiques",
+  "couleur": "#7D6B3E",
+  "resume": "Née gare de Strasbourg, c'est la gare des départs vers l'est : l'Orient-Express en 1883, les poilus en 1914, l'Allemagne aujourd'hui. Sa grande rosace de verre et la fresque bouleversante d'Albert Herter en font le lieu le plus chargé d'histoire des gares parisiennes.",
+  "recit": {
+    "origine": "Inaugurée le 5 juillet 1849 sous le nom d'embarcadère de Strasbourg, elle est l'œuvre de François-Alexandre Duquesney, qui invente ici une formule appelée à faire école : au lieu de dissimuler la halle derrière un palais, il en montre la section. La grande rosace de verre de la façade ouest n'est pas un décor — c'est le pignon de la nef, rendu visible. Au sommet, la statue de Strasbourg par Henri Lemaire annonce la destination. Le bâtiment est immédiatement compris comme un modèle : on vient l'étudier de toute l'Europe.",
+    "revolution": "L'histoire de France s'écrit sur ces quais. Le 4 octobre 1883, le premier Express d'Orient part d'ici pour Constantinople : quatre-vingt-une heures de voyage, wagons-lits Nagelmackers, et la naissance du plus célèbre train du monde. En août 1914, la gare devient le point de départ de la mobilisation générale ; c'est de là que partent les régiments vers la Marne. Après la guerre, un peintre américain, Albert Herter, offre à la France une toile de cinq mètres sur douze : Le Départ des poilus, août 1914. Il y a peint la foule, les fusils fleuris, une femme les bras ballants — et au centre, bras levés, son propre fils Everit, engagé volontaire, tué en juin 1918. Herter s'est représenté lui-même à droite, un bouquet à la main ; sa femme à gauche, effondrée. Le tableau est accroché en 1926 dans le hall des départs, exactement là où les trains partaient. Il y est toujours. Entre 1924 et 1931, la gare est doublée à l'identique vers l'est : d'où sa silhouette symétrique, avec au sommet de l'aile neuve la statue de Verdun par Henri Varenne, en écho à celle de Strasbourg.",
+    "aujourdhui": "Depuis 2007 et l'ouverture de la LGV Est européenne, Paris-Est est redevenue une gare rapide : Strasbourg en 1 h 46, Reims en 45 minutes, Luxembourg, Francfort, Stuttgart et Munich en correspondance directe avec l'ICE allemand. Environ 42,7 millions de voyageurs y sont passés en 2024, ce qui en fait la cinquième gare parisienne. Trois de ses quais sont réservés pour accueillir, à l'horizon 2027, le CDG Express vers l'aéroport Charles-de-Gaulle."
+  },
+  "chronologie": [
+    { "annee": "1849", "titre": "L'embarcadère de Strasbourg", "texte": "Ouverture le 5 juillet. Duquesney impose un modèle : la façade révèle la section de la halle par une immense rosace vitrée." },
+    { "annee": "1854", "titre": "Gare de l'Est", "texte": "Le réseau s'étend au-delà de Strasbourg ; la gare prend son nom actuel." },
+    { "annee": "1883", "titre": "Le premier Orient-Express", "texte": "Le 4 octobre, l'Express d'Orient s'élance vers Constantinople : le train de luxe entre dans la légende." },
+    { "annee": "1914", "titre": "Le départ des poilus", "texte": "Août : la gare devient le théâtre de la mobilisation générale, et de milliers d'adieux." },
+    { "annee": "1926", "titre": "La fresque d'Albert Herter", "texte": "Le peintre américain offre Le Départ des poilus, août 1914, en mémoire de son fils tué au front. 5 × 12 mètres, hall des départs." },
+    { "annee": "1924-1931", "titre": "La gare doublée", "texte": "Extension symétrique vers l'est, couronnée par la statue de Verdun d'Henri Varenne, pendant de celle de Strasbourg." },
+    { "annee": "1962", "titre": "L'électrification en 25 kV", "texte": "L'axe Paris — Strasbourg passe au courant industriel 25 kV 50 Hz, technologie française devenue standard mondial." },
+    { "annee": "2007", "titre": "LGV Est européenne", "texte": "Le 10 juin, la grande vitesse arrive : Strasbourg passe de 4 heures à 2 h 20, puis 1 h 46 avec la seconde phase de 2016." },
+    { "annee": "2016", "titre": "Seconde phase et ERTMS", "texte": "La LGV atteint Vendenheim ; la ligne est équipée d'ERTMS niveau 2, la signalisation européenne du futur." },
+    { "annee": "2027", "titre": "CDG Express", "texte": "Trois quais sont réservés pour la navette directe vers l'aéroport Charles-de-Gaulle, annoncée en une vingtaine de minutes." }
+  ],
+  "chiffres": [
+    { "valeur": "1849", "label": "année d'ouverture" },
+    { "valeur": "30", "label": "voies à quai" },
+    { "valeur": "≈42,7 M", "label": "voyageurs par an", "note": "2024" },
+    { "valeur": "5 × 12 m", "label": "la fresque d'Herter" },
+    { "valeur": "1 h 46", "label": "Paris — Strasbourg", "note": "meilleur temps depuis 2016" }
+  ],
+  "dessertes": {
+    "international": ["Luxembourg", "Francfort", "Stuttgart", "Munich", "Sarrebruck", "Karlsruhe"],
+    "grandesLignes": ["Strasbourg", "Nancy", "Metz", "Reims", "Colmar", "Mulhouse", "Épernay", "Bar-le-Duc", "Sedan"],
+    "regional": ["TER Grand Est", "TER Fluo"],
+    "franciliens": ["Transilien P (Meaux, Château-Thierry, Coulommiers, Provins)"]
+  },
+  "acces": {
+    "metro": ["4", "5", "7"],
+    "rer": ["E (gare Magenta, 400 m)", "B et D (gare du Nord, 700 m)"],
+    "transilien": ["P"],
+    "tram": [],
+    "bus": ["30", "31", "32", "38", "39", "46", "47", "54", "56", "65", "91"],
+    "velo": "Vélib' place du 11-Novembre-1918 et boulevard de Strasbourg ; le canal Saint-Martin, à 500 m, offre une piste cyclable continue vers la Bastille.",
+    "note": "Sept minutes de marche seulement séparent la gare de l'Est de la gare du Nord — la correspondance à pied est plus rapide que le métro."
+  },
+  "commodites": [
+    { "categorie": "Bagages", "titre": "Consigne automatique", "detail": "Casiers trois formats, environ 6 h 15 — 23 h 15, 72 h maximum. Tarif indicatif 2026 : 5,50 € à 9,50 € les 24 h." },
+    { "categorie": "Salons", "titre": "Salon Grand Voyageur", "detail": "Espace réservé aux abonnés SNCF et aux billets Business Première, avec boissons, presse et postes de travail." },
+    { "categorie": "Accueil", "titre": "Assist'enGare et information", "detail": "Accompagnement PMR sur réservation, comptoir d'information au centre de la salle des pas perdus, guichets internationaux pour l'Allemagne et le Luxembourg." },
+    { "categorie": "Restauration", "titre": "Sous la verrière", "detail": "Brasserie Flo (passage des Petites-Écuries, décor 1900), Chez Jeannette et les cafés du boulevard de Strasbourg ; une trentaine d'enseignes rapides dans la gare." },
+    { "categorie": "Commerces", "titre": "Galerie de la gare", "detail": "Presse, pharmacie, alimentation, prêt-à-porter ; ouverture large le dimanche." },
+    { "categorie": "Confort", "titre": "Wi-Fi, sanitaires, salle d'attente", "detail": "Wi-Fi gratuit SNCF, sanitaires payants, espace d'attente sous la rosace côté hall Alsace." },
+    { "categorie": "Culture", "titre": "Visite libre de la fresque", "detail": "Le Départ des poilus est visible librement, sans billet, dans le hall Alsace : l'une des plus grandes œuvres accessibles gratuitement de Paris." }
+  ],
+  "pepites": [
+    { "titre": "Le Départ des poilus, août 1914", "texte": "Prenez dix minutes devant elle. Cherchez le jeune homme aux bras levés, au centre : c'est Everit Herter, le fils du peintre, mort au front. Le tableau n'a jamais quitté le lieu où la scène s'est réellement produite.", "ou": "Hall Alsace, à gauche en entrant" },
+    { "titre": "La rosace de Duquesney", "texte": "De la place du 11-Novembre-1918, la grande verrière semi-circulaire raconte exactement ce qu'il y a derrière : la nef. C'est l'invention architecturale majeure de la gare du XIXe siècle, et elle est née ici.", "ou": "Parvis, façade ouest" },
+    { "titre": "Strasbourg et Verdun", "texte": "Deux statues de femmes se répondent au sommet des deux ailes, à quatre-vingts ans d'écart : Strasbourg par Henri Lemaire en 1850, Verdun par Henri Varenne en 1931. Toute l'histoire franco-allemande tient dans cet intervalle.", "ou": "Couronnement des deux ailes" },
+    { "titre": "Sur les traces de l'Orient-Express", "texte": "Le quai de départ du 4 octobre 1883 existe toujours. Aujourd'hui c'est un TGV pour Strasbourg qui s'y range — mais le fantôme des wagons-lits bleu et or n'est jamais loin.", "ou": "Voies 1 à 4" },
+    { "titre": "Le quartier du canal", "texte": "Cinq cents mètres au sud, le canal Saint-Martin, ses écluses et ses passerelles. À l'ouest, le passage Brady et le marché Saint-Quentin. La gare de l'Est est le meilleur point de départ pour marcher dans le Paris populaire du 10e.", "ou": "10e arrondissement" }
+  ],
+  "anecdote": {
+    "titre": "Un père américain, un fils français",
+    "texte": "Albert Herter, peintre new-yorkais fortuné, avait un fils, Everit, qui s'engagea dans l'armée américaine et tomba au Bois de Belleau en juin 1918. Herter décida de peindre le moment où tout avait commencé : le départ des trains de la gare de l'Est en août 1914. Il l'offrit à la France en 1926. Le fils de l'artiste y figure au centre, bras levés, encore vivant, encore joyeux. On ne peint pas plus douloureux hommage — ni plus discret : rien, sur le mur, ne le signale."
+  },
+  "artwork": {
+    "silhouette": "arch",
+    "bays": 3,
+    "clock": true,
+    "pediment": "rose",
+    "statues": 2,
+    "tower": { "present": false },
+    "shed": { "present": true, "span": 0.8, "rise": 0.4 },
+    "flags": 2,
+    "palette": { "sky": ["#B7C4C9", "#EEE7D9"], "stone": "#DCD2BC", "stoneDark": "#B3A88D", "roof": "#5F6A63", "glass": "#9CBBC4", "accent": "#7D6B3E" },
+    "ambiance": "jour"
+  },
+  "plan": {
+    "type": "gare en cul-de-sac, deux halles jumelles",
+    "orientation": "Faisceau orienté est, vers Pantin et la vallée de la Marne",
+    "groupes": [
+      { "nom": "Voies 1 à 12 (hall Alsace)", "desserte": "TGV inOui et Ouigo vers Strasbourg, Nancy, Metz, Reims ; ICE vers l'Allemagne" },
+      { "nom": "Voies 13 à 22", "desserte": "TER Grand Est et grandes lignes secondaires" },
+      { "nom": "Voies 23 à 30 (hall Château-Landon)", "desserte": "Transilien P — Meaux, Château-Thierry, Coulommiers, Provins" },
+      { "nom": "Quais réservés", "desserte": "Trois voies affectées au futur CDG Express (2027)" }
+    ],
+    "entrees": ["Place du 11-Novembre-1918 (façade Duquesney)", "Rue du Faubourg-Saint-Martin", "Rue d'Alsace (escalier monumental)", "Rue du 8-Mai-1945"]
+  },
+  "sources": [
+    { "titre": "Gare de Paris-Est — Wikipédia", "url": "https://fr.wikipedia.org/wiki/Gare_de_Paris-Est" },
+    { "titre": "Le Départ des poilus, août 1914 — Wikipédia", "url": "https://fr.wikipedia.org/wiki/Le_D%C3%A9part_des_poilus,_ao%C3%BBt_1914" }
+  ]
+}

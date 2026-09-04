@@ -1,0 +1,101 @@
+{
+  "id": "gare-orsay",
+  "nom": "Gare d'Orsay",
+  "nomCourt": "Orsay",
+  "surnom": "La gare devenue musée",
+  "categorie": "gare-patrimoine",
+  "ordre": 8,
+  "arrondissement": "7e arrondissement",
+  "adresse": "1 rue de la Légion-d'Honneur, 75007 Paris",
+  "coord": { "lat": 48.86, "lon": 2.3266 },
+  "ouverture": 1900,
+  "ouvertureTexte": "14 juillet 1900",
+  "compagnie": "Compagnie du chemin de fer de Paris à Orléans (PO)",
+  "architectes": ["Victor Laloux (1898-1900)", "ACT Architecture et Gae Aulenti (1980-1986)"],
+  "protection": "Classée monument historique en 1978",
+  "couleur": "#A8763E",
+  "resume": "La première grande gare du monde conçue pour la seule traction électrique, inaugurée pour l'Exposition universelle de 1900 — et rendue obsolète en quarante ans par la longueur de ses quais. Sauvée de la démolition, elle est devenue en 1986 le musée d'Orsay.",
+  "recit": {
+    "origine": "À la fin du XIXe siècle, la Compagnie du Paris-Orléans souffre d'un handicap : son terminus, la gare d'Austerlitz, est loin du centre. Elle obtient de prolonger sa ligne de deux kilomètres en souterrain, le long de la Seine, jusqu'au quai d'Orsay, sur les ruines de l'ancienne Cour des comptes incendiée pendant la Commune. Restait un problème : une gare souterraine en plein cœur de Paris ne peut pas accueillir de locomotives à vapeur, dont les fumées asphyxieraient les voyageurs. La compagnie prend alors une décision radicale : la gare sera exclusivement électrique. C'est une première mondiale à cette échelle. Le 28 mai 1900, le troisième rail alimenté en 600 volts continu entre en service ; les trains venus d'Orléans changent de machine à Austerlitz, où les locomotives à vapeur s'arrêtent. La technique de demain naît d'une contrainte urbaine.",
+    "revolution": "Victor Laloux, grand prix de Rome, résout l'autre difficulté : comment poser une gare industrielle face au Louvre et aux Tuileries ? Il enveloppe sa charpente métallique — une nef de 138 mètres de long, 40 de large et 32 de haut — dans une façade de pierre à l'ordonnance académique, avec un hôtel de 370 chambres. L'usine est déguisée en palais. Le succès est immédiat : la gare est inaugurée le 14 juillet 1900 pour l'Exposition universelle. Mais son destin est scellé par une mesure : ses quais ne font que deux cents mètres. Or les trains ne cessent de s'allonger. Dès 1939, les grandes lignes sont renvoyées à Austerlitz ; il ne reste plus à Orsay que la banlieue.",
+    "aujourdhui": "Commence alors une longue traversée : centre d'accueil des prisonniers et déportés à la Libération en 1945, décor du Procès d'Orson Welles en 1962, théâtre de la compagnie Renaud-Barrault, hôtel des ventes provisoire de Drouot. En 1971, un projet d'hôtel moderne menace de la raser — au moment même où l'on vient de démolir les Halles de Baltard, traumatisme national. Le classement intervient en 1978. Valéry Giscard d'Estaing décide d'y installer un musée du XIXe siècle ; l'équipe ACT Architecture (Bardon, Colboc, Philippon) restructure le bâtiment, l'architecte italienne Gae Aulenti conçoit l'aménagement intérieur. Le musée d'Orsay ouvre le 1er décembre 1986. Sous la nef, la gare vit toujours : la station RER C Musée d'Orsay, ouverte en 1979, y fait passer environ 4,2 millions de voyageurs par an."
+  },
+  "chronologie": [
+    { "annee": "1897", "titre": "La concession du quai d'Orsay", "texte": "La Compagnie du PO obtient de prolonger sa ligne en souterrain jusqu'au cœur de Paris." },
+    { "annee": "1898-1900", "titre": "Laloux bâtit en deux ans", "texte": "Une nef métallique de 138 m enveloppée d'une façade académique, plus un hôtel de 370 chambres." },
+    { "annee": "1900", "titre": "Tout électrique", "texte": "Inaugurée le 14 juillet pour l'Exposition universelle. Traction électrique exclusive par troisième rail 600 V : une première mondiale." },
+    { "annee": "1939", "titre": "L'obsolescence par la longueur", "texte": "Les quais de 200 mètres ne suffisent plus aux trains modernes : les grandes lignes retournent à Austerlitz." },
+    { "annee": "1945", "titre": "Le retour des déportés", "texte": "La gare devient centre d'accueil des prisonniers de guerre et des déportés revenant d'Allemagne." },
+    { "annee": "1962", "titre": "Orson Welles y tourne Le Procès", "texte": "Le bâtiment vide et labyrinthique devient un décor kafkaïen ; la compagnie Renaud-Barrault y installera ensuite son théâtre." },
+    { "annee": "1971", "titre": "La menace", "texte": "Un projet de démolition pour un hôtel international provoque une mobilisation, au lendemain de la destruction des Halles de Baltard." },
+    { "annee": "1978", "titre": "Classée monument historique", "texte": "Le classement met un terme définitif aux projets de démolition." },
+    { "annee": "1979", "titre": "La station RER C", "texte": "Ouverture de la gare Musée d'Orsay sur la ligne C : le rail n'a jamais vraiment quitté le bâtiment." },
+    { "annee": "1986", "titre": "Le musée d'Orsay", "texte": "Ouverture le 1er décembre. Gae Aulenti a conçu l'aménagement intérieur ; la nef conserve son horloge et sa verrière." }
+  ],
+  "chiffres": [
+    { "valeur": "138 m", "label": "longueur de la nef" },
+    { "valeur": "32 m", "label": "hauteur sous verrière" },
+    { "valeur": "600 V", "label": "tension du troisième rail", "note": "première grande gare électrique au monde" },
+    { "valeur": "200 m", "label": "longueur des quais", "note": "la mesure qui l'a condamnée" },
+    { "valeur": "1986", "label": "ouverture du musée" }
+  ],
+  "dessertes": {
+    "international": [],
+    "grandesLignes": ["Autrefois : Orléans, Tours, Bordeaux, Toulouse (jusqu'en 1939)"],
+    "regional": [],
+    "franciliens": ["RER C — station Musée d'Orsay"]
+  },
+  "acces": {
+    "metro": ["12 (Solférino)"],
+    "rer": ["C (Musée d'Orsay, sous le bâtiment)"],
+    "transilien": [],
+    "tram": [],
+    "bus": ["24", "63", "68", "69", "73", "83", "84", "94"],
+    "velo": "Vélib' quai Anatole-France ; la promenade des berges de Seine, entièrement piétonne, passe au pied du musée.",
+    "note": "Le RER C dépose directement sous le musée. Depuis la gare d'Austerlitz, c'est trois stations de RER C — exactement le trajet que faisaient les trains de la Compagnie du PO en 1900."
+  },
+  "commodites": [
+    { "categorie": "Musée", "titre": "Le musée d'Orsay", "detail": "Ouvert du mardi au dimanche, nocturne le jeudi jusqu'à 21 h 45. Collections d'art de 1848 à 1914 : la plus grande réunion d'impressionnistes au monde." },
+    { "categorie": "Restauration", "titre": "Le restaurant du musée", "detail": "L'ancienne salle à manger de l'hôtel, avec ses lustres et son plafond peint, est intacte : l'un des plus beaux décors 1900 accessibles à Paris." },
+    { "categorie": "Panorama", "titre": "Le café Campana", "detail": "Situé derrière l'un des cadrans de la grande horloge, au 5e étage : on regarde Paris à travers le mécanisme. Vue sur le Louvre, la Seine et Montmartre." },
+    { "categorie": "Confort", "titre": "Vestiaire, librairie, accessibilité", "detail": "Vestiaire gratuit, librairie-boutique, accès complet PMR, Wi-Fi. Réservation en ligne fortement conseillée." },
+    { "categorie": "Rail", "titre": "La station RER C", "detail": "Toujours en service sous le musée : quais, ancien tracé et voûtes de 1900 visibles depuis le train." }
+  ],
+  "pepites": [
+    { "titre": "La grande horloge", "texte": "Le plus beau point de vue de Paris est un cadran de gare. Depuis l'intérieur du café Campana ou de la galerie des impressionnistes, on voit la ville à travers les chiffres et les aiguilles.", "ou": "5e étage du musée" },
+    { "titre": "Les Monet de Saint-Lazare", "texte": "Le musée conserve plusieurs toiles de la série peinte par Monet en 1877 dans la gare Saint-Lazare. Une gare qui expose des tableaux de gare : la boucle est bouclée.", "ou": "Galerie des impressionnistes" },
+    { "titre": "La nef", "texte": "Placez-vous en bas, au centre. Cette verrière courbe, ces caissons de stuc, cette lumière : c'était le hall des départs. Les rails passaient exactement là où sont les sculptures.", "ou": "Nef centrale" },
+    { "titre": "La salle des fêtes de l'hôtel", "texte": "Dorures, miroirs et lustres : la salle de bal de l'Hôtel d'Orsay, restaurée, se visite au sein du parcours du musée. Peu de visiteurs savent qu'ils sont dans un hôtel de gare.", "ou": "Niveau 2" },
+    { "titre": "Le passage sous la Seine", "texte": "Le tunnel du RER C qui longe la Seine entre Austerlitz et Orsay, creusé en 1900, est l'une des plus anciennes infrastructures électriques ferroviaires encore en service au monde.", "ou": "RER C, en direction d'Austerlitz" }
+  ],
+  "anecdote": {
+    "titre": "« Cette gare a l'air d'un palais des Beaux-Arts »",
+    "texte": "La formule est du peintre Édouard Detaille, en 1900. Elle sonnait comme une critique : Laloux avait déguisé une gare en musée. Quatre-vingt-six ans plus tard, la boutade est devenue prophétie, et le bâtiment est effectivement un musée des Beaux-Arts. Peu de bâtiments ont réalisé leur propre plaisanterie avec autant d'exactitude."
+  },
+  "artwork": {
+    "silhouette": "museum",
+    "bays": 7,
+    "clock": true,
+    "pediment": "flat",
+    "statues": 3,
+    "tower": { "present": false },
+    "shed": { "present": true, "span": 0.82, "rise": 0.3 },
+    "flags": 2,
+    "palette": { "sky": ["#C0B29A", "#F5EBD8"], "stone": "#E7D9BC", "stoneDark": "#C0AC85", "roof": "#7C6A52", "glass": "#C9D6CE", "accent": "#A8763E" },
+    "ambiance": "matin"
+  },
+  "plan": {
+    "type": "ancienne gare souterraine et de surface, reconvertie",
+    "orientation": "Nef parallèle à la Seine, orientée est-ouest",
+    "groupes": [
+      { "nom": "Nef centrale (1900)", "desserte": "Ancien hall des départs, aujourd'hui la galerie des sculptures du musée" },
+      { "nom": "Quais souterrains", "desserte": "RER C, station Musée d'Orsay, toujours en service" },
+      { "nom": "Aile hôtel", "desserte": "Ancien Hôtel d'Orsay, 370 chambres : salle des fêtes et restaurant conservés" }
+    ],
+    "entrees": ["Esplanade Valéry-Giscard-d'Estaing (entrée principale du musée)", "Quai Anatole-France", "Accès direct RER C"]
+  },
+  "sources": [
+    { "titre": "Gare d'Orsay — Wikipédia", "url": "https://fr.wikipedia.org/wiki/Gare_d%27Orsay" },
+    { "titre": "Musée d'Orsay — site officiel", "url": "https://www.musee-orsay.fr" }
+  ]
+}
