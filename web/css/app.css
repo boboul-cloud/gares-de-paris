@@ -94,7 +94,7 @@
 }
 
 * { box-sizing: border-box; }
-html { -webkit-text-size-adjust: 100%; }
+html { -webkit-text-size-adjust: 100%; -webkit-tap-highlight-color: transparent; }
 
 body {
   margin: 0;
@@ -113,13 +113,15 @@ img, svg { max-width: 100%; }
 button { font: inherit; color: inherit; }
 :focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; border-radius: 3px; }
 
-.wrap { max-width: var(--w); margin: 0 auto; padding: 0 22px; }
+/* Paysage sur iPhone : la page passe sous l'encoche (viewport-fit=cover), le texte s'en écarte. */
+.wrap { max-width: var(--w); margin: 0 auto; padding: 0 max(22px, env(safe-area-inset-right)) 0 max(22px, env(safe-area-inset-left)); }
 .sr-only { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
 
 /* --- Bandeau et navigation --------------------------------------------- */
 
 .topbar {
   position: sticky; top: 0; z-index: 50;
+  padding-top: env(safe-area-inset-top, 0px);
   background: color-mix(in srgb, var(--ground) 90%, transparent);
   backdrop-filter: saturate(170%) blur(14px);
   -webkit-backdrop-filter: saturate(170%) blur(14px);
@@ -141,7 +143,8 @@ button { font: inherit; color: inherit; }
   padding: 7px 12px; border-radius: 4px; text-decoration: none;
   font-size: 14px; color: var(--ink-2); white-space: nowrap; transition: background .15s, color .15s;
 }
-.nav a:hover { background: var(--surface-2); color: var(--ink); }
+@media (hover: hover) and (pointer: fine) { .nav a:hover { background: var(--surface-2); color: var(--ink); } }
+.nav a:active { background: var(--surface-2); color: var(--ink); }
 .nav a.on { background: var(--email); color: var(--email-ink); }
 
 .theme-btn {
@@ -149,7 +152,8 @@ button { font: inherit; color: inherit; }
   border: 1px solid var(--rule); background: var(--surface); cursor: pointer;
   display: grid; place-items: center; font-size: 15px; line-height: 1;
 }
-.theme-btn:hover { border-color: var(--rule-strong); }
+@media (hover: hover) and (pointer: fine) { .theme-btn:hover { border-color: var(--rule-strong); } }
+.theme-btn:active { border-color: var(--rule-strong); }
 
 /* --- La plaque émaillée : le repère structurant de toute l'application --- */
 
@@ -187,7 +191,8 @@ button { font: inherit; color: inherit; }
   overflow: hidden; text-decoration: none; display: flex; flex-direction: column;
   transition: transform .18s ease, box-shadow .18s ease, border-color .18s;
 }
-.card:hover { transform: translateY(-2px); box-shadow: var(--shadow-lift); border-color: var(--rule-strong); }
+@media (hover: hover) and (pointer: fine) { .card:hover { transform: translateY(-2px); box-shadow: var(--shadow-lift); border-color: var(--rule-strong); } }
+.card:active { border-color: var(--rule-strong); }
 .card-art { aspect-ratio: 2 / 1; background: var(--surface-2); overflow: hidden; border-bottom: 1px solid var(--rule); }
 .card-art svg { display: block; width: 100%; height: 100%; }
 .card-body { padding: 16px 18px 18px; display: flex; flex-direction: column; gap: 7px; flex: 1; }
@@ -202,7 +207,8 @@ button { font: inherit; color: inherit; }
   padding: 6px 13px; border-radius: 4px; border: 1px solid var(--rule);
   background: var(--surface); font-size: 13.5px; cursor: pointer; color: var(--ink-2);
 }
-.chip:hover { border-color: var(--rule-strong); }
+@media (hover: hover) and (pointer: fine) { .chip:hover { border-color: var(--rule-strong); } }
+.chip:active { border-color: var(--rule-strong); }
 .chip.on { background: var(--email); border-color: var(--email); color: var(--email-ink); }
 
 /* --- Fiche d'une gare --------------------------------------------------- */
@@ -211,7 +217,8 @@ button { font: inherit; color: inherit; }
 .detail-hero svg { display: block; width: 100%; aspect-ratio: 2.35 / 1; }
 .detail-head { padding: 34px 0 6px; }
 .back { display: inline-flex; align-items: center; gap: 7px; font-family: var(--mono); font-size: 12px; color: var(--ink-3); text-decoration: none; margin-bottom: 18px; letter-spacing: .04em; }
-.back:hover { color: var(--ink); }
+@media (hover: hover) and (pointer: fine) { .back:hover { color: var(--ink); } }
+.back:active { color: var(--ink); }
 .detail-head h1 { font-size: clamp(34px, 5.6vw, 60px); letter-spacing: -0.028em; }
 .detail-sub { font-family: var(--mono); font-size: 12px; letter-spacing: .14em; text-transform: uppercase; color: var(--signal); margin-bottom: 12px; }
 .detail-meta { display: flex; flex-wrap: wrap; gap: 6px 22px; font-size: 13.5px; color: var(--ink-3); margin-top: 18px; }
@@ -301,7 +308,7 @@ button { font: inherit; color: inherit; }
 .map-label.is-major { font-weight: 600; fill: var(--ink); font-size: 12.5px; }
 .map-circuit { fill: none; stroke-width: 3; stroke-linecap: round; stroke-linejoin: round; opacity: .95; stroke-dasharray: 1 7; vector-effect: non-scaling-stroke; }
 .map-station { cursor: pointer; }
-.map-station:hover .map-pin { filter: brightness(1.15); }
+@media (hover: hover) and (pointer: fine) { .map-station:hover .map-pin { filter: brightness(1.15); } }
 
 .map-tools {
   position: absolute; top: 10px; right: 10px;
@@ -314,7 +321,8 @@ button { font: inherit; color: inherit; }
   color: var(--ink2); font-size: 15px; line-height: 1; cursor: pointer;
   display: grid; place-items: center;
 }
-.map-tools button:hover { background: var(--surface-2); color: var(--ink); }
+@media (hover: hover) and (pointer: fine) { .map-tools button:hover { background: var(--surface-2); color: var(--ink); } }
+.map-tools button:active { background: var(--surface-2); color: var(--ink); }
 .map-hint { font: 11.5px var(--mono); color: var(--ink3); margin: 8px 0 0; }
 
 /* --- Circuits ----------------------------------------------------------- */
@@ -465,12 +473,17 @@ button { font: inherit; color: inherit; }
   padding: 10px 13px; width: 140px;
 }
 .ex-saisie input:focus { outline: none; border-color: var(--accent); box-shadow: 0 0 0 3px var(--accent-soft); }
+/* Écran tactile : 16 px au moins, sinon l'iPhone zoome sur le champ touché et ne dézoome pas. */
+@media (pointer: coarse) {
+  .sim-form select, .sim-form input[type="time"], .sim-form input[type="number"], .ex-serie input { font-size: 16px; }
+}
 .ex-saisie i { font-style: normal; font-family: var(--mono); font-size: 12px; color: var(--ink-3); }
 .ex-valider {
   border: 0; border-radius: 4px; background: var(--email); color: var(--email-ink);
   font: 600 14px var(--sans); padding: 11px 20px; cursor: pointer;
 }
-.ex-valider:hover { filter: brightness(1.08); }
+@media (hover: hover) and (pointer: fine) { .ex-valider:hover { filter: brightness(1.08); } }
+.ex-valider:active { filter: brightness(1.08); }
 .ex-aide { font: 12px var(--mono); color: var(--ink-3); margin: 10px 0 0; }
 
 .ex-choix { display: grid; gap: 9px; }
@@ -479,16 +492,19 @@ button { font: inherit; color: inherit; }
   border: 1px solid var(--rule); border-radius: 6px; background: var(--surface);
   padding: 13px 15px; cursor: pointer; font-size: 14.5px; color: var(--ink-2); line-height: 1.5;
 }
-.ex-option:hover { border-color: var(--accent); background: var(--surface-2); color: var(--ink); }
+@media (hover: hover) and (pointer: fine) { .ex-option:hover { border-color: var(--accent); background: var(--surface-2); color: var(--ink); } }
+.ex-option:active { border-color: var(--accent); background: var(--surface-2); color: var(--ink); }
 .ex-puce {
   flex: none; width: 22px; height: 22px; border-radius: 4px; background: var(--surface-2);
   color: var(--ink-3); font: 600 12px var(--mono); display: grid; place-items: center;
 }
-.ex-option:hover .ex-puce { background: var(--email); color: var(--email-ink); }
+@media (hover: hover) and (pointer: fine) { .ex-option:hover .ex-puce { background: var(--email); color: var(--email-ink); } }
+.ex-option:active .ex-puce { background: var(--email); color: var(--email-ink); }
 
 .ex-indice-btn { background: none; border: 0; padding: 0; margin-top: 16px; cursor: pointer;
   font: 13px var(--sans); color: var(--ink-3); text-decoration: underline; text-underline-offset: 3px; }
-.ex-indice-btn:hover { color: var(--ink); }
+@media (hover: hover) and (pointer: fine) { .ex-indice-btn:hover { color: var(--ink); } }
+.ex-indice-btn:active { color: var(--ink); }
 .ex-indice { font-size: 14.5px; color: var(--ink-2); background: var(--surface-2);
   border-radius: 6px; padding: 12px 15px; margin: 12px 0 0; max-width: 70ch; }
 
@@ -532,7 +548,7 @@ button { font: inherit; color: inherit; }
 }
 .search:focus { outline: none; border-color: var(--accent); box-shadow: 0 0 0 3px var(--accent-soft); }
 
-footer { border-top: 1px solid var(--rule); margin-top: 72px; padding: 36px 0 62px; color: var(--ink-3); font-size: 13.5px; }
+footer { border-top: 1px solid var(--rule); margin-top: 72px; padding: 36px 0 calc(62px + env(safe-area-inset-bottom, 0px)); color: var(--ink-3); font-size: 13.5px; }
 footer p { max-width: 74ch; }
 
 /* --- Adaptations -------------------------------------------------------- */

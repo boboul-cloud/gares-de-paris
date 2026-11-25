@@ -549,9 +549,15 @@ document.addEventListener('input', (e) => {
 
 /* Thème */
 const THEME_KEY = 'gdp-theme';
+const THEME_COLORS = { light: '#E7EBEE', dark: '#0D1217' }; // --ground clair et sombre
 function applyTheme(t) {
   if (t === 'auto') document.documentElement.removeAttribute('data-theme');
   else document.documentElement.setAttribute('data-theme', t);
+  // Barre d'état : la couleur du thème choisi, ou celle du réglage de l'appareil en automatique.
+  for (const m of document.querySelectorAll('meta[name="theme-color"]')) {
+    const schema = (m.getAttribute('media') || '').includes('dark') ? 'dark' : 'light';
+    m.setAttribute('content', THEME_COLORS[t === 'auto' ? schema : t]);
+  }
   const b = $('#theme');
   if (b) b.textContent = t === 'dark' ? '☾' : t === 'light' ? '☀' : '◐';
 }
