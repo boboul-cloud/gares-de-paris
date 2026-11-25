@@ -22,7 +22,8 @@ export function enPalettes(texte, n) {
   // Trop long : on coupe au dernier mot entier, et le point suit le mot.
   const coupe = t.slice(0, n - 1);
   const esp = coupe.lastIndexOf(' ');
-  return ((esp > n * 0.6 ? coupe.slice(0, esp) : coupe) + '.').padEnd(n, ' ');
+  // Un tiret ou une virgule orphelins ne précèdent pas le point (« RANG-DU-FLIERS. »).
+  return ((esp > n * 0.6 ? coupe.slice(0, esp) : coupe).replace(/[\s\-',.:]+$/, '') + '.').padEnd(n, ' ');
 }
 
 /**

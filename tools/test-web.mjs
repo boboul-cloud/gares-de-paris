@@ -139,6 +139,7 @@ if (!blocDirect(corpus, lyon, 'https://relais.exemple').includes('data-direct="p
 if (!blocDirect(corpus, corpus.stations.find((s) => s.id === 'gare-bastille'), 'https://relais.exemple').includes('1969')) echec('en direct : Bastille devrait dire sa fermeture');
 if (blocDirect(corpus, corpus.stations.find((s) => s.id === 'gare-orsay'), 'https://r').includes('undefined')) echec('en direct : valeur non résolue');
 if (enPalettes('Versailles Château Rive Gauche', 24).trim().endsWith(' .')) echec('palettes : le point doit suivre le mot coupé');
+if (enPalettes('Rang-du-Fliers - Verton - Berck', 18).trim() !== 'RANG-DU-FLIERS.') echec(`palettes : tiret orphelin avant le point (« ${enPalettes('Rang-du-Fliers - Verton - Berck', 18).trim()} »)`);
 
 console.log(`fond : ${scenes} scènes vérifiées au point de croisement, ${evts.length} dates sur la frise`
   + `${fond ? ` — ${fond} ÉCHEC(S)` : ' — OK'}`);
