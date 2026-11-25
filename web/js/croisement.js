@@ -5,6 +5,8 @@
 // le temps en abscisse, les distances en ordonnée, chaque train une droite.
 // Deux trains se croisent là où leurs droites se coupent.
 
+import { preparerScene, monterScene } from './scene-ligne.js';
+
 const esc = (s) => String(s ?? '').replace(/[&<>"]/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]));
 
 export const enMinutes = (hhmm) => {
@@ -199,16 +201,19 @@ export function graphiqueMarche(axe, trains, croix, opts = {}) {
 
   out += `<rect x="${gauche}" y="${haut}" width="${w - gauche - droite}" height="${h - haut - bas}" class="gm-cadre"/>`;
 
-  // Les marches.
-  for (const tr of trains) {
+  // Les marches. Un train « fantôme » — celui que la réponse de l'élève
+  // aurait fait rouler — est tracé en pointillé, sous les vrais.
+  for (const tr of [...trains].sort((a, b) => !!b.fantome - !!a.fantome)) {
     const d = tr.marche.points.map((p, i) => `${i ? 'L' : 'M'}${X(p.t).toFixed(1)} ${Y(p.pk).toFixed(1)}`).join('');
-    out += `<path d="${d}" class="gm-marche" style="stroke:${tr.couleur}"/>`;
-    for (const p of tr.marche.points) {
-      out += `<circle cx="${X(p.t).toFixed(1)}" cy="${Y(p.pk).toFixed(1)}" r="2.6" fill="${tr.couleur}"/>`;
+    out += `<path d="${d}" class="gm-marche${tr.fantome ? ' gm-fantome' : ''}" style="stroke:${tr.couleur}"/>`;
+    if (!tr.fantome) {
+      for (const p of tr.marche.points) {
+        out += `<circle cx="${X(p.t).toFixed(1)}" cy="${Y(p.pk).toFixed(1)}" r="2.6" fill="${tr.couleur}"/>`;
+      }
     }
     const tete = tr.marche.points[0];
     out += `<text x="${(X(tete.t) + 7).toFixed(1)}" y="${(Y(tete.pk) + (tr.marche.montant ? -8 : 16)).toFixed(1)}" ` +
-      `class="gm-nom" style="fill:${tr.couleur}">${esc(tr.nom)}</text>`;
+      `class="gm-nom${tr.fantome ? ' gm-fantome' : ''}" style="fill:${tr.couleur}">${esc(tr.nom)}</text>`;
   }
 
   // Le point de croisement.
@@ -228,7 +233,11 @@ export function graphiqueMarche(axe, trains, croix, opts = {}) {
     out += `<text x="${cx.toFixed(1)}" y="${(y - 12).toFixed(1)}" text-anchor="${cote}" class="gm-croix-label">${esc(texte)}</text>`;
   }
 
-  return `<svg viewBox="0 0 ${w} ${h}" xmlns="http://www.w3.org/2000/svg" class="graphique-marche" role="img" ` +
+  // Les échelles sont publiées sur l'élément : la scène animée s'en sert pour
+  // promener son curseur sur le graphique, et pour qu'on y glisse le temps.
+  const echelles = { t0, t1, gauche, droite, haut, bas, l: L, w, h };
+  const data = Object.entries(echelles).map(([k, v]) => `data-gm-${k}="${+v.toFixed(3)}"`).join(' ');
+  return `<svg viewBox="0 0 ${w} ${h}" xmlns="http://www.w3.org/2000/svg" class="graphique-marche" role="img" ${data} ` +
     `aria-label="Graphique de marche de l'axe ${esc(axe.nom)}">${out}</svg>`;
 }
 
@@ -481,7 +490,12 @@ export function vueSimulateur(corpus, etat) {
       <p class="sim-note" id="sim-axe-note">${esc(axe.note)}</p>
 
       <div id="sim-verdict"></div>
-      <div id="sim-graphique" style="margin-top:22px"></div>
+      <div class="sim-scene-tete">
+        <h3>La scène</h3>
+        <p>Les trains roulent selon le graphique de marche ci-dessous. Faites glisser le temps sur la réglette, ou directement sur le graphique.</p>
+      </div>
+      <div id="sim-scene"></div>
+      <div id="sim-graphique" style="margin-top:14px"></div>
 
       <hr class="rule">
 
@@ -590,6 +604,30 @@ export function majSimulateur(corpus, etat, racine = document) {
       { nom: 'Train A', couleur: etat.a.couleur, marche: r.mA },
       { nom: 'Train B', couleur: etat.b.couleur, marche: r.mB },
     ], r.croix, { width: dispo, height: Math.round(dispo / (dispo < 560 ? 1.05 : 1.62)) });
+  }
+
+  // La scène : jouée une fois à l'arrivée sur la page, puis recalée sur
+  // l'instant de la rencontre à chaque réglage, pour ne pas s'agiter pendant
+  // qu'on tape une vitesse.
+  const sc = racine.querySelector('#sim-scene');
+  if (sc) {
+    const nomDe = (t, cle) => {
+      const m = sim.materiels.find((x) => x.id === t.materielId);
+      return cle.toUpperCase() + (m ? ' · ' + m.nom : '');
+    };
+    const d = preparerScene(axe, ['a', 'b'].map((cle) => ({
+      cle, nom: nomDe(etat[cle], cle), couleur: etat[cle].couleur,
+      train: train(etat[cle]), materielId: etat[cle].materielId,
+    })), {
+      graphique: g?.querySelector('svg') || null,
+      arretCroisement: true,
+      legendeDepart: 'Appuyez sur lecture : les deux trains partent à leur heure.',
+    });
+    const premiere = !etat.sceneVue;
+    etat.sceneVue = true;
+    d.auto = premiere;
+    if (!premiere && d.croix && d.croix.type !== 'aucun') d.depart = d.croix.t;
+    monterScene(sc, d);
   }
 }
 

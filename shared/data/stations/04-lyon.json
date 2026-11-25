@@ -97,6 +97,11 @@
     ],
     "entrees": ["Place Louis-Armand (beffroi)", "Boulevard Diderot", "Rue de Bercy", "Rue de Chalon (hall 3)"]
   },
+  "immersion": {
+    "vues": [
+      { "titre": "Place Louis-Armand, face au beffroi et à ses quatre cadrans", "regard": { "lat": 48.8456, "lon": 2.3725 }, "cible": { "lat": 48.84485, "lon": 2.37385 }, "inclinaison": 15 }
+    ]
+  },
   "sources": [
     { "titre": "Gare de Paris-Lyon — Wikipédia", "url": "https://fr.wikipedia.org/wiki/Gare_de_Paris-Lyon" },
     { "titre": "Le Train Bleu — Wikipédia", "url": "https://fr.wikipedia.org/wiki/Le_Train_Bleu_(restaurant)" }

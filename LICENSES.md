@@ -34,8 +34,13 @@ exercices.
 shared/data/stations/*.json    shared/data/circuits.json
 shared/data/traction.json      shared/data/tgv.json
 shared/data/glossaire.json     shared/data/simulateur.json
-shared/data/exercices.json     README.md
+shared/data/exercices.json     shared/data/directions.json
+README.md
 ```
+
+Les points de vue « immersion » des fiches (où se tenir, quoi regarder) ont été
+relevés pour ce projet ; leurs coordonnées ont été vérifiées sur OpenStreetMap
+(Nominatim), sans reprise de données au-delà de ces positions ponctuelles.
 
 Vous pouvez les reprendre, les traduire et les adapter, y compris à des fins
 commerciales, à deux conditions : **citer l'auteur** et **partager vos versions
@@ -68,10 +73,27 @@ au code qui le produit ni à celui qui l'affiche.
 Pour vous en affranchir, supprimez `shared/data/geo.json` de votre copie :
 `tools/extraire-geo.py` le reconstruit depuis les sources.
 
+## Bibliothèque tierce — three.js (MIT)
+
+```
+web/vendor/three.module.js     web/vendor/THREE-LICENSE.txt
+```
+
+La maquette 3D utilise **three.js** r170, copié tel quel dans le dépôt pour
+fonctionner hors connexion, sans dépendance à un CDN. Licence MIT,
+© 2010-2024 three.js authors ; le texte est joint dans `THREE-LICENSE.txt`.
+
+## Services ouverts depuis l'application
+
+Les liens « Street View », « Survol en 3D réelle » et « Itinéraire » ouvrent
+Google Maps et Google Earth, et « Plan du quartier » ouvre OpenStreetMap, dans
+un nouvel onglet. Aucun contenu de ces services n'est repris ni embarqué dans
+le dépôt, et rien ne leur est transmis tant que l'on ne clique pas.
+
 ## Les illustrations
 
-Les façades de gare, les plans de voies, la carte et les graphiques de marche
-ne sont pas des images : ils sont **dessinés à l'exécution** par le code, à
+Les façades de gare, les plans de voies, la carte, la maquette 3D, la scène
+animée du croisement et les graphiques de marche ne sont pas des images : ils sont **dessinés à l'exécution** par le code, à
 partir de paramètres. Ils suivent donc la licence du code, et la licence ODbL
 pour ce qu'ils tirent de `geo.json`.
 

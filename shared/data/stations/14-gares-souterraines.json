@@ -88,6 +88,12 @@
     ],
     "entrees": ["Rue de Rome et rue de Provence (Haussmann)", "Boulevard de Magenta et gare du Nord (Magenta)"]
   },
+  "immersion": {
+    "vues": [
+      { "titre": "Haussmann — Saint-Lazare, l'accès de la rue de Caumartin", "regard": { "lat": 48.8747, "lon": 2.3283 }, "cible": { "lat": 48.8751, "lon": 2.3287 }, "inclinaison": 0 },
+      { "titre": "Magenta, l'accès côté gare du Nord", "regard": { "lat": 48.8804, "lon": 2.3583 }, "cible": { "lat": 48.8808, "lon": 2.35871 }, "inclinaison": 0 }
+    ]
+  },
   "sources": [
     { "titre": "Gare de Haussmann — Saint-Lazare — Wikipédia", "url": "https://fr.wikipedia.org/wiki/Gare_de_Haussmann_%E2%80%94_Saint-Lazare" },
     { "titre": "EOLE, prolongement du RER E — SNCF Réseau", "url": "https://www.sncf-reseau.com/fr/entreprise/newsroom/dossier/eole-prolongement-rer-e" }

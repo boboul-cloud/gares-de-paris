@@ -88,6 +88,11 @@
     ],
     "entrees": ["Boulevard de Bercy", "Rue de Pommard (accès métro 14)"]
   },
+  "immersion": {
+    "vues": [
+      { "titre": "Aux abords de la gare, côté boulevard de Bercy", "regard": { "lat": 48.83905, "lon": 2.3833 }, "cible": { "lat": 48.8384, "lon": 2.38383 }, "inclinaison": 8 }
+    ]
+  },
   "sources": [
     { "titre": "Gare de Paris-Bercy — Wikipédia", "url": "https://fr.wikipedia.org/wiki/Gare_de_Paris-Bercy" }
   ]

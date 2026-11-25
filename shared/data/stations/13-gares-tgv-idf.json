@@ -89,6 +89,11 @@
     ],
     "entrees": ["Accès directs depuis les terminaux, parcs et gares RER correspondantes"]
   },
+  "immersion": {
+    "vues": [
+      { "titre": "Marne-la-Vallée — Chessy, le parvis entre la gare et les parcs", "regard": { "lat": 48.8712, "lon": 2.7823 }, "cible": { "lat": 48.87041, "lon": 2.78283 }, "inclinaison": 5 }
+    ]
+  },
   "sources": [
     { "titre": "LGV Interconnexion Est — Wikipédia", "url": "https://fr.wikipedia.org/wiki/LGV_Interconnexion_Est" },
     { "titre": "Gare de Marne-la-Vallée — Chessy — Wikipédia", "url": "https://fr.wikipedia.org/wiki/Gare_de_Marne-la-Vall%C3%A9e_%E2%80%93_Chessy" }

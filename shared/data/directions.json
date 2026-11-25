@@ -1,0 +1,40 @@
+{
+  "titre": "Les sept directions",
+  "intro": "Chaque grand terminus regarde vers sa région : les compagnies du XIXe siècle avaient chacune leur part de la France, et leurs gares se sont posées sur le bord de Paris qui leur faisait face. Les flèches pointent vers les villes réellement desservies, dans leur direction vraie.",
+  "gares": [
+    { "gareId": "paris-saint-lazare", "vers": [
+      { "ville": "Rouen", "lat": 49.4432, "lon": 1.0999 },
+      { "ville": "Le Havre", "lat": 49.4944, "lon": 0.1079 },
+      { "ville": "Caen", "lat": 49.1829, "lon": -0.3707 }
+    ] },
+    { "gareId": "paris-nord", "vers": [
+      { "ville": "Lille", "lat": 50.6292, "lon": 3.0573 },
+      { "ville": "Londres", "lat": 51.5074, "lon": -0.1278 },
+      { "ville": "Bruxelles", "lat": 50.8503, "lon": 4.3517 }
+    ] },
+    { "gareId": "paris-est", "vers": [
+      { "ville": "Reims", "lat": 49.2583, "lon": 4.0317 },
+      { "ville": "Strasbourg", "lat": 48.5734, "lon": 7.7521 },
+      { "ville": "Metz", "lat": 49.1193, "lon": 6.1757 }
+    ] },
+    { "gareId": "paris-lyon", "vers": [
+      { "ville": "Lyon", "lat": 45.7640, "lon": 4.8357 },
+      { "ville": "Marseille", "lat": 43.2965, "lon": 5.3698 },
+      { "ville": "Genève", "lat": 46.2044, "lon": 6.1432 }
+    ] },
+    { "gareId": "paris-bercy", "vers": [
+      { "ville": "Nevers", "lat": 46.9896, "lon": 3.1590 },
+      { "ville": "Clermont-Ferrand", "lat": 45.7772, "lon": 3.0870 }
+    ] },
+    { "gareId": "paris-austerlitz", "vers": [
+      { "ville": "Orléans", "lat": 47.9030, "lon": 1.9093 },
+      { "ville": "Limoges", "lat": 45.8336, "lon": 1.2611 },
+      { "ville": "Toulouse", "lat": 43.6047, "lon": 1.4442 }
+    ] },
+    { "gareId": "paris-montparnasse", "vers": [
+      { "ville": "Rennes", "lat": 48.1173, "lon": -1.6778 },
+      { "ville": "Nantes", "lat": 47.2184, "lon": -1.5536 },
+      { "ville": "Bordeaux", "lat": 44.8378, "lon": -0.5792 }
+    ] }
+  ]
+}

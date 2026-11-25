@@ -21,7 +21,7 @@ const strip = (js) => js
 // est republié sur globalThis pour rester visible des modules suivants — la
 // liste est relevée dans le source, pour ne jamais se désynchroniser.
 const exportes = (js) =>
-  [...js.matchAll(/^export\s+(?:function|const|let|class)\s+([A-Za-z_$][\w$]*)/gm)]
+  [...js.matchAll(/^export\s+(?:async\s+)?(?:function|const|let|class)\s+([A-Za-z_$][\w$]*)/gm)]
     .map((m) => m[1]);
 
 const bloc = (fichier) => {
@@ -31,11 +31,17 @@ const bloc = (fichier) => {
 
 const corpus = read('shared/data/corpus.json');
 const css = read('web/css/app.css');
+// Ordre des dépendances. La maquette 3D charge three.js à la demande depuis
+// web/vendor : dans le fichier autonome, elle affiche un renvoi vers le site.
 const js = [
   bloc('web/js/artwork.js'),
   bloc('web/js/carte.js'),
+  bloc('web/js/immersion.js'),
   bloc('web/js/croisement.js'),
+  bloc('web/js/scene-ligne.js'),
   bloc('web/js/exercices.js'),
+  bloc('web/js/departs.js'),
+  bloc('web/js/maquette.js'),
   bloc('web/js/app.js'),
 ].join('\n\n');
 

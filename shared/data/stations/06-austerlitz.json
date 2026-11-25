@@ -96,6 +96,11 @@
     ],
     "entrees": ["Cour Muséum (place Valhubert)", "Quai d'Austerlitz", "Boulevard de l'Hôpital", "Cour Seine"]
   },
+  "immersion": {
+    "vues": [
+      { "titre": "Depuis le pont d'Austerlitz, la tête de gare sur la place Valhubert", "regard": { "lat": 48.8445, "lon": 2.3654 }, "cible": { "lat": 48.8429, "lon": 2.3661 }, "inclinaison": 6 }
+    ]
+  },
   "sources": [
     { "titre": "Gare de Paris-Austerlitz — Wikipédia", "url": "https://fr.wikipedia.org/wiki/Gare_de_Paris-Austerlitz" },
     { "titre": "Rénovation des verrières de Paris-Austerlitz — Gares & Connexions", "url": "https://www.garesetconnexions.sncf/fr/actualites/renovation-verrieres-paris-austerlitz-gare-lyon" },

@@ -30,6 +30,28 @@ Une seule base de contenu alimente deux applications :
   exploitation et tracé de la Petite Ceinture. Elle se zoome à la molette, au
   pincement ou aux boutons, se déplace au glisser, et chaque gare y est
   cliquable. Aucune tuile distante : elle fonctionne hors connexion.
+  Sur le Web, la page Carte devient un **plan vivant** : bulle illustrée au
+  survol, panneau de gare, calques (voies, Petite Ceinture, monuments,
+  arrondissements) et **les sept directions** — de chaque terminus, une flèche
+  vers les villes qu'il dessert, dans leur direction vraie. Une frise **remonte
+  le temps** de 1837 à aujourd'hui : les gares s'allument l'année de leur
+  ouverture, pâlissent à leur fermeture, et les dates des fiches défilent.
+- **Paris en maquette 3D** (Web) : la ville en volume, tirée de la même
+  géométrie, avec ses immeubles, la Seine, les voies, sept monuments et des
+  trains qui sortent des terminus. Chaque gare est **construite d'après sa
+  fiche** — les paramètres qui dessinent son illustration (travées, fronton,
+  horloge, beffroi, verrière, palette) donnent aussi son volume — et tourne sa
+  façade vers la rue d'où on la regarde. La Bastille, démolie, n'y est plus
+  qu'un fantôme, à travers lequel l'Opéra est construit. Jour et nuit, et une
+  visite guidée des sept terminus. Chaque fiche montre aussi sa gare seule, en
+  maquette de musée, éclairée à l'heure de son illustration.
+- **S'y croire** (Web) : pour chaque gare, un ou deux points de vue placés
+  devant la façade. Un viseur les situe sur un mini-plan, et un lien ouvre
+  Street View **tourné vers la gare** — le cap est calculé, pas saisi. S'y
+  ajoutent un survol photoréaliste dans Google Earth, le plan OpenStreetMap
+  du quartier et l'itinéraire en transports.
+- **Un tableau des départs** à palettes, sur l'accueil : les dates des fiches
+  défilent comme sur les anciens tableaux Solari, chaque ligne menant à sa gare.
 - **Un dossier technique** en cinq âges : vapeur, électrification, diesel,
   grande vitesse, rail de demain — avec l'effet de chaque révolution sur
   l'architecture des gares, et une histoire de la signalisation.
@@ -39,13 +61,21 @@ Une seule base de contenu alimente deux applications :
   1849, ou **saisies librement** — et leurs heures de départ ; l'application
   trace le **graphique de marche**, le diagramme espace-temps des régulateurs,
   puis calcule l'heure, le point kilométrique et le lieu de la rencontre.
+  Sur le Web, **la scène** le rejoue : les trains roulent sur la ligne vue de
+  côté, entre les plaques émaillées des gares de l'axe ; l'horloge de quai
+  donne l'heure simulée et le ciel la suit, de l'aube à la nuit (phares
+  allumés). Un curseur parcourt le graphique en même temps, et le segment entre
+  les deux droites mesure la distance qui sépare les trains.
   Quatre **calculs détaillés pas à pas** accompagnent la page : croisement face
   à face, rattrapage, heure de départ à trouver, vitesse à trouver.
 - **Un moteur d'exercices** : des séries de huit questions **engendrées** à
   partir des axes, des matériels et du contenu documentaire — croisements à
   calculer, heures de départ à retrouver, vitesses à déterminer, dates,
   architectes, dessertes et vocabulaire. Chaque corrigé donne le raisonnement,
-  et pour les croisements le graphique de marche lui-même.
+  et pour les croisements le graphique de marche lui-même. Sur le Web, l'énoncé
+  est illustré par la scène, figée au départ ; au corrigé, elle s'anime, et la
+  réponse donnée est **mise en circulation** : un *train fantôme* part à l'heure
+  ou roule à la vitesse proposée, et l'on voit où il aurait rencontré l'autre.
 - **Un glossaire** de 42 termes, du mot « embarcadère » à l'ERTMS.
 
 Les illustrations de gares et les plans de voies ne sont pas des images : ils
@@ -53,6 +83,14 @@ sont **dessinés à l'exécution** à partir des paramètres de chaque fiche
 (`artwork`), en SVG côté Web et sur un `Canvas` SwiftUI côté Apple. Les deux
 rendus suivent la même géométrie, ce qui évite d'embarquer le moindre fichier
 image et garantit la netteté à toute taille.
+
+### Ce que la version Web a de plus que l'app Apple
+
+La maquette 3D, la scène animée du croisement et son train fantôme, le plan
+vivant (calques, sept directions, frise du temps), la lecture animée des
+circuits, la section « S'y croire » et le tableau des départs n'existent pour
+l'instant que sur le Web. L'app Apple lit le même corpus et ignore simplement
+les champs qu'elle n'utilise pas (`immersion`, `fermeture`, `directions`).
 
 ## Le site publié
 
@@ -83,6 +121,9 @@ connexion, est produite dans `dist/` :
 node tools/build-standalone.mjs
 open dist/gares-de-paris.html
 ```
+
+Seule la maquette 3D n'y figure pas : three.js est chargé à la demande depuis
+`web/vendor/`, et la version en un seul fichier renvoie alors vers le site.
 
 ## Ouvrir l'application Apple
 
@@ -126,6 +167,7 @@ shared/data/
 ├── glossaire.json     le lexique
 ├── simulateur.json    axes, matériels et exemples du simulateur de croisement
 ├── exercices.json     familles, formulations et tolérances du moteur d'exercices
+├── directions.json    les villes vers lesquelles regarde chaque grand terminus
 └── geo.json           géométrie de la carte — produite par tools/extraire-geo.py
 ```
 
@@ -136,6 +178,12 @@ géométrie par l'algorithme de Douglas-Peucker et l'arrondit à cinq décimales
 Les fichiers bruts sont conservés dans `.cache-geo/` pour rejouer l'extraction
 sans re-solliciter les serveurs. Le résultat pèse une soixantaine de kilo-octets
 et est embarqué dans les deux applications.
+
+Chaque fiche porte aussi ses points de vue `immersion.vues` : `regard` (où se
+tenir), `cible` (la façade) et `inclinaison`. Le cap de Street View et
+l'orientation de la gare dans la maquette en sont **déduits** ; déplacer la
+cible suffit à les réorienter. Une gare fermée porte `fermeture` (l'année) et
+`fermetureTexte` : la frise du temps la pâlit à partir de cette année-là.
 
 Après toute modification, régénérez le corpus — le script valide les données
 (identifiants uniques, champs obligatoires, étapes de circuit pointant vers des
@@ -151,8 +199,8 @@ node tools/build-data.mjs
 |---|---|
 | `node tools/build-data.mjs` | Assemble et valide `corpus.json`, le distribue aux deux applications |
 | `node tools/build-standalone.mjs` | Produit `dist/gares-de-paris.html` (autonome) et `dist/artifact.html` |
-| `node tools/test-web.mjs` | Rend toutes les routes de l'application Web dans un DOM simulé et vérifie le bundle |
-| `swiftc -O -o /tmp/exejs tools/executer-js.swift && /tmp/exejs dist/gares-de-paris.html tools/verifier-carte.js '#/carte'` | Vérifie les **gestes** sur la carte dans un vrai navigateur : appui, tremblement, glissement, zoom, clavier. Accepte aussi une adresse `https://`, pour contrôler le site publié |
+| `node tools/test-web.mjs` | Rend toutes les routes de l'application Web dans un DOM simulé et vérifie le bundle ; contrôle aussi les liens Street View et Google Earth, la frise, et que la scène animée place les deux trains au même point à l'instant du croisement (plus de 300 scènes) |
+| `swiftc -O -o /tmp/exejs tools/executer-js.swift && /tmp/exejs dist/gares-de-paris.html tools/verifier-carte.js '#/carte'` | Vérifie les **gestes** sur la carte dans un vrai navigateur : appui, tremblement, glissement, zoom, clavier, panneau du plan vivant, calques et frise du temps. Accepte aussi une adresse `https://`, pour contrôler le site publié |
 | `swiftc -O -o /tmp/verif apple/GaresDeParis/{Model/Corpus.swift,Design/*.swift,Views/*.swift} tools/verifier-largeurs.swift && /tmp/verif . /tmp/out 393` | Rend tous les écrans Apple à la largeur d'un iPhone et signale tout débordement horizontal |
 | `node tools/parite-methodes.mjs /tmp/pm` | Vérifie que les démonstrations pas à pas sont identiques en JavaScript et en Swift |
 | `node tools/parite-exercices.mjs /tmp/parite` | Vérifie que les moteurs d'exercices JavaScript et Swift engendrent des séries identiques |
@@ -182,6 +230,10 @@ Les nombres de ces démonstrations ne sont pas recopiés dans les données : ils
 sont **recalculés par le programme**, de sorte que la leçon ne puisse pas
 diverger du moteur. `tools/parite-methodes.mjs` vérifie que les deux
 implémentations produisent les mêmes 63 lignes de calcul.
+
+La scène animée ne calcule rien : elle lit les positions dans les marches du
+moteur (`pkA`), et `tools/test-web.mjs` vérifie qu'à l'instant du croisement
+qu'il annonce, les deux trains dessinés sont bien au même point kilométrique.
 
 Le modèle est celui du graphique tracé à la règle : marche uniforme entre deux
 arrêts, un arrêt se traduisant par un segment horizontal. Ni accélération, ni
@@ -214,6 +266,7 @@ Trois statuts différents cohabitent, et le détail est dans [`LICENSES.md`](LIC
 | Le code — `web/js`, `apple/`, `tools/` | **MIT** — réutilisation libre, mention de copyright conservée |
 | Les textes — fiches, dossiers, glossaire, exercices | **CC BY-SA 4.0** — attribution et partage à l'identique |
 | `shared/data/geo.json` | **ODbL** — licence héritée d'OpenStreetMap et de Paris Open Data |
+| `web/vendor/three.module.js` | **MIT** — three.js r170, copié pour fonctionner hors connexion |
 
 Le code est fourni **en l'état, sans garantie**. Les horaires, tarifs et
 dessertes affichés sont documentaires et ne doivent pas servir à préparer un

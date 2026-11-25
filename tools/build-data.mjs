@@ -36,8 +36,27 @@ const corpus = {
   glossaire: load('glossaire.json'),
   simulateur: load('simulateur.json'),
   exercices: load('exercices.json'),
+  directions: load('directions.json'),
   geo: load('geo.json'),
 };
+
+// Points de vue « immersion » : coordonnées plausibles (Île-de-France) et un
+// regard qui ne se confond pas avec sa cible, sans quoi le cap est indéfini.
+const enIdf = (c) => c && c.lat > 48.1 && c.lat < 49.3 && c.lon > 1.4 && c.lon < 3.6;
+for (const s of stations) {
+  const vues = s.immersion?.vues;
+  if (!vues?.length) throw new Error(`${s.id} : aucun point de vue « immersion »`);
+  for (const v of vues) {
+    if (!v.titre || !enIdf(v.regard) || !enIdf(v.cible)) throw new Error(`${s.id} : point de vue incomplet « ${v.titre} »`);
+    if (Math.hypot(v.regard.lat - v.cible.lat, v.regard.lon - v.cible.lon) < 1e-5) {
+      throw new Error(`${s.id} : le regard et la cible de « ${v.titre} » sont confondus`);
+    }
+  }
+  if (s.fermeture !== undefined && !(s.fermeture > s.ouverture)) throw new Error(`${s.id} : fermeture antérieure à l'ouverture`);
+}
+for (const d of corpus.directions.gares) {
+  if (!ids.has(d.gareId)) throw new Error(`Directions : gare inconnue « ${d.gareId} »`);
+}
 
 // Vérifie la cohérence des axes du simulateur : jalons ordonnés, origine à
 // zéro, terminus à la longueur annoncée, gare de départ connue.

@@ -98,6 +98,11 @@
     ],
     "entrees": ["Place Raoul-Dautry (hall principal)", "Boulevard de Vaugirard", "Avenue du Maine", "Rue du Cotentin (zone Vaugirard)"]
   },
+  "immersion": {
+    "vues": [
+      { "titre": "Place Raoul-Dautry, face à la gare et dos à la tour", "regard": { "lat": 48.84165, "lon": 2.3205 }, "cible": { "lat": 48.8408, "lon": 2.3196 }, "inclinaison": 10 }
+    ]
+  },
   "sources": [
     { "titre": "Gare de Paris-Montparnasse — Wikipédia", "url": "https://fr.wikipedia.org/wiki/Gare_de_Paris-Montparnasse" },
     { "titre": "Accident de la gare Montparnasse — Wikipédia", "url": "https://fr.wikipedia.org/wiki/Accident_de_la_gare_Montparnasse" }

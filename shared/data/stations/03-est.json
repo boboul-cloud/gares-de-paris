@@ -97,6 +97,11 @@
     ],
     "entrees": ["Place du 11-Novembre-1918 (façade Duquesney)", "Rue du Faubourg-Saint-Martin", "Rue d'Alsace (escalier monumental)", "Rue du 8-Mai-1945"]
   },
+  "immersion": {
+    "vues": [
+      { "titre": "Boulevard de Strasbourg, dans la perspective voulue par Haussmann", "regard": { "lat": 48.87415, "lon": 2.35698 }, "cible": { "lat": 48.8768, "lon": 2.3587 }, "inclinaison": 10 }
+    ]
+  },
   "sources": [
     { "titre": "Gare de Paris-Est — Wikipédia", "url": "https://fr.wikipedia.org/wiki/Gare_de_Paris-Est" },
     { "titre": "Le Départ des poilus, août 1914 — Wikipédia", "url": "https://fr.wikipedia.org/wiki/Le_D%C3%A9part_des_poilus,_ao%C3%BBt_1914" }

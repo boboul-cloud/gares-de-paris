@@ -95,6 +95,11 @@
     ],
     "entrees": ["Cour de Rome (rue de Rome)", "Cour du Havre (rue d'Amsterdam)", "Rue Saint-Lazare", "Passage du Havre"]
   },
+  "immersion": {
+    "vues": [
+      { "titre": "Cour du Havre, face à la façade de Juste Lisch et à L'Heure de tous d'Arman", "regard": { "lat": 48.8757, "lon": 2.3266 }, "cible": { "lat": 48.87625, "lon": 2.326 }, "inclinaison": 12 }
+    ]
+  },
   "sources": [
     { "titre": "Gare de Paris-Saint-Lazare — Wikipédia", "url": "https://fr.wikipedia.org/wiki/Gare_de_Paris-Saint-Lazare" },
     { "titre": "SNCF Gares & Connexions — Paris Saint-Lazare", "url": "https://www.garesetconnexions.sncf/fr/gares-services/gare-paris-saint-lazare" }

@@ -10,6 +10,8 @@
   "coord": { "lat": 48.8341, "lon": 2.3222 },
   "ouverture": 1852,
   "ouvertureTexte": "11 décembre 1852 (rive droite) — voyageurs de 1862 à 1934",
+  "fermeture": 1934,
+  "fermetureTexte": "dernier train de voyageurs le 23 juillet 1934",
   "compagnie": "Syndicat des compagnies du Nord, de l'Est, de l'Ouest, d'Orléans et du PLM",
   "architectes": ["Ingénieurs des compagnies ; gares types de Juste Lisch et Jean-Jacques Delaroche"],
   "protection": "Emprises propriété de SNCF Réseau ; tronçons ouverts au public par la Ville de Paris",
@@ -94,6 +96,12 @@
       { "nom": "Gares reconverties", "desserte": "Ornano, Avenue de Saint-Ouen, Passy-La Muette, Charonne, Vaugirard-Ceinture, Reuilly" }
     ],
     "entrees": ["Place Balard (15e)", "Square Charles-Péguy (12e)", "Boulevard Ornano (18e)", "Rue de Bagnolet (20e)"]
+  },
+  "immersion": {
+    "vues": [
+      { "titre": "Boulevard Ornano, l'ancienne gare devenue La Recyclerie", "regard": { "lat": 48.8974, "lon": 2.3447 }, "cible": { "lat": 48.89762, "lon": 2.34406 }, "inclinaison": 5 },
+      { "titre": "Rue de Bagnolet, l'ancienne gare de Charonne", "regard": { "lat": 48.8596, "lon": 2.4026 }, "cible": { "lat": 48.85943, "lon": 2.40299 }, "inclinaison": 5 }
+    ]
   },
   "sources": [
     { "titre": "Ligne de Petite Ceinture — Wikipédia", "url": "https://fr.wikipedia.org/wiki/Ligne_de_Petite_Ceinture" },

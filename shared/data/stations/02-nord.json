@@ -100,6 +100,11 @@
     ],
     "entrees": ["Parvis rue de Dunkerque (façade Hittorff)", "Rue du Faubourg-Saint-Denis", "Rue de Maubeuge", "Passage souterrain vers Magenta / RER E"]
   },
+  "immersion": {
+    "vues": [
+      { "titre": "Boulevard de Denain, dans l'axe de la façade d'Hittorff", "regard": { "lat": 48.8789, "lon": 2.35422 }, "cible": { "lat": 48.8805, "lon": 2.3553 }, "inclinaison": 12 }
+    ]
+  },
   "sources": [
     { "titre": "Gare de Paris-Nord — Wikipédia", "url": "https://fr.wikipedia.org/wiki/Gare_de_Paris-Nord" },
     { "titre": "Horizon 2024, modernisation de la gare du Nord — Gares & Connexions", "url": "https://www.garesetconnexions.sncf/fr/gares-services/actualites/horizon-2024-modernisation-gare-du-nord" }

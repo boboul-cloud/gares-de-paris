@@ -1,7 +1,10 @@
 import { stationArtwork, trackPlan } from './artwork.js';
-import { parisMap, initCartes, vientDeGlisser } from './carte.js';
+import { parisMap, initCartes, vientDeGlisser, fournirIllustration, frise, armerTemps, armerLecture } from './carte.js';
 import { vueSimulateur, initSimulateur, etatInitial } from './croisement.js';
 import { vueExercices, initExercices, etatExercices } from './exercices.js';
+import { blocImmersion, raccourcisImmersion, lienStreetView } from './immersion.js';
+import { tableauDeparts, armerTableau } from './departs.js';
+import { monterMaquette, monterVitrine } from './maquette.js';
 
 const $ = (s, r = document) => r.querySelector(s);
 const esc = (s) => String(s ?? '').replace(/[&<>"]/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]));
@@ -20,6 +23,15 @@ const CATEGORIES = [
 
 const MODES = { metro: 'Métro', rer: 'RER', marche: 'À pied', tram: 'Tramway', bus: 'Bus' };
 
+// La bulle de survol de la carte montre l'illustration de la gare.
+fournirIllustration((s) => stationArtwork(s, { width: 300, height: 130 }));
+
+/** Les gares que la maquette 3D sait placer : celles du plan de Paris. */
+const dansLePlan = (s) => {
+  const b = C.geo.bounds;
+  return s.coord.lon >= b.minLon && s.coord.lon <= b.maxLon && s.coord.lat >= b.minLat && s.coord.lat <= b.maxLat;
+};
+
 /* ---------------------------------------------------------------- fragments */
 
 const stationCard = (s) => `
@@ -32,6 +44,28 @@ const stationCard = (s) => `
       <div class="card-foot"><span>${esc(s.ouverture)}</span><span>${esc(s.arrondissement)}</span></div>
     </div>
   </a>`;
+
+/** Le panneau d'une gare choisie sur le plan ou dans la maquette. */
+function ficheEclair(s, opts = {}) {
+  const c = accentOf(s);
+  const v = s.immersion?.vues?.[0];
+  const dates = s.fermeture ? `${s.ouverture} – ${s.fermeture}` : `depuis ${s.ouverture}`;
+  return `<div class="eclair" style="--c:${c}">
+    <button type="button" class="eclair-fermer" data-fermer aria-label="Fermer le panneau">×</button>
+    <div class="eclair-art">${stationArtwork(s, { width: 480, height: 210 })}</div>
+    <div class="eclair-corps">
+      <em>${esc(s.surnom || '')}</em>
+      <h3>${esc(s.nom)}</h3>
+      <span class="eclair-dates">${esc(dates)} · ${esc(s.arrondissement)}${s.fermetureTexte ? ' · ' + esc(s.fermetureTexte) : ''}</span>
+      <p>${esc(s.resume)}</p>
+      <div class="eclair-actions">
+        <a class="bouton" href="#/gare/${esc(s.id)}">Ouvrir la fiche</a>
+        ${v ? `<a href="${esc(lienStreetView(v))}" target="_blank" rel="noopener">Street View ↗</a>` : ''}
+        ${opts.dans3d ? `<a href="#/carte">Sur le plan</a>` : dansLePlan(s) ? `<a href="#/carte/3d/${esc(s.id)}">Maquette 3D</a>` : ''}
+      </div>
+    </div>
+  </div>`;
+}
 
 const statBlock = (chiffres) => !chiffres?.length ? '' : `
   <div class="stats">${chiffres.map((c) => `
@@ -62,10 +96,18 @@ function vueAccueil() {
       </div>
     </section>
 
+    <section class="section accueil-departs">
+      ${tableauDeparts()}
+    </section>
+
     <section class="section">
       <div class="eyebrow">Le plan</div>
       <h2>Toutes les gares, d'un coup d'œil</h2>
-      <p class="lede">Cliquez sur un point pour ouvrir la fiche de la gare.</p>
+      <p class="lede">Cliquez sur un point pour ouvrir la fiche de la gare — ou entrez dans la ville :</p>
+      <div class="entrees-carte">
+        <a href="#/carte"><b>Le plan vivant</b><span>Les sept directions, et l'histoire rejouée de 1837 à aujourd'hui</span></a>
+        <a href="#/carte/3d"><b>Paris en maquette 3D</b><span>Chaque gare construite en volume, de jour comme de nuit</span></a>
+      </div>
       <div style="margin-top:24px">${parisMap(C, { width: 940, height: 620 })}</div>
     </section>
 
@@ -146,6 +188,7 @@ function vueGare(id) {
         <span><b>Adresse</b> ${esc(s.adresse)}</span>
         ${s.protection ? `<span><b>Protection</b> ${esc(s.protection)}</span>` : ''}
       </div>
+      ${raccourcisImmersion(s, { maquette: dansLePlan(s) })}
     </div>
 
     <div class="detail-hero">${stationArtwork(s, { width: 1180, height: 502 })}</div>
@@ -258,6 +301,16 @@ function vueGare(id) {
       </div>
     </section>` : ''}
 
+    ${blocImmersion(C, s, { maquette: dansLePlan(s) })}
+
+    <section class="section">
+      <div class="eyebrow">En volume</div>
+      <h2>La gare en maquette</h2>
+      <p class="lede">Construite d'après les mêmes paramètres que l'illustration — travées, fronton, horloge,
+      verrière, palette — et éclairée à la même heure du jour.${s.fermeture && /démoli/i.test(s.protection || '') ? ' Démolie, elle n\'est plus qu\'un fantôme.' : ''}</p>
+      <div class="vitrine-hote" data-vitrine="${esc(s.id)}"></div>
+    </section>
+
     <section class="section">
       <div class="eyebrow">Situer</div>
       <h2>Sur le plan</h2>
@@ -316,7 +369,7 @@ function vueCircuit(id) {
             { valeur: c.difficulte, label: 'difficulté', note: c.difficulteNote },
           ])}
         </div>
-        <div>${parisMap(C, { width: 620, height: 520, circuit: c })}</div>
+        <div>${parisMap(C, { width: 620, height: 520, circuit: c, lecture: true })}</div>
       </div>
 
       <div class="panel" style="margin-top:26px;border-left:3px solid ${c.couleur}">
@@ -329,7 +382,7 @@ function vueCircuit(id) {
         ${c.etapes.map((e) => {
           const st = byId(e.stationId);
           return `
-          <div class="step" style="--c:${c.couleur}">
+          <div class="step" style="--c:${c.couleur}" data-station="${esc(e.stationId)}" data-ordre="${esc(e.ordre)}">
             <div class="step-n">${esc(e.ordre)}<small>${esc(e.heure || '')}</small></div>
             <div>
               ${e.transport ? `<div class="leg" style="margin-bottom:12px">
@@ -451,16 +504,61 @@ function vueTGV() {
   </div>`;
 }
 
+const CALQUES = [
+  { id: 'directions', nom: 'Les sept directions' },
+  { id: 'rails', nom: 'Voies ferrées' },
+  { id: 'ceinture', nom: 'Petite Ceinture' },
+  { id: 'reperes', nom: 'Monuments' },
+  { id: 'arr', nom: 'Arrondissements' },
+];
+
+function ongletsCarte(mode) {
+  return `<div class="onglets" role="tablist" aria-label="Mode de la carte">
+    <a href="#/carte" role="tab" aria-selected="${mode === 'plan'}" class="${mode === 'plan' ? 'on' : ''}">Plan</a>
+    <a href="#/carte/3d" role="tab" aria-selected="${mode === '3d'}" class="${mode === '3d' ? 'on' : ''}">Maquette 3D</a>
+  </div>`;
+}
+
 function vueCarte() {
+  const cl = state.calques;
+  const classes = [!cl.rails && 'sans-rails', !cl.ceinture && 'sans-ceinture', !cl.reperes && 'sans-reperes',
+    cl.arr && 'avec-arr', cl.directions && 'avec-directions'].filter(Boolean).join(' ');
   return `
   <div class="wrap">
     <section class="section">
       <div class="eyebrow">Géographie</div>
       <h2>Le plan des gares</h2>
       <p class="lede">Les sept terminus forment une couronne autour du centre : chaque compagnie du XIXe siècle
-      s'était arrêtée à la limite du Paris d'alors, là où le terrain était encore abordable.
-      Le pointillé figure la Petite Ceinture, construite pour les relier entre elles.</p>
-      <div style="margin-top:26px">${parisMap(C, { width: 1140, height: 760 })}</div>
+      s'était arrêtée à la limite du Paris d'alors, là où le terrain était encore abordable — et chacune regardait
+      vers sa région. Le pointillé figure la Petite Ceinture, construite pour les relier entre elles.</p>
+      ${ongletsCarte('plan')}
+      <div class="chips calques" role="group" aria-label="Calques de la carte">${CALQUES.map((k) =>
+        `<button type="button" class="chip${cl[k.id] ? ' on' : ''}" data-calque="${k.id}" aria-pressed="${!!cl[k.id]}">${esc(k.nom)}</button>`).join('')}</div>
+      <div class="atlas ${classes}">
+        <div class="atlas-carte">${parisMap(C, { width: 1140, height: 760, atlas: true })}</div>
+        <aside class="atlas-panneau" hidden></aside>
+      </div>
+      ${frise()}
+      ${C.directions ? `<p class="sim-note" style="margin-top:14px">${esc(C.directions.intro)}</p>` : ''}
+    </section>
+  </div>`;
+}
+
+function vueMaquette(focus) {
+  const hors = C.stations.filter((s) => !dansLePlan(s));
+  return `
+  <div class="wrap">
+    <section class="section">
+      <div class="eyebrow">Géographie</div>
+      <h2>Paris en maquette</h2>
+      <p class="lede">La ville en volume, tirée de la même géométrie que le plan : la Seine, les voies, la Petite
+      Ceinture, les immeubles d'un Paris haussmannien, sept monuments pour se repérer. Chaque gare est bâtie d'après
+      sa fiche et tourne sa façade vers la rue d'où on la regarde. La gare de la Bastille, démolie, n'est plus qu'un
+      fantôme : l'Opéra est construit au travers.</p>
+      ${ongletsCarte('3d')}
+      <div class="maquette-hote" id="maquette" data-focus="${esc(focus || '')}"></div>
+      ${hors.length ? `<p class="sim-note" style="margin-top:12px">Hors du plan, donc absentes de la maquette :
+        ${hors.map((s) => `<a href="#/gare/${esc(s.id)}">${esc(s.nom)}</a>`).join(', ')}.</p>` : ''}
     </section>
   </div>`;
 }
@@ -500,12 +598,14 @@ const ROUTES = [
   [/^\/techniques$/, () => vueTechniques(), 'techniques'],
   [/^\/tgv$/, () => vueTGV(), 'tgv'],
   [/^\/carte$/, () => vueCarte(), 'carte'],
+  [/^\/carte\/3d(?:\/(.+))?$/, (m) => vueMaquette(m[1]), 'carte'],
   [/^\/croisement$/, () => vueSimulateur(C, etatSim()), 'croisement'],
   [/^\/exercices$/, () => vueExercices(C, etatEx()), 'exercices'],
   [/^\/glossaire$/, () => vueGlossaire(state.q), 'glossaire'],
 ];
 
-const state = { filtre: 'toutes', q: '', sim: null, ex: null };
+const state = { filtre: 'toutes', q: '', sim: null, ex: null,
+  calques: { directions: true, rails: true, ceinture: true, reperes: true, arr: false } };
 // L'état du simulateur survit aux changements de route.
 const etatSim = () => (state.sim ??= etatInitial(C.simulateur));
 const etatEx = () => (state.ex ??= etatExercices(C));
@@ -517,9 +617,15 @@ function router() {
     if (m) {
       view.innerHTML = render(m);
       document.querySelectorAll('.nav a').forEach((a) => a.classList.toggle('on', a.dataset.nav === nav));
-      initCartes(view, (id) => { location.hash = '#/gare/' + id; });
+      initCartes(view, (id, frame) => {
+        if (frame && frame.dataset.map === 'atlas') selectionnerAtlas(id); else location.hash = '#/gare/' + id;
+      });
       initSimulateur(C, etatSim(), view);
       initExercices(C, etatEx(), view);
+      armerTemps(view, C);
+      armerLecture(view);
+      armerTableau(view, C);
+      armerMaquettes(view);
       if (!state.keepScroll) window.scrollTo(0, 0);
       state.keepScroll = false;
       const q = $('#q');
@@ -531,17 +637,73 @@ function router() {
     <p class="lede"><a href="#/">Retour à l'accueil</a></p></section></div>`;
 }
 
-/* Interactions déléguées : filtres, points de la carte, recherche */
+/* Le plan vivant : une gare choisie s'éclaire, et son panneau s'ouvre à côté. */
+function selectionnerAtlas(id) {
+  const s = byId(id);
+  const panneau = view.querySelector('.atlas-panneau');
+  if (!s || !panneau) return;
+  panneau.innerHTML = ficheEclair(s);
+  panneau.hidden = false;
+  view.querySelector('.atlas')?.classList.add('a-panneau');
+  for (const p of view.querySelectorAll('.atlas .map-station')) p.classList.toggle('is-sel', p.dataset.station === id);
+  if (globalThis.innerWidth < 900) panneau.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+}
+
+/* La maquette de Paris et la vitrine des fiches : three.js n'est chargé que
+   lorsqu'on les approche, la vitrine seulement quand elle entre à l'écran. */
+function armerMaquettes(racine) {
+  const hote = racine.querySelector('#maquette');
+  if (hote && !hote._arme) {
+    hote._arme = true;
+    monterMaquette(hote, C, { focus: hote.dataset.focus || null, fiche: (s) => ficheEclair(s, { dans3d: true }) });
+  }
+  const vitrine = racine.querySelector('[data-vitrine]');
+  if (vitrine && !vitrine._arme && typeof IntersectionObserver !== 'undefined') {
+    vitrine._arme = true;
+    const io = new IntersectionObserver((e) => {
+      if (!e[0].isIntersecting) return;
+      io.disconnect();
+      monterVitrine(vitrine, byId(vitrine.dataset.vitrine));
+    }, { rootMargin: '240px' });
+    io.observe(vitrine);
+  }
+}
+
+/* Interactions déléguées : filtres, points de la carte, calques, recherche */
 document.addEventListener('click', (e) => {
   const chip = e.target.closest('.chip[data-cat]');
   if (chip) { state.filtre = chip.dataset.cat; state.keepScroll = true; router(); return; }
+  const calque = e.target.closest('[data-calque]');
+  if (calque) {
+    const k = calque.dataset.calque;
+    state.calques[k] = !state.calques[k];
+    calque.classList.toggle('on', state.calques[k]);
+    calque.setAttribute('aria-pressed', String(state.calques[k]));
+    const atlas = view.querySelector('.atlas');
+    const classe = { rails: 'sans-rails', ceinture: 'sans-ceinture', reperes: 'sans-reperes', arr: 'avec-arr', directions: 'avec-directions' }[k];
+    const actif = k === 'arr' || k === 'directions' ? state.calques[k] : !state.calques[k];
+    atlas?.classList.toggle(classe, actif);
+    return;
+  }
+  if (e.target.closest('.atlas-panneau [data-fermer]')) {
+    const panneau = view.querySelector('.atlas-panneau');
+    panneau.hidden = true;
+    view.querySelector('.atlas')?.classList.remove('a-panneau');
+    for (const p of view.querySelectorAll('.atlas .map-station.is-sel')) p.classList.remove('is-sel');
+    return;
+  }
   const pin = e.target.closest('.map-station');
-  if (pin && !vientDeGlisser(pin)) { location.hash = '#/gare/' + pin.dataset.station; }
+  // Sur le plan vivant, l'appui choisit la gare (au relâchement du pointeur) ;
+  // ailleurs, il ouvre directement sa fiche.
+  if (pin && !pin.closest('[data-map="atlas"]') && !vientDeGlisser(pin)) { location.hash = '#/gare/' + pin.dataset.station; }
 });
 document.addEventListener('keydown', (e) => {
   if (e.key !== 'Enter' && e.key !== ' ') return;
   const pin = e.target.closest && e.target.closest('.map-station');
-  if (pin) { e.preventDefault(); location.hash = '#/gare/' + pin.dataset.station; }
+  if (!pin) return;
+  e.preventDefault();
+  if (pin.closest('[data-map="atlas"]')) selectionnerAtlas(pin.dataset.station);
+  else location.hash = '#/gare/' + pin.dataset.station;
 });
 document.addEventListener('input', (e) => {
   if (e.target.id === 'q') { state.q = e.target.value; state.keepScroll = true; router(); }

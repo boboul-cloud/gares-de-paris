@@ -10,6 +10,8 @@
   "coord": { "lat": 48.8532, "lon": 2.3693 },
   "ouverture": 1859,
   "ouvertureTexte": "22 septembre 1859 — fermée le 14 décembre 1969",
+  "fermeture": 1969,
+  "fermetureTexte": "fermée le 14 décembre 1969, rasée en 1984",
   "compagnie": "Compagnie des chemins de fer de l'Est",
   "architectes": ["François-Alexis Cendrier (1859)", "Carlos Ott (Opéra Bastille, 1989)"],
   "protection": "Démolie en 1984 ; le viaduc de la ligne est protégé et reconverti",
@@ -89,6 +91,12 @@
       { "nom": "Tranchée de Reuilly", "desserte": "Section en déblai, devenue jardin, franchie par des passerelles" }
     ],
     "entrees": ["Place de la Bastille", "Rue de Lyon (accès Coulée verte)", "Avenue Daumesnil"]
+  },
+  "immersion": {
+    "vues": [
+      { "titre": "Place de la Bastille : l'Opéra occupe l'emplacement exact de la gare", "regard": { "lat": 48.8529, "lon": 2.3692 }, "cible": { "lat": 48.8518, "lon": 2.3704 }, "inclinaison": 8 },
+      { "titre": "Avenue Daumesnil, le Viaduc des Arts qui portait les voies", "regard": { "lat": 48.847, "lon": 2.3766 }, "cible": { "lat": 48.8464, "lon": 2.3778 }, "inclinaison": 5 }
+    ]
   },
   "sources": [
     { "titre": "Gare de la Bastille — Wikipédia", "url": "https://fr.wikipedia.org/wiki/Gare_de_la_Bastille" },

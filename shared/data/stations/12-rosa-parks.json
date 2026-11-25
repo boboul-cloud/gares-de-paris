@@ -85,6 +85,11 @@
     ],
     "entrees": ["Avenue de la Porte-d'Aubervilliers", "Rue Gaston-Tessier", "Station de tramway T3b"]
   },
+  "immersion": {
+    "vues": [
+      { "titre": "Esplanade Nathalie-Sarraute, devant la gare", "regard": { "lat": 48.897, "lon": 2.3735 }, "cible": { "lat": 48.89622, "lon": 2.37411 }, "inclinaison": 5 }
+    ]
+  },
   "sources": [
     { "titre": "Gare de Rosa Parks — Wikipédia", "url": "https://fr.wikipedia.org/wiki/Gare_de_Rosa-Parks" }
   ]

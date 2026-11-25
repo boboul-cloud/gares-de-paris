@@ -1,8 +1,12 @@
 // Service worker minimal : l'application reste consultable hors connexion.
-const CACHE = 'gares-de-paris-v2';
+const CACHE = 'gares-de-paris-v3';
+// three.js (web/vendor) n'est pas préchargé : il n'est demandé qu'à l'ouverture
+// de la maquette, puis gardé en cache par le gestionnaire de requêtes ci-dessous.
 const ASSETS = [
   './', './index.html', './css/app.css', './js/app.js', './js/artwork.js',
-  './js/carte.js', './data/corpus.json', './manifest.webmanifest', './icon.svg',
+  './js/carte.js', './js/croisement.js', './js/exercices.js', './js/immersion.js',
+  './js/scene-ligne.js', './js/departs.js', './js/maquette.js',
+  './data/corpus.json', './manifest.webmanifest', './icon.svg',
 ];
 
 self.addEventListener('install', (e) => {

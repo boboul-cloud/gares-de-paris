@@ -317,7 +317,8 @@ export function formater(rep) {
 
 // --- Interface -------------------------------------------------------------
 
-import { graphiqueMarche } from './croisement.js';
+import { graphiqueMarche, pkA } from './croisement.js';
+import { preparerScene, monterScene, phraseFantome } from './scene-ligne.js';
 
 const esc = (s) => String(s ?? '').replace(/[&<>"]/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]));
 
@@ -374,7 +375,76 @@ function champReponse(q, etat) {
   <p class="ex-aide">${heure ? 'Format hh:mm.' : 'Un nombre entier suffit.'} Tolérance : ±${Math.round(q.reponse.tolerance)}${q.reponse.unite ? ' ' + esc(q.reponse.unite) : ' min'}.</p>`;
 }
 
-function corrigeHtml(corpus, q, corrige) {
+// --- Lecture de la réponse sur la ligne --------------------------------------
+//
+// Une réponse fausse n'est pas seulement « fausse » : elle fait rouler un autre
+// train. Pour un départ ou une vitesse à trouver, on met en circulation un
+// train fantôme réglé sur la réponse donnée, et l'on montre où il aurait
+// rencontré le premier. Pour une heure ou un PK de croisement, on regarde où
+// en sont les deux trains à l'instant, ou à l'endroit, proposés.
+
+const COULEUR_FANTOME = '#8C7BD8';
+
+/** Matériel du simulateur roulant à cette vitesse : il donne la silhouette. */
+const materielPour = (sim, v) => (sim.materiels.find((m) => m.vitesse === v) || { id: 'libre' }).id;
+
+function lireSaisie(q, saisie) {
+  if (q.reponse.type === 'heure') return heureEnMinutes(saisie);
+  const v = Number(String(saisie ?? '').replace(',', '.'));
+  return String(saisie ?? '').trim() === '' || Number.isNaN(v) ? null : v;
+}
+
+/** Tout ce qu'il faut pour illustrer une question de croisement. */
+export function lectureCroisement(corpus, q, saisie, juste) {
+  if (!q.contexte) return null;
+  const sim = corpus.simulateur;
+  const axe = sim.axes.find((a) => a.id === q.contexte.axeId);
+  const { a, b } = q.contexte;
+  const trains = [
+    { cle: 'a', nom: 'A', couleur: '#1F6F8B', train: a, materielId: materielPour(sim, a.vitesse) },
+    { cle: 'b', nom: 'B', couleur: '#BE5417', train: b, materielId: materielPour(sim, b.vitesse) },
+  ];
+  const mA = construireMarche(axe, a), mB = construireMarche(axe, b);
+  const croix = chercherCroisement(axe, mA, mB);
+  const valeur = saisie === undefined ? null : lireSaisie(q, saisie);
+  const lecture = { axe, trains, croix, valeur, phrase: '', reponse: null, legendeReponse: '' };
+  if (valeur === null || !croix || croix.type === 'aucun') return lecture;
+
+  const jalon = axe.jalons.reduce((m, j) => (Math.abs(j.pk - croix.pk) < Math.abs(m.pk - croix.pk) ? j : m));
+
+  if (q.famille === 'croisement-heure') {
+    const ecart = Math.abs(pkA(mA, valeur) - pkA(mB, valeur));
+    const km = `${Math.round(ecart)} km`;
+    lecture.reponse = { type: 'heure', valeur };
+    lecture.phrase = juste
+      ? `À ${enHeure(valeur)}, votre heure, les deux trains ne sont qu'à ${km} l'un de l'autre : c'est bien le moment de la rencontre.`
+      : valeur < croix.t
+        ? `À ${enHeure(valeur)}, votre heure, les deux trains sont encore à ${km} l'un de l'autre : il leur faut ${duree(croix.t - valeur)} de plus.`
+        : `À ${enHeure(valeur)}, votre heure, ils se sont croisés depuis ${duree(valeur - croix.t)} et s'éloignent déjà : ${km} les séparent.`;
+    lecture.legendeReponse = lecture.phrase;
+  } else if (q.famille === 'croisement-pk') {
+    const pk = Math.max(0, Math.min(axe.longueur, valeur));
+    const tA = a.depart + (pk / a.vitesse) * 60;
+    const tB = b.depart + ((axe.longueur - pk) / b.vitesse) * 60;
+    const dt = Math.abs(tA - tB);
+    lecture.reponse = { type: 'pk', valeur: pk };
+    lecture.phrase = `Au PK ${Math.round(pk)}, votre réponse, le train A passe à ${enHeure(tA)} et le train B à ${enHeure(tB)}`
+      + (dt < 1.5 ? ' : ils y sont ensemble, c\'est bien le lieu du croisement.'
+        : ` : ${duree(dt)} d'écart, ils ne s'y rencontrent donc pas. Le croisement a lieu ${Math.round(Math.abs(croix.pk - pk))} km ${croix.pk > pk ? 'plus loin' : 'plus près'} de Paris.`);
+  } else if (!juste && (q.famille === 'depart-a-trouver' || q.famille === 'vitesse-a-trouver')) {
+    const surDepart = q.famille === 'depart-a-trouver';
+    if (!surDepart && valeur <= 0) return lecture;
+    const fantome = { ...b, ...(surDepart ? { depart: valeur } : { vitesse: valeur }) };
+    const mF = construireMarche(axe, fantome);
+    const croixF = chercherCroisement(axe, mA, mF);
+    trains.push({ cle: 'f', nom: 'Fantôme', couleur: COULEUR_FANTOME, train: fantome, materielId: materielPour(sim, b.vitesse), fantome: true });
+    lecture.croixFantome = croixF;
+    lecture.phrase = phraseFantome(q.famille, valeur, croixF, jalon);
+  }
+  return lecture;
+}
+
+function corrigeHtml(corpus, q, corrige, saisie) {
   const conf = corpus.exercices;
   const r = corrige.juste ? 'juste' : 'faux';
   const mots = conf.verdicts[r];
@@ -382,15 +452,16 @@ function corrigeHtml(corpus, q, corrige) {
 
   let graphique = '';
   if (q.contexte) {
-    const axe = corpus.simulateur.axes.find((a) => a.id === q.contexte.axeId);
-    const mA = construireMarche(axe, q.contexte.a);
-    const mB = construireMarche(axe, q.contexte.b);
-    const croix = chercherCroisement(axe, mA, mB);
+    const lec = lectureCroisement(corpus, q, saisie, corrige.juste);
     const dispo = Math.max(360, Math.min(860, (globalThis.innerWidth || 860) - 80));
-    graphique = `<div class="ex-graphique">${graphiqueMarche(axe, [
-      { nom: 'Train A', couleur: '#1F6F8B', marche: mA },
-      { nom: 'Train B', couleur: '#BE5417', marche: mB },
-    ], croix, { width: dispo, height: Math.round(dispo / (dispo < 560 ? 1.05 : 1.62)) })}</div>`;
+    const marches = lec.trains.map((t) => ({
+      nom: t.fantome ? 'Fantôme' : 'Train ' + t.nom, couleur: t.couleur, fantome: t.fantome,
+      marche: construireMarche(lec.axe, t.train),
+    }));
+    graphique = `<div class="ex-scene" data-ex-scene="corrige"></div>
+      <div class="ex-graphique">${graphiqueMarche(lec.axe, marches, lec.croix,
+        { width: dispo, height: Math.round(dispo / (dispo < 560 ? 1.05 : 1.62)) })}</div>
+      ${lec.phrase ? `<p class="ex-fantome"><b>${lec.croixFantome !== undefined ? 'Le train fantôme' : 'Votre réponse sur la ligne'}</b>${esc(lec.phrase)}</p>` : ''}`;
   }
 
   return `
@@ -406,6 +477,31 @@ function corrigeHtml(corpus, q, corrige) {
     ${graphique}
     ${q.lien ? `<a class="ex-lien" href="#/gare/${esc(q.lien)}">Ouvrir la fiche de la gare →</a>` : ''}
   </div>`;
+}
+
+/** Monte la scène de la question affichée : figée dans l'énoncé, jouée au corrigé. */
+function monterScenesExercice(corpus, etat, zone) {
+  const q = etat.serie.questions[etat.index];
+  const hote = zone.querySelector('[data-ex-scene]');
+  if (!q || !q.contexte || !hote) return;
+  const corrige = hote.dataset.exScene === 'corrige';
+  const lec = lectureCroisement(corpus, q, corrige ? etat.saisie : undefined, corrige && etat.corrige?.juste);
+  const { a, b } = q.contexte;
+  const masque = q.famille === 'depart-a-trouver' ? { cle: 'b', champ: 'depart' }
+    : q.famille === 'vitesse-a-trouver' ? { cle: 'b', champ: 'vitesse' } : null;
+  // Dans l'énoncé, une vitesse inconnue ne doit pas se lire dans la silhouette.
+  if (!corrige && masque?.champ === 'vitesse') lec.trains[1].materielId = lec.trains[0].materielId;
+  const d = preparerScene(lec.axe, lec.trains, {
+    mode: corrige ? 'corrige' : 'enonce',
+    graphique: corrige ? zone.querySelector('.ex-graphique svg') : null,
+    auto: corrige, arretCroisement: true, masque,
+    depart: corrige ? undefined : (masque ? a.depart : Math.min(a.depart, b.depart)),
+    reponse: corrige ? lec.reponse : null,
+    legendeReponse: lec.legendeReponse,
+    legendeFantome: lec.croixFantome !== undefined ? lec.phrase : '',
+    legendeDepart: corrige ? '' : 'La scène s\'animera une fois votre réponse donnée.',
+  });
+  monterScene(hote, d);
 }
 
 function bilanHtml(corpus, etat) {
@@ -456,12 +552,14 @@ export function majExercices(corpus, etat, racine = document) {
         <span class="ex-famille">${esc(q.nomFamille)} · niveau ${q.niveau}</span>
       </div>
       <p class="ex-enonce">${esc(q.enonce)}</p>
+      ${q.contexte && !etat.corrige ? '<div class="ex-scene" data-ex-scene="enonce"></div>' : ''}
       ${etat.corrige ? '' : champReponse(q, etat)}
       ${etat.corrige ? '' : `<button type="button" class="ex-indice-btn" data-ex-indice>${etat.indiceVu ? "Masquer l'indice" : "Voir un indice"}</button>`}
       ${etat.indiceVu && !etat.corrige ? `<p class="ex-indice">${esc(q.indice)}</p>` : ''}
-      ${etat.corrige ? corrigeHtml(corpus, q, etat.corrige) : ''}
+      ${etat.corrige ? corrigeHtml(corpus, q, etat.corrige, etat.saisie) : ''}
       ${etat.corrige ? `<button type="button" class="ex-valider" data-ex-suivant>${etat.index + 1 < total ? 'Question suivante' : 'Voir le bilan'}</button>` : ''}
     </div>`;
+  monterScenesExercice(corpus, etat, zone);
 }
 
 export function initExercices(corpus, etat, racine = document) {

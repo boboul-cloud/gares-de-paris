@@ -85,6 +85,11 @@
     ],
     "entrees": ["Esplanade des Invalides", "Quai d'Orsay", "Correspondance métro 8 et 13"]
   },
+  "immersion": {
+    "vues": [
+      { "titre": "Esplanade des Invalides, la gare de Juste Lisch devenue aérogare", "regard": { "lat": 48.8615, "lon": 2.3143 }, "cible": { "lat": 48.86255, "lon": 2.3147 }, "inclinaison": 8 }
+    ]
+  },
   "sources": [
     { "titre": "Gare des Invalides — Wikipédia", "url": "https://fr.wikipedia.org/wiki/Gare_des_Invalides" },
     { "titre": "Électrification du réseau ferré en France — Wikipédia", "url": "https://fr.wikipedia.org/wiki/%C3%89lectrification_du_r%C3%A9seau_ferr%C3%A9_en_France" }
