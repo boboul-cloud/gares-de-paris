@@ -19,11 +19,11 @@ concurrency:
   cancel-in-progress: false
 
 jobs:
-  publier:
+  # Deux tâches, comme le recommande GitHub : déployer dans la même tâche que
+  # le dépôt de l'archive échouait par intermittence (« Found 0 artifact(s) »),
+  # la liste des archives n'étant pas encore à jour une fraction de seconde après.
+  construire:
     runs-on: ubuntu-latest
-    environment:
-      name: github-pages
-      url: ${{ steps.deploiement.outputs.page_url }}
     steps:
       - uses: actions/checkout@v4
 
@@ -50,5 +50,12 @@ jobs:
         with:
           path: web
 
+  publier:
+    needs: construire
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deploiement.outputs.page_url }}
+    steps:
       - id: deploiement
         uses: actions/deploy-pages@v4
