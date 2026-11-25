@@ -987,6 +987,11 @@ text.gm-fantome { font-style: italic; }
   background: #F2B33D; color: #14181C; padding: 5px 12px 4px; border-radius: 3px;
 }
 .direct-gare { font: 600 14px var(--sans); color: rgba(255, 255, 255, .86); }
+.direct-tag {
+  display: none; font: 700 10.5px var(--sans); letter-spacing: .14em; text-transform: uppercase;
+  color: #14181C; background: repeating-linear-gradient(-45deg, #F2B33D 0 8px, #FFD27A 8px 16px); padding: 4px 9px 3px; border-radius: 3px;
+}
+.direct-tableau.est-exemple .direct-tag { display: inline-block; }
 .direct-heure { margin-left: auto; font: 700 22px var(--mono); color: #F2B33D; font-variant-numeric: tabular-nums; transition: opacity .3s; }
 .direct-tableau.est-chargement .direct-heure { opacity: .45; }
 .direct-cols, .direct-lignes li {

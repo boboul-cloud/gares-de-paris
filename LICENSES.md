@@ -92,12 +92,25 @@ le dépôt, et rien ne leur est transmis tant que l'on ne clique pas.
 
 ## Données en temps réel
 
-Le tableau « En direct » affiche des données fournies à la demande par l'API de
-la SNCF et par l'API « Prochains passages » d'Île-de-France Mobilités, sous les
-conditions d'utilisation de chacune. Elles ne sont ni stockées ni redistribuées
-par ce dépôt : le relais (`worker/`) les garde une à cinq minutes en cache, le
-temps de les servir aux visiteurs. Les codes de gares (`shared/data/direct.json`)
-viennent des données ouvertes de la SNCF et d'Île-de-France Mobilités.
+Le tableau « En direct » affiche des données lues à la demande :
+
+- **SNCF, flux temps réel ouvert** (GTFS-RT), publié par la SNCF sur
+  transport.data.gouv.fr sous **Open Database License** : © SNCF, ODbL ;
+- **API SNCF** et **API « Prochains passages » d'Île-de-France Mobilités**, si
+  leurs clés sont installées, sous les conditions d'utilisation de chacune.
+
+Ces données ne sont ni stockées ni redistribuées par ce dépôt : le relais
+(`worker/`) les garde une à cinq minutes en cache, le temps de les servir.
+
+```
+worker/src/noms-gares.json
+```
+
+Ce fichier — le nom de chaque gare desservie par la SNCF, à partir de son code
+UIC — est une base dérivée des horaires théoriques de la SNCF (même jeu de
+données, ODbL), produite par `tools/noms-gares-sncf.py`. Il hérite de l'ODbL.
+Les codes de gares de `shared/data/direct.json` viennent des données ouvertes de
+la SNCF et d'Île-de-France Mobilités.
 
 ## Les illustrations
 

@@ -95,67 +95,78 @@ les champs qu'elle n'utilise pas (`immersion`, `fermeture`, `directions`).
 ## En direct : les départs et arrivées en temps réel
 
 Chaque fiche peut afficher le tableau des départs et des arrivées de la gare, en
-temps réel : grandes lignes, Intercités et TER par l'**API SNCF**, RER et
-Transilien par l'API « Prochains passages » d'**Île-de-France Mobilités** (PRIM).
-Le tableau reprend les palettes de l'accueil et les couleurs des écrans de gare
-(bleu pour les départs, vert pour les arrivées), avec un onglet par réseau, les
-voies (Île-de-France seulement : l'API SNCF n'en donne pas), les retards et les
-trains supprimés.
+temps réel. Le tableau reprend les palettes de l'accueil et les couleurs des
+écrans de gare (bleu pour les départs, vert pour les arrivées), avec un onglet par
+réseau, les retards, les trains supprimés et, pour le RER et le Transilien, les voies.
 
-**État : prêt, en attente des clés d'accès.** Tant que l'adresse du relais n'est
-pas renseignée dans `web/js/direct.js` (`RELAIS = null`), la section n'apparaît
-pas : le site public est inchangé.
+| Réseau | Source | Clé |
+|---|---|---|
+| TGV, OUIGO, Intercités, Lyria, ICE, TER | **Flux temps réel ouvert de la SNCF** (GTFS-RT, transport.data.gouv.fr, ODbL) | aucune |
+| idem, en option | API SNCF (Navitia) : motifs de perturbation, horizon de quatre heures | `SNCF_TOKEN` |
+| RER, Transilien | API « Prochains passages » d'Île-de-France Mobilités (PRIM) | `PRIM_TOKEN` |
+
+Le flux ouvert donne l'heure qui vient (un train y figure dès qu'il roule ou
+partira de son origine dans l'heure), la provenance et la destination, les
+retards et les suppressions ; ni voie ni motif, et pas l'Eurostar, que la SNCF
+n'exploite pas. Les noms des gares viennent des horaires théoriques de la SNCF
+(`worker/src/noms-gares.json`, produit par `python3 tools/noms-gares-sncf.py`).
+
+**État : prêt, non publié.** Tant que l'adresse du relais n'est pas renseignée
+dans `web/js/direct.js` (`RELAIS = null`), la section n'apparaît pas : le site
+public est inchangé.
 
 ### Le relais (`worker/`)
 
 Un site statique ne peut pas garder de clé secrète. Un Worker Cloudflare, dans
-`worker/`, la garde, interroge les deux API, ramène leurs réponses à une même
-forme et les met en cache, une minute (deux avec Île-de-France Mobilités, dont le
-quota des comptes récents est bas), quel que soit le nombre de visiteurs. Il
-n'accepte que les requêtes venues du site (`ORIGINES` dans `wrangler.jsonc`).
+`worker/`, la garde, interroge les sources, ramène leurs réponses à une même
+forme et les met en cache : le flux national de la SNCF (un mégaoctet) est lu au
+plus une fois par minute et sert toutes les gares ; une gare n'est redemandée à
+Île-de-France Mobilités que toutes les deux minutes, quel que soit le nombre de
+visiteurs. Le décodage du flux SNCF écarte les arrêts qui ne sont pas chez nous
+sans les lire : moins de deux millisecondes, dans la limite de l'offre gratuite
+de Cloudflare Workers (dix). Le relais n'accepte que les requêtes venues du site
+(`ORIGINES` dans `wrangler.jsonc`).
 
-- `GET /tableau?gare=paris-lyon&sens=departs|arrivees[&point=0]` — le tableau ;
+- `GET /tableau?gare=paris-lyon&sens=departs|arrivees[&point=0][&exemple=1]` — le tableau ;
 - `GET /sante` — les sources configurées (jamais les clés).
 
-Sans clé, il répond avec des **données d'exemple fabriquées au format exact de
-chaque API**, qui passent par les vrais adaptateurs : tout le chemin est éprouvé
-avant même que les clés n'existent. La correspondance entre nos gares et les deux
-sources est dans `shared/data/direct.json` : codes UIC relevés dans les données
-ouvertes de la SNCF, zones d'arrêt dans le référentiel ouvert d'Île-de-France
-Mobilités, couleurs officielles des lignes.
+`SNCF_SOURCE` choisit les grandes lignes : `auto` (l'API si `SNCF_TOKEN` est
+installé, sinon le flux ouvert), `api`, `ouvert` ou `exemple`. Pour le RER, sans
+clé, `MODE_EXEMPLE` à `"1"` fabrique des **données d'exemple au format exact de
+l'API**, qui passent par le vrai adaptateur ; à `"0"`, le RER est simplement tu.
+Un bandeau « Exemple » signale sur le tableau tout onglet fictif.
 
-Essayer en local :
+La correspondance entre nos gares et les sources est dans
+`shared/data/direct.json` : codes UIC relevés dans les données ouvertes de la
+SNCF, zones d'arrêt dans le référentiel ouvert d'Île-de-France Mobilités,
+couleurs officielles des lignes.
+
+Essayer en local (les grandes lignes y sont réelles) :
 
 ```sh
-cd worker && npx wrangler dev --port 8787      # relais en mode exemple
+cd worker && npx wrangler dev --port 8787      # le relais
 cd web && python3 -m http.server 8765          # le site
 # puis, dans la console du navigateur :
 localStorage.setItem('gdp-relais', 'http://127.0.0.1:8787')
 ```
 
-Tests : `cd worker && node --test test/*.test.mjs` (adaptateurs sur des réponses
-de référence écrites au format documenté, heures de Paris et changements d'heure,
-suppressions, voies, cache, origines, pannes et quotas).
+Tests : `cd worker && node --test test/*.test.mjs` — adaptateurs sur des réponses
+de référence (dont un flux GTFS-RT fabriqué par un petit encodeur protobuf),
+heures de Paris et changements d'heure, suppressions, trains en avance, voies,
+cache partagé, origines, pannes et quotas.
 
-### Mise en service, quand les clés existent
+### Mise en service
 
-1. Créer la clé SNCF sur le portail développeur de la SNCF (numerique.sncf.com,
-   rubrique API), et le jeton Île-de-France Mobilités dans l'espace personnel de
-   prim.iledefrance-mobilites.fr. Les deux sont gratuits.
-2. Les confier au relais, sans les écrire nulle part :
-   ```sh
-   cd worker
-   npx wrangler secret put SNCF_TOKEN
-   npx wrangler secret put PRIM_TOKEN
-   ```
-3. Passer `MODE_EXEMPLE` à `"0"` dans `wrangler.jsonc`, puis `npx wrangler deploy`
+1. Sans aucune clé, le site peut déjà afficher les grandes lignes en direct :
+   `MODE_EXEMPLE` à `"0"` dans `wrangler.jsonc`, puis `cd worker && npx wrangler deploy`
    (adresse : https://gares-de-paris-direct.riskelo-salon.workers.dev).
-4. Vérifier `…/sante`, puis un tableau réel. Deux points ne pourront être
-   confirmés qu'à ce moment : le préfixe des zones SNCF (`SNCF_PREFIXE`, réglable
-   sans toucher au code) et la provenance des trains à l'arrivée, qu'aucune des
-   deux API ne documente.
-5. Renseigner `RELAIS` dans `web/js/direct.js`, changer la version du cache dans
-   `web/sw.js`, et publier le site.
+2. Pour le RER et le Transilien : créer un jeton dans l'espace personnel de
+   prim.iledefrance-mobilites.fr (gratuit), puis `npx wrangler secret put PRIM_TOKEN`.
+3. En option, quand le portail de la SNCF (numerique.sncf.com) répond de nouveau :
+   `npx wrangler secret put SNCF_TOKEN`. Le relais bascule alors de lui-même sur
+   l'API, qui ajoute les motifs de perturbation.
+4. Vérifier `…/sante` et un tableau, puis renseigner `RELAIS` dans
+   `web/js/direct.js`, changer la version du cache dans `web/sw.js`, et publier le site.
 
 ## Le site publié
 
@@ -264,7 +275,8 @@ node tools/build-data.mjs
 |---|---|
 | `node tools/build-data.mjs` | Assemble et valide `corpus.json`, le distribue aux deux applications |
 | `node tools/build-standalone.mjs` | Produit `dist/gares-de-paris.html` (autonome) et `dist/artifact.html` |
-| `cd worker && node --test test/*.test.mjs` | Teste le relais « En direct » : adaptateurs SNCF et Île-de-France Mobilités, mode exemple, cache, origines, pannes |
+| `cd worker && node --test test/*.test.mjs` | Teste le relais « En direct » : flux ouvert SNCF, API SNCF et Île-de-France Mobilités, mode exemple, cache, origines, pannes |
+| `python3 tools/noms-gares-sncf.py` | Retélécharge les horaires théoriques de la SNCF et en tire `worker/src/noms-gares.json` (nom de chaque gare par code UIC) |
 | `node tools/test-web.mjs` | Rend toutes les routes de l'application Web dans un DOM simulé et vérifie le bundle ; contrôle aussi les liens Street View et Google Earth, la frise, et que la scène animée place les deux trains au même point à l'instant du croisement (plus de 300 scènes) |
 | `swiftc -O -o /tmp/exejs tools/executer-js.swift && /tmp/exejs dist/gares-de-paris.html tools/verifier-carte.js '#/carte'` | Vérifie les **gestes** sur la carte dans un vrai navigateur : appui, tremblement, glissement, zoom, clavier, panneau du plan vivant, calques et frise du temps. Accepte aussi une adresse `https://`, pour contrôler le site publié |
 | `swiftc -O -o /tmp/verif apple/GaresDeParis/{Model/Corpus.swift,Design/*.swift,Views/*.swift} tools/verifier-largeurs.swift && /tmp/verif . /tmp/out 393` | Rend tous les écrans Apple à la largeur d'un iPhone et signale tout débordement horizontal |

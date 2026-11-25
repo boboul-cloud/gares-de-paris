@@ -7,7 +7,7 @@ import { repondre } from '../src/index.js';
 const DIRECT = JSON.parse(readFileSync(new URL('../../shared/data/direct.json', import.meta.url), 'utf8'));
 const fixture = (n) => readFileSync(new URL(`./fixtures/${n}`, import.meta.url), 'utf8');
 const MAINTENANT = Date.parse('2026-11-25T09:00:00Z');
-const ENV = { ORIGINES: 'https://boboul-cloud.github.io', MODE_EXEMPLE: '1' };
+const ENV = { ORIGINES: 'https://boboul-cloud.github.io', MODE_EXEMPLE: '1', SNCF_SOURCE: 'exemple' };
 
 /** Un cache en mémoire, à la manière de caches.default. */
 function cacheMemoire() {
@@ -75,7 +75,7 @@ test('routes : gare inconnue, gare fermée, santé sans fuite de clé', async ()
   const { corps } = await demander('/tableau?gare=gare-bastille');
   assert.match(corps.ferme, /1969/);
   const s = await demander('/sante', { ...ENV, SNCF_TOKEN: 'SECRET-1', PRIM_TOKEN: 'SECRET-2' });
-  assert.deepEqual(s.corps, { sncf: true, prim: true, exemple: true });
+  assert.deepEqual(s.corps, { sncf: true, prim: true, grandesLignes: 'exemple', exemple: true });
   assert.doesNotMatch(JSON.stringify(s.corps), /SECRET/);
 });
 
@@ -86,7 +86,7 @@ test('cache : la seconde demande ne touche plus les API', async () => {
     return new Response(String(url).includes('prim') ? fixture('prim-gare-de-lyon.json') : fixture('sncf-departs-temps-reel.json'));
   };
   const cache = cacheMemoire();
-  const env = { ...ENV, SNCF_TOKEN: 'a', PRIM_TOKEN: 'b', MODE_EXEMPLE: '0' };
+  const env = { ...ENV, SNCF_TOKEN: 'a', PRIM_TOKEN: 'b', MODE_EXEMPLE: '0', SNCF_SOURCE: 'auto' };
   const outils = { cache, fetch, maintenant: () => MAINTENANT };
   const r1 = await repondre(new Request('https://r/tableau?gare=paris-lyon'), env, null, outils);
   assert.equal(r1.headers.get('Cache-Control'), 'public, max-age=120');
@@ -105,7 +105,7 @@ test('avec les clés : bonnes adresses, bons en-têtes, réponses lues', async (
     if (u.includes('prim')) return new Response(fixture('prim-gare-de-lyon.json'));
     return new Response(fixture(u.includes('base_schedule') ? 'sncf-departs-theorique.json' : 'sncf-departs-temps-reel.json'));
   };
-  const env = { ...ENV, SNCF_TOKEN: 'cle-sncf', PRIM_TOKEN: 'cle-prim', MODE_EXEMPLE: '0' };
+  const env = { ...ENV, SNCF_TOKEN: 'cle-sncf', PRIM_TOKEN: 'cle-prim', MODE_EXEMPLE: '0', SNCF_SOURCE: 'auto' };
   const { corps } = await demander('/tableau?gare=paris-lyon&sens=departs', env, { fetch });
   assert.equal(corps.exemple, false);
   assert.ok(vus.some(([u, h]) => /stop_area:SNCF:87686006\/departures.*data_freshness=realtime/.test(u) && h.Authorization === 'cle-sncf'));
@@ -116,7 +116,7 @@ test('avec les clés : bonnes adresses, bons en-têtes, réponses lues', async (
 });
 
 test('pannes : une source tombe, l’autre reste ; tout tombe, 502 ; quota, garde longue', async () => {
-  const env = { ...ENV, SNCF_TOKEN: 'a', PRIM_TOKEN: 'b', MODE_EXEMPLE: '0', SNCF_SUPPRESSIONS: '0' };
+  const env = { ...ENV, SNCF_TOKEN: 'a', PRIM_TOKEN: 'b', MODE_EXEMPLE: '0', SNCF_SUPPRESSIONS: '0', SNCF_SOURCE: 'auto' };
   const primQuota = async (url) => (String(url).includes('prim') ? new Response('', { status: 429 }) : new Response(fixture('sncf-departs-temps-reel.json')));
   const a = await demander('/tableau?gare=paris-lyon', env, { fetch: primQuota });
   assert.equal(a.rep.status, 200);
@@ -128,7 +128,7 @@ test('pannes : une source tombe, l’autre reste ; tout tombe, 502 ; quota, gard
   assert.equal(tout.rep.headers.get('Cache-Control'), 'public, max-age=30');
   const illisible = await demander('/tableau?gare=paris-bercy', env, { fetch: async () => new Response('<html>') });
   assert.match(illisible.corps.sources[0].erreur, /illisible/);
-  const sansCle = await demander('/tableau?gare=paris-bercy', { ...ENV, MODE_EXEMPLE: '0' });
+  const sansCle = await demander('/tableau?gare=paris-bercy', { ...ENV, MODE_EXEMPLE: '0', SNCF_SOURCE: 'api' });
   assert.match(sansCle.corps.sources[0].erreur, /non installée/);
 });
 

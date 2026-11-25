@@ -1,8 +1,9 @@
 {
   "titre": "En direct",
-  "avertissement": "Départs et arrivées en temps réel, fournis par la SNCF (grandes lignes, Intercités, TER) et par Île-de-France Mobilités (RER, Transilien). Ils sont affichés à titre indicatif : avant de monter dans un train, fiez-vous aux écrans de la gare.",
+  "avertissement": "Départs et arrivées en temps réel : grandes lignes, Intercités et TER d'après les données ouvertes de la SNCF (transport.data.gouv.fr), RER et Transilien d'après Île-de-France Mobilités. Le tableau montre l'heure qui vient, comme ceux des halls. Il est affiché à titre indicatif : avant de monter dans un train, fiez-vous aux écrans de la gare.",
   "sources": {
-    "sncf": { "nom": "SNCF", "lien": "https://numerique.sncf.com/startup/api/" },
+    "ouvert": { "nom": "SNCF, données ouvertes (ODbL)", "lien": "https://transport.data.gouv.fr/datasets/horaires-sncf" },
+    "sncf": { "nom": "API SNCF", "lien": "https://numerique.sncf.com/startup/api/" },
     "prim": { "nom": "Île-de-France Mobilités", "lien": "https://prim.iledefrance-mobilites.fr/" }
   },
   "lignes": {

@@ -12,8 +12,12 @@
   "vars": {
     // Sites autorisés à interroger le relais (séparés par des virgules).
     "ORIGINES": "https://boboul-cloud.github.io,http://127.0.0.1:8765,http://localhost:8765,http://localhost:8000",
-    // Sans clé, le relais répond avec des données d'exemple. Une fois les clés
-    // installées, passer à "0" : une clé absente devient alors une erreur.
+    // Grandes lignes : « auto » prend l'API SNCF si SNCF_TOKEN est installé,
+    // sinon le flux temps réel ouvert de la SNCF (transport.data.gouv.fr, sans
+    // clé) ; « api », « ouvert » ou « exemple » imposent une source.
+    "SNCF_SOURCE": "auto",
+    // RER et Transilien : sans clé PRIM, données d'exemple. Une fois la clé
+    // installée, passer à "0" : une clé absente devient alors une erreur.
     "MODE_EXEMPLE": "1",
     // Deuxième appel à l'horaire théorique pour repérer les trains supprimés
     // (l'API SNCF les retire simplement de l'horaire en temps réel).

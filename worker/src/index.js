@@ -10,16 +10,21 @@
 //   GET /tableau?gare=paris-lyon&sens=departs|arrivees[&point=0][&exemple=1]
 //   GET /sante      quelles sources sont configurées (jamais les clés)
 //
-// Sans clé, et tant que MODE_EXEMPLE vaut "1", chaque source répond avec des
-// données d'exemple fabriquées au format exact de son API (src/exemple.js).
+// Grandes lignes : l'API SNCF si une clé est installée, sinon le flux temps réel
+// ouvert que la SNCF publie sur transport.data.gouv.fr (src/sncf-ouvert.js).
+// RER et Transilien : sans clé, et tant que MODE_EXEMPLE vaut "1", des données
+// d'exemple fabriquées au format exact de l'API (src/exemple.js).
 
 import DIRECT from '../../shared/data/direct.json' with { type: 'json' };
 import { heureParis, ErreurSource } from './commun.js';
 import { urlSncf, lireSncf, marquerSuppressions, appelerSncf } from './sncf.js';
 import { urlPrim, lirePrim, appelerPrim } from './prim.js';
 import { exempleSncf, exemplePrim } from './exemple.js';
+import { extraireGtfsRt, lireSncfOuvert, appelerSncfOuvert } from './sncf-ouvert.js';
 
-const NOMS = { sncf: 'SNCF', prim: 'Île-de-France Mobilités' };
+const NOMS = { sncf: 'SNCF', prim: 'Île-de-France Mobilités', ouvert: 'SNCF (données ouvertes)' };
+// Les codes UIC de toutes nos gares : l'extrait du flux ouvert les sert toutes.
+const CODES_SNCF = new Set(Object.values(DIRECT.gares).flatMap((g) => (g.points || []).map((p) => +p.uic).filter(Boolean)));
 const PAR_RESEAU = 12;
 
 export default {
@@ -43,17 +48,48 @@ const enJson = (corps, statut, entetes) => new Response(JSON.stringify(corps), {
 
 const modeExemple = (env) => String(env.MODE_EXEMPLE ?? '1') !== '0';
 
+/**
+ * Le flux ouvert de la SNCF pèse un mégaoctet pour toute la France : il est lu
+ * au plus une fois par minute, et l'extrait de nos gares sert à toutes.
+ */
+async function extraitOuvert(outils) {
+  const { cache, fetchFn, ctx } = outils;
+  const cle = new Request('https://relais.gares-de-paris/sncf-ouvert');
+  const garde = cache ? await cache.match(cle) : null;
+  if (garde) return garde.json();
+  const extrait = extraireGtfsRt(await appelerSncfOuvert(fetchFn), CODES_SNCF);
+  if (cache) {
+    const promesse = cache.put(cle, new Response(JSON.stringify(extrait), { headers: { 'Content-Type': 'application/json', 'Cache-Control': 'public, max-age=60' } }));
+    if (ctx?.waitUntil) ctx.waitUntil(promesse); else await promesse;
+  }
+  return extrait;
+}
+
+/**
+ * D'où viennent les grandes lignes : SNCF_SOURCE vaut « auto » (l'API si une
+ * clé est installée, sinon le flux ouvert), « api », « ouvert » ou « exemple ».
+ */
+function modeSncf(env, forcerExemple) {
+  const choix = forcerExemple ? 'exemple' : String(env.SNCF_SOURCE || 'auto');
+  if (choix === 'auto') return env.SNCF_TOKEN ? 'api' : 'ouvert';
+  return choix;
+}
+
 /** Une source : ses trains, et son état (pour dire au visiteur d'où viennent les données). */
-async function interroger(source, env, point, sens, maintenant, forcerExemple, fetchFn) {
+async function interroger(source, env, point, sens, maintenant, forcerExemple, outils) {
+  const { fetchFn } = outils;
+  const mode = source === 'sncf' ? modeSncf(env, forcerExemple)
+    : forcerExemple || (!env.PRIM_TOKEN && modeExemple(env)) ? 'exemple' : 'api';
   const cle = source === 'sncf' ? env.SNCF_TOKEN : env.PRIM_TOKEN;
-  const exemple = forcerExemple || (!cle && modeExemple(env));
-  const etat = { source, nom: NOMS[source], exemple };
-  if (!exemple && !cle) return { trains: [], etat: { ...etat, ok: false, erreur: `Clé ${NOMS[source]} non installée` } };
+  const etat = { source, nom: mode === 'ouvert' ? NOMS.ouvert : NOMS[source], exemple: mode === 'exemple' };
+  if (mode === 'api' && !cle) return { trains: [], etat: { ...etat, ok: false, erreur: `Clé ${NOMS[source]} non installée` } };
   try {
     let trains;
-    if (source === 'sncf') {
+    if (source === 'sncf' && mode === 'ouvert') {
+      trains = lireSncfOuvert(await extraitOuvert(outils), sens, point);
+    } else if (source === 'sncf') {
       let reel, theo = null;
-      if (exemple) ({ reel, theo } = exempleSncf(point, sens, maintenant));
+      if (mode === 'exemple') ({ reel, theo } = exempleSncf(point, sens, maintenant));
       else {
         [reel, theo] = await Promise.all([
           appelerSncf(urlSncf(env, point.uic, sens, maintenant, 'realtime'), cle, fetchFn),
@@ -64,13 +100,13 @@ async function interroger(source, env, point, sens, maintenant, forcerExemple, f
       trains = lireSncf(reel, sens, point);
       if (theo) trains = marquerSuppressions(trains, lireSncf(theo, sens, point));
     } else {
-      const json = exemple ? exemplePrim(point, maintenant) : await appelerPrim(urlPrim(env, point.zda), cle, fetchFn);
+      const json = mode === 'exemple' ? exemplePrim(point, maintenant) : await appelerPrim(urlPrim(env, point.zda), cle, fetchFn);
       trains = lirePrim(json, sens, DIRECT.lignes);
     }
     return { trains, etat: { ...etat, ok: true } };
   } catch (e) {
     const message = e instanceof ErreurSource ? e.message
-      : e?.name === 'TimeoutError' ? `${NOMS[source]} ne répond pas` : `${NOMS[source]} : réponse illisible`;
+      : e?.name === 'TimeoutError' ? `${etat.nom} ne répond pas` : `${etat.nom} : réponse illisible`;
     return { trains: [], etat: { ...etat, ok: false, erreur: message, quota: e?.statut === 429 } };
   }
 }
@@ -82,7 +118,7 @@ export async function repondre(requete, env, ctx, outils = {}) {
   if (requete.method !== 'GET') return enJson({ erreur: 'Méthode non prise en charge' }, 405, cors);
 
   if (url.pathname === '/sante') {
-    return enJson({ sncf: !!env.SNCF_TOKEN, prim: !!env.PRIM_TOKEN, exemple: modeExemple(env) }, 200, cors);
+    return enJson({ sncf: !!env.SNCF_TOKEN, prim: !!env.PRIM_TOKEN, grandesLignes: modeSncf(env, false), exemple: modeExemple(env) }, 200, cors);
   }
   if (url.pathname !== '/tableau') return enJson({ erreur: 'Adresse inconnue' }, 404, cors);
 
@@ -108,11 +144,15 @@ export async function repondre(requete, env, ctx, outils = {}) {
   }
 
   const maintenant = outils.maintenant ? outils.maintenant() : Date.now();
-  const fetchFn = outils.fetch || fetch;
+  const sous = { fetchFn: outils.fetch || fetch, cache, ctx };
   const resultats = await Promise.all([
-    point.uic ? interroger('sncf', env, point, sens, maintenant, forcerExemple, fetchFn) : null,
-    point.zda ? interroger('prim', env, point, sens, maintenant, forcerExemple, fetchFn) : null,
+    point.uic ? interroger('sncf', env, point, sens, maintenant, forcerExemple, sous) : null,
+    // Sans clé Île-de-France Mobilités et hors mode exemple, le RER est tu
+    // plutôt qu'en panne : le site peut vivre avec les seules grandes lignes.
+    point.zda && (env.PRIM_TOKEN || forcerExemple || modeExemple(env)) ? interroger('prim', env, point, sens, maintenant, forcerExemple, sous) : null,
   ].filter(Boolean));
+  const enAttente = point.zda && !env.PRIM_TOKEN && !forcerExemple && !modeExemple(env)
+    ? 'Les RER et les Transilien s’afficheront ici dès que la clé d’Île-de-France Mobilités sera installée.' : null;
 
   // On garde les trains à venir (et ceux partis depuis moins d'une minute),
   // dans l'ordre de l'horaire prévu, comme sur les tableaux de gare. Chaque
@@ -127,7 +167,7 @@ export async function repondre(requete, env, ctx, outils = {}) {
   const sources = resultats.map((r) => r.etat);
   const corps = {
     gare, point: point.nom, sens, heure: heureParis(maintenant), a: new Date(maintenant).toISOString(),
-    exemple: sources.some((s) => s.exemple), sources, trains,
+    exemple: sources.some((s) => s.exemple), sources, trains, ...(enAttente ? { remarque: enAttente } : {}),
   };
 
   // Durée de garde : une minute, deux si Île-de-France Mobilités est de la

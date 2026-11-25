@@ -52,6 +52,7 @@ export function blocDirect(corpus, station, relais = adresseRelais()) {
       <header>
         <span class="direct-titre">Départs</span>
         <span class="direct-gare">${esc(d.points[0].nom)}</span>
+        <span class="direct-tag" title="Trains fictifs, en attendant la clé d’accès">Exemple</span>
         <span class="direct-heure">--:--</span>
       </header>
       <div class="direct-cols" aria-hidden="true"><span class="c-heure">Heure</span><span class="c-train">Train</span><span class="c-lieu">Destination</span><span class="c-voie">Voie</span><span class="c-info">Information</span></div>
@@ -143,9 +144,14 @@ export function armerDirect(racine) {
     });
     // Le motif de la première perturbation, comme le bandeau défilant des écrans.
     const motif = trains.find((t) => t.message);
-    const sources = d.sources.map((s) => `${s.nom}${s.ok ? '' : ` (${s.erreur})`}`).join(' · ');
-    etatEl.textContent = trains.length ? (motif ? `${motif.prevue} — ${motif.message}` : '') : 'Aucun train annoncé pour le moment.';
-    note.innerHTML = `${d.exemple ? '<b class="direct-exemple">Données d’exemple</b> — le relais n’a pas encore ses clés d’accès : ces trains sont fictifs, au format exact des API. ' : ''}`
+    etatEl.textContent = trains.length ? (motif ? `${motif.prevue} — ${motif.message}` : d.remarque || '') : d.remarque || 'Aucun train annoncé pour le moment.';
+    // Chaque source dit si elle est réelle : les grandes lignes peuvent être en
+    // direct pendant que le RER attend encore sa clé.
+    const source = etat.reseau === 'ile-de-france' ? 'prim' : 'sncf';
+    const enExemple = d.sources.some((s) => s.source === source && s.exemple);
+    tableau.classList.toggle('est-exemple', enExemple);
+    const sources = d.sources.map((s) => `${s.nom}${s.exemple ? ' (exemple fictif)' : ''}${s.ok ? '' : ` (${s.erreur})`}`).join(' · ');
+    note.innerHTML = (enExemple ? `<b class="direct-exemple">Données d’exemple</b> — en attendant la clé d’accès ${source === 'prim' ? 'd’Île-de-France Mobilités' : 'de la SNCF'}, ces trains sont fictifs, au format exact de l’API. ` : '')
       + `Mis à jour à ${esc((d.heure || '').replace(':', ' h '))} · sources : ${esc(sources)}.`;
   }
 

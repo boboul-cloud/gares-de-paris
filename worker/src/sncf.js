@@ -35,6 +35,7 @@ const MARQUES = [
   [/RENFE|AVE/i, 'RENFE', '#6B2C91', '#FFFFFF'],
   [/NUIT/i, 'NUIT', '#2E2A5C', '#FFFFFF'],
   [/INTERCIT/i, 'IC', '#00507D', '#FFFFFF'],
+  [/TRAM-?TRAIN/i, 'T-TRAIN', '#2F6DB5', '#FFFFFF'],
   [/TER/i, 'TER', '#2F6DB5', '#FFFFFF'],
   [/TGV|INOUI/i, 'TGV', '#7A1E5E', '#FFFFFF'],
 ];
