@@ -111,9 +111,11 @@ retards et les suppressions ; ni voie ni motif, et pas l'Eurostar, que la SNCF
 n'exploite pas. Les noms des gares viennent des horaires théoriques de la SNCF
 (`worker/src/noms-gares.json`, produit par `python3 tools/noms-gares-sncf.py`).
 
-**État : prêt, non publié.** Tant que l'adresse du relais n'est pas renseignée
-dans `web/js/direct.js` (`RELAIS = null`), la section n'apparaît pas : le site
-public est inchangé.
+**État : en ligne depuis le 25 novembre 2026 pour les grandes lignes**, par le flux
+ouvert de la SNCF ; le RER et le Transilien attendent la clé d'Île-de-France
+Mobilités. Relais : https://gares-de-paris-direct.riskelo-salon.workers.dev
+(`RELAIS` dans `web/js/direct.js`). Ouverte depuis un fichier, la page n'affiche
+pas de tableau : le relais ne reconnaîtrait pas son origine.
 
 ### Le relais (`worker/`)
 
@@ -155,18 +157,17 @@ de référence (dont un flux GTFS-RT fabriqué par un petit encodeur protobuf),
 heures de Paris et changements d'heure, suppressions, trains en avance, voies,
 cache partagé, origines, pannes et quotas.
 
-### Mise en service
+### Mise à jour et clés
 
-1. Sans aucune clé, le site peut déjà afficher les grandes lignes en direct :
-   `MODE_EXEMPLE` à `"0"` dans `wrangler.jsonc`, puis `cd worker && npx wrangler deploy`
-   (adresse : https://gares-de-paris-direct.riskelo-salon.workers.dev).
-2. Pour le RER et le Transilien : créer un jeton dans l'espace personnel de
-   prim.iledefrance-mobilites.fr (gratuit), puis `npx wrangler secret put PRIM_TOKEN`.
-3. En option, quand le portail de la SNCF (numerique.sncf.com) répond de nouveau :
-   `npx wrangler secret put SNCF_TOKEN`. Le relais bascule alors de lui-même sur
-   l'API, qui ajoute les motifs de perturbation.
-4. Vérifier `…/sante` et un tableau, puis renseigner `RELAIS` dans
-   `web/js/direct.js`, changer la version du cache dans `web/sw.js`, et publier le site.
+- Publier le relais : `cd worker && npx wrangler deploy` (tests d'abord). En ligne,
+  `MODE_EXEMPLE` vaut `"0"` : aucun train fictif n'est montré au public.
+- RER et Transilien : créer un jeton dans l'espace personnel de
+  prim.iledefrance-mobilites.fr (gratuit), puis `npx wrangler secret put PRIM_TOKEN`
+  dans `worker/`. Les onglets RER apparaissent d'eux-mêmes, sans republier le site.
+- En option, quand le portail de la SNCF (numerique.sncf.com) répond de nouveau :
+  `npx wrangler secret put SNCF_TOKEN`. Le relais bascule alors sur l'API, qui
+  ajoute les motifs de perturbation.
+- Vérifier : `…/sante` dit quelles sources sont actives.
 
 ## Le site publié
 

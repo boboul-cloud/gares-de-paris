@@ -1,9 +1,8 @@
 // En direct : les départs et les arrivées de la gare, maintenant.
 //
-// Le site ne parle pas aux API de la SNCF et d'Île-de-France Mobilités : il
-// interroge le relais (worker/), qui garde les clés et met les réponses en
-// cache. Tant que l'adresse du relais n'est pas renseignée ci-dessous, la
-// section n'existe pas : le site public reste exactement tel qu'il était.
+// Le site ne parle pas lui-même aux sources (SNCF, Île-de-France Mobilités) :
+// il interroge le relais (worker/), qui garde les clés et met les réponses en
+// cache. Sans adresse de relais, la section n'existe pas.
 //
 // Pour essayer en local avec le relais de développement :
 //   localStorage.setItem('gdp-relais', 'http://127.0.0.1:8787')
@@ -14,10 +13,13 @@
 
 import { enPalettes, tournerPalette } from './departs.js';
 
-/** Adresse du relais en ligne. Vide tant que les clés ne sont pas installées. */
-export const RELAIS = null;
+/** Adresse du relais en ligne (worker/, publié sur Cloudflare Workers). */
+export const RELAIS = 'https://gares-de-paris-direct.riskelo-salon.workers.dev';
 
 export function adresseRelais() {
+  // Ouverte depuis un fichier (la version en un seul fichier de dist/), la page
+  // n'a pas d'origine que le relais puisse reconnaître : pas de tableau.
+  if (globalThis.location?.protocol && !/^https?:$/.test(globalThis.location.protocol)) return null;
   try { return localStorage.getItem('gdp-relais') || RELAIS; } catch { return RELAIS; }
 }
 

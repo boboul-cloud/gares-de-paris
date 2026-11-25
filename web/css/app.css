@@ -971,6 +971,7 @@ text.gm-fantome { font-style: italic; }
 .direct-points { margin: 16px 0 0; }
 .direct-commandes { display: flex; flex-wrap: wrap; gap: 10px 14px; align-items: center; margin: 18px 0 12px; }
 .direct-commandes .onglets { margin: 0; }
+.onglets[hidden] { display: none; }
 .onglets button { padding: 8px 16px; border: 0; background: none; font: 14px var(--sans); color: var(--ink-2); cursor: pointer; }
 .onglets button + button { border-left: 1px solid var(--rule); }
 .onglets button.on { background: var(--email); color: var(--email-ink); }

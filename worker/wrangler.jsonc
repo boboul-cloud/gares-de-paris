@@ -18,7 +18,7 @@
     "SNCF_SOURCE": "auto",
     // RER et Transilien : sans clé PRIM, données d'exemple. Une fois la clé
     // installée, passer à "0" : une clé absente devient alors une erreur.
-    "MODE_EXEMPLE": "1",
+    "MODE_EXEMPLE": "0",
     // Deuxième appel à l'horaire théorique pour repérer les trains supprimés
     // (l'API SNCF les retire simplement de l'horaire en temps réel).
     "SNCF_SUPPRESSIONS": "1",
