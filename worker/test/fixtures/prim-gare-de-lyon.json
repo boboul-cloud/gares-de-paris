@@ -21,6 +21,10 @@
         { "MonitoredVehicleJourney": { "LineRef": { "value": "STIF:Line::C01728:" }, "DestinationName": [ { "value": "Melun" } ],
             "VehicleJourneyName": [ { "value": "DUVA42" } ], "JourneyNote": [],
             "MonitoredCall": { "AimedArrivalTime": "2026-11-25T09:14:00.000Z", "AimedDepartureTime": "2026-11-25T09:15:00.000Z",
-              "ExpectedDepartureTime": "2026-11-25T09:15:00.000Z", "DeparturePlatformName": [ { "value": "1" } ], "DepartureStatus": "onTime" } } }
+              "ExpectedDepartureTime": "2026-11-25T09:15:00.000Z", "DeparturePlatformName": [ { "value": "1" } ], "DepartureStatus": "onTime" } } },
+        { "MonitoredVehicleJourney": { "LineRef": { "value": "STIF:Line::C01740:" }, "DestinationName": [ { "value": "Paris Saint-Lazare" } ],
+            "JourneyNote": [ { "value": "PAPE" } ],
+            "MonitoredCall": { "AimedArrivalTime": "2026-11-25T09:30:00.000Z", "ExpectedArrivalTime": "2026-11-25T09:32:00.000Z",
+              "ArrivalPlatformName": { "value": "unknown" }, "ArrivalStatus": "delayed" } } }
       ] } ] } }
 }

@@ -40,16 +40,19 @@ const tableau = (x) => (x === undefined || x === null ? [] : Array.isArray(x) ? 
 
 /**
  * Ce qu'on peut dire d'un train qui arrive : sa provenance si la réponse la
- * donne ; sinon, s'il repart, sa destination (« vers … ») ; sinon, qu'il
- * termine ici.
+ * donne (elle ne la donne pas, constaté le 25 novembre 2026) ; sinon, s'il
+ * repart, sa destination (« vers … ») ; sinon rien, et le tableau montre sa ligne.
  */
 function provenance(mvj, appel) {
   const origine = valeur(mvj.OriginName);
   if (origine) return origine;
   const repart = appel.AimedDepartureTime || appel.ExpectedDepartureTime;
   const destination = valeur(mvj.DestinationName) || valeur(appel.DestinationDisplay);
-  return repart && destination ? `vers ${destination}` : 'Terminus';
+  return repart && destination ? `vers ${destination}` : '';
 }
+
+/** Une voie connue, ou null : la source écrit « unknown » tant qu'elle ne l'est pas. */
+const voieConnue = (v) => (v && !/^(unknown|inconnue?|-+|\?)$/i.test(v.trim()) ? v.trim() : null);
 
 /** Les trains d'une réponse SIRI, dans la forme commune. Les TER sont laissés à la SNCF. */
 export function lirePrim(json, sens, lignes) {
@@ -82,8 +85,8 @@ export function lirePrim(json, sens, lignes) {
       ligne: { ...ligne }, numero: valeur(mvj.TrainNumbers?.TrainNumberRef) || valeur(mvj.VehicleJourneyName) || '',
       mission: valeur(mvj.JourneyNote) || '',
       lieu: arrivee ? provenance(mvj, appel) : valeur(mvj.DestinationName) || valeur(appel.DestinationDisplay) || '',
-      voie: valeur(arrivee ? appel.ArrivalPlatformName : appel.DeparturePlatformName)
-        || valeur(appel.ArrivalPlatformName) || valeur(appel.DeparturePlatformName) || null,
+      voie: voieConnue(valeur(arrivee ? appel.ArrivalPlatformName : appel.DeparturePlatformName))
+        || voieConnue(valeur(appel.ArrivalPlatformName)) || voieConnue(valeur(appel.DeparturePlatformName)),
       aQuai: appel.VehicleAtStop === true || appel.VehicleAtStop === 'true',
     }));
   }

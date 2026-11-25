@@ -66,6 +66,24 @@ async function extraitOuvert(outils) {
 }
 
 /**
+ * Une même réponse d'Île-de-France Mobilités contient les départs et les
+ * arrivées d'une zone : elle est gardée deux minutes et sert les deux sens,
+ * ce qui divise par deux la consommation du quota.
+ */
+async function reponsePrim(env, zda, cle, outils) {
+  const { cache, fetchFn, ctx } = outils;
+  const cleCache = new Request(`https://relais.gares-de-paris/prim/${zda}`);
+  const garde = cache ? await cache.match(cleCache) : null;
+  if (garde) return garde.json();
+  const json = await appelerPrim(urlPrim(env, zda), cle, fetchFn);
+  if (cache) {
+    const promesse = cache.put(cleCache, new Response(JSON.stringify(json), { headers: { 'Content-Type': 'application/json', 'Cache-Control': 'public, max-age=120' } }));
+    if (ctx?.waitUntil) ctx.waitUntil(promesse); else await promesse;
+  }
+  return json;
+}
+
+/**
  * D'où viennent les grandes lignes : SNCF_SOURCE vaut « auto » (l'API si une
  * clé est installée, sinon le flux ouvert), « api », « ouvert » ou « exemple ».
  */
@@ -100,7 +118,7 @@ async function interroger(source, env, point, sens, maintenant, forcerExemple, o
       trains = lireSncf(reel, sens, point);
       if (theo) trains = marquerSuppressions(trains, lireSncf(theo, sens, point));
     } else {
-      const json = mode === 'exemple' ? exemplePrim(point, maintenant) : await appelerPrim(urlPrim(env, point.zda), cle, fetchFn);
+      const json = mode === 'exemple' ? exemplePrim(point, maintenant) : await reponsePrim(env, point.zda, cle, outils);
       trains = lirePrim(json, sens, DIRECT.lignes);
     }
     return { trains, etat: { ...etat, ok: true } };

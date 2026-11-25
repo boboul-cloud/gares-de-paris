@@ -105,9 +105,12 @@ export function armerDirect(racine) {
     </li>`).join('');
   }
 
+  // Un écart d'une à quatre minutes est fréquent au RER : on le dit sans
+  // alarme ; à partir de cinq, le retard s'affiche et clignote, comme en gare.
   function texteInfo(t) {
     if (t.etat === 'supprime') return ['Supprimé', 'est-supprime'];
-    if (t.etat === 'retard') return [`Retard ${t.retard} min · ${t.reelle.replace(':', ' h ')}`, 'est-retard'];
+    if (t.etat === 'retard' && t.retard >= 5) return [`Retard ${t.retard} min · ${t.reelle.replace(':', ' h ')}`, 'est-retard'];
+    if (t.etat === 'retard' && t.retard >= 1) return [`+${t.retard} min`, 'est-leger'];
     if (t.aQuai) return ['À quai', 'est-quai'];
     return [t.etat === 'a-l-heure' ? "À l'heure" : '', ''];
   }

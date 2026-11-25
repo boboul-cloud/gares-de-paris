@@ -95,6 +95,13 @@ test('cache : la seconde demande ne touche plus les API', async () => {
   assert.equal(appels, avant);
   assert.equal(r2.headers.get('X-Relais-Cache'), 'oui');
   assert.equal(r2.headers.get('Access-Control-Allow-Origin'), 'https://boboul-cloud.github.io', 'l’origine est remise à chaque réponse');
+  const primAvant = appels;
+  await repondre(new Request('https://r/tableau?gare=paris-lyon&sens=arrivees'), { ...env, SNCF_SUPPRESSIONS: '0' }, null, { ...outils, fetch: async (url) => {
+    appels++;
+    if (String(url).includes('prim')) throw new Error('Île-de-France Mobilités ne doit pas être réinterrogé');
+    return new Response(fixture('sncf-arrivees.json'));
+  } });
+  assert.equal(appels, primAvant + 1, 'les arrivées réutilisent la réponse des départs : un seul appel, pour la SNCF');
 });
 
 test('avec les clés : bonnes adresses, bons en-têtes, réponses lues', async () => {

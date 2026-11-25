@@ -83,8 +83,10 @@ test('PRIM : départs, voies, missions, suppressions, TER écartés', () => {
 test('PRIM : arrivées, un train qui termine ici', () => {
   const t = lirePrim(fixture('prim-gare-de-lyon.json'), 'arrivees', DIRECT.lignes);
   const r = t.find((x) => x.ligne.court === 'R' && x.etat !== 'supprime');
-  assert.deepEqual([r.prevue, r.voie, r.aQuai, r.lieu], ['10:12', '27', true, 'Terminus']);
+  assert.deepEqual([r.prevue, r.voie, r.aQuai, r.lieu], ['10:12', '27', true, ''], 'sans provenance, le tableau montre la ligne');
   assert.equal(t.find((x) => x.ligne.court === 'A').lieu, 'vers Boissy-Saint-Léger', 'un RER qui repart : sa destination');
+  const l = t.find((x) => x.ligne.court === 'L');
+  assert.deepEqual([l.voie, l.retard, l.mission], [null, 2, 'PAPE'], '« unknown » n’est pas une voie');
   assert.ok(!t.some((x) => x.ligne.nom === 'Transilien R' && x.prevue === '10:20'), 'un départ sans heure d’arrivée n’est pas une arrivée');
 });
 
