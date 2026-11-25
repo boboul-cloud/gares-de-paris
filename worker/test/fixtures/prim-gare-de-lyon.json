@@ -1,0 +1,26 @@
+{
+  "Siri": { "ServiceDelivery": { "ResponseTimestamp": "2026-11-25T09:00:00.000Z", "ProducerRef": "IVTR_HUB",
+    "StopMonitoringDelivery": [ { "ResponseTimestamp": "2026-11-25T09:00:00.000Z", "Version": "2.0", "Status": "true",
+      "MonitoredStopVisit": [
+        { "RecordedAtTime": "2026-11-25T08:59:40.000Z", "MonitoringRef": { "value": "STIF:StopArea:SP:470195:" },
+          "MonitoredVehicleJourney": { "LineRef": { "value": "STIF:Line::C01742:" }, "DestinationName": [ { "value": "Boissy-Saint-Léger" } ],
+            "JourneyNote": [ { "value": "ZEUS" } ], "TrainNumbers": { "TrainNumberRef": [ { "value": "154321" } ] },
+            "MonitoredCall": { "StopPointName": [ { "value": "Gare de Lyon" } ], "VehicleAtStop": false,
+              "AimedArrivalTime": "2026-11-25T09:04:00.000Z", "ExpectedArrivalTime": "2026-11-25T09:07:00.000Z", "ArrivalPlatformName": { "value": "A" },
+              "AimedDepartureTime": "2026-11-25T09:05:00.000Z", "ExpectedDepartureTime": "2026-11-25T09:08:00.000Z", "DeparturePlatformName": { "value": "A" },
+              "DepartureStatus": "delayed", "ArrivalStatus": "delayed" } } },
+        { "MonitoredVehicleJourney": { "LineRef": { "value": "STIF:Line::C01731:" }, "DestinationName": [ { "value": "Paris Gare de Lyon" } ],
+            "TrainNumbers": { "TrainNumberRef": [ { "value": "167890" } ] },
+            "MonitoredCall": { "AimedArrivalTime": "2026-11-25T09:12:00.000Z", "ExpectedArrivalTime": "2026-11-25T09:12:00.000Z",
+              "ArrivalPlatformName": { "value": "27" }, "ArrivalStatus": "onTime", "VehicleAtStop": "true" } } },
+        { "MonitoredVehicleJourney": { "LineRef": "STIF:Line::C01731:", "DestinationName": "Montereau",
+            "MonitoredCall": { "AimedDepartureTime": "2026-11-25T09:20:00.000Z", "ExpectedDepartureTime": "2026-11-25T09:20:00.000Z",
+              "DeparturePlatformName": "L", "DepartureStatus": "cancelled" } } },
+        { "MonitoredVehicleJourney": { "LineRef": { "value": "STIF:Line::C01745:" }, "DestinationName": [ { "value": "Dijon Ville" } ],
+            "MonitoredCall": { "AimedDepartureTime": "2026-11-25T09:09:00.000Z", "ExpectedDepartureTime": "2026-11-25T09:09:00.000Z", "DepartureStatus": "onTime" } } },
+        { "MonitoredVehicleJourney": { "LineRef": { "value": "STIF:Line::C01728:" }, "DestinationName": [ { "value": "Melun" } ],
+            "VehicleJourneyName": [ { "value": "DUVA42" } ], "JourneyNote": [],
+            "MonitoredCall": { "AimedArrivalTime": "2026-11-25T09:14:00.000Z", "AimedDepartureTime": "2026-11-25T09:15:00.000Z",
+              "ExpectedDepartureTime": "2026-11-25T09:15:00.000Z", "DeparturePlatformName": [ { "value": "1" } ], "DepartureStatus": "onTime" } } }
+      ] } ] } }
+}

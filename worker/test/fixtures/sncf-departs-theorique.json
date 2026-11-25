@@ -1,0 +1,25 @@
+{
+  "departures": [
+    { "display_informations": { "direction": "Lyon Part-Dieu (Lyon)", "headsign": "6611", "trip_short_name": "6611", "label": "Paris - Lyon",
+        "network": "SNCF", "commercial_mode": "TGV INOUI", "links": [] },
+      "stop_date_time": { "departure_date_time": "20261125T101000", "base_departure_date_time": "20261125T101000", "data_freshness": "base_schedule" } },
+    { "display_informations": { "direction": "Dijon Ville (Dijon)", "headsign": "17771", "trip_short_name": "17771", "label": "Paris - Dijon",
+        "network": "SNCF", "commercial_mode": "TER", "links": [] },
+      "stop_date_time": { "departure_date_time": "20261125T102000", "base_departure_date_time": "20261125T102000", "data_freshness": "base_schedule" } },
+    { "display_informations": { "direction": "Nice Ville (Nice)", "headsign": "6125", "trip_short_name": "6125", "label": "Paris - Nice",
+        "network": "SNCF", "commercial_mode": "TGV INOUI",
+        "links": [ { "id": "d2", "internal": true, "rel": "disruptions", "templated": false, "type": "disruption" } ] },
+      "stop_date_time": { "departure_date_time": "20261125T103500", "base_departure_date_time": "20261125T103500", "data_freshness": "base_schedule" } },
+    { "display_informations": { "direction": "Marseille Saint-Charles (Marseille)", "headsign": "7801", "trip_short_name": "7801", "label": "Paris - Marseille",
+        "network": "SNCF", "commercial_mode": "OUIGO", "links": [] },
+      "stop_date_time": { "departure_date_time": "20261125T104500", "base_departure_date_time": "20261125T104500", "data_freshness": "base_schedule" } },
+    { "display_informations": { "direction": "Montpellier Saint-Roch (Montpellier)", "headsign": "6205", "trip_short_name": "6205", "label": "Paris - Montpellier",
+        "network": "SNCF", "commercial_mode": "TGV INOUI", "links": [] },
+      "stop_date_time": { "departure_date_time": "20261125T121500", "base_departure_date_time": "20261125T121500", "data_freshness": "base_schedule" } }
+  ],
+  "disruptions": [
+    { "id": "d2", "status": "active", "severity": { "name": "trip canceled", "effect": "NO_SERVICE" },
+      "messages": [ { "text": "Train supprimé en raison d'un mouvement social." } ],
+      "impacted_objects": [ { "pt_object": { "embedded_type": "trip", "id": "OCE:6125", "name": "6125", "trip": { "id": "OCE:6125", "name": "6125" } } } ] }
+  ]
+}

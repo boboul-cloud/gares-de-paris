@@ -19,9 +19,36 @@ export function enPalettes(texte, n) {
     .replace(/[«»"]/g, '').replace(/[—–]/g, '-').replace(/Œ/g, 'OE').replace(/Æ/g, 'AE')
     .replace(/[^A-Z0-9 \-'.,:]/g, ' ').replace(/\s+/g, ' ').trim();
   if (t.length <= n) return t.padEnd(n, ' ');
+  // Trop long : on coupe au dernier mot entier, et le point suit le mot.
   const coupe = t.slice(0, n - 1);
   const esp = coupe.lastIndexOf(' ');
-  return (esp > n * 0.6 ? coupe.slice(0, esp) : coupe).padEnd(n - 1, ' ') + '.';
+  return ((esp > n * 0.6 ? coupe.slice(0, esp) : coupe) + '.').padEnd(n, ' ');
+}
+
+/**
+ * Fait tourner une palette jusqu'au caractère voulu, en passant par au plus
+ * neuf caractères intermédiaires, comme un vrai volet qui rattrape son retard.
+ * Partagée avec le tableau en direct des fiches (direct.js).
+ */
+export function tournerPalette(caseEl, cible, delai = 0) {
+  // Chaque appel porte un numéro : si un nouvel affichage arrive pendant que
+  // la palette tourne encore, l'ancienne rotation s'arrête d'elle-même, sans
+  // quoi elle écraserait le nouveau caractère (deux gares mélangées).
+  const tour = (caseEl._tour = (caseEl._tour || 0) + 1);
+  const fin = Math.max(0, ALPHABET.indexOf(cible));
+  const depart = Math.max(0, ALPHABET.indexOf(caseEl.textContent));
+  if (depart === fin) { caseEl.textContent = ALPHABET[fin]; return; }
+  if (globalThis.matchMedia?.('(prefers-reduced-motion: reduce)').matches) { caseEl.textContent = ALPHABET[fin]; return; }
+  const pas = (fin - depart + ALPHABET.length) % ALPHABET.length;
+  const sauts = Math.min(pas, 6 + Math.floor(Math.random() * 4));
+  let i = 0;
+  setTimeout(function un() {
+    if (!caseEl.isConnected || caseEl._tour !== tour) return;
+    i++;
+    caseEl.textContent = ALPHABET[i >= sauts ? fin : (depart + Math.round((pas * i) / sauts)) % ALPHABET.length];
+    caseEl.classList.remove('flap'); void caseEl.offsetWidth; caseEl.classList.add('flap');
+    if (i < sauts) setTimeout(un, 55 + Math.random() * 25);
+  }, delai);
 }
 
 const nomGare = (s) => (s.nomCourt || s.nom).replace(/^Gare (du |de l'|de )/, '');
@@ -50,7 +77,6 @@ export function armerTableau(racine, corpus) {
   const liste = bloc.querySelector('.solari-lignes');
   const pied = bloc.querySelector('[data-solari-page]');
   const heure = bloc.querySelector('[data-solari-heure]');
-  const reduit = globalThis.matchMedia?.('(prefers-reduced-motion: reduce)').matches;
   let page = 0, minuterie = 0, survol = false, largeurs = null;
 
   // Le nombre de palettes suit la largeur du tableau. Sur un écran étroit, un
@@ -86,25 +112,6 @@ export function armerTableau(racine, corpus) {
       <span class="sr-only"></span></a></li>`).join('');
   }
 
-  function tourner(caseEl, cible, delai) {
-    const depart = Math.max(0, ALPHABET.indexOf(caseEl.textContent));
-    const fin = Math.max(0, ALPHABET.indexOf(cible));
-    if (depart === fin) return;
-    if (reduit) { caseEl.textContent = cible; return; }
-    // Au plus neuf palettes intermédiaires, comme un vrai volet qui rattrape.
-    const pas = ((fin - depart + ALPHABET.length) % ALPHABET.length);
-    const sauts = Math.min(pas, 6 + Math.floor(Math.random() * 4));
-    let i = 0;
-    setTimeout(function un() {
-      if (!bloc.isConnected) return;
-      i++;
-      const idx = i >= sauts ? fin : (depart + Math.round((pas * i) / sauts)) % ALPHABET.length;
-      caseEl.textContent = ALPHABET[idx];
-      caseEl.classList.remove('flap'); void caseEl.offsetWidth; caseEl.classList.add('flap');
-      if (i < sauts) setTimeout(un, 55 + Math.random() * 25);
-    }, delai);
-  }
-
   function afficher(n) {
     const p = pages[n % pages.length];
     pied.textContent = `Page ${(n % pages.length) + 1} / ${pages.length} · ${p[0].annee} — ${p[p.length - 1].annee}`;
@@ -120,7 +127,7 @@ export function armerTableau(racine, corpus) {
       for (const [cle, val] of Object.entries(champs)) {
         const cases = li.querySelectorAll(`.${cle} .p`);
         const txt = enPalettes(val, cases.length);
-        cases.forEach((c, k) => tourner(c, txt[k], i * 70 + k * 18));
+        cases.forEach((c, k) => tournerPalette(c, txt[k], i * 70 + k * 18));
       }
     });
   }

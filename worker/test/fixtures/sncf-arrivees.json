@@ -1,0 +1,11 @@
+{
+  "arrivals": [
+    { "display_informations": { "direction": "Paris Gare de Lyon (Paris)", "headsign": "6174", "trip_short_name": "6174", "label": "Marseille - Paris", "name": "Marseille - Paris",
+        "network": "SNCF", "commercial_mode": "TGV INOUI", "links": [] },
+      "stop_date_time": { "arrival_date_time": "20261125T102700", "base_arrival_date_time": "20261125T101900", "data_freshness": "realtime" } },
+    { "display_informations": { "direction": "Paris Gare de Lyon (Paris)", "headsign": "9246", "trip_short_name": "9246", "label": "Lausanne - Paris",
+        "network": "SNCF", "commercial_mode": "TGV Lyria", "links": [] },
+      "stop_date_time": { "arrival_date_time": "20261125T104100", "base_arrival_date_time": "20261125T104100", "data_freshness": "realtime" } }
+  ],
+  "disruptions": []
+}

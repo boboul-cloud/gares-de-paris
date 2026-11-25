@@ -1,0 +1,1 @@
+{ "Siri": { "ServiceDelivery": { "StopMonitoringDelivery": [ { "Status": "false", "ErrorCondition": { "ErrorInformation": { "ErrorText": "Unknown" }, "Description": { "value": "MonitoringRef inconnu" } }, "MonitoredStopVisit": [] } ] } } }

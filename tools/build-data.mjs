@@ -37,6 +37,7 @@ const corpus = {
   simulateur: load('simulateur.json'),
   exercices: load('exercices.json'),
   directions: load('directions.json'),
+  direct: load('direct.json'),
   geo: load('geo.json'),
 };
 
@@ -53,6 +54,20 @@ for (const s of stations) {
     }
   }
   if (s.fermeture !== undefined && !(s.fermeture > s.ouverture)) throw new Error(`${s.id} : fermeture antérieure à l'ouverture`);
+}
+// En direct : chaque gare citée existe ; chaque point a un code UIC (SNCF, huit
+// chiffres) ou une zone d'arrêt (Île-de-France Mobilités) ; les lignes des
+// exemples sont connues.
+for (const [id, g] of Object.entries(corpus.direct.gares)) {
+  if (!ids.has(id)) throw new Error(`En direct : gare inconnue « ${id} »`);
+  if (g.ferme) continue;
+  for (const p of g.points || []) {
+    if (!p.nom || !p.ville) throw new Error(`En direct, ${id} : point sans nom ni ville`);
+    if (!p.uic && !p.zda) throw new Error(`En direct, ${id} : « ${p.nom} » n'a ni code UIC ni zone d'arrêt`);
+    if (p.uic && !/^87\d{6}$/.test(p.uic)) throw new Error(`En direct, ${id} : code UIC invalide « ${p.uic} »`);
+    if (p.zda && !/^\d+$/.test(p.zda)) throw new Error(`En direct, ${id} : zone d'arrêt invalide « ${p.zda} »`);
+    for (const [ligne] of p.exemplesIdf || []) if (!corpus.direct.lignes[ligne]) throw new Error(`En direct, ${id} : ligne inconnue ${ligne}`);
+  }
 }
 for (const d of corpus.directions.gares) {
   if (!ids.has(d.gareId)) throw new Error(`Directions : gare inconnue « ${d.gareId} »`);

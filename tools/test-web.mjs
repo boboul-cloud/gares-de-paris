@@ -76,6 +76,7 @@ const { engendrerSerie, lectureCroisement } = await import(pathToFileURL(join(ro
 const { enMinutes } = await import(pathToFileURL(join(root, 'web/js/croisement.js')).href);
 const { evenementsDates } = await import(pathToFileURL(join(root, 'web/js/carte.js')).href);
 const { enPalettes } = await import(pathToFileURL(join(root, 'web/js/departs.js')).href);
+const { blocDirect } = await import(pathToFileURL(join(root, 'web/js/direct.js')).href);
 
 let fond = 0;
 const echec = (m) => { fond++; console.error('✗ ' + m); };
@@ -130,6 +131,15 @@ if (evts.length < 100 || evts.some((e, i) => i && e.annee < evts[i - 1].annee)) 
 for (const t of ["Gare de l'Est", 'Saint-Lazare — Œuvre', 'Très, très longue phrase pour une palette étroite']) {
   if (enPalettes(t, 12).length !== 12 || /[^A-Z0-9 \-'.,:]/.test(enPalettes(t, 12))) echec(`palettes : « ${t} » mal composé`);
 }
+// En direct : rien sans relais (le site public reste inchangé), un tableau
+// avec, et le texte de fermeture pour une gare disparue.
+const lyon = corpus.stations.find((s) => s.id === 'paris-lyon');
+if (blocDirect(corpus, lyon, null) !== '') echec('en direct : sans relais, la section doit être absente');
+if (!blocDirect(corpus, lyon, 'https://relais.exemple').includes('data-direct="paris-lyon"')) echec('en direct : tableau absent avec un relais');
+if (!blocDirect(corpus, corpus.stations.find((s) => s.id === 'gare-bastille'), 'https://relais.exemple').includes('1969')) echec('en direct : Bastille devrait dire sa fermeture');
+if (blocDirect(corpus, corpus.stations.find((s) => s.id === 'gare-orsay'), 'https://r').includes('undefined')) echec('en direct : valeur non résolue');
+if (enPalettes('Versailles Château Rive Gauche', 24).trim().endsWith(' .')) echec('palettes : le point doit suivre le mot coupé');
+
 console.log(`fond : ${scenes} scènes vérifiées au point de croisement, ${evts.length} dates sur la frise`
   + `${fond ? ` — ${fond} ÉCHEC(S)` : ' — OK'}`);
 if (fond) ko += fond;

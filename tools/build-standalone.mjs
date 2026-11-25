@@ -42,6 +42,7 @@ const js = [
   bloc('web/js/exercices.js'),
   bloc('web/js/departs.js'),
   bloc('web/js/maquette.js'),
+  bloc('web/js/direct.js'),
   bloc('web/js/app.js'),
 ].join('\n\n');
 

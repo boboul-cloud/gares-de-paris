@@ -12,7 +12,7 @@ Tout le code de l'application, sur les deux plateformes, ainsi que les outils :
 
 ```
 web/js/      web/css/      web/index.html    web/sw.js
-apple/       tools/        .github/
+apple/       tools/        worker/           .github/
 ```
 
 Réutilisation libre, y compris commerciale, modification et redistribution
@@ -89,6 +89,15 @@ Les liens « Street View », « Survol en 3D réelle » et « Itinéraire » ouv
 Google Maps et Google Earth, et « Plan du quartier » ouvre OpenStreetMap, dans
 un nouvel onglet. Aucun contenu de ces services n'est repris ni embarqué dans
 le dépôt, et rien ne leur est transmis tant que l'on ne clique pas.
+
+## Données en temps réel
+
+Le tableau « En direct » affiche des données fournies à la demande par l'API de
+la SNCF et par l'API « Prochains passages » d'Île-de-France Mobilités, sous les
+conditions d'utilisation de chacune. Elles ne sont ni stockées ni redistribuées
+par ce dépôt : le relais (`worker/`) les garde une à cinq minutes en cache, le
+temps de les servir aux visiteurs. Les codes de gares (`shared/data/direct.json`)
+viennent des données ouvertes de la SNCF et d'Île-de-France Mobilités.
 
 ## Les illustrations
 

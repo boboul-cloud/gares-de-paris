@@ -1,0 +1,26 @@
+{
+  "departures": [
+    { "display_informations": { "direction": "Lyon Part-Dieu (Lyon)", "headsign": "6611", "trip_short_name": "6611", "label": "Paris - Lyon", "name": "Paris - Lyon",
+        "network": "SNCF", "physical_mode": "Train grande vitesse", "commercial_mode": "TGV INOUI", "links": [] },
+      "stop_date_time": { "departure_date_time": "20261125T101000", "base_departure_date_time": "20261125T101000",
+        "arrival_date_time": "20261125T101000", "base_arrival_date_time": "20261125T101000", "data_freshness": "realtime", "additional_informations": [], "links": [] } },
+    { "display_informations": { "direction": "Boissy-Saint-Léger (Boissy-Saint-Léger)", "headsign": "ZEUS", "trip_short_name": "154321", "label": "A", "name": "A",
+        "network": "RER", "physical_mode": "RER", "commercial_mode": "RER", "links": [] },
+      "stop_date_time": { "departure_date_time": "20261125T101500", "base_departure_date_time": "20261125T101500", "data_freshness": "realtime" } },
+    { "display_informations": { "direction": "Dijon Ville (Dijon)", "headsign": "17771", "trip_short_name": "17771", "label": "Paris - Dijon", "name": "Paris - Dijon",
+        "network": "SNCF", "physical_mode": "TER / Intercités", "commercial_mode": "TER",
+        "links": [ { "id": "d1", "internal": true, "rel": "disruptions", "templated": false, "type": "disruption" } ] },
+      "stop_date_time": { "departure_date_time": "20261125T103200", "base_departure_date_time": "20261125T102000",
+        "arrival_date_time": "20261125T103200", "base_arrival_date_time": "20261125T102000", "data_freshness": "realtime" } },
+    { "display_informations": { "direction": "Marseille Saint-Charles (Marseille)", "headsign": "7801", "trip_short_name": "7801", "label": "Paris - Marseille", "name": "Paris - Marseille",
+        "network": "SNCF", "physical_mode": "Train grande vitesse", "commercial_mode": "OUIGO", "links": [] },
+      "stop_date_time": { "departure_date_time": "20261125T104500", "base_departure_date_time": "20261125T104500", "data_freshness": "realtime" } }
+  ],
+  "disruptions": [
+    { "id": "d1", "status": "active", "severity": { "name": "trip delayed", "effect": "SIGNIFICANT_DELAYS" },
+      "messages": [ { "text": "Retard dû à un incident de signalisation." } ],
+      "impacted_objects": [ { "pt_object": { "embedded_type": "trip", "id": "OCE:17771", "name": "17771", "trip": { "id": "OCE:17771", "name": "17771" } },
+        "impacted_stops": [ { "base_departure_time": "102000", "amended_departure_time": "103200", "departure_status": "delayed", "arrival_status": "delayed" } ] } ] }
+  ],
+  "context": { "timezone": "Europe/Paris", "current_datetime": "20261125T100000" }
+}

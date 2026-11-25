@@ -1,0 +1,11 @@
+{
+  "name": "gares-de-paris-direct",
+  "private": true,
+  "type": "module",
+  "description": "Relais des départs et arrivées en temps réel (SNCF et Île-de-France Mobilités) pour Gares de Paris",
+  "scripts": {
+    "test": "node --test test/*.test.mjs",
+    "dev": "npx wrangler dev --port 8787",
+    "deploy": "npx wrangler deploy"
+  }
+}

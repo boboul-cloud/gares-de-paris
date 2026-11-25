@@ -965,3 +965,67 @@ text.gm-fantome { font-style: italic; }
   .temps { grid-template-columns: auto minmax(0, 1fr); }
   .temps-annee { display: none; }
 }
+
+/* --- En direct : le tableau des départs et des arrivées -------------------- */
+
+.direct-points { margin: 16px 0 0; }
+.direct-commandes { display: flex; flex-wrap: wrap; gap: 10px 14px; align-items: center; margin: 18px 0 12px; }
+.direct-commandes .onglets { margin: 0; }
+.onglets button { padding: 8px 16px; border: 0; background: none; font: 14px var(--sans); color: var(--ink-2); cursor: pointer; }
+.onglets button + button { border-left: 1px solid var(--rule); }
+.onglets button.on { background: var(--email); color: var(--email-ink); }
+
+.direct-tableau {
+  --cell: 15px; --fond: #0B2D5E;
+  background: var(--fond); color: #F3F1E8; border-radius: 10px; padding: 14px 16px 10px;
+  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, .08), var(--shadow-lift); transition: background-color .4s;
+}
+.direct-tableau.est-arrivees { --fond: #0E4A38; }
+.direct-tableau header { display: flex; align-items: baseline; gap: 12px; flex-wrap: wrap; margin-bottom: 10px; }
+.direct-titre {
+  font: 700 13px var(--sans); letter-spacing: .16em; text-transform: uppercase;
+  background: #F2B33D; color: #14181C; padding: 5px 12px 4px; border-radius: 3px;
+}
+.direct-gare { font: 600 14px var(--sans); color: rgba(255, 255, 255, .86); }
+.direct-heure { margin-left: auto; font: 700 22px var(--mono); color: #F2B33D; font-variant-numeric: tabular-nums; transition: opacity .3s; }
+.direct-tableau.est-chargement .direct-heure { opacity: .45; }
+.direct-cols, .direct-lignes li {
+  display: grid; align-items: center; gap: 12px;
+  grid-template-columns: calc((var(--cell) + 2px) * 5) 96px minmax(0, 1fr) calc((var(--cell) + 2px) * 2) 150px;
+}
+.direct-cols { font: 600 10px var(--sans); letter-spacing: .14em; text-transform: uppercase; color: rgba(255, 255, 255, .55); padding: 0 6px 6px; }
+.direct-lignes { list-style: none; margin: 0; padding: 0; display: grid; gap: 4px; }
+.direct-lignes li { position: relative; padding: 4px 6px; border-radius: 4px; min-height: calc(var(--cell) * 1.42 + 8px); }
+.direct-lignes li:nth-child(odd) { background: rgba(255, 255, 255, .045); }
+.direct-tableau .p { background: linear-gradient(rgba(0, 0, 0, .3) 0 49%, rgba(0, 0, 0, .42) 51% 100%); color: #F3F1E8; }
+.direct-tableau .c-heure .p { color: #F2B33D; }
+.direct-tableau .champ.c-lieu { overflow: hidden; }
+.c-train { display: flex; flex-direction: column; gap: 2px; min-width: 0; }
+.badge { align-self: flex-start; min-width: 24px; padding: 3px 7px; border-radius: 3px; text-align: center; font: 700 11px var(--sans); letter-spacing: .04em; }
+.badge:empty { display: none; }
+.c-train small { font: 10.5px var(--mono); color: rgba(255, 255, 255, .7); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.c-info { font: 600 12.5px var(--sans); color: rgba(255, 255, 255, .78); }
+.c-info.est-retard { color: #F2B33D; animation: clignote 1.6s steps(2, start) infinite; }
+.c-info.est-supprime { color: #FF8A80; }
+.c-info.est-quai { color: #8BE0A4; }
+@keyframes clignote { 50% { opacity: .35; } }
+.direct-lignes li.est-supprime .c-lieu { position: relative; opacity: .75; }
+.direct-lignes li.est-supprime .c-lieu::after { content: ""; position: absolute; left: 0; right: 0; top: 50%; height: 2px; background: #FF8A80; }
+.direct-etat { margin: 10px 4px 2px; font: 13px var(--sans); color: #F2B33D; }
+.direct-etat:empty { display: none; }
+.direct-note { font-size: 13px; color: var(--ink-3); margin: 12px 0 0; max-width: 78ch; }
+.direct-exemple { color: var(--signal); }
+.direct-ferme { font: 15px/1.6 var(--sans); color: rgba(255, 255, 255, .88); margin: 4px 4px 8px; max-width: 70ch; }
+
+/* Écran étroit : l'heure, le train, l'information et la voie, puis la destination dessous. */
+.direct-tableau.est-etroit { padding: 12px 10px 8px; }
+.direct-tableau.est-etroit .direct-cols { display: none; }
+.direct-tableau.est-etroit .direct-lignes li {
+  grid-template-columns: auto auto minmax(0, 1fr) auto; gap: 5px 8px;
+  grid-template-areas: "heure train info voie" "lieu lieu lieu lieu";
+}
+.est-etroit .c-heure { grid-area: heure; }
+.est-etroit .c-train { grid-area: train; flex-direction: row; align-items: center; gap: 6px; }
+.est-etroit .c-lieu { grid-area: lieu; }
+.est-etroit .c-voie { grid-area: voie; }
+.est-etroit .c-info { grid-area: info; text-align: right; font-size: 12px; }

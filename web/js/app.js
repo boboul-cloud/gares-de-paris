@@ -5,6 +5,7 @@ import { vueExercices, initExercices, etatExercices } from './exercices.js';
 import { blocImmersion, raccourcisImmersion, lienStreetView } from './immersion.js';
 import { tableauDeparts, armerTableau } from './departs.js';
 import { monterMaquette, monterVitrine } from './maquette.js';
+import { blocDirect, armerDirect } from './direct.js';
 
 const $ = (s, r = document) => r.querySelector(s);
 const esc = (s) => String(s ?? '').replace(/[&<>"]/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]));
@@ -261,6 +262,8 @@ function vueGare(id) {
         </div>
       </div>
     </section>
+
+    ${blocDirect(C, s)}
 
     <hr class="rule">
 
@@ -626,6 +629,7 @@ function router() {
       armerLecture(view);
       armerTableau(view, C);
       armerMaquettes(view);
+      armerDirect(view);
       if (!state.keepScroll) window.scrollTo(0, 0);
       state.keepScroll = false;
       const q = $('#q');

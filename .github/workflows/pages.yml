@@ -37,6 +37,11 @@ jobs:
       - name: Rendre toutes les routes dans un DOM simulé
         run: node tools/test-web.mjs
 
+      # Le relais « En direct » lit les mêmes données (shared/data/direct.json) :
+      # une correspondance de gare cassée doit arrêter la publication.
+      - name: Tester le relais En direct
+        run: cd worker && node --test test/*.test.mjs
+
       # Le site Pages est activé une fois pour toutes sur le dépôt ; le jeton
       # du workflow peut y déployer, mais pas le créer.
       - uses: actions/configure-pages@v5

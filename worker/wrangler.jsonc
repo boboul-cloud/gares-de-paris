@@ -1,0 +1,25 @@
+// Relais « En direct » de Gares de Paris : il garde les clés d'accès aux API
+// de la SNCF et d'Île-de-France Mobilités, et met les réponses en cache.
+// Les clés ne sont jamais écrites ici : `npx wrangler secret put SNCF_TOKEN`
+// et `npx wrangler secret put PRIM_TOKEN` (voir README.md).
+{
+  "name": "gares-de-paris-direct",
+  "main": "src/index.js",
+  "compatibility_date": "2026-11-01",
+  "workers_dev": true,
+  "preview_urls": false,
+  "observability": { "enabled": false },
+  "vars": {
+    // Sites autorisés à interroger le relais (séparés par des virgules).
+    "ORIGINES": "https://boboul-cloud.github.io,http://127.0.0.1:8765,http://localhost:8765,http://localhost:8000",
+    // Sans clé, le relais répond avec des données d'exemple. Une fois les clés
+    // installées, passer à "0" : une clé absente devient alors une erreur.
+    "MODE_EXEMPLE": "1",
+    // Deuxième appel à l'horaire théorique pour repérer les trains supprimés
+    // (l'API SNCF les retire simplement de l'horaire en temps réel).
+    "SNCF_SUPPRESSIONS": "1",
+    "SNCF_BASE": "https://api.sncf.com/v1/coverage/sncf",
+    "SNCF_PREFIXE": "stop_area:SNCF:",
+    "PRIM_BASE": "https://prim.iledefrance-mobilites.fr/marketplace/stop-monitoring"
+  }
+}
