@@ -65,6 +65,17 @@ export function blocDirect(corpus, station, relais = adresseRelais()) {
   </section>`;
 }
 
+/**
+ * Un nom de gare à la longueur d'un tableau : « Aéroport Charles de Gaulle 2
+ * (Terminal 2) » devient « Aéroport CDG 2 », les précisions entre parenthèses tombent.
+ */
+export function nomCourt(nom) {
+  return String(nom ?? '')
+    .replace(/A[ée]roport Charles[- ]de[- ]Gaulle/i, 'Aéroport CDG')
+    .replace(/\s*\([^)]*\)\s*$/, '')
+    .trim();
+}
+
 /** Les cellules d'un champ à palettes : on ne les recrée pas, on les fait tourner. */
 function ecrire(champ, texte, delai) {
   const cases = champ.querySelectorAll('.p');
@@ -130,7 +141,7 @@ export function armerDirect(racine) {
       li.classList.toggle('est-vide', !t);
       li.classList.toggle('est-supprime', t?.etat === 'supprime');
       ecrire(li.querySelector('.c-heure'), t ? t.prevue : '', i * 60);
-      ecrire(li.querySelector('.c-lieu'), t ? (t.lieu || t.ligne.nom) : '', i * 60 + 80);
+      ecrire(li.querySelector('.c-lieu'), t ? (nomCourt(t.lieu) || t.ligne.nom) : '', i * 60 + 80);
       ecrire(li.querySelector('.c-voie'), t?.voie ? String(t.voie).slice(-2).padStart(2, ' ') : '', i * 60 + 160);
       const badge = li.querySelector('.badge');
       badge.textContent = t ? t.ligne.court : '';

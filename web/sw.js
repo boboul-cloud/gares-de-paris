@@ -1,5 +1,5 @@
 // Service worker minimal : l'application reste consultable hors connexion.
-const CACHE = 'gares-de-paris-v8';
+const CACHE = 'gares-de-paris-v9';
 // three.js (web/vendor) n'est pas préchargé : il n'est demandé qu'à l'ouverture
 // de la maquette, puis gardé en cache par le gestionnaire de requêtes ci-dessous.
 const ASSETS = [

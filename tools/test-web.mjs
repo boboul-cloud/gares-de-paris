@@ -76,7 +76,7 @@ const { engendrerSerie, lectureCroisement } = await import(pathToFileURL(join(ro
 const { enMinutes } = await import(pathToFileURL(join(root, 'web/js/croisement.js')).href);
 const { evenementsDates } = await import(pathToFileURL(join(root, 'web/js/carte.js')).href);
 const { enPalettes } = await import(pathToFileURL(join(root, 'web/js/departs.js')).href);
-const { blocDirect } = await import(pathToFileURL(join(root, 'web/js/direct.js')).href);
+const { blocDirect, nomCourt } = await import(pathToFileURL(join(root, 'web/js/direct.js')).href);
 
 let fond = 0;
 const echec = (m) => { fond++; console.error('✗ ' + m); };
@@ -138,6 +138,8 @@ if (blocDirect(corpus, lyon, null) !== '') echec('en direct : sans relais, la se
 if (!blocDirect(corpus, lyon, 'https://relais.exemple').includes('data-direct="paris-lyon"')) echec('en direct : tableau absent avec un relais');
 if (!blocDirect(corpus, corpus.stations.find((s) => s.id === 'gare-bastille'), 'https://relais.exemple').includes('1969')) echec('en direct : Bastille devrait dire sa fermeture');
 if (blocDirect(corpus, corpus.stations.find((s) => s.id === 'gare-orsay'), 'https://r').includes('undefined')) echec('en direct : valeur non résolue');
+if (nomCourt('Aéroport Charles de Gaulle 2 (Terminal 2)') !== 'Aéroport CDG 2' || nomCourt('vers Aéroport Charles de Gaulle 2 (Terminal 2)') !== 'vers Aéroport CDG 2') echec('noms courts : Roissy mal abrégé');
+if (nomCourt('Charles de Gaulle - Étoile') !== 'Charles de Gaulle - Étoile') echec('noms courts : l’Étoile ne doit pas être abrégée');
 if (enPalettes('Versailles Château Rive Gauche', 24).trim().endsWith(' .')) echec('palettes : le point doit suivre le mot coupé');
 if (enPalettes('Rang-du-Fliers - Verton - Berck', 18).trim() !== 'RANG-DU-FLIERS.') echec(`palettes : tiret orphelin avant le point (« ${enPalettes('Rang-du-Fliers - Verton - Berck', 18).trim()} »)`);
 
