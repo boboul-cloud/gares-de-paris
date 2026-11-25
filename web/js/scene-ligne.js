@@ -181,6 +181,15 @@ function collines(graine, w, base, amp, pas) {
   return d + `L${f1(w + pas)} ${f1(base + 400)}H0Z`;
 }
 
+/** Nom de gare réduit à un mot parlant : Creusot, Mâcon, St-Pierre… */
+export function abreger(nom) {
+  const n = nom.replace(/ TGV$/, '').replace(/^Paris-Gare de /, 'Paris-');
+  const saint = /^(Saint|Sainte)-([^-\s]+)/.exec(n);
+  if (saint) return (saint[1] === 'Saint' ? 'St-' : 'Ste-') + saint[2];
+  const mots = n.split(/[-\s]/).filter((m) => m.length > 2 && !/^(Les?|La|des?|du|en|sur)$/i.test(m));
+  return mots[0] || n;
+}
+
 // --- Préparation -----------------------------------------------------------
 
 /**
@@ -278,22 +287,32 @@ export function monterScene(conteneur, d) {
   const yHorizon = H * 0.5, yLoin = H * 0.6, yPres = H * 0.725;
   // Les trains grandissent avec la scène, sans dépasser l'écartement des voies.
   const ech = borner(W / 800, 1, 1.4);
+  // Sous la voie du bas, trois rangs qui ne se recouvrent jamais : les étiquettes
+  // des trains, la réglette de l'écart (où se pose le losange du croisement),
+  // puis une seule ligne de lecture qui dit l'écart et, une fois passé, le croisement.
+  const yRang1 = yPres + 9, yRegle = yPres + 36, yLecture = yPres + 54;
+  // Largeur estimée d'un texte : les polices à chasse fixe de l'iPhone sont un
+  // peu plus larges que celles de Chrome, on compte large.
+  const largeurMono = (t, taille = 11.5) => t.length * taille * 0.62;
   const enonce = d.mode === 'enonce';
   const id = 'sc' + Math.random().toString(36).slice(2, 8);
 
   // Plaques émaillées des gares de l'axe, placées sur trois étages sans chevauchement.
+  // Les plaques se tiennent au-dessus de l'étiquette du plus haut des trains.
+  const hMax = Math.max(...d.trains.map((tr) => GABARIT[silhouetteDe(tr.materielId, tr.marche.vitesse)]?.h || 16));
+  const yPlaques = yLoin - hMax * ech - 31;
   // L'horloge et l'heure affichée occupent le coin supérieur gauche.
   const boites = [{ x1: 0, x2: 190, y1: 0, y2: 58 }];
   const libre = (b) => !boites.some((q) => !(b.x2 < q.x1 || b.x1 > q.x2 || b.y2 < q.y1 || b.y1 > q.y2));
   let plaques = '';
   for (const j of axe.jalons) {
     const x = X(j.pk);
-    const essais = [j.nom, j.nom.replace(/ TGV$/, '').replace(/^Paris-Gare de /, 'Paris-'), j.nom.split(/[-\s]/)[0]];
+    const essais = [j.nom, j.nom.replace(/ TGV$/, '').replace(/^Paris-Gare de /, 'Paris-'), abreger(j.nom)];
     let pose = null;
     for (const nom of essais) {
       const lp = nom.length * 6.1 + 14;
       for (const niveau of [0, 1, 2]) {
-        const y = yLoin - 44 - niveau * 24;
+        const y = yPlaques - niveau * 24;
         const b = { x1: borner(x - lp / 2, 4, W - lp - 4), y1: y - 14, y2: y + 4 };
         b.x2 = b.x1 + lp;
         if (libre(b)) { pose = { nom, b, y }; break; }
@@ -333,9 +352,13 @@ export function monterScene(conteneur, d) {
   const fumees = d.trains.map((tr, i) => A_VAPEUR(tr.silhouette)
     ? `<g class="sc-fumees" data-i="${i}">${'<circle r="0"/>'.repeat(9)}</g>` : '').join('');
 
-  const reponsePk = d.reponse?.type === 'pk' && Number.isFinite(d.reponse.valeur)
-    ? `<g class="sc-drapeau" transform="translate(${f1(X(borner(d.reponse.valeur, 0, L)))} ${f1(yPres + 10)})">
-         <line y1="0" y2="-46"/><path d="M0 -46L16 -41L0 -36Z"/><text x="3" y="14" text-anchor="middle">votre PK</text></g>` : '';
+  // Le drapeau de la réponse : planté entre les deux voies, son étiquette
+  // occupe le premier rang, que les étiquettes des trains contournent.
+  const xDrapeau = d.reponse?.type === 'pk' && Number.isFinite(d.reponse.valeur) ? X(borner(d.reponse.valeur, 0, L)) : null;
+  const reponsePk = xDrapeau !== null
+    ? `<g class="sc-drapeau" transform="translate(${f1(xDrapeau)} 0)">
+         <line y1="${f1(yRang1)}" y2="${f1(yPres - 27)}"/><path d="M0 ${f1(yPres - 27)}l13 4.5l-13 4.5Z"/>
+         <rect x="-29" y="${f1(yRang1)}" width="58" height="18" rx="9"/><text y="${f1(yRang1 + 12.6)}" text-anchor="middle">votre PK</text></g>` : '';
 
   conteneur.innerHTML = `
   <figure class="scene${enonce ? ' est-enonce' : ''}">
@@ -364,11 +387,10 @@ export function monterScene(conteneur, d) {
       <path d="M0 ${f1(yLoin - 3)}H${W}M0 ${f1(yLoin + 3)}H${W}M0 ${f1(yPres - 3)}H${W}M0 ${f1(yPres + 3)}H${W}" class="sc-rail"/>
       <g class="sc-jalons">${plaques}</g>
       <g class="sc-croix" opacity="0">
-        <line y1="${f1(yLoin - 30)}" y2="${f1(yPres + 12)}"/>
-        <path d="M0 ${f1(yPres + 18)}l6 6l-6 6l-6 -6Z"/>
-        <text y="${f1(yPres + 44)}" text-anchor="middle"></text>
+        <line y1="${f1(yLoin - 30)}" y2="${f1(yRegle - 6)}"/>
+        <path d="M0 ${f1(yRegle - 6)}l6 6l-6 6l-6 -6Z"/>
       </g>
-      <g class="sc-croix-fantome" opacity="0"><line y1="${f1(yLoin - 26)}" y2="${f1(yPres + 10)}"/></g>
+      <g class="sc-croix-fantome" opacity="0"><line y1="${f1(yLoin - 26)}" y2="${f1(yRegle)}"/></g>
       ${reponsePk}
       ${fumees}
       ${trainsSvg}
@@ -489,7 +511,7 @@ export function monterScene(conteneur, d) {
     $('.sc-aiguille-h').setAttribute('transform', `rotate(${((mm % 720) / 2).toFixed(1)})`);
     $('.sc-aiguille-m').setAttribute('transform', `rotate(${((mm % 60) * 6).toFixed(1)})`);
     $('.sc-heure').textContent = enHeure(t);
-    $('.sc-sous-heure').textContent = enonce ? 'heure de départ' : `${etat.joue ? '▶' : '❚❚'} ${etat.vitesse} min par seconde`;
+    $('.sc-sous-heure').textContent = enonce ? 'heure de départ' : `${etat.joue ? '▶' : '❚❚'} ${etat.vitesse} min / s`;
 
     // Dans un énoncé, chaque train attend à son origine : sa position à
     // l'instant affiché trahirait une heure de départ qu'on demande de trouver.
@@ -497,6 +519,7 @@ export function monterScene(conteneur, d) {
       ? d.trains.map((tr) => ({ pk: tr.marche.points[0].pk, etat: 'avant' }))
       : positionsA(d, t);
     const xs = pos.map((p) => X(p.pk));
+    const etiquettes = [];
 
     d.trains.forEach((tr, i) => {
       const e = els[i], p = pos[i];
@@ -523,10 +546,10 @@ export function monterScene(conteneur, d) {
       else texte = `${tr.nom} · ${Math.round(tr.marche.vitesse)} km/h`;
       const txt = e.et.querySelector('text');
       if (txt.textContent !== texte) txt.textContent = texte;
-      const lg = texte.length * 6.3 + 16;
-      const cx = borner(xs[i] - sens * gab.l / 2, lg / 2 + 2, W - lg / 2 - 2);
-      const ye = tr.marche.montant ? y + 9 : y - gab.h - 23;
-      e.et.setAttribute('transform', `translate(${f1(cx)} ${f1(ye)})`);
+      const lg = texte.length * 6.6 + 16;
+      // Un train de la voie du haut porte son étiquette au-dessus de lui ; celui
+      // de la voie du bas, au premier rang sous les rails.
+      etiquettes.push({ e, lg, cx: xs[i] - sens * gab.l / 2, ye: tr.marche.montant ? yRang1 : y - gab.h - 23, fantome: !!tr.fantome });
       e.et.querySelector('rect').setAttribute('width', f1(lg));
       e.et.querySelector('rect').setAttribute('x', f1(-lg / 2));
       txt.setAttribute('x', '0');
@@ -554,38 +577,52 @@ export function monterScene(conteneur, d) {
       }
     });
 
+    placerEtiquettes(etiquettes);
+
     // L'écart : la distance qui sépare les deux trains, et sa vitesse de fonte.
+    // Une fois la rencontre passée, la même ligne dit aussi où et quand elle a eu lieu.
     const ecart = $('.sc-ecart');
+    const croisementPasse = enCroisement && t >= d.croix.t - 0.01 && !enonce;
+    const texteCroix = croisementPasse
+      ? `${d.croix.type === 'rattrapage' ? 'Rejoint' : 'Croisés'} à ${enHeure(d.croix.t)}, PK ${Math.round(d.croix.pk)}` : '';
     if (vrais.length >= 2 && !enonce) {
       const [a, b] = vrais;
       const roulent = pos[a].etat !== 'avant' || pos[b].etat !== 'avant';
       const dist = Math.abs(pos[a].pk - pos[b].pk);
       const passe = enCroisement && t > d.croix.t;
+      const tx = ecart.querySelector('text');
+      const trait = ecart.querySelector('path');
+      let texte = '', centre = W / 2;
       if (roulent && dist > 0.5) {
         const x1 = Math.min(xs[a], xs[b]), x2 = Math.max(xs[a], xs[b]);
-        const y = yPres + 30;
-        ecart.querySelector('path').setAttribute('d', `M${f1(x1)} ${f1(y - 5)}V${f1(y + 5)}M${f1(x1)} ${f1(y)}H${f1(x2)}M${f1(x2)} ${f1(y - 5)}V${f1(y + 5)}`);
+        const y = yRegle;
+        trait.setAttribute('d', `M${f1(x1)} ${f1(y - 5)}V${f1(y + 5)}M${f1(x1)} ${f1(y)}H${f1(x2)}M${f1(x2)} ${f1(y - 5)}V${f1(y + 5)}`);
         const memeSens = d.trains[a].marche.montant === d.trains[b].marche.montant;
         const v = memeSens ? Math.abs(d.trains[a].marche.vitesse - d.trains[b].marche.vitesse) : d.trains[a].marche.vitesse + d.trains[b].marche.vitesse;
-        const tx = ecart.querySelector('text');
-        tx.textContent = passe
-          ? `${Math.round(dist)} km — ils s'éloignent`
-          : `${Math.round(dist)} km${pos[a].etat === 'roule' && pos[b].etat === 'roule' ? ` · se referment à ${Math.round(v)} km/h` : ''}`;
-        const lg = tx.textContent.length * 6.4;
-        tx.setAttribute('x', f1(borner((x1 + x2) / 2, lg / 2 + 4, W - lg / 2 - 4)));
-        tx.setAttribute('y', f1(y + 17));
-        ecart.setAttribute('opacity', '1');
-      } else ecart.setAttribute('opacity', '0');
+        const km = `${Math.round(dist)} km`;
+        texte = passe
+          ? `${texteCroix} · ${km} ${memeSens ? "d'écart" : 'entre eux'}`
+          : `${km}${pos[a].etat === 'roule' && pos[b].etat === 'roule' ? ` · se referment à ${Math.round(v)} km/h` : ''}`;
+        // Trop long pour l'écran : on garde l'essentiel.
+        if (largeurMono(texte) > W - 12) texte = passe ? texteCroix : km;
+        centre = (x1 + x2) / 2;
+      } else {
+        trait.setAttribute('d', '');
+        texte = texteCroix;
+        centre = croisementPasse ? X(d.croix.pk) : W / 2;
+      }
+      tx.textContent = texte;
+      const lg = largeurMono(texte);
+      tx.setAttribute('x', f1(borner(centre, lg / 2 + 4, W - lg / 2 - 4)));
+      tx.setAttribute('y', f1(yLecture));
+      ecart.setAttribute('opacity', texte ? '1' : '0');
     } else ecart.setAttribute('opacity', '0');
 
-    // Le point de rencontre reste marqué une fois franchi.
+    // Le point de rencontre reste marqué une fois franchi : un losange sur la réglette.
     const croix = $('.sc-croix');
-    if (enCroisement && t >= d.croix.t - 0.01 && !enonce) {
+    if (croisementPasse) {
       croix.setAttribute('opacity', '1');
       croix.setAttribute('transform', `translate(${f1(X(d.croix.pk))} 0)`);
-      croix.querySelector('text').textContent = `${d.croix.type === 'rattrapage' ? 'Rattrapage' : 'Croisement'} · ${enHeure(d.croix.t)} · PK ${Math.round(d.croix.pk)}`;
-      const lg = croix.querySelector('text').textContent.length * 6.6;
-      croix.querySelector('text').setAttribute('x', f1(borner(X(d.croix.pk), lg / 2 + 4, W - lg / 2 - 4) - X(d.croix.pk)));
     } else croix.setAttribute('opacity', '0');
     const cf = $('.sc-croix-fantome');
     if (d.croixFantome && d.croixFantome.type !== 'aucun' && t >= d.croixFantome.t && !enonce) {
@@ -596,6 +633,41 @@ export function monterScene(conteneur, d) {
     if (range && document.activeElement !== range) range.value = String(t);
     if (btnJouer) { btnJouer.textContent = etat.joue ? '❚❚' : '▶'; btnJouer.setAttribute('aria-label', etat.joue ? 'Pause' : 'Lecture'); }
     curseur?.(t, pos);
+  }
+
+  /**
+   * Pose les étiquettes des trains sans qu'elles se recouvrent : les vrais
+   * trains d'abord, le fantôme ensuite. Une étiquette gênée se décale à côté
+   * de celle qui la gêne ; au-dessus des voies, elle peut aussi monter d'un cran.
+   */
+  function placerEtiquettes(liste) {
+    const posees = [];
+    if (xDrapeau !== null) posees.push({ x1: xDrapeau - 33, x2: xDrapeau + 33, y: yRang1 });
+    const libre = (x1, x2, y) => x1 >= 2 && x2 <= W - 2
+      && !posees.some((b) => Math.abs(b.y - y) < 19 && x1 < b.x2 + 4 && x2 > b.x1 - 4);
+    for (const et of [...liste].sort((p, q) => p.fantome - q.fantome)) {
+      const demi = et.lg / 2;
+      const cx0 = borner(et.cx, demi + 2, W - demi - 2);
+      // Candidats : la place voulue, puis accolée à chaque étiquette déjà posée,
+      // puis par pas d'une largeur ; au-dessus des voies, on peut aussi monter.
+      const etages = et.ye < yLoin ? [0, -21, -42] : [0];
+      const essais = [];
+      for (const dy of etages) {
+        const y = et.ye + dy;
+        essais.push([cx0, y]);
+        for (const b of posees) essais.push([b.x2 + 5 + demi, y], [b.x1 - 5 - demi, y]);
+        for (const k of [1, -1, 2, -2, 3, -3]) essais.push([cx0 + k * (et.lg + 6), y]);
+      }
+      essais.sort((a, b) => Math.hypot(a[0] - cx0, (a[1] - et.ye) * 3) - Math.hypot(b[0] - cx0, (b[1] - et.ye) * 3));
+      const trouve = essais.find(([x, y]) => libre(x - demi, x + demi, y));
+      // Rien ne tient : un vrai train garde son étiquette, le fantôme se tait
+      // (sa couleur, le graphique et la légende le désignent déjà).
+      if (!trouve && et.fantome) { et.e.et.setAttribute('opacity', '0'); continue; }
+      const [cx, ye] = trouve || [cx0, et.ye];
+      posees.push({ x1: cx - demi, x2: cx + demi, y: ye });
+      et.e.et.setAttribute('opacity', '1');
+      et.e.et.setAttribute('transform', `translate(${f1(cx)} ${f1(ye)})`);
+    }
   }
 
   /** Événements franchis entre deux instants : rencontre, fantôme, réponse. */
@@ -680,7 +752,10 @@ export function monterScene(conteneur, d) {
       if (etat.son) sonner('depart');
     }
   });
-  range?.addEventListener('input', () => { pause(); aller(+range.value); });
+  // On lit la valeur avant la pause : la pause redessine la scène et remettrait
+  // la réglette à l'ancienne heure. Safari sur iPhone ne donne pas le focus à
+  // une réglette qu'on fait glisser, et le glissement y restait sans effet.
+  range?.addEventListener('input', () => { const v = +range.value; pause(); aller(v); });
   selVitesse?.addEventListener('change', () => { etat.vitesse = +selVitesse.value; dessiner(); });
 
   // Le graphique de marche sert aussi de réglette : on y fait glisser le temps.

@@ -851,7 +851,7 @@ footer p { max-width: 74ch; }
 .sc-etiquette text { font: 600 11px var(--sans); fill: #14181C; }
 .sc-etiquette.est-fantome rect { stroke-dasharray: 3 2; fill: rgba(255, 255, 255, .8); }
 .sc-ecart path { stroke: rgba(255, 255, 255, .9); stroke-width: 1.4; fill: none; }
-.sc-ecart text, .sc-croix text, .sc-drapeau text {
+.sc-ecart text {
   font: 700 11.5px var(--mono); fill: #fff; paint-order: stroke; stroke: rgba(10, 14, 20, .65); stroke-width: 3; stroke-linejoin: round;
 }
 .sc-croix line { stroke: var(--signal-fixe); stroke-width: 1.6; stroke-dasharray: 4 3; }
@@ -859,7 +859,8 @@ footer p { max-width: 74ch; }
 .sc-croix-fantome line { stroke: var(--fantome); stroke-width: 1.6; stroke-dasharray: 4 3; }
 .sc-drapeau line { stroke: var(--fantome); stroke-width: 1.6; }
 .sc-drapeau path { fill: var(--fantome); }
-.sc-drapeau text { font-size: 10px; }
+.sc-drapeau rect { fill: var(--fantome); stroke: rgba(255, 255, 255, .85); stroke-width: 1.2; }
+.sc-drapeau text { font: 600 10.5px var(--sans); fill: #fff; }
 .sc-onde { fill: none; stroke-width: 3; opacity: 0; pointer-events: none; }
 .sc-flash { fill: #fff; pointer-events: none; }
 .sc-cadran { fill: #F6F8FA; stroke: #1B2730; stroke-width: 2.4; }
