@@ -46,6 +46,10 @@ const routes = [
   ['#/croisement', 'graphique de marche'],
   ['#/exercices', 'Exercices'],
   ['#/glossaire', 'vocabulaire du rail'],
+  ['#/direct', 'Choisir une gare'],
+  ['#/direct/brest', 'Gare de Brest'],
+  ['#/direct/gares-tgv-idf', 'Massy TGV'],
+  ['#/direct/inexistante', 'pas de tableau en direct'],
   ...corpus.stations.map((s) => ['#/gare/' + s.id, s.nom]),
   ...corpus.circuits.map((c) => ['#/circuit/' + c.id, c.nom]),
   ['#/inexistant', 'introuvable', { court: true }],
@@ -76,7 +80,7 @@ const { engendrerSerie, lectureCroisement } = await import(pathToFileURL(join(ro
 const { enMinutes } = await import(pathToFileURL(join(root, 'web/js/croisement.js')).href);
 const { evenementsDates } = await import(pathToFileURL(join(root, 'web/js/carte.js')).href);
 const { enPalettes } = await import(pathToFileURL(join(root, 'web/js/departs.js')).href);
-const { blocDirect, nomCourt } = await import(pathToFileURL(join(root, 'web/js/direct.js')).href);
+const { blocDirect, nomCourt, vueDirect, groupesDirect } = await import(pathToFileURL(join(root, 'web/js/direct.js')).href);
 
 let fond = 0;
 const echec = (m) => { fond++; console.error('✗ ' + m); };
@@ -138,6 +142,17 @@ if (blocDirect(corpus, lyon, null) !== '') echec('en direct : sans relais, la se
 if (!blocDirect(corpus, lyon, 'https://relais.exemple').includes('data-direct="paris-lyon"')) echec('en direct : tableau absent avec un relais');
 if (!blocDirect(corpus, corpus.stations.find((s) => s.id === 'gare-bastille'), 'https://relais.exemple').includes('1969')) echec('en direct : Bastille devrait dire sa fermeture');
 if (blocDirect(corpus, corpus.stations.find((s) => s.id === 'gare-orsay'), 'https://r').includes('undefined')) echec('en direct : valeur non résolue');
+// La page « En direct » : chaque gare en service a son bouton ; Brest, sans
+// fiche, a son tableau et renvoie à Montparnasse ; hors ligne, un lien vers le site.
+const surLaPage = groupesDirect(corpus).flatMap((g) => g.gares);
+const enService = Object.keys(corpus.direct.gares).filter((id) => corpus.direct.gares[id].points);
+if (surLaPage.length !== enService.length) echec(`en direct : ${enService.length} gares en service, ${surLaPage.length} sur la page`);
+const brest = vueDirect(corpus, 'brest', 'https://relais.exemple');
+if (!brest.includes('data-direct="brest"') || !brest.includes('href="#/gare/paris-montparnasse"')) echec('en direct : Brest sans tableau ou sans renvoi');
+if (!brest.includes('aria-current="page">Brest<')) echec('en direct : le bouton de Brest devrait être allumé');
+if (!vueDirect(corpus, 'brest', null).includes('boboul-cloud.github.io/gares-de-paris/#/direct/brest')) echec('en direct : hors ligne, pas de lien vers le site');
+if (!vueDirect(corpus, 'paris-lyon', 'https://r').includes('href="#/gare/paris-lyon"')) echec('en direct : renvoi vers la fiche absent');
+if (!blocDirect(corpus, lyon, 'https://r').includes('href="#/direct/paris-lyon"')) echec('en direct : la fiche devrait mener à la page');
 if (nomCourt('Aéroport Charles de Gaulle 2 (Terminal 2)') !== 'Aéroport CDG 2' || nomCourt('vers Aéroport Charles de Gaulle 2 (Terminal 2)') !== 'vers Aéroport CDG 2') echec('noms courts : Roissy mal abrégé');
 if (nomCourt('Charles de Gaulle - Étoile') !== 'Charles de Gaulle - Étoile') echec('noms courts : l’Étoile ne doit pas être abrégée');
 if (enPalettes('Versailles Château Rive Gauche', 24).trim().endsWith(' .')) echec('palettes : le point doit suivre le mot coupé');

@@ -99,6 +99,20 @@ temps réel. Le tableau reprend les palettes de l'accueil et les couleurs des
 écrans de gare (bleu pour les départs, vert pour les arrivées), avec un onglet par
 réseau, les retards, les trains supprimés et, pour le RER et le Transilien, les voies.
 
+La page **En direct** (`#/direct`, dans le menu) réunit tous ces tableaux : on y
+choisit sa gare parmi trois groupes — les grandes gares de Paris, le RER et les
+gares d'Île-de-France, et **ailleurs en France**, où figure **Brest**, terminus de
+la ligne de Paris-Montparnasse à Brest. La gare choisie est dans l'adresse
+(`#/direct/brest`) et la page s'en souvient à la visite suivante.
+
+Une gare sans fiche s'ajoute par les seules données, dans `shared/data/direct.json` :
+une entrée avec `nom`, `court` (le bouton), `region`, un `texte` et, au choix, `voir`
+(la fiche à laquelle elle renvoie), son code UIC (à chercher dans
+`worker/src/noms-gares.json`), puis son identifiant dans un des `groupes`. Il faut
+ensuite republier le relais, qui ne lit le flux que pour les gares qu'il connaît.
+Une liste de quelques dizaines de gares ne coûte rien ; toutes les gares de France
+(trois mille quatre cents) priveraient le décodage de son tri rapide.
+
 | Réseau | Source | Clé |
 |---|---|---|
 | TGV, OUIGO, Intercités, Lyria, ICE, TER | **Flux temps réel ouvert de la SNCF** (GTFS-RT, transport.data.gouv.fr, ODbL) | aucune |
@@ -111,9 +125,9 @@ retards et les suppressions ; ni voie ni motif, et pas l'Eurostar, que la SNCF
 n'exploite pas. Les noms des gares viennent des horaires théoriques de la SNCF
 (`worker/src/noms-gares.json`, produit par `python3 tools/noms-gares-sncf.py`).
 
-**État : en ligne depuis le 25 novembre 2026 pour les grandes lignes**, par le flux
-ouvert de la SNCF ; le RER et le Transilien attendent la clé d'Île-de-France
-Mobilités. Relais : https://gares-de-paris-direct.riskelo-salon.workers.dev
+**État : en ligne depuis le 25 novembre 2026** — les grandes lignes par le flux
+ouvert de la SNCF, le RER et le Transilien avec la clé d'Île-de-France Mobilités ;
+la page « En direct » et Brest depuis le 26 novembre 2026. Relais : https://gares-de-paris-direct.riskelo-salon.workers.dev
 (`RELAIS` dans `web/js/direct.js`). Ouverte depuis un fichier, la page n'affiche
 pas de tableau : le relais ne reconnaîtrait pas son origine.
 

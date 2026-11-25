@@ -5,7 +5,7 @@ import { vueExercices, initExercices, etatExercices } from './exercices.js';
 import { blocImmersion, raccourcisImmersion, lienStreetView } from './immersion.js';
 import { tableauDeparts, armerTableau } from './departs.js';
 import { monterMaquette, monterVitrine } from './maquette.js';
-import { blocDirect, armerDirect } from './direct.js';
+import { blocDirect, armerDirect, vueDirect, groupesDirect } from './direct.js';
 
 const $ = (s, r = document) => r.querySelector(s);
 const esc = (s) => String(s ?? '').replace(/[&<>"]/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]));
@@ -78,6 +78,15 @@ const tags = (arr) => (arr || []).map((t) => `<span class="tag">${esc(t)}</span>
 
 /* -------------------------------------------------------------------- vues */
 
+/** Sous le tableau des dates, le chemin vers les vrais trains. */
+function lienDirect() {
+  const ids = groupesDirect(C).flatMap((g) => g.gares);
+  if (!ids.length) return '';
+  const loin = ids.filter((id) => !byId(id)).map((id) => C.direct.gares[id].court);
+  const dont = loin.length ? `, jusqu'à ${loin.join(' et ')}` : '';
+  return `<p class="lien-direct"><a href="#/direct"><i aria-hidden="true"></i>Les vrais trains, en direct : départs et arrivées dans ${ids.length} gares${esc(dont)} →</a></p>`;
+}
+
 function vueAccueil() {
   const grandes = C.stations.filter((s) => s.categorie === 'grande-gare');
   return `
@@ -99,6 +108,7 @@ function vueAccueil() {
 
     <section class="section accueil-departs">
       ${tableauDeparts()}
+      ${lienDirect()}
     </section>
 
     <section class="section">
@@ -596,6 +606,7 @@ const ROUTES = [
   [/^\/?$/, () => vueAccueil(), 'accueil'],
   [/^\/gares$/, () => vueGares(state.filtre), 'gares'],
   [/^\/gare\/(.+)$/, (m) => vueGare(m[1]), 'gares'],
+  [/^\/direct(?:\/(.+))?$/, (m) => vueDirect(C, m[1]), 'direct'],
   [/^\/circuits$/, () => vueCircuits(), 'circuits'],
   [/^\/circuit\/(.+)$/, (m) => vueCircuit(m[1]), 'circuits'],
   [/^\/techniques$/, () => vueTechniques(), 'techniques'],
@@ -675,6 +686,8 @@ function armerMaquettes(racine) {
 
 /* Interactions déléguées : filtres, points de la carte, calques, recherche */
 document.addEventListener('click', (e) => {
+  // Changer de gare sur la page « En direct » ne remonte pas en haut de page.
+  if (e.target.closest('[data-garder-defilement]')) state.keepScroll = true;
   const chip = e.target.closest('.chip[data-cat]');
   if (chip) { state.filtre = chip.dataset.cat; state.keepScroll = true; router(); return; }
   const calque = e.target.closest('[data-calque]');

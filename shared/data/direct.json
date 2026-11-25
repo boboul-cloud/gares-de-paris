@@ -22,54 +22,59 @@
     "C01741": { "nom": "Transilien U", "court": "U", "couleur": "#A50034", "texte": "#FFFFFF" },
     "C02711": { "nom": "Transilien V", "court": "V", "couleur": "#6E6E00", "texte": "#FFFFFF" }
   },
+  "groupes": [
+    { "nom": "Les grandes gares de Paris", "gares": ["paris-saint-lazare", "paris-nord", "paris-est", "paris-lyon", "paris-bercy", "paris-austerlitz", "paris-montparnasse"] },
+    { "nom": "RER et gares d'Île-de-France", "gares": ["gare-orsay", "gare-invalides", "gare-rosa-parks", "gares-souterraines", "gares-tgv-idf"] },
+    { "nom": "Ailleurs en France", "gares": ["brest"] }
+  ],
   "gares": {
-    "paris-saint-lazare": { "points": [
+    "paris-saint-lazare": { "court": "Saint-Lazare", "points": [
       { "nom": "Paris Saint-Lazare", "ville": "Paris", "uic": "87384008", "zda": "58566",
         "exemples": ["Rouen Rive Droite", "Le Havre", "Caen", "Cherbourg", "Évreux Normandie", "Trouville-Deauville"],
         "exemplesIdf": [["C01740", "Versailles Rive Droite"], ["C01740", "Cergy le Haut"], ["C01739", "Mantes-la-Jolie"], ["C01739", "Gisors"], ["C01740", "Saint-Nom-la-Bretèche"]] }
     ] },
-    "paris-nord": { "points": [
+    "paris-nord": { "court": "Gare du Nord", "points": [
       { "nom": "Paris Gare du Nord", "ville": "Paris", "uic": "87271007", "zda": "462394",
         "exemples": ["Lille Europe", "Londres St Pancras", "Bruxelles Midi", "Amsterdam Centraal", "Amiens", "Dunkerque"],
         "exemplesIdf": [["C01743", "Aéroport CDG 2 TGV"], ["C01743", "Mitry-Claye"], ["C01728", "Creil"], ["C01737", "Pontoise"], ["C01738", "Crépy-en-Valois"]] }
     ] },
-    "paris-est": { "points": [
+    "paris-est": { "court": "Gare de l'Est", "points": [
       { "nom": "Paris Est", "ville": "Paris", "uic": "87113001", "zda": "470519",
         "exemples": ["Strasbourg", "Reims", "Metz Ville", "Nancy", "Francfort Hbf", "Mulhouse Ville"],
         "exemplesIdf": [["C01730", "Meaux"], ["C01730", "Provins"], ["C01730", "Coulommiers"], ["C01730", "Château-Thierry"]] }
     ] },
-    "paris-lyon": { "points": [
+    "paris-lyon": { "court": "Gare de Lyon", "points": [
       { "nom": "Paris Gare de Lyon", "ville": "Paris", "uic": "87686006", "zda": "470195",
         "exemples": ["Lyon Part-Dieu", "Marseille Saint-Charles", "Nice Ville", "Montpellier Saint-Roch", "Genève", "Milano Porta Garibaldi"],
         "exemplesIdf": [["C01742", "Boissy-Saint-Léger"], ["C01742", "Marne-la-Vallée Chessy"], ["C01728", "Melun"], ["C01728", "Malesherbes"], ["C01731", "Montereau"]] }
     ] },
-    "paris-bercy": { "points": [
+    "paris-bercy": { "court": "Bercy", "points": [
       { "nom": "Paris Bercy Bourgogne - Pays d'Auvergne", "ville": "Paris", "uic": "87686667",
         "exemples": ["Clermont-Ferrand", "Nevers", "Dijon Ville", "Montargis", "Vichy", "Moulins-sur-Allier"] }
     ] },
-    "paris-austerlitz": { "points": [
+    "paris-austerlitz": { "court": "Austerlitz", "points": [
       { "nom": "Paris Austerlitz", "ville": "Paris", "uic": "87547000", "zda": "43072",
         "exemples": ["Orléans", "Limoges Bénédictins", "Toulouse Matabiau", "Brive-la-Gaillarde", "Latour-de-Carol", "Briançon"],
         "exemplesIdf": [["C01727", "Versailles Château Rive Gauche"], ["C01727", "Dourdan"], ["C01727", "Saint-Martin-d'Étampes"], ["C01727", "Pontoise"]] }
     ] },
-    "paris-montparnasse": { "points": [
+    "paris-montparnasse": { "court": "Montparnasse", "points": [
       { "nom": "Paris Montparnasse", "ville": "Paris", "uic": "87391003", "zda": "43238",
         "exemples": ["Bordeaux Saint-Jean", "Rennes", "Nantes", "Brest", "Toulouse Matabiau", "La Rochelle Ville"],
         "exemplesIdf": [["C01736", "Rambouillet"], ["C01736", "Dreux"], ["C01736", "Mantes-la-Jolie"], ["C01736", "Plaisir - Grignon"]] }
     ] },
-    "gare-orsay": { "points": [
+    "gare-orsay": { "court": "Musée d'Orsay", "points": [
       { "nom": "Musée d'Orsay (RER C)", "ville": "Paris", "zda": "45705",
         "exemplesIdf": [["C01727", "Versailles Château Rive Gauche"], ["C01727", "Pontoise"], ["C01727", "Dourdan"], ["C01727", "Massy - Palaiseau"]] }
     ] },
-    "gare-invalides": { "points": [
+    "gare-invalides": { "court": "Invalides", "points": [
       { "nom": "Invalides (RER C)", "ville": "Paris", "zda": "470540",
         "exemplesIdf": [["C01727", "Versailles Château Rive Gauche"], ["C01727", "Saint-Quentin-en-Yvelines"], ["C01727", "Juvisy"], ["C01727", "Pontoise"]] }
     ] },
-    "gare-rosa-parks": { "points": [
+    "gare-rosa-parks": { "court": "Rosa Parks", "points": [
       { "nom": "Rosa Parks (RER E)", "ville": "Paris", "zda": "58498",
         "exemplesIdf": [["C01729", "Chelles - Gournay"], ["C01729", "Tournan"], ["C01729", "Nanterre - La Folie"], ["C01729", "Haussmann Saint-Lazare"]] }
     ] },
-    "gares-tgv-idf": { "points": [
+    "gares-tgv-idf": { "court": "Gares TGV", "points": [
       { "nom": "Marne-la-Vallée Chessy", "ville": "Marne-la-Vallée", "uic": "87111849",
         "exemples": ["Lyon Part-Dieu", "Marseille Saint-Charles", "Bordeaux Saint-Jean", "Lille Europe", "Rennes", "Strasbourg"] },
       { "nom": "Massy TGV", "ville": "Massy", "uic": "87393702",
@@ -77,11 +82,18 @@
       { "nom": "Aéroport Charles de Gaulle 2 TGV", "ville": "Aéroport", "uic": "87271494",
         "exemples": ["Bruxelles Midi", "Lyon Part-Dieu", "Marseille Saint-Charles", "Rennes", "Montpellier Saint-Roch", "Bordeaux Saint-Jean"] }
     ] },
-    "gares-souterraines": { "points": [
+    "gares-souterraines": { "court": "Haussmann et Magenta", "points": [
       { "nom": "Haussmann Saint-Lazare", "ville": "Paris", "zda": "58718",
         "exemplesIdf": [["C01729", "Chelles - Gournay"], ["C01729", "Tournan"], ["C01729", "Nanterre - La Folie"], ["C01729", "Villiers-sur-Marne"]] },
       { "nom": "Magenta", "ville": "Paris", "zda": "58572",
         "exemplesIdf": [["C01729", "Chelles - Gournay"], ["C01729", "Tournan"], ["C01729", "Nanterre - La Folie"], ["C01729", "Haussmann Saint-Lazare"]] }
+    ] },
+    "brest": { "nom": "Gare de Brest", "court": "Brest", "region": "Finistère",
+      "texte": "Brest n'a pas de fiche dans cette application, consacrée aux gares de Paris : c'est le terminus ouest de la ligne de Paris-Montparnasse à Brest.",
+      "voir": "paris-montparnasse",
+      "points": [
+      { "nom": "Brest", "ville": "Brest", "uic": "87474007",
+        "exemples": ["Paris Montparnasse", "Rennes", "Quimper", "Morlaix", "Landerneau", "Nantes"] }
     ] },
     "gare-bastille": { "ferme": "Plus aucun train ne part d'ici : la ligne de Vincennes a fermé le 14 décembre 1969 pour devenir la branche de Boissy du RER A, et la gare a été rasée en 1984." },
     "petite-ceinture": { "ferme": "Plus de trains de voyageurs depuis le 23 juillet 1934, hormis la section ouest, reprise par le RER C en 1988." }

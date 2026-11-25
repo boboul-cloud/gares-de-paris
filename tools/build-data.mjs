@@ -55,12 +55,22 @@ for (const s of stations) {
   }
   if (s.fermeture !== undefined && !(s.fermeture > s.ouverture)) throw new Error(`${s.id} : fermeture antérieure à l'ouverture`);
 }
-// En direct : chaque gare citée existe ; chaque point a un code UIC (SNCF, huit
-// chiffres) ou une zone d'arrêt (Île-de-France Mobilités) ; les lignes des
-// exemples sont connues.
+// En direct : chaque gare citée a sa fiche, ou bien porte elle-même son nom et
+// sa région (une gare hors de Paris, comme Brest) ; chaque point a un code UIC
+// (SNCF, huit chiffres) ou une zone d'arrêt (Île-de-France Mobilités) ; les
+// lignes des exemples sont connues ; chaque gare en service figure dans un, et
+// un seul, groupe de la page « En direct ».
+const dansGroupes = (corpus.direct.groupes || []).flatMap((gr) => gr.gares);
+for (const id of dansGroupes) {
+  if (!corpus.direct.gares[id]?.points) throw new Error(`En direct : le groupe cite « ${id} », sans tableau`);
+  if (dansGroupes.indexOf(id) !== dansGroupes.lastIndexOf(id)) throw new Error(`En direct : « ${id} » est dans deux groupes`);
+}
 for (const [id, g] of Object.entries(corpus.direct.gares)) {
-  if (!ids.has(id)) throw new Error(`En direct : gare inconnue « ${id} »`);
+  if (!ids.has(id) && !(g.nom && g.region)) throw new Error(`En direct : gare inconnue « ${id} » (sans fiche, il lui faut un nom et une région)`);
+  if (g.voir && !ids.has(g.voir)) throw new Error(`En direct, ${id} : renvoi vers une fiche inconnue « ${g.voir} »`);
   if (g.ferme) continue;
+  if (!g.court) throw new Error(`En direct, ${id} : nom court manquant`);
+  if (!dansGroupes.includes(id)) throw new Error(`En direct, ${id} : absente des groupes de la page`);
   for (const p of g.points || []) {
     if (!p.nom || !p.ville) throw new Error(`En direct, ${id} : point sans nom ni ville`);
     if (!p.uic && !p.zda) throw new Error(`En direct, ${id} : « ${p.nom} » n'a ni code UIC ni zone d'arrêt`);

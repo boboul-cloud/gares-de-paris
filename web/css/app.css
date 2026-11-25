@@ -1036,3 +1036,21 @@ text.gm-fantome { font-style: italic; }
 .est-etroit .c-lieu { grid-area: lieu; }
 .est-etroit .c-voie { grid-area: voie; }
 .est-etroit .c-info { grid-area: info; text-align: right; font-size: 12px; }
+
+/* Le renvoi d'une fiche vers la page « En direct », et de la page vers les fiches. */
+.direct-renvoi { font-size: 14.5px; color: var(--ink-2); margin: 14px 0 0; max-width: 78ch; }
+
+/* --- La page « En direct » : choisir sa gare, puis son tableau ------------- */
+
+.direct-choix { display: grid; gap: 16px; margin: 26px 0 4px; }
+.direct-groupe h3 { font: 600 11px var(--sans); letter-spacing: .14em; text-transform: uppercase; color: var(--ink-3); margin: 0 0 8px; }
+.direct-groupe .chips { margin: 0; }
+a.chip { display: inline-block; text-decoration: none; }
+.direct-page .direct-points { margin-top: 22px; padding-top: 18px; border-top: 1px solid var(--rule); }
+
+/* Sur l'accueil, sous le tableau des dates : le chemin vers les vrais trains. */
+.lien-direct { margin: 14px 0 0; font-size: 15px; }
+.lien-direct a { display: inline-flex; align-items: center; gap: 9px; color: var(--ink-2); text-decoration: none; }
+@media (hover: hover) and (pointer: fine) { .lien-direct a:hover { color: var(--ink); text-decoration: underline; } }
+.lien-direct i { width: 8px; height: 8px; border-radius: 50%; background: #2FA35A; flex: none; animation: pouls 2s ease-in-out infinite; }
+@keyframes pouls { 50% { opacity: .3; } }

@@ -28,19 +28,24 @@ const RAFRAICHIR = 90 * 1000;
 const LIGNES = 10;
 const RESEAUX = { 'grandes-lignes': 'Grandes lignes', 'ile-de-france': 'RER et Transilien' };
 
-export function blocDirect(corpus, station, relais = adresseRelais()) {
+/**
+ * Le tableau d'une gare. Sur une fiche, il vient avec son titre et renvoie à
+ * la page « En direct » ; sur cette page (page: true), c'est elle qui titre.
+ */
+export function blocDirect(corpus, station, relais = adresseRelais(), { page = false } = {}) {
   const d = corpus.direct?.gares?.[station.id];
   if (!relais || !d) return '';
-  const tete = `<div class="eyebrow">En direct</div><h2>Les trains, maintenant</h2>`;
+  const tete = page ? '' : `<div class="eyebrow">En direct</div><h2>Les trains, maintenant</h2>`;
+  const [balise, classe] = page ? ['div', 'direct'] : ['section', 'section direct'];
   if (d.ferme) {
-    return `<section class="section direct">${tete}
+    return `<${balise} class="${classe}">${tete}
       <div class="direct-tableau est-ferme"><header><span class="direct-titre">Départs</span></header>
-        <p class="direct-ferme">${esc(d.ferme)}</p></div></section>`;
+        <p class="direct-ferme">${esc(d.ferme)}</p></div></${balise}>`;
   }
   return `
-  <section class="section direct" data-direct="${esc(station.id)}" data-relais="${esc(relais)}">
+  <${balise} class="${classe}" data-direct="${esc(station.id)}" data-relais="${esc(relais)}">
     ${tete}
-    <p class="lede">${esc(corpus.direct.avertissement)}</p>
+    ${page ? '' : `<p class="lede">${esc(corpus.direct.avertissement)}</p>`}
     ${d.points.length > 1 ? `<div class="chips direct-points" role="group" aria-label="Gare">${d.points.map((p, i) =>
       `<button type="button" class="chip${i ? '' : ' on'}" data-direct-point="${i}" aria-pressed="${!i}">${esc(p.nom)}</button>`).join('')}</div>` : ''}
     <div class="direct-commandes">
@@ -62,7 +67,80 @@ export function blocDirect(corpus, station, relais = adresseRelais()) {
       <p class="direct-etat" role="status"></p>
     </div>
     <p class="direct-note"></p>
-  </section>`;
+    ${page ? '' : `<p class="direct-renvoi"><a href="#/direct/${esc(station.id)}">Toutes les gares en direct →</a></p>`}
+  </${balise}>`;
+}
+
+/* ------------------------------------------------------ la page « En direct » */
+
+const MEMOIRE = 'gdp-direct-gare';
+const ADRESSE_SITE = 'https://boboul-cloud.github.io/gares-de-paris/';
+
+/** Les gares de la page, par groupe : celles qui ont un tableau, dans l'ordre de direct.json. */
+export function groupesDirect(corpus) {
+  const d = corpus.direct;
+  return (d?.groupes || []).map((gr) => ({ nom: gr.nom, gares: gr.gares.filter((id) => d.gares[id]?.points) }))
+    .filter((gr) => gr.gares.length);
+}
+
+/** La gare montrée d'abord : la dernière choisie, sinon la première de la liste. */
+function gareParDefaut(ids) {
+  let memo = null;
+  try { memo = localStorage.getItem(MEMOIRE); } catch { /* stockage indisponible */ }
+  return ids.includes(memo) ? memo : ids[0];
+}
+
+export function vueDirect(corpus, id, relais = adresseRelais()) {
+  const d = corpus.direct;
+  const groupes = groupesDirect(corpus);
+  const ids = groupes.flatMap((gr) => gr.gares);
+  const choisie = id || gareParDefaut(ids);
+  const g = Object.hasOwn(d.gares, choisie) ? d.gares[choisie] : null;
+  const fiche = (x) => corpus.stations.find((s) => s.id === x);
+  if (g && ids.includes(choisie)) {
+    try { localStorage.setItem(MEMOIRE, choisie); } catch { /* stockage indisponible */ }
+  }
+
+  // Les boutons sont des liens : la gare choisie est dans l'adresse, qu'on
+  // peut partager, et le bouton Retour du navigateur revient à la précédente.
+  const choix = groupes.map((gr) => `
+      <div class="direct-groupe">
+        <h3>${esc(gr.nom)}</h3>
+        <div class="chips">${gr.gares.map((x) => x === choisie
+          ? `<a class="chip on" href="#/direct/${esc(x)}" aria-current="page">${esc(d.gares[x].court)}</a>`
+          : `<a class="chip" href="#/direct/${esc(x)}" data-garder-defilement>${esc(d.gares[x].court)}</a>`).join('')}</div>
+      </div>`).join('');
+
+  let tableau;
+  if (!g) {
+    tableau = `<p class="direct-renvoi">Cette gare n'a pas de tableau en direct : choisissez-en une ci-dessus.</p>`;
+  } else if (!relais) {
+    // Ouverte depuis un fichier, la page n'a pas d'origine que le relais reconnaisse.
+    tableau = `<p class="direct-renvoi">Le tableau en direct a besoin de la version en ligne :
+      <a href="${ADRESSE_SITE}#/direct/${esc(choisie)}">boboul-cloud.github.io/gares-de-paris</a>.</p>`;
+  } else {
+    tableau = blocDirect(corpus, { id: choisie }, relais, { page: true });
+  }
+
+  // Sous le tableau, la fiche de la gare ; une gare sans fiche dit pourquoi,
+  // et renvoie à celle qui lui est liée.
+  const s = g && fiche(choisie), voir = g?.voir && fiche(g.voir);
+  const renvoi = s ? `<p class="direct-renvoi"><a href="#/gare/${esc(s.id)}">La fiche de la gare : ${esc(s.nom)} →</a></p>`
+    : g?.texte ? `<p class="direct-renvoi">${esc(g.texte)}${voir ? ` <a href="#/gare/${esc(voir.id)}">La fiche de ${esc(voir.nom)} →</a>` : ''}</p>`
+    : '';
+
+  return `
+  <div class="wrap">
+    <section class="section direct-page">
+      <div class="eyebrow">En direct</div>
+      <h2>${g ? esc(g.nom || s?.nom || d.gares[choisie].court) : 'Les trains, maintenant'}</h2>
+      <p class="lede">${esc(d.avertissement)}</p>
+      <nav class="direct-choix" aria-label="Choisir une gare">${choix}
+      </nav>
+      ${tableau}
+      ${renvoi}
+    </section>
+  </div>`;
 }
 
 /**

@@ -101,3 +101,30 @@ test('relais : mise en ligne sans aucune clé, les grandes lignes seules', async
   assert.equal(orsay.status, 200);
   assert.deepEqual((await orsay.json()).trains, []);
 });
+
+test('relais : Brest, gare sans fiche, au bout de la ligne de Montparnasse', async () => {
+  // Un matin à Brest (09 h 30 Z = 10 h 30 à Paris) : un TGV venu de
+  // Montparnasse, dix minutes de retard, et un TER pour Quimper.
+  const flux = fluxGtfsRt([
+    { id: 'OCESN8611F1187_F:OUI:FR:Line::EEEEEEEE-58C1-456A-B4E2-928E91061B0B::87391003:87474007:4:1410:20261126',
+      arrets: [{ stop: 'StopPoint:OCETGV INOUI-87391003', dep: { t: s('2026-11-26T06:50:00Z'), d: 0 } },
+        { stop: 'StopPoint:OCETGV INOUI-87474007', arr: { t: s('2026-11-26T10:25:00Z'), d: 600 } }] },
+    { id: 'OCESN856001F1187_F:TER:FR:Line::FFFFFFFF-58C1-456A-B4E2-928E91061B0B::87474007:87474098:4:1410:20261126',
+      arrets: [{ stop: 'StopPoint:OCETrain TER-87474007', dep: { t: s('2026-11-26T09:40:00Z'), d: 0 } },
+        { stop: 'StopPoint:OCETrain TER-87474098', arr: { t: s('2026-11-26T10:55:00Z'), d: 0 } }] },
+  ]);
+  const env = { ORIGINES: '', MODE_EXEMPLE: '0' };
+  const outils = { fetch: async () => new Response(flux), cache: null, maintenant: () => Date.parse('2026-11-26T09:30:00Z') };
+  const dep = await (await repondre(new Request('https://r/tableau?gare=brest'), env, null, outils)).json();
+  assert.equal(dep.point, 'Brest');
+  assert.deepEqual(dep.sources.map((x) => [x.source, x.ok]), [['sncf', true]], 'ni RER ni attente de clé hors d’Île-de-France');
+  assert.equal(dep.remarque, undefined);
+  assert.deepEqual(dep.trains.map((t) => `${t.prevue} ${t.ligne.court} ${t.numero} ${t.lieu}`), ['10:40 TER 856001 Quimper']);
+  const arr = await (await repondre(new Request('https://r/tableau?gare=brest&sens=arrivees'), env, null, outils)).json();
+  assert.deepEqual(arr.trains.map((t) => [t.prevue, t.reelle, t.ligne.court, t.numero, t.etat, t.lieu]),
+    [['11:15', '11:25', 'TGV', '8611', 'retard', 'Paris Montparnasse']]);
+  // Le même train figure au départ de Montparnasse : le flux est lu pour toutes les gares.
+  const mtp = await (await repondre(new Request('https://r/tableau?gare=paris-montparnasse&sens=departs'), env, null,
+    { ...outils, maintenant: () => Date.parse('2026-11-26T06:40:00Z') })).json();
+  assert.deepEqual(mtp.trains.map((t) => `${t.numero} ${t.lieu}`), ['8611 Brest']);
+});
